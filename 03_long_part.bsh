@@ -1,0 +1,112 @@
+#! /bin/bash
+
+##	03_long_part.bsh	-- 2018-02-21
+##	
+
+##	set fileencoding=ASCII
+##	set fileformat=unix
+
+
+mysql    -v  comptonTransAnlys  <<END ;
+
+ ##
+##
+## expand all the Teacher_name and Client_name fields to accomodate the email addresses 
+--  expand-all-email-columns.sql
+
+ALTER TABLE Teacher            MODIFY COLUMN Teacher_name            VARCHAR(100) NOT NULL; 
+ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(100) NOT NULL;
+ALTER TABLE Client_master        MODIFY COLUMN Client_master_client_name     VARCHAR(100) NOT NULL;
+ALTER TABLE Client_master        MODIFY COLUMN Client_master_script_name  VARCHAR(200) NOT NULL;
+
+ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(100) NOT NULL;
+ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(100) NOT NULL;
+ALTER TABLE Client_anlys_detail      MODIFY COLUMN   Client_anlys_detail_script_name varchar(200) NOT NULL;
+ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_auto_increment  INT   NOT NULL ;
+
+ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(100) NOT NULL;
+ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(100) NOT NULL;
+ALTER TABLE Client_eval_detail      MODIFY COLUMN   Client_eval_detail_script_name   VARCHAR(200) NOT NULL;
+ALTER TABLE Client_eval_detail      MODIFY COLUMN Client_eval_detail_auto_increment  INT   NOT NULL ;
+
+
+## create 'fake' email addresses in the client_master table for the blank ones  
+--  change-client-master-emails-for-blanks.qbquery
+
+UPDATE Client_master set Client_master_email =  lower(concat(replace(Client_master_client_name,' ','_') , "@" , replace(Client_master_client_name,' ','_') , ".com"))
+WHERE 1
+AND  Client_master_email = ''
+OR Client_master_email IN ('karen.bragg@ucps.k12.nc.us', 'katie.young@att.net');
+
+
+## create *NEW* client name column:
+ALTER TABLE Client_master   ADD COLUMN Client_master_name  VARCHAR(50) NOT NULL 
+     AFTER  Client_master_spec_language ;
+
+## copy existing client names from the "keyed" field into the new Client_master_name column
+UPDATE Client_master SET Client_master_name = Client_master_client_name;
+
+
+## move the client_master emails over to the Client_master_client_name
+UPDATE Client_master SET Client_master_client_name = Client_master_email ;
+
+
+## create a legacy column for the teacher username ((??))
+ALTER TABLE Teacher ADD COLUMN Teacher_legacy_name  VARCHAR(50)  NOT NULL AFTER Teacher_security_level ;
+
+## copy existing Teacher names to the new legacy column:
+UPDATE Teacher SET Teacher_legacy_name = Teacher_name;
+
+## move the Teacher_email to the Teacher_name
+UPDATE Teacher SET Teacher_name = Teacher_email ;
+
+
+
+## delete the old email columns:
+--  drop-all-email-columns.sql
+ALTER TABLE Teacher DROP COLUMN Teacher_email;
+ALTER TABLE Client_master DROP COLUMN Client_master_email;
+
+ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_1   VARBINARY(20) NOT NULL;
+ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_2   VARBINARY(20) NOT NULL;
+ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_3   VARBINARY(20) NOT NULL;
+
+UPDATE Eval_spec SET Eval_spec_position = 'diphthong' where Eval_spec_position = 'dipthong';
+DELETE FROM Eval_spec where Eval_spec_target_sound_1 = '';
+
+## add our new table - the name will be changed later   2010-06-10
+DROP TABLE IF EXISTS TEMP_Eval_master;
+CREATE TABLE TEMP_Eval_master (
+  Eval_master_layout_name   varchar(30) NOT NULL
+, Eval_master_page_nbr  tinyint(4) NOT NULL
+, Eval_master_line_nbr    tinyint(4) NOT NULL
+, Eval_master_stimulus_word  CHAR(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO TEMP_Eval_master 
+SELECT DISTINCT  Eval_master_layout_name
+, Eval_master_page_nbr
+, Eval_master_line_nbr
+, Eval_master_stimulus_word
+FROM  Eval_master
+;
+
+ALTER TABLE TEMP_Eval_master ADD COLUMN TEMP_Eval_master_auto_increment MEDIUMINT  NOT NULL AUTO_INCREMENT PRIMARY KEY
+, CHANGE COLUMN Eval_master_layout_name     TEMP_Eval_master_layout_name VARCHAR(30) NOT NULL
+, CHANGE COLUMN  Eval_master_page_nbr       TEMP_Eval_master_page_nbr    TINYINT(4) NOT NULL
+, CHANGE COLUMN  Eval_master_line_nbr       TEMP_Eval_master_line_nbr    TINYINT(4) NOT NULL
+, CHANGE COLUMN  Eval_master_stimulus_word  TEMP_Eval_master_stimulus_word CHAR(25) NOT NULL
+;
+## 2010-06-10
+
+
+SELECT 'finished with this long part!' ;
+
+END
+##
+echo  'finished with 03_long_part.bsh!';
+
+
+
+
+
