@@ -1,0 +1,14 @@
+#! /bin/bash
+
+##	05_convert_back_to_mysql.bsh
+
+##	set fileencoding=ASCII
+##	set fileformat=unix
+
+mysql  --verbose -e  'DROP DATABASE IF EXISTS comptonTransAnlys ; CREATE DATABASE comptonTransAnlys'  ;
+
+mysql   --verbose  comptonTransAnlys   < comptonTransAnlysSedChanges.sql ;
+
+echo 'Done with 05_convert_back_to_mysql.bsh';
+
+
