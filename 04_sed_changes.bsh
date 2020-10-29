@@ -1,0 +1,129 @@
+#!  /bin/bash
+
+#	04_sed_changes.bsh  -- 2018-02-21
+#
+##	set fileencoding=ASCII
+##	set fileformat=unix
+
+#
+
+mysqldump  comptonTransAnlys  >comptonTransAnlysSedChanges.sql ;
+
+
+sed   -i   -f    -    comptonTransAnlysSedChanges.sql   <<EOF ;
+##
+s/Eval_master_context/Eval_master_setting/g;
+s/Client_eval_detail_context/Client_eval_detail_setting/g;
+s/^.*Client_anlys_detail_2_anlys_detail_foreign_key.*//;
+s/^.*Anlys_detail_2_anlys_master_foreign_key_index.*//;
+s/^.*Anlys_detail_2_anlys_master_foreign_key_symbol.*//;
+s/^.*Client_eval_detail_to_client_anlys_detail_key.*//;
+s/^.*Client_anlys_detail_2_anlys_detail_foreign_key_index.*//;
+s/^.*Client_anlys_detail_2_frequency_list_foreign_key_index.*//;
+s/^.*Client_anlys_detail_2_anlys_detail_foreign_key_symbol.*//;
+s/^.*Client_anlys_detail_2_client_master_foreign_key_symbol.*//;
+s/^.*Client_anlys_detail_2_frequency_list_foreign_key_symbol.*//;
+s/^.*Client_eval_detail_2_eval_master_foreign_key_index.*//;
+s/^.*Client_eval_detail_2_client_anlys_detail_foreign_key_index.*//;
+s/^.*Client_eval_detail_2_client_anlys_detail_foreign_key_symbol.*//;
+s/^.*Client_eval_detail_2_eval_master_foreign_key_symbol.*//;
+s/^.*Client_master_2_session_name_foreign_key_index.*//;
+s/^.*Client_master_2_teacher_foreign_key_index.*//;
+s/^.*Client_master_2_session_names_foreign_key_symbol.*//;
+s/^.*Client_master_2_teacher_foreign_key_symbol.*//;
+s/^.*Eval_master_2_anlys_detail_foreign_key_index.*//;
+s/^.*Eval_spec_2_eval_master_foreign_key_index.*//;
+s/^.*Eval_spec_2_eval_master_foreign_key_symbol.*//;
+s/^  PRIMARY KEY (\`Anlys_detail_auto_increment\`),/  PRIMARY KEY (\`Anlys_detail_auto_increment\`)/;
+s/\`Client_anlys_detail_error_sound_4\`),/\`Client_anlys_detail_error_sound_4\`)/;
+s/\`Client_eval_detail_target_sound_3\`),/\`Client_eval_detail_target_sound_3\`)/;
+s/\`Eval_master_stimulus_word\`),/\`Eval_master_stimulus_word\`)/;
+s/\`Eval_spec_language\`),/\`Eval_spec_language\`)/;
+s/  PRIMARY KEY (\`Anlys_detail_auto_increment\`),/  PRIMARY KEY (\`Anlys_detail_auto_increment\`)/;
+s/\`Client_master_layout_name\`),/\`Client_master_layout_name\`)/;
+s/  PRIMARY KEY (\`Anlys_detail_auto_increment\`),/  PRIMARY KEY (\`Anlys_detail_auto_increment\`)/;
+s/  KEY \`Stimword_auto_increment\` (\`Stimword_auto_increment\`),//;
+
+s/^  KEY \`Client_master_teacher_email\`/  UNIQUE KEY \`Client_master_unique_key\`/;
+s/^  UNIQUE KEY \`Client_context_sounds_unique_index\`/  UNIQUE KEY \`Client_context_unique_key\`/;
+##
+##
+##
+s/^  UNIQUE KEY \`Teacher_name_unique_index\` (\`Teacher_name\`),$/UNIQUE KEY \`Teacher_email_unique_index\` (\`Teacher_email\`)/
+s/^  KEY \`Teacher_name\` (\`Teacher_name\`)$/  -- KEY \`Teacher_name\` (\`Teacher_name\`)/;
+###
+###
+s/Teacher_name/Teacher_email/g;
+s/Client_master_teacher_name/Client_master_teacher_email/g;
+s/Client_master_client_name/Client_master_client_email/g;
+s/Client_anlys_detail_teacher_name/Client_anlys_detail_teacher_email/g;
+s/Client_anlys_detail_client_name/Client_anlys_detail_client_email/g;
+s/Client_eval_detail_teacher_name/Client_eval_detail_teacher_email/g;
+s/Client_eval_detail_client_name/Client_eval_detail_client_email/g;
+###
+s/Client_anlys_detail_2_anlys_detail_foreign_key/Client_context_2_context_foreign_key/g;
+s/Client_anlys_detail_2_frequency_list_foreign_key/Client_context_2_frequency_list_foreign_key/g;
+s/Client_anlys_detail_2_client_master_foreign_key/Client_context_2_stimword_foreign_key/g;
+s/Client_eval_detail_2_eval_master_foreign_key/Client_stimword_2_stimword_foreign_key/g;
+s/Client_eval_detail_2_client_anlys_detail_foreign_key/Client_stimword_2_client_context_foreign_key/g;
+s/Eval_spec_2_eval_master_foreign_key/Lang_spec_2_stimword_foreign_key/g;
+s/Anlys_detail_2_anlys_master_foreign_key/Context_2_sound_foreign_key/g;
+s/Eval_master_2_anlys_detail_foreign_key/Stimword_2_context_foreign_key/g;
+###
+s/_position\` char(/_position\` varchar(/;
+###
+s/_target_sound_/_phoneme_/g;
+s/_stimulus_word/_stimword/g;
+s/_error_sound/_error/g;
+###
+s/anlys_master/sound/g;
+s/Anlys_master/Sound/g;
+###
+s/anlys_detail/context/g;
+s/Anlys_detail/Context/g;
+###
+s/client_anlys_detail/client_context/g;
+s/Client_anlys_detail/Client_context/g;
+###
+s/client_eval_detail/client_stimword/g;
+s/Client_eval_detail/Client_stimword/g;
+###
+s/TEMP_Eval_master/Stimword/;
+###
+s/eval_master/stimword_position/g;
+s/Eval_master/Stimword_position/g;
+###
+s/eval_spec/lang_spec/g;
+s/Eval_spec/Lang_spec/g;
+###
+s/int(.\\{1,2\\})/int UNSIGNED/
+###
+s/) ENGINE=MyISAM AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/) ENGINE=InnoDB AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/;
+###
+s/\\&\\#230;/1/g;
+s/\\&\\#240;/H/g;
+s/\\&\\#248;/O/g;
+s/\\&\\#331;/N/g;
+s/\\&\\#477;/C/g;
+s/\\&\\#596;/B/g;
+s/\\&\\#602;/6/g;
+s/\\&\\#603;/E/g;
+s/\\&\\#604;/3/g;
+s/\\&\\#605;/9/g;
+s/\\&\\#618;/I/g;
+s/\\&\\#643;/F/g;
+s/\\&\\#650;/U/g;
+s/\\&\\#652;/7/g;
+s/\\&\\#658;/Z/g;
+s/\\&\\#673;/Q/g;
+s/\\&\\#7789;/T/g;
+s/\\&\\#8592;/W/g;
+s/\\&\\#952;/8/g;
+s/\\&\\#9552;/A/g;
+s/\\&\\#967;/X/g;
+###
+/_sound_/s/varbinary(20)/CHAR(01) CHARACTER SET latin1 COLLATE latin1_bin/;
+###
+EOF
+
+echo "end of sed part 04_sed_changes.bsh.";
