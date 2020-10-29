@@ -1,0 +1,128 @@
+#! /bin/bash
+
+##		02_initial_preparation.bsh
+
+##	set fileencoding=ASCII
+##	set fileformat=unix
+
+
+##	2018-02-21 - initially run this to "create & prepare" the new temporary database.
+
+## when the mysqldump file first comes over, we must make a fix:
+
+mysql -v  comptonTransAnlys <<END ;
+
+-- delete-all-duplicate-teachers.qbquery
+
+delete from Teacher where 1
+and Teacher_name in
+( 'carolsellers'
+, 'chicks'
+, 'cynthiabrown'
+, 'elizabethroberts'
+############################, 'elizroberts'
+, 'eroberts'
+, 'joe'
+, 'judi'
+, 'kimschoenhaar'
+, 'paulmichaek'
+, 'sbakul'
+, 'tamaratruax'
+, 'vinnette'
+, 'vinnettewilliams'
+, 'vwilliams'
+);
+
+
+## delete the unneeded client entries in the client_master  
+--  delete-bad-entries-in-client-master.qbquery
+
+DROP TABLE IF EXISTS temp_email_table;
+CREATE TEMPORARY TABLE IF NOT EXISTS temp_email_table
+SELECT 
+  Client_master_auto_increment     "autoIncrement"
+, Client_master_teacher_name       "teacherName"
+, Client_master_session_name       "sessionName"
+, Client_master_email              "originalEmail"
+, CONCAT
+( SUBSTRING_INDEX(Client_master_email, '@',1 )
+, '---'
+, CAST(Client_master_auto_increment AS CHAR)
+, SUBSTRING(Client_master_email, LOCATE('@',Client_master_email) ) 
+) "newEmail"
+FROM Client_master
+WHERE 1
+AND  Client_master_email in
+(
+SELECT  Client_master_email
+FROM  Client_master
+WHERE 1
+AND Client_master_email > ''
+GROUP BY Client_master_teacher_name,Client_master_session_name,Client_master_email
+HAVING COUNT(*) > 1
+)
+;
+UPDATE Client_master
+,      temp_email_table
+SET     Client_master.Client_master_email           =    temp_email_table.newEmail
+WHERE   Client_master.Client_master_auto_increment =    temp_email_table.autoIncrement
+AND     Client_master.Client_master_teacher_name   =    temp_email_table.teacherName
+AND     Client_master.Client_master_email          =    temp_email_table.originalEmail
+;
+
+
+###delete from Client_master where Client_master_auto_increment in
+###(104    /* karenb - Alex M */
+###,143    /* ewa - kapka */
+###,192    /* ewa - haruko */
+###,210    /* audreydenboer - num suk choi */
+###,211    /* audreydenboer - nuk suk choi */
+###,213    /* audreydenboer - numsuk choi */
+###,275    /* barb - linda */
+###,313    /* theresacinotti - jeff l */
+###,367    /* ewa - laoluwaogunleye */
+###,369    /* gsgreenman - m.tammisetti */
+###,372    /* gsgreenman - mohan t. */
+###,373    /* gsgreenman - k.tammisetti */
+###,377    /* gsgreenman - tammisettim */
+###,395    /* sherrinloyd - sjkim */
+###,445    /* sherrinloyd - hegla fielding */
+###,469    /* theresacinotti - veronica */
+###,535    /* sherrinloyd - ivan d'orso */
+###,615    /* sherrinloyd - wen hui wang */
+###,660    /* joanntuttle - joachim  2010-02-11 */
+###,478    /* sherrinloyd - tsuyoshi 2010-02-11 */
+###      /*,710   /*  mdenike - eddie 2010-04-01   */
+###      /* 715   /*  mdenike - lam 2010-04-01   */
+###      /*, 801 /*   mdenike  - daniele  2010-06-16 */
+###     /*, 815  /*  mdenike  - bruna  2010-06-16 */ 
+###, 751  /* sherrinloyd  - "r"  2010-05-14  */
+###);
+## add any auto_increment number from below
+
+SELECT 'finished with the deleting  part!' ;
+
+
+##   O P T I O N A L   BUT DO IT ANYWAYS.........
+## check and make sure we dont have any duplicate email addresses:
+
+select  ''
+, Client_master_auto_increment
+, Client_master_teacher_name
+, Client_master_client_name
+, Client_master_session_name
+, Client_master_email
+, Client_master_timestamp
+, count(Client_master_email) "EMAIL"
+from Client_master
+where 1
+AND Client_master_email > ''
+###################And Client_master_email NOT IN ( 'karen.bragg@ucps.k12.nc.us','katie.young@att.net')
+group by
+ Client_master_teacher_name
+, Client_master_session_name
+, Client_master_email
+HAVING EMAIL>1;
+
+END
+echo 'done with 02_initial_preparation.bsh';
