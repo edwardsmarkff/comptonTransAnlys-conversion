@@ -53,7 +53,7 @@ SELECT
 ) "newEmail"
 FROM comptonTransAnlys.Client_master
 WHERE 1
-AND  comptonTransAnlys.Client_master_email in
+AND    Client_master_email IN
 (
 SELECT  Client_master_email
 FROM  comptonTransAnlys.Client_master
