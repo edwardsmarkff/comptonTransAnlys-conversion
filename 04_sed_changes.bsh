@@ -100,6 +100,7 @@ s/int(.\\{1,2\\})/int UNSIGNED/
 ###
 s/) ENGINE=MyISAM AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/) ENGINE=InnoDB AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/;
 ###
+###  fonts are from:  https://comptonpeslonline.com/php/display_all_symbols_for_documentation.php
 #s/\\&\\#230;/1/g;
  s/\\&\\#230;/æ/g;
 #
@@ -163,14 +164,6 @@ s/\\&\\#673;/ʡ/g;
 s/\\&\\#967;/X/g;
 s/\\&\\#967;/χ/g;
 ###
-
-
-
-
-
-
-
-
 ###
 /_sound_/s/varbinary(20)/CHAR(01) CHARACTER SET latin1 COLLATE latin1_bin/;
 ###
