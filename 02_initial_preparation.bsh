@@ -14,8 +14,9 @@ mysql -v  comptonTransAnlys <<END ;
 
 -- delete-all-duplicate-teachers.qbquery
 
-delete from Teacher where 1
-and Teacher_name in
+DELETE FROM comptonTransAnlys.Teacher 
+WHERE 1
+AND Teacher_name IN
 ( 'carolsellers'
 , 'chicks'
 , 'cynthiabrown'
@@ -37,8 +38,8 @@ and Teacher_name in
 ## delete the unneeded client entries in the client_master  
 --  delete-bad-entries-in-client-master.qbquery
 
-DROP TABLE IF EXISTS temp_email_table;
-CREATE TEMPORARY TABLE IF NOT EXISTS temp_email_table
+DROP TABLE IF EXISTS comptonTransAnlys.temp_email_table;
+CREATE TEMPORARY TABLE IF NOT EXISTS comptonTransAnlys.temp_email_table
 SELECT 
   Client_master_auto_increment     "autoIncrement"
 , Client_master_teacher_name       "teacherName"
@@ -50,20 +51,20 @@ SELECT
 , CAST(Client_master_auto_increment AS CHAR)
 , SUBSTRING(Client_master_email, LOCATE('@',Client_master_email) ) 
 ) "newEmail"
-FROM Client_master
+FROM comptonTransAnlys.Client_master
 WHERE 1
-AND  Client_master_email in
+AND  comptonTransAnlys.Client_master_email in
 (
 SELECT  Client_master_email
-FROM  Client_master
+FROM  comptonTransAnlys.Client_master
 WHERE 1
 AND Client_master_email > ''
 GROUP BY Client_master_teacher_name,Client_master_session_name,Client_master_email
 HAVING COUNT(*) > 1
 )
 ;
-UPDATE Client_master
-,      temp_email_table
+UPDATE comptonTransAnlys.Client_master
+,      comptonTransAnlys.temp_email_table
 SET     Client_master.Client_master_email           =    temp_email_table.newEmail
 WHERE   Client_master.Client_master_auto_increment =    temp_email_table.autoIncrement
 AND     Client_master.Client_master_teacher_name   =    temp_email_table.teacherName
@@ -106,7 +107,7 @@ SELECT 'finished with the deleting  part!' ;
 ##   O P T I O N A L   BUT DO IT ANYWAYS.........
 ## check and make sure we dont have any duplicate email addresses:
 
-select  ''
+SELECT  ''
 , Client_master_auto_increment
 , Client_master_teacher_name
 , Client_master_client_name
@@ -114,11 +115,11 @@ select  ''
 , Client_master_email
 , Client_master_timestamp
 , count(Client_master_email) "EMAIL"
-from Client_master
-where 1
-AND Client_master_email > ''
+FROM comptonTransAnlys.Client_master
+WHERE 1
+AND comptonTransAnlys.Client_master_email > ''
 ###################And Client_master_email NOT IN ( 'karen.bragg@ucps.k12.nc.us','katie.young@att.net')
-group by
+GROUP BY
  Client_master_teacher_name
 , Client_master_session_name
 , Client_master_email
