@@ -14,25 +14,25 @@ mysql -v  comptonTransAnlys <<END ;
 
 -- delete-all-duplicate-teachers.qbquery
 
-DELETE FROM comptonTransAnlys.Teacher 
-WHERE 1
-AND Teacher_name IN
-( 'carolsellers'
-, 'chicks'
-, 'cynthiabrown'
-, 'elizabethroberts'
-############################, 'elizroberts'
-, 'eroberts'
-, 'joe'
-, 'judi'
-, 'kimschoenhaar'
-, 'paulmichaek'
-, 'sbakul'
-, 'tamaratruax'
-, 'vinnette'
-, 'vinnettewilliams'
-, 'vwilliams'
-);
+## DELETE FROM comptonTransAnlys.Teacher 
+## WHERE 1
+## AND Teacher_name IN
+## ( 'carolsellers'
+## , 'chicks'
+## , 'cynthiabrown'
+## , 'elizabethroberts'
+## ############################, 'elizroberts'
+## , 'eroberts'
+## , 'joe'
+## , 'judi'
+## , 'kimschoenhaar'
+## , 'paulmichaek'
+## , 'sbakul'
+## , 'tamaratruax'
+## , 'vinnette'
+## , 'vinnettewilliams'
+## , 'vwilliams'
+## );
 
 
 ## delete the unneeded client entries in the client_master  
