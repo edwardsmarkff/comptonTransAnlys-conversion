@@ -117,7 +117,7 @@ SELECT  ''
 , count(Client_master_email) "EMAIL"
 FROM comptonTransAnlys.Client_master
 WHERE 1
-AND comptonTransAnlys.Client_master_email > ''
+AND Client_master_email > ''
 ###################And Client_master_email NOT IN ( 'karen.bragg@ucps.k12.nc.us','katie.young@att.net')
 GROUP BY
  Client_master_teacher_name
