@@ -21,8 +21,8 @@ mysql -v  comptonTransAnlys <<END ;
 ## , 'chicks'
 ## , 'cynthiabrown'
 ## , 'elizabethroberts'
-## ############################, 'elizroberts'
-## , 'eroberts'
+## ############################, 'elizroberts'   ?? wonder why this one was commented out since it had so many clients??
+## , 'eroberts'                                  ??  this one has all the clients ! ! !
 ## , 'joe'
 ## , 'judi'
 ## , 'kimschoenhaar'
