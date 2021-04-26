@@ -10,7 +10,7 @@
 mysqldump  comptonTransAnlys  >comptonTransAnlysSedChanges.sql ;
 
 
-sed   --inplace   -f    -    comptonTransAnlysSedChanges.sql   <<EOF ;
+sed   --inplace   --file=   -    comptonTransAnlysSedChanges.sql   <<EOF ;
 ##
 s/Eval_master_context/Eval_master_setting/g;
 s/Client_eval_detail_context/Client_eval_detail_setting/g;
@@ -165,7 +165,11 @@ s/\\&\\#967;/X/g;
 s/\\&\\#967;/χ/g;
 ###
 ###
-/_sound_/s/varbinary(20)/CHAR(01) CHARACTER SET latin1 COLLATE latin1_bin/;
+
+### 2021-04-26  /_sound_/s/varbinary(20)/CHAR(01) CHARACTER SET latin1 COLLATE latin1_bin/;
+/_sound_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci/;
+
+ 
 ###
 EOF
 
