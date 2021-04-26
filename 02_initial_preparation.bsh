@@ -12,7 +12,7 @@
 
 ## when the mysqldump file first comes over, we must make a fix:
 
-mysql -v  comptonTransAnlys <<END ;
+mysql --verbose  comptonTransAnlys <<END ;
 
 -- delete-all-duplicate-teachers.qbquery
 
