@@ -10,7 +10,7 @@
 mysqldump  comptonTransAnlys  >comptonTransAnlysSedChanges.sql ;
 
 
-sed   -i   -f    -    comptonTransAnlysSedChanges.sql   <<EOF ;
+sed   --inplace   -f    -    comptonTransAnlysSedChanges.sql   <<EOF ;
 ##
 s/Eval_master_context/Eval_master_setting/g;
 s/Client_eval_detail_context/Client_eval_detail_setting/g;
