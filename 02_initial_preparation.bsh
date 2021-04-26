@@ -2,6 +2,8 @@
 
 ##		02_initial_preparation.bsh
 
+##  2021-04-26 - we MAY be able to skip this step......!
+
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
 
