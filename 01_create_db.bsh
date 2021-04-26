@@ -5,9 +5,9 @@
 #	set fileformat=unix
 #
 #
-sed -ie 's/dipthong/diphthong/g;s/ON DELETE NO ACTION/ON DELETE CASCADE/g;' comptonTransAnlys.sql;
+sed --in-place  --expression='s/dipthong/diphthong/g;s/ON DELETE NO ACTION/ON DELETE CASCADE/g;' comptonTransAnlys.sql;
 
 mysql  -e  'drop database if exists comptonTransAnlys ; create database comptonTransAnlys'  ;
-mysql  -v comptonTransAnlys < comptonTransAnlys.sql  ;
+mysql  --verbose  comptonTransAnlys < comptonTransAnlys.sql  ;
 
 echo 'Done with 01_create_db.bsh';
