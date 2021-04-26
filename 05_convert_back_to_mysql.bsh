@@ -5,7 +5,7 @@
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
 
-mysql  --verbose -e  'DROP DATABASE IF EXISTS comptonTransAnlys ; CREATE DATABASE comptonTransAnlys'  ;
+mysql  --verbose --execute= 'DROP DATABASE IF EXISTS comptonTransAnlys ; CREATE DATABASE comptonTransAnlys'  ;
 
 mysql   --verbose  comptonTransAnlys   < comptonTransAnlysSedChanges.sql ;
 
