@@ -12,7 +12,7 @@ still to do:
 rename  Client_master_2_teacher_foreign_key_symbol_2
          Client_anlys_detail_2_frequency_list_foreign_key_symbol_2  (remove _2)
          
-#\#\#\ somewhere there is a damaged key...?
+\### somewhere there is a damaged key...?
 \### grep  CASCADE  xxx.sql  | grep -v 'ON DELETE CASCADE ON UPDATE CASCADE'
 \### 
 \### damaged key!
