@@ -217,11 +217,11 @@ s/\\&\\#967;/χ/g;
 
 ### Lang_spec:
 
-/\`Language_spec_phoneme_1\` varbinary(20) NOT NULL/i\
-\`Language_spec_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
+/\`Lang_spec_phoneme_1\` varbinary(20) NOT NULL/i\
+\`Lang_spec_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
-/\`Language_spec_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
-/\`Language_spec_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Lang_spec_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Lang_spec_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
 
 
 ### Language_norms:
