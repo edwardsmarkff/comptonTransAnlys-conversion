@@ -175,7 +175,7 @@ s/\\&\\#967;/χ/g;
 
   ###  Context:
   
-/\`Context_phoneme_1\` varbinary(20) NOT NULL,/i\
+/\`Context_phoneme_1\` varbinary(20) NOT NULL/i\
 \`Context_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
 /\`Context_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci/;
@@ -183,7 +183,7 @@ s/\\&\\#967;/χ/g;
 
     ### Sound:
    
-/\`Sound_phoneme_1\` varchar(20) NOT NULL,/i\
+/\`Sound_phoneme_1\` varchar(20) NOT NULL/i\
 \`Sound_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
 /\`Sound_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
@@ -191,7 +191,7 @@ s/\\&\\#967;/χ/g;
 
     #### Client_context:
 
-/\`Client_context_phoneme_1\` varchar(20) NOT NULL,/i\
+/\`Client_context_phoneme_1\` varchar(20) NOT NULL/i\
 \`Client_context_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
 /\`Client_context_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
@@ -200,7 +200,7 @@ s/\\&\\#967;/χ/g;
 
     ###  Client_stimword:
 
-/\`Client_stimword_phoneme_1\` varchar(20) NOT NULL,/i\
+/\`Client_stimword_phoneme_1\` varchar(20) NOT NULL/i\
 \`Client_stimword_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
 /\`Client_stimword_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
@@ -209,7 +209,7 @@ s/\\&\\#967;/χ/g;
 
     ###  Stimword_position:
 
-/\`Stimword_position_phoneme_1\` varchar(20) NOT NULL,/i\
+/\`Stimword_position_phoneme_1\` varchar(20) NOT NULL/i\
 \`Stimword_position_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
 /\`Stimword_position_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
@@ -217,7 +217,7 @@ s/\\&\\#967;/χ/g;
 
 ### Lang_spec:
 
-/\`Language_spec_phoneme_1\` varbinary(20) NOT NULL,/i\
+/\`Language_spec_phoneme_1\` varbinary(20) NOT NULL/i\
 \`Language_spec_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
 /\`Language_spec_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
@@ -226,7 +226,7 @@ s/\\&\\#967;/χ/g;
 
 ### Language_norms:
 
-/\`Language_norms_phoneme_1\` varbinary(20) NOT NULL,/i\
+/\`Language_norms_phoneme_1\` varbinary(20) NOT NULL/i\
 \`Language_norms_phoneme\` CHAR(03) NOT NULL DEFAULT ''  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ,
 
 /\`Language_norms_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
