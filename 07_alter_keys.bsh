@@ -1,6 +1,8 @@
-#! /bin//bash
+#! /bin/bash
 
 ##	06_alter_key.bsh		2018-02-21
+##
+##	2021-05-08	- merged phoneme columns into one.
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
@@ -19,9 +21,10 @@ ALTER TABLE Stimword_position ADD UNIQUE KEY Stimword_position_unique_key
 ,Stimword_position_position
 ,Stimword_position_position_nbr
 ,Stimword_position_setting
-,Stimword_position_phoneme_1
-,Stimword_position_phoneme_2
-,Stimword_position_phoneme_3
+,Stimword_position_phoneme
+##	2021-05-08	,Stimword_position_phoneme_1
+##	2021-05-08	,Stimword_position_phoneme_2
+##	2021-05-08	,Stimword_position_phoneme_3
 ) ;
 
 #########ALTER TABLE Phonetic_spelling  DROP PRIMARY KEY;
@@ -72,9 +75,10 @@ ALTER TABLE Context
 	ADD UNIQUE KEY	Context_unique_key
 		(	Context_layout_name
 		,	Context_position
-		,	Context_phoneme_1
-		,	Context_phoneme_2
-		,	Context_phoneme_3
+		,	Context_phoneme
+## 2021-05-08		,	Context_phoneme_1
+## 2021-05-08		,	Context_phoneme_2
+## 2021-05-08		,	Context_phoneme_3
 		)
 		;
 
@@ -84,9 +88,10 @@ ALTER TABLE Language_norms
 	( Language_norms_layout_name
 	, Language_norms_language_name
 	, Language_norms_position
-	, Language_norms_phoneme_1
-	, Language_norms_phoneme_2
-	, Language_norms_phoneme_3
+	, Language_norms_phoneme
+## 2021-05-08	, Language_norms_phoneme_1
+## 2021-05-08	, Language_norms_phoneme_2
+## 2021-05-08	, Language_norms_phoneme_3
 	)
 	;
 
@@ -94,9 +99,10 @@ ALTER TABLE Sound DROP KEY Sound_key;
 ALTER TABLE Sound
 	ADD UNIQUE KEY Sound_unique_key
 		( Sound_layout_name
-		, Sound_phoneme_1
-		, Sound_phoneme_2
-		, Sound_phoneme_3
+		, Sound_phoneme
+## 2021-05-08		, Sound_phoneme_1
+## 2021-05-08		, Sound_phoneme_2
+## 2021-05-08		, Sound_phoneme_3
 		)
 		;
 
@@ -116,9 +122,10 @@ ALTER TABLE Client_context
 			,	Client_context_teacher_email
 			,	Client_context_session_name
 			,	Client_context_layout_name
-			,	Client_context_phoneme_1
-			,	Client_context_phoneme_2
-			,	Client_context_phoneme_3
+			,	Client_context_phoneme
+## 2021-05-08			,	Client_context_phoneme_1
+## 2021-05-08			,	Client_context_phoneme_2
+## 2021-05-08			,	Client_context_phoneme_3
 			,	Client_context_position
 			,	Client_context_error_1
 			,	Client_context_error_2
@@ -135,9 +142,10 @@ ALTER TABLE Client_stimword
 			,	Client_stimword_teacher_email
 			,	Client_stimword_session_name
 			,	Client_stimword_layout_name
-			,	Client_stimword_phoneme_1
-			,	Client_stimword_phoneme_2
-			,	Client_stimword_phoneme_3
+			,	Client_stimword_phoneme
+## 2021-05-08			,	Client_stimword_phoneme_1
+## 2021-05-08			,	Client_stimword_phoneme_2
+## 2021-05-08			,	Client_stimword_phoneme_3
 			,	Client_stimword_position
 			,	Client_stimword_error_1
 			,	Client_stimword_error_2
@@ -149,9 +157,10 @@ ALTER TABLE Client_stimword
 			,	Client_context_teacher_email
 			,	Client_context_session_name
 			,	Client_context_layout_name
-			,	Client_context_phoneme_1
-			,	Client_context_phoneme_2
-			,	Client_context_phoneme_3
+			,	Client_context_phoneme		
+## 2021-05-08			,	Client_context_phoneme_1
+## 2021-05-08			,	Client_context_phoneme_2
+## 2021-05-08			,	Client_context_phoneme_3
 			,	Client_context_position
 			,	Client_context_error_1
 			,	Client_context_error_2
@@ -177,9 +186,10 @@ AND Client_stimword.Client_stimword_teacher_email        = Client_context.Client
 AND Client_stimword.Client_stimword_client_email        = Client_context.Client_context_client_email
 AND Client_stimword.Client_stimword_session_name        = Client_context.Client_context_session_name
 AND Client_stimword.Client_stimword_layout_name        = Client_context.Client_context_layout_name
-AND Client_stimword.Client_stimword_phoneme_1        = Client_context.Client_context_phoneme_1
-AND Client_stimword.Client_stimword_phoneme_2        = Client_context.Client_context_phoneme_2
-AND Client_stimword.Client_stimword_phoneme_3        = Client_context.Client_context_phoneme_3
+AND Client_stimword.Client_stimword_phoneme          = Client_context.Client_context_phoneme
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1        = Client_context.Client_context_phoneme_1
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2        = Client_context.Client_context_phoneme_2
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3        = Client_context.Client_context_phoneme_3
 AND Client_stimword.Client_stimword_position            = Client_context.Client_context_position
 AND Client_stimword.Client_stimword_error_1         = Client_context.Client_context_error_1
 AND Client_stimword.Client_stimword_error_2         = Client_context.Client_context_error_2
@@ -245,9 +255,9 @@ INNER JOIN Client_master
 SET Client_context.Client_master_auto_increment         = Client_master.Client_master_auto_increment
 WHERE 1
 AND Client_context.Client_context_teacher_email    = Client_master.Client_master_teacher_email
-AND Client_context.Client_context_client_email    = Client_master.Client_master_client_email
-AND Client_context.Client_context_session_name    = Client_master.Client_master_session_name
-AND Client_context.Client_context_layout_name        = Client_master.Client_master_layout_name
+AND Client_context.Client_context_client_email     = Client_master.Client_master_client_email
+AND Client_context.Client_context_session_name     = Client_master.Client_master_session_name
+AND Client_context.Client_context_layout_name      = Client_master.Client_master_layout_name
 ;
 
 ALTER TABLE Client_context
@@ -272,9 +282,10 @@ ALTER TABLE Context
 	ADD KEY Context_2_Client_context_KEY
 			(	Context_layout_name		## 01
 			,	Context_position		## 02
-			,	Context_phoneme_1		## 03
-			,	Context_phoneme_2		## 04
-			,	Context_phoneme_3		## 05
+			,	Context_phoneme			## 03
+## 2021-05-08			,	Context_phoneme_1		## 03
+## 2021-05-08			,	Context_phoneme_2		## 04
+## 2021-05-08			,	Context_phoneme_3		## 05
 			)
 			;
 
@@ -283,16 +294,18 @@ ALTER TABLE Client_context
 		FOREIGN KEY	Context_2_Client_context_FOREIGN_KEY_1
 			(	Client_context_layout_name	## 01
 			,	Client_context_position		## 02
-			,	Client_context_phoneme_1	## 03
-			,	Client_context_phoneme_2	## 04
-			,	Client_context_phoneme_3	## 05
+			,	Client_context_phoneme		## 03
+## 2021-05-08			,	Client_context_phoneme_1	## 03
+## 2021-05-08			,	Client_context_phoneme_2	## 04
+## 2021-05-08			,	Client_context_phoneme_3	## 05
 			)
 		REFERENCES	Context
 			(	Context_layout_name		## 01
 			,	Context_position		## 02
-			,	Context_phoneme_1		## 03
-			,	Context_phoneme_2		## 04
-			,	Context_phoneme_3		## 05
+			,	Context_phoneme			## 03
+## 2021-05-08			,	Context_phoneme_1		## 03
+## 2021-05-08			,	Context_phoneme_2		## 04
+## 2021-05-08			,	Context_phoneme_3		## 05
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -310,9 +323,10 @@ SET Client_context.Context_auto_increment		= Context.Context_auto_increment
 WHERE 1
 AND Client_context.Client_context_layout_name		= Context.Context_layout_name
 AND Client_context.Client_context_position		= Context.Context_position
-AND Client_context.Client_context_phoneme_1    		= Context.Context_phoneme_1
-AND Client_context.Client_context_phoneme_2		= Context.Context_phoneme_2
-AND Client_context.Client_context_phoneme_3		= Context.Context_phoneme_3
+AND Client_context.Client_context_phoneme      		= Context.Context_phoneme
+## 2021-05-08	AND Client_context.Client_context_phoneme_1    		= Context.Context_phoneme_1
+## 2021-05-08	AND Client_context.Client_context_phoneme_2		= Context.Context_phoneme_2
+## 2021-05-08	AND Client_context.Client_context_phoneme_3		= Context.Context_phoneme_3
 ;
 
 ALTER TABLE Client_context
@@ -337,9 +351,10 @@ ALTER TABLE Context
 	ADD KEY Context_2_Language_norms_KEY
 			(	Context_layout_name		## 01
 			,	Context_position		## 02
-			,	Context_phoneme_1		## 03
-			,	Context_phoneme_2		## 04
-			,	Context_phoneme_3		## 05
+			,	Context_phoneme			## 03
+## 2021-05-08			,	Context_phoneme_1		## 03
+## 2021-05-08			,	Context_phoneme_2		## 04
+## 2021-05-08			,	Context_phoneme_3		## 05
 			)
 			;
 
@@ -348,16 +363,18 @@ ALTER TABLE Language_norms
 		FOREIGN KEY	Context_2_Language_norms_FOREIGN_KEY_1
 			(	Language_norms_layout_name	## 01
 			,	Language_norms_position		## 02
-			,	Language_norms_phoneme_1	## 03
-			,	Language_norms_phoneme_2	## 04
-			,	Language_norms_phoneme_3	## 05
+			,	Language_norms_phoneme		## 03
+## 2021-05-08			,	Language_norms_phoneme_1	## 03
+## 2021-05-08			,	Language_norms_phoneme_2	## 04
+## 2021-05-08			,	Language_norms_phoneme_3	## 05
 			)
 		REFERENCES	Context
 			(	Context_layout_name		## 01
 			,	Context_position		## 02
-			,	Context_phoneme_1		## 03
-			,	Context_phoneme_2		## 04
-			,	Context_phoneme_3		## 05
+			,	Context_phoneme			## 03
+## 2021-05-08			,	Context_phoneme_1		## 03
+## 2021-05-08			,	Context_phoneme_2		## 04
+## 2021-05-08			,	Context_phoneme_3		## 05
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -374,9 +391,10 @@ SET Language_norms.Context_auto_increment		= Context.Context_auto_increment
 WHERE 1
 AND Language_norms.Language_norms_layout_name		= Context.Context_layout_name
 AND Language_norms.Language_norms_position		= Context.Context_position
-AND Language_norms.Language_norms_phoneme_1    		= Context.Context_phoneme_1
-AND Language_norms.Language_norms_phoneme_2		= Context.Context_phoneme_2
-AND Language_norms.Language_norms_phoneme_3		= Context.Context_phoneme_3
+AND Language_norms.Language_norms_phoneme      		= Context.Context_phoneme
+## 2021-05-08	AND Language_norms.Language_norms_phoneme_1    	= Context.Context_phoneme_1
+## 2021-05-08	AND Language_norms.Language_norms_phoneme_2		= Context.Context_phoneme_2
+## 2021-05-08	AND Language_norms.Language_norms_phoneme_3		= Context.Context_phoneme_3
 ;
 
 ALTER TABLE Language_norms
@@ -401,9 +419,10 @@ ALTER TABLE Context
 	ADD KEY	Context_2_Stimword_position_KEY
 			(	Context_layout_name	## 01
 			,	Context_position	## 02
-			,	Context_phoneme_1	## 03
-			,	Context_phoneme_2	## 04
-			,	Context_phoneme_3	## 05
+			,	Context_phoneme		## 03
+## 2021-05-08			,	Context_phoneme_1	## 03
+## 2021-05-08			,	Context_phoneme_2	## 04
+## 2021-05-08			,	Context_phoneme_3	## 05
 			)
 			;
 
@@ -412,16 +431,18 @@ ALTER TABLE Stimword_position
 		FOREIGN KEY	Context_2_Stimword_position_FOREIGN_KEY_1
 			(	Stimword_position_layout_name	## 01
 			,	Stimword_position_position	## 02
-			,	Stimword_position_phoneme_1	## 03
-			,	Stimword_position_phoneme_2	## 04
-			,	Stimword_position_phoneme_3	## 05
+			,	Stimword_position_phoneme	## 03
+## 2021-05-08			,	Stimword_position_phoneme_1	## 03
+## 2021-05-08			,	Stimword_position_phoneme_2	## 04
+## 2021-05-08			,	Stimword_position_phoneme_3	## 05
 			)
 		REFERENCES	Context
 			(	Context_layout_name	## 01
 			,	Context_position	## 02
-			,	Context_phoneme_1	## 03
-			,	Context_phoneme_2	## 04
-			,	Context_phoneme_3	## 05
+			,	Context_phoneme		## 03
+## 2021-05-08			,	Context_phoneme_1	## 03
+## 2021-05-08			,	Context_phoneme_2	## 04
+## 2021-05-08			,	Context_phoneme_3	## 05
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -438,10 +459,11 @@ INNER JOIN    Context
 SET Stimword_position.Context_auto_increment	= Context.Context_auto_increment
 WHERE 1
 AND Stimword_position.Stimword_position_layout_name	= Context.Context_layout_name
-AND Stimword_position.Stimword_position_position		= Context.Context_position
-AND Stimword_position.Stimword_position_phoneme_1    	= Context.Context_phoneme_1
-AND Stimword_position.Stimword_position_phoneme_2		= Context.Context_phoneme_2
-AND Stimword_position.Stimword_position_phoneme_3		= Context.Context_phoneme_3
+AND Stimword_position.Stimword_position_position	= Context.Context_position
+AND Stimword_position.Stimword_position_phoneme    	= Context.Context_phoneme
+## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_1    	= Context.Context_phoneme_1
+## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_2		= Context.Context_phoneme_2
+## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_3		= Context.Context_phoneme_3
 ;
 
 ALTER TABLE Stimword_position
@@ -512,24 +534,27 @@ ALTER TABLE Client_master
 ALTER TABLE Sound
 	ADD KEY	Sound_2_Context_KEY
 			(	Sound_layout_name
-			,	Sound_phoneme_1
-			,	Sound_phoneme_2
-			,	Sound_phoneme_3
+			,	Sound_phoneme
+## 2021-05-08			,	Sound_phoneme_1
+## 2021-05-08			,	Sound_phoneme_2
+## 2021-05-08			,	Sound_phoneme_3
 			)
 			;
 ALTER TABLE Context
 	ADD CONSTRAINT		Sound_2_Context_CONSTRAINT_1
 		FOREIGN KEY	Sound_2_Context_FOREIGN_KEY_1
 			(	Context_layout_name
-			,	Context_phoneme_1
-			,	Context_phoneme_2
-			,	Context_phoneme_3
+			,	Context_phoneme
+## 2021-05-08			,	Context_phoneme_1
+## 2021-05-08			,	Context_phoneme_2
+## 2021-05-08			,	Context_phoneme_3
 			)
 		REFERENCES	Sound
 			(	Sound_layout_name
-			,	Sound_phoneme_1
-			,	Sound_phoneme_2
-			,	Sound_phoneme_3
+			,	Sound_phoneme
+## 2021-05-08			,	Sound_phoneme_1
+## 2021-05-08			,	Sound_phoneme_2
+## 2021-05-08			,	Sound_phoneme_3
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -546,9 +571,10 @@ INNER JOIN Sound
 SET Context.Sound_auto_increment	= Sound.Sound_auto_increment
 WHERE 1
 AND Context.Context_layout_name		= Sound.Sound_layout_name
-AND Context.Context_phoneme_1		= Sound.Sound_phoneme_1
-AND Context.Context_phoneme_2		= Sound.Sound_phoneme_2
-AND Context.Context_phoneme_3		= Sound.Sound_phoneme_3
+AND Context.Context_phoneme		= Sound.Sound_phoneme
+## 2021-05-08	AND Context.Context_phoneme_1		= Sound.Sound_phoneme_1
+## 2021-05-08	AND Context.Context_phoneme_2		= Sound.Sound_phoneme_2
+## 2021-05-08	AND Context.Context_phoneme_3		= Sound.Sound_phoneme_3
 ;
 
 ALTER TABLE Context
@@ -579,9 +605,10 @@ ALTER TABLE Stimword_position
 			,	Stimword_position_position
 			,	Stimword_position_position_nbr
 			,	Stimword_position_setting
-			,	Stimword_position_phoneme_1
-			,	Stimword_position_phoneme_2
-			,	Stimword_position_phoneme_3
+			,	Stimword_position_phoneme
+## 2021-05-08			,	Stimword_position_phoneme_1
+## 2021-05-08			,	Stimword_position_phoneme_2
+## 2021-05-08			,	Stimword_position_phoneme_3
 			)
 			;
 
@@ -596,9 +623,10 @@ ALTER TABLE Client_stimword
 			,	Client_stimword_position
 			,	Client_stimword_position_nbr
 			,	Client_stimword_setting
-			,	Client_stimword_phoneme_1
-			,	Client_stimword_phoneme_2
-			,	Client_stimword_phoneme_3
+			,	Client_stimword_phoneme
+## 2021-05-08			,	Client_stimword_phoneme_1
+## 2021-05-08			,	Client_stimword_phoneme_2
+## 2021-05-08			,	Client_stimword_phoneme_3
 			)
 		REFERENCES	Stimword_position
 			(	Stimword_position_layout_name
@@ -608,9 +636,10 @@ ALTER TABLE Client_stimword
 			,	Stimword_position_position
 			,	Stimword_position_position_nbr
 			,	Stimword_position_setting
-			,	Stimword_position_phoneme_1
-			,	Stimword_position_phoneme_2
-			,	Stimword_position_phoneme_3
+			,	Stimword_position_phoneme
+## 2021-05-08			,	Stimword_position_phoneme_1
+## 2021-05-08			,	Stimword_position_phoneme_2
+## 2021-05-08			,	Stimword_position_phoneme_3
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -637,9 +666,10 @@ AND Client_stimword.Client_stimword_stimword		= Stimword_position.Stimword_posit
 AND Client_stimword.Client_stimword_position		= Stimword_position.Stimword_position_position
 AND Client_stimword.Client_stimword_position_nbr	= Stimword_position.Stimword_position_position_nbr
 AND Client_stimword.Client_stimword_setting		= Stimword_position.Stimword_position_setting
-AND Client_stimword.Client_stimword_phoneme_1		= Stimword_position.Stimword_position_phoneme_1
-AND Client_stimword.Client_stimword_phoneme_2		= Stimword_position.Stimword_position_phoneme_2
-AND Client_stimword.Client_stimword_phoneme_3		= Stimword_position.Stimword_position_phoneme_3
+AND Client_stimword.Client_stimword_phoneme		= Stimword_position.Stimword_position_phoneme
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1		= Stimword_position.Stimword_position_phoneme_1
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2		= Stimword_position.Stimword_position_phoneme_2
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3		= Stimword_position.Stimword_position_phoneme_3
 ;
 ALTER TABLE Client_stimword
 	ADD CONSTRAINT	Stimword_position_2_Client_stimword_CONSTRAINT_2
