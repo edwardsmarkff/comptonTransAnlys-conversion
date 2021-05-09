@@ -100,6 +100,9 @@ s/Eval_spec/Lang_spec/g;
 ###
 s/int(.\\{1,2\\})/int UNSIGNED/
 ###
+###  2021-05-09
+s/UNSIGNED unsigned/UNSIGNED/;
+###
 s/) ENGINE=MyISAM AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/) ENGINE=InnoDB AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/;
 ###
 ###  fonts are from:  https://comptonpeslonline.com/php/display_all_symbols_for_documentation.php
