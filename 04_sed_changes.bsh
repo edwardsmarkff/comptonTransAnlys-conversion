@@ -9,7 +9,7 @@
 
 #
 
-mysqldump  comptonTransAnlys  >comptonTransAnlysSedChanges.sql ;
+mysqldump   --extended-insert=FALSE  comptonTransAnlys  >comptonTransAnlysSedChanges.sql ;
 
 
 sed   --in-place   --file=-    comptonTransAnlysSedChanges.sql   <<EOF ;
