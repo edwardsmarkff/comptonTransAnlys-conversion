@@ -3,6 +3,7 @@
 #	04_sed_changes.bsh  -- 2018-02-21
 #
 # 2021-04-26 -- changed to utf8mb4_unicode_ci and added longer command-line switches
+# 2021-05-09 -- needed to remove extra UNSIGNED value, not sure why this became an issue?
 #
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
