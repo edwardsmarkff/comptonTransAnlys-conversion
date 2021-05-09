@@ -9,10 +9,23 @@
 
 mysql    --verbose  comptonTransAnlys  <<END ;
 
-UPDATE Client_master         SET Client_master_script_name       = '' ;  ## 2020-10-30
-UPDATE Client_anlys_detail   SET Client_anlys_detail_script_name = ''  ; ## 2020-10-30
-UPDATE Client_eval_detail    SET Client_eval_detail_script_name  = ''  ; ## 2020-10-30
- ##
+###### 2021-05-09 UPDATE Client_master         SET Client_master_script_name       = '' ;  ## 2020-10-30
+###### 2021-05-09 UPDATE Client_anlys_detail   SET Client_anlys_detail_script_name = ''  ; ## 2020-10-30
+###### 2021-05-09 UPDATE Client_eval_detail    SET Client_eval_detail_script_name  = ''  ; ## 2020-10-30
+
+ALTER TABLE `Client_anlys_detail` DROP COLUMN   `Client_anlys_detail_script_name`  ;  ## 2021-05-09
+ALTER TABLE `Client_anlys_detail` DROP COLUMN   `Client_anlys_detail_script_line`  ;  ## 2021-05-09
+
+ALTER TABLE `Client_eval_detail`  DROP COLUMN   `Client_eval_detail_script_name`   ;  ## 2021-05-09
+ALTER TABLE `Client_eval_detail`  DROP COLUMN   `Client_eval_detail_script_line`   ;  ## 2021-05-09
+
+ALTER TABLE `Client_master`       DROP COLUMN   `Client_master_script_name`        ;  ## 2021-05-09
+ALTER TABLE `Client_master`       DROP COLUMN   `Client_master_script_line`        ;  ## 2021-05-09
+
+
+
+  
+=##
 ##
 ## expand all the Teacher_name and Client_name fields to accomodate the email addresses 
 --  expand-all-email-columns.sql
