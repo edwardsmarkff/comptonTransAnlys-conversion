@@ -2,6 +2,7 @@
 
 ##	03_long_part.bsh	-- 2018-02-21
 ##	
+##  2021-05-09  - remove the script_name and script_line columns
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
