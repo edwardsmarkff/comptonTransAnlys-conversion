@@ -34,16 +34,16 @@ ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_l
 ALTER TABLE Teacher            MODIFY COLUMN Teacher_name            VARCHAR(100) NOT NULL; 
 ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(100) NOT NULL;
 ALTER TABLE Client_master        MODIFY COLUMN Client_master_client_name     VARCHAR(100) NOT NULL;
-ALTER TABLE Client_master        MODIFY COLUMN Client_master_script_name  VARCHAR(200) NOT NULL;
+   ## 2021-05-09  ALTER TABLE Client_master        MODIFY COLUMN Client_master_script_name  VARCHAR(200) NOT NULL;
 
 ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(100) NOT NULL;
 ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(100) NOT NULL;
-ALTER TABLE Client_anlys_detail      MODIFY COLUMN   Client_anlys_detail_script_name varchar(200) NOT NULL;
+   ## 2021-05-09  ALTER TABLE Client_anlys_detail      MODIFY COLUMN   Client_anlys_detail_script_name varchar(200) NOT NULL;
 ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_auto_increment  INT   NOT NULL ;
 
 ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(100) NOT NULL;
 ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(100) NOT NULL;
-ALTER TABLE Client_eval_detail      MODIFY COLUMN   Client_eval_detail_script_name   VARCHAR(200) NOT NULL;
+   ## 2021-05-09  ALTER TABLE Client_eval_detail      MODIFY COLUMN   Client_eval_detail_script_name   VARCHAR(200) NOT NULL;
 ALTER TABLE Client_eval_detail      MODIFY COLUMN Client_eval_detail_auto_increment  INT   NOT NULL ;
 
 
