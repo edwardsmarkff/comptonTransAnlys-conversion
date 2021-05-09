@@ -3,6 +3,7 @@
 ##	03_long_part.bsh	-- 2018-02-21
 ##	
 ##  2021-05-09  - remove the script_name and script_line columns
+##  2021-05-09  - removed Karen Bragg's fake email client fix, probably no longer needed.
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
@@ -50,10 +51,11 @@ ALTER TABLE Client_eval_detail      MODIFY COLUMN Client_eval_detail_auto_increm
 ## create 'fake' email addresses in the client_master table for the blank ones  
 --  change-client-master-emails-for-blanks.qbquery
 
-UPDATE Client_master set Client_master_email =  lower(concat(replace(Client_master_client_name,' ','_') , "@" , replace(Client_master_client_name,' ','_') , ".com"))
-WHERE 1
-AND  Client_master_email = ''
-OR Client_master_email IN ('karen.bragg@ucps.k12.nc.us', 'katie.young@att.net');
+
+#### 2021-05-09 UPDATE Client_master set Client_master_email =  lower(concat(replace(Client_master_client_name,' ','_') , "@" , replace(Client_master_client_name,' ','_') , ".com"))
+#### 2021-05-09 WHERE 1
+#### 2021-05-09 AND  Client_master_email = ''
+#### 2021-05-09 OR Client_master_email IN ('karen.bragg@ucps.k12.nc.us', 'katie.young@att.net');
 
 
 ## create *NEW* client name column:
