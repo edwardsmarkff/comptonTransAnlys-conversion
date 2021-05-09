@@ -100,7 +100,7 @@ s/Eval_spec/Lang_spec/g;
 ###
 s/int(.\\{1,2\\})/int UNSIGNED/
 ###
-###  2021-05-09
+###  2021-05-09  - i wonder why this is suddenly required ???????????
 s/UNSIGNED unsigned/UNSIGNED/;
 ###
 s/) ENGINE=MyISAM AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/) ENGINE=InnoDB AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/;
