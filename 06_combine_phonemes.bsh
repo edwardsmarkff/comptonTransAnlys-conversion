@@ -35,7 +35,7 @@ UPDATE Stimword_position SET Stimword_position_phoneme  = CONCAT( Stimword_posit
 
 UPDATE Lang_spec         SET Lang_spec_phoneme          = CONCAT( Lang_spec_phoneme_1         , Lang_spec_phoneme_2         , Lang_spec_phoneme_3         ) ;
 
-UPDATE Lang_norms        SET Lang_norms_phoneme         = CONCAT( Lang_norms_phoneme_1        , Lang_norms_phoneme_2        , Lang_norms_phoneme_3        ) ;
+UPDATE Language_norms    SET Language_norms_phoneme     = CONCAT( Language_norms_phoneme_1    , Language_norms_phoneme_2    , Language_norms_phoneme_3    ) ;
 
 END
 
