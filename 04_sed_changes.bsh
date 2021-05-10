@@ -4,6 +4,7 @@
 #
 # 2021-04-26 -- changed to utf8mb4_unicode_ci and added longer command-line switches
 # 2021-05-09 -- needed to remove extra UNSIGNED value, not sure why this became an issue?
+# 2021-05-09 -- changed all varbinary() to char(1) COLLATE utf8mb4_bin
 #
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
@@ -179,41 +180,41 @@ s/\\&\\#967;/χ/g;
 
   ###  Context:
   
-/\`Context_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci/;
+/\`Context_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin/;
 
 
     ### Sound:
    
-/\`Sound_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Sound_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
 
     #### Client_context:
 
-/\`Client_context_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
-/\`Client_context_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Client_context_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
+/\`Client_context_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
 
     ###  Client_stimword:
 
-/\`Client_stimword_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
-/\`Client_stimword_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Client_stimword_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
+/\`Client_stimword_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
 
     ###  Stimword_position:
 
-/\`Stimword_position_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Stimword_position_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
 
 ### Lang_spec:
 
-/\`Lang_spec_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
-/\`Lang_spec_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Lang_spec_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
+/\`Lang_spec_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
 
 ### Language_norms:
 
-/\`Language_norms_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
-/\`Language_norms_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci /;
+/\`Language_norms_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
+/\`Language_norms_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
 ## 2021-05-05 (above)
 
