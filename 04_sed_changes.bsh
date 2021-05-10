@@ -215,6 +215,7 @@ s/\\&\\#967;/χ/g;
 
 /\`Language_norms_phoneme_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 /\`Language_norms_error_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
+/\`Language_norms_error_/s/varbinary(6)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
 ## 2021-05-05 (above)
 
