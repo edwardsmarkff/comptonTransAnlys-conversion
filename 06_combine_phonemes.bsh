@@ -1,6 +1,6 @@
 #! /bin//bash
 
-##	07_combine_phonemes.bsh   2021-05-06
+##	06_combine_phonemes.bsh   2021-05-06
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
@@ -39,4 +39,4 @@ UPDATE Language_norms    SET Language_norms_phoneme     = CONCAT( Language_norms
 
 END
 
-echo 'Done with  07_combine_phonemes.bsh !';
+echo 'Done with  06_combine_phonemes.bsh !';
