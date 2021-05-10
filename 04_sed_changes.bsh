@@ -203,6 +203,12 @@ s/\\&\\#967;/χ/g;
 
 /\`Phonetic_grid_value/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
+### Phonetic_spelling
+
+/\`Phonetic_spelling_target_sound/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
+
+
+
 ## 2021-05-05 (above)
 
 
