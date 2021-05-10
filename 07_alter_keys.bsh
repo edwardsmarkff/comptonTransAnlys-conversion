@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##	06_alter_key.bsh		2018-02-21
+##	07_alter_key.bsh		2018-02-21
 ##
 ##	2021-05-08	- merged phoneme columns into one.
 
@@ -815,4 +815,4 @@ SELECT 'finished with the conversion!' ;
 
 END
 
-echo 'finished with the conversion 06_alter_keys.bsh !!';
+echo 'finished with the conversion 07_alter_keys.bsh !!';
