@@ -7,19 +7,19 @@
 
 mysql   comptonTransAnlys   <<END;
 
-ALTER TABLE `Sound`            ADD COLUMN  `Sound_phoneme`             CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''  AFTER  `Sound_layout`                ;
+ALTER TABLE `Sound`            ADD COLUMN  `Sound_phoneme`             CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  `Sound_layout`                ;
 
-ALTER TABLE `Context`          ADD COLUMN  `Context_phoneme`           CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''  AFTER  `Context_layout_name`         ;
+ALTER TABLE `Context`          ADD COLUMN  `Context_phoneme`           CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  `Context_layout_name`         ;
 
-ALTER TABLE `Client_context`   ADD COLUMN  `Client_context_phoneme`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''  AFTER  `Client_context_layout_name`  ;
+ALTER TABLE `Client_context`   ADD COLUMN  `Client_context_phoneme`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  `Client_context_layout_name`  ;
 
-ALTER TABLE `Client_stimword`  ADD COLUMN  `Client_stimword_phoneme`   CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''  AFTER  `Client_stimword_setting`     ;
+ALTER TABLE `Client_stimword`  ADD COLUMN  `Client_stimword_phoneme`   CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  `Client_stimword_setting`     ;
 
-ALTER TABLE `Stimword_postion` ADD COLUMN  `Stimword_position_phoneme` CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''  AFTER  `Stimword_position_setting`   ;
+ALTER TABLE `Stimword_postion` ADD COLUMN  `Stimword_position_phoneme` CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  `Stimword_position_setting`   ;
 
-ALTER TABLE `Lang_spec`        ADD COLUMN  `Lang_spec_phoneme`         CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''  AFTER  `Lang_spec_context`           ;
+ALTER TABLE `Lang_spec`        ADD COLUMN  `Lang_spec_phoneme`         CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  `Lang_spec_context`           ;
 
-ALTER TABLE `Language_norms`   ADD COLUMN  `Language_norms_phoneme`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT ''  AFTER  `Language_norms_position`     ;
+ALTER TABLE `Language_norms`   ADD COLUMN  `Language_norms_phoneme`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  `Language_norms_position`     ;
  
 
 
