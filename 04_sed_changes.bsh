@@ -172,7 +172,7 @@ s/\\&chi;/χ/g;
         ### 2021-04-26  /_sound_/s/varbinary(20)/CHAR(01) CHARACTER SET latin1 COLLATE latin1_bin/;
         ########/_sound_/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci/;
 
-#####   2021-05-05 (all below)
+#####   2021-05-05 (all below)   https://mariadb.com/kb/en/supported-character-sets-and-collations/
 
   ###  Context:
   
