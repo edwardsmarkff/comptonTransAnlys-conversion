@@ -4,6 +4,7 @@
 ##	
 ##  2021-05-09  - remove the script_name and script_line columns
 ##  2021-05-09  - removed Karen Bragg's fake email client fix, probably no longer needed.
+#   2021-06-01  - made all email(name) references varchar(320) instead of varchar(100)
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
@@ -32,18 +33,18 @@ ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_l
 ## expand all the Teacher_name and Client_name fields to accomodate the email addresses 
 --  expand-all-email-columns.sql
 
-ALTER TABLE Teacher            MODIFY COLUMN Teacher_name            VARCHAR(100) NOT NULL; 
-ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(100) NOT NULL;
-ALTER TABLE Client_master        MODIFY COLUMN Client_master_client_name     VARCHAR(100) NOT NULL;
+ALTER TABLE Teacher              MODIFY COLUMN Teacher_name            VARCHAR(320) NOT NULL; 
+ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(320) NOT NULL;
+ALTER TABLE Client_master        MODIFY COLUMN Client_master_client_name     VARCHAR(320) NOT NULL;
    ## 2021-05-09  ALTER TABLE Client_master        MODIFY COLUMN Client_master_script_name  VARCHAR(200) NOT NULL;
 
-ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(100) NOT NULL;
-ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(100) NOT NULL;
+ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(320) NOT NULL;
+ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(320) NOT NULL;
    ## 2021-05-09  ALTER TABLE Client_anlys_detail      MODIFY COLUMN   Client_anlys_detail_script_name varchar(200) NOT NULL;
 ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_auto_increment  INT   NOT NULL ;
 
-ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(100) NOT NULL;
-ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(100) NOT NULL;
+ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(320) NOT NULL;
+ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(320) NOT NULL;
    ## 2021-05-09  ALTER TABLE Client_eval_detail      MODIFY COLUMN   Client_eval_detail_script_name   VARCHAR(200) NOT NULL;
 ALTER TABLE Client_eval_detail      MODIFY COLUMN Client_eval_detail_auto_increment  INT   NOT NULL ;
 
