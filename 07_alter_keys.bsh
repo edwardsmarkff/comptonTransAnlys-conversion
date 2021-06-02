@@ -3,6 +3,7 @@
 ##	07_alter_key.bsh		2018-02-21
 ##
 ##	2021-05-08	- merged phoneme columns into one.
+##	2021-06-02	- deleted Client_master_auto_increment line duplicate of line #76
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
@@ -26,40 +27,6 @@ ALTER TABLE Stimword_position ADD UNIQUE KEY Stimword_position_unique_key
 ##	2021-05-08	,Stimword_position_phoneme_2
 ##	2021-05-08	,Stimword_position_phoneme_3
 ) ;
-
-#########ALTER TABLE Phonetic_spelling  DROP PRIMARY KEY;
-#########ALTER TABLE Phonetic_spelling ADD COLUMN Phonetic_spelling_auto_increment MEDIUMINT  NOT NULL AUTO_INCREMENT PRIMARY KEY;
-#########ALTER TABLE Phonetic_spelling
-#########	ADD UNIQUE KEY Phonetic_spelling_unique_key
-#########		  (Phonetic_spelling_layout_name
-#########		  ,Phonetic_spelling_page_nbr
-#########		  ,Phonetic_spelling_line_nbr
-#########		  ,Phonetic_spelling_stimword
-#########		  ,Phonetic_spelling_order_nbr
-#########		  )
-#########		  ;
-#########
-#########ALTER TABLE Lang_spec DROP KEY Lang_spec_main_key_index;
-#########ALTER TABLE Lang_spec
-#########	ADD UNIQUE KEY Lang_spec_NOT_USED_unique_key
-#########		( Lang_spec_layout_name
-#########		, Lang_spec_page_nbr
-#########		, Lang_spec_line_nbr
-#########		, Lang_spec_stimword
-#########		, Lang_spec_position
-#########		, Lang_spec_position_nbr
-#########		, Lang_spec_context
-#########		, Lang_spec_phoneme_1
-#########		, Lang_spec_phoneme_2
-#########		, Lang_spec_phoneme_3
-#########		, Lang_spec_language
-#########		, Lang_spec_error_1
-#########		, Lang_spec_error_2
-#########		, Lang_spec_error_3
-#########		, Lang_spec_error_4
-#########		, Lang_spec_auto_increment
-#########		)
-#########		;
 
 ALTER TABLE Client_master	DROP KEY Client_master_teacher_email;
 ALTER TABLE Client_master
@@ -245,7 +212,7 @@ ALTER TABLE Client_context
 	;
 
 
-ALTER TABLE Client_master MODIFY COLUMN	Client_master_auto_increment INT UNSIGNED NOT NULL;
+/*  2021-06-02  ?? duplicate ?? ALTER TABLE Client_master MODIFY COLUMN	Client_master_auto_increment INT UNSIGNED NOT NULL;  */
 ALTER TABLE Client_context ADD COLUMN	Client_master_auto_increment INT UNSIGNED NOT NULL
 	AFTER Client_context_error_notes
 ;
