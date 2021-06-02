@@ -7,7 +7,7 @@
 
 mysql  --verbose --execute='DROP DATABASE IF EXISTS comptonTransAnlys ; CREATE DATABASE comptonTransAnlys'  ;
 
-mysql   --verbose  comptonTransAnlys   < comptonTransAnlysSedChanges.sql ;
+mysql                 comptonTransAnlys   < comptonTransAnlysSedChanges.sql ;
 
 echo 'Done with 05_convert_back_to_mysql.bsh';
 
