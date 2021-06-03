@@ -13,7 +13,7 @@ while true; do
 done
 
 bash -vx  01_create_db.bsh                     > 01_create_db.bsh.log                  2>&1  ;
-bash -vx  02_initial_preparation.bsh           > 02_initial_preparation.bsh.log         2>&1  ;
+bash -vx  02_initial_preparation.bsh           > 02_initial_preparation.bsh.log        2>&1  ;
 bash -vx  03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1  ;
 bash -vx  04_sed_changes.bsh                   > 04_sed_changes.bsh.log                2>&1  ;
 bash -vx  05_convert_back_to_mariadb.bsh       > 05_convert_back_to_mariadb.bsh.log    2>&1  ;
