@@ -7,7 +7,7 @@
 #
 sed --in-place  --expression='s/dipthong/diphthong/g;s/ON DELETE NO ACTION/ON DELETE CASCADE/g;' comptonTransAnlys.sql;
 
-mysql  -e  'drop database if exists comptonTransAnlys ; create database comptonTransAnlys'  ;
-mysql  --verbose  comptonTransAnlys < comptonTransAnlys.sql  ;
+mariadb  -e  'drop database if exists comptonTransAnlys ; create database comptonTransAnlys'  ;
+mariadb  --verbose  comptonTransAnlys < comptonTransAnlys.sql  ;
 
 echo 'Done with 01_create_db.bsh';
