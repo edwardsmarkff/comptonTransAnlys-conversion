@@ -9,7 +9,7 @@
 ##	set fileformat=unix
 
 
-mysql  --verbose   comptonTransAnlys   <<END;
+mariadb  --verbose   comptonTransAnlys   <<END;
 
 ALTER TABLE Stimword_position  DROP PRIMARY KEY ;
 ALTER TABLE Stimword_position ADD PRIMARY KEY ( Stimword_position_auto_increment) ;
