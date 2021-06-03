@@ -4,12 +4,15 @@
 ##
 ##	2021-05-08	- merged phoneme columns into one.
 ##	2021-06-02	- deleted Client_master_auto_increment line duplicate of line #76
+##	2021-06-03	- drop primary key of Teacher table
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
 
 
 mariadb  --verbose   comptonTransAnlys   <<END;
+
+ALTER TABLE Teacher   DROP PRIMARY KEY  ;  -- 2021-06-03
 
 ALTER TABLE Stimword_position  DROP PRIMARY KEY ;
 ALTER TABLE Stimword_position ADD PRIMARY KEY ( Stimword_position_auto_increment) ;
