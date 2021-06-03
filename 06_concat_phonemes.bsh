@@ -5,7 +5,7 @@
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
 
-mysql   comptonTransAnlys   <<END;
+mariadb  --verbose   comptonTransAnlys   <<END;
 
 ALTER TABLE Sound             ADD COLUMN  Sound_phoneme             CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  Sound_layout_name          ;
 
