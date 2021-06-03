@@ -12,12 +12,12 @@ while true; do
     esac
 done
 
-bash   01_create_db.bsh                     > 01_create_db.bsh.log                  2>&1  ;
-bash   02_inital_preparation.bsh            > 02_inital_preparation.bsh.log         2>&1  ;
-bash   03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1  ;
-bash   04_sed_changes.bsh                   > 04_sed_changes.bsh.log                2>&1  ;
-bash   05_convert_back_to_mariadb.bsh       > 05_convert_back_to_mariadb.bsh.log    2>&1  ;
-bash   06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log            2>&1  ;
-bash   07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1  ;
+bash -vx  01_create_db.bsh                     > 01_create_db.bsh.log                  2>&1  ;
+bash -vx  02_inital_preparation.bsh            > 02_inital_preparation.bsh.log         2>&1  ;
+bash -vx  03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1  ;
+bash -vx  04_sed_changes.bsh                   > 04_sed_changes.bsh.log                2>&1  ;
+bash -vx  05_convert_back_to_mariadb.bsh       > 05_convert_back_to_mariadb.bsh.log    2>&1  ;
+bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log            2>&1  ;
+bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1  ;
 
 echo "finished 00_master.bsh!"
