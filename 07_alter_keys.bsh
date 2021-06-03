@@ -750,7 +750,10 @@ ALTER TABLE Client_master
 	;
 
 
-ALTER TABLE Teacher ADD COLUMN  	Teacher_auto_increment INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY;
+ALTER TABLE Teacher ADD COLUMN  	Teacher_auto_increment INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY AFTER Teacher_create_date;
+
+SHOW CREATE TABLE Teacher ;  -- 2021-06-02 - for some reason, Teacher_auto_increment is not appearing!
+
 ALTER TABLE Client_master ADD COLUMN 	Teacher_auto_increment INT UNSIGNED NOT NULL
 	AFTER Client_master_anlys_notes
 ;
