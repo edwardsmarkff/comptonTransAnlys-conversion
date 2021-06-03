@@ -5,9 +5,9 @@
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
 
-mysql  --verbose --execute='DROP DATABASE IF EXISTS comptonTransAnlys ; CREATE DATABASE comptonTransAnlys'  ;
+mariadb  --verbose --execute='DROP DATABASE IF EXISTS comptonTransAnlys ; CREATE DATABASE comptonTransAnlys'  ;
 
-mysql                 comptonTransAnlys   < comptonTransAnlysSedChanges.sql ;
+mariadb                 comptonTransAnlys   < comptonTransAnlysSedChanges.sql ;
 
 echo 'Done with 05_convert_back_to_mysql.bsh';
 
