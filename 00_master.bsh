@@ -13,12 +13,20 @@ while true; do
     esac
 done
 
+echo $(date);
 bash -vx  01_create_db.bsh                     > 01_create_db.bsh.log                  2>&1  ;
+echo $(date);
 bash -vx  02_initial_preparation.bsh           > 02_initial_preparation.bsh.log        2>&1  ;
+echo $(date);
 bash -vx  03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1  ;
+echo $(date);
 bash -vx  04_sed_changes.bsh                   > 04_sed_changes.bsh.log                2>&1  ;
+echo $(date);
 bash -vx  05_convert_back_to_mariadb.bsh       > 05_convert_back_to_mariadb.bsh.log    2>&1  ;
+echo $(date);
 bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log            2>&1  ;
+echo $(date);
 bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1  ;
+echo $(date);
 
 echo "finished 00_master.bsh!"
