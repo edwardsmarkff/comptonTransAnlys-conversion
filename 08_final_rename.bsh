@@ -3,7 +3,7 @@
 # 08_final_rename.bsh   -- 2021-06-03
 
 
-mysqldump   --extended-insert=FALSE  comptonTransAnlys  >comptonTransAnlys_08_FinalRename.sql ;
+mysqldump   --extended-insert=FALSE  comptonTransAnlys  > comptonTransAnlys_08_FinalRename.sql ;
 
 sed   --in-place   --file=-    comptonTransAnlysFinalRename.sql   <<EOF ;
 ##
@@ -25,6 +25,9 @@ s/`Client_stimword_error_1`/`Client_context_error_1`/g;
 s/`Client_stimword_error_2`/`Client_context_error_3`/g;
 s/`Client_stimword_error_3`/`Client_context_error_4`/g;
 s/`Client_stimword_error_4`/`Client_context_error_4`/g;
+s/`Client_stimword_stimword`/`Client_stimword_word`/g;
+
+mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
 
 EOF
 
