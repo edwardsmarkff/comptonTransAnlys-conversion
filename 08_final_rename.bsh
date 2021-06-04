@@ -2,4 +2,33 @@
 
 # 08_final_rename.bsh   -- 2021-06-03
 
-mysqa=
+
+mysqldump   --extended-insert=FALSE  comptonTransAnlys  >comptonTransAnlysFinalRename.sql ;
+
+
+sed   --in-place   --file=-    comptonTransAnlysFinalRename.sql   <<EOF ;
+##
+s/Client_master_teacher_email/Teacher_email/g;
+s/Client_master_client_email/Client_master_email/g;
+
+s/Client_context_teacher_email/Teacher_email/g;
+s/Client_context_client_email/Client_master_email/g;
+s/Client_context_session_name/Client_master_session_name/g;
+s/Client_context_layout_name/Client_master_layout_name/g;
+
+s/Client_stimword_teacher_email/Teacher_email/g;
+s/Client_stimword_client_email/Client_master_email/g;
+s/Client_stimword_session_name/Client_master_session_name/g;
+s/Client_stimword_layout_name/Client_master_layout_name/g;
+
+s/Client_stimword_position/Client_context_position/g;
+s/Client_stimword_phoneme/Client_context_phoneme/g;
+s/Client_stimword_error_1/Client_context_error_1/g;
+s/Client_stimword_error_2/Client_context_error_3/g;
+s/Client_stimword_error_3/Client_context_error_4/g;
+s/Client_stimword_error_4/Client_context_error_4/g;
+
+EOF
+
+echo "end of sed part 04_sed_changes.bsh.";
+
