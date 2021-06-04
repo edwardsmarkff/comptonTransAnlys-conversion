@@ -25,6 +25,7 @@ s/\`Client_master_teacher_email\`/\`teacherEmail\`/g;
 s/\`Client_master_client_email\`/\`clientMasterEmail\`/g;
 s/\`Client_master_spec_language\`/\`clientMasterSpecLanguage\`/g;
 s/\`Client_master_session_name\`/\`clientMasterSessionName\`/g;
+s/\`Client_master_layout_name\`/\`clientMasterLayoutName\`/g;
 s/\`Client_master_name\`/\`clientMasterName\`/g;
 s/\`Client_master_anlys_notes\`/\`clientMasterAnlysNotes\`/g;
 s/\`Client_master_active_flag\`/\`clientMasterActiveFlag\`/g;
@@ -34,8 +35,8 @@ s/\`Client_master_unique_key\`/\`clientMasterUniqueKey\`/g;
 ## keys:
 s/\`Client_master_2_Client_context_KEY\`/\`clientMaster_2_clientContextKey\`/g;
 s/\`Session_names_2_Client_master_2_session_names_CONSTRAINT\`/\`sessionNames_2_clientMaster_2_Constraint\`/g;
-s/\`Teacher_2_Client_master_CONSTRAINT_1\`/\`teacher_2_clientMasterConstraint_1\`/g;
-s/\`Teacher_2_Client_master_CONSTRAINT_2\`/\`teacher_2_clientMasterConstraint_2\`/g;
+s/\`Teacher_2_Client_master_CONSTRAINT_1\`/\`teacher_2_clientMasterConstraint1\`/g;
+s/\`Teacher_2_Client_master_CONSTRAINT_2\`/\`teacher_2_clientMasterConstraint2\`/g;
 
 
 ## clientContext:
