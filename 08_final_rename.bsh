@@ -80,10 +80,47 @@ s/`Stimword_position_2_Client_stimword_CONSTRAINT_1`/`stimwordPosition_2_clientS
 s/`Stimword_position_2_Client_stimword_CONSTRAINT_2`/`stimwordPosition_2_clientStimwordConstraint2`/g;
 
 
-s/`Stimword_position_auto_increment`/`stimwordPositionAutoIncrement`/g
+s/`Context_layout_name`/`contextLayoutName`/g;
+s/`Context_phoneme_1`/`contextPhoneme1`/g;
+s/`Context_phoneme_2`/`contextPhoneme2`/g;
+s/`Context_phoneme_3`/`contextPhoneme3`/g;
+s/`Context_phoneme`/`contextPhoneme`/g;
+s/`Context_position`/`contextPosition`/g;
+s/`Context_label_order`/`contextLabelOrder`/g;
+s/`Context_label_color`/`contextLabelColor`/g;
+s/`Context_count`/`contextCount`/g;
+s/`Context_timestamp`/`contextTimestamp`/g;
+s/`Context_auto_increment`/`contextAutoIncrement`/g;
+s/`Context_unique_key`/`contextUniqueKey`/g;
+s/`Context_2_Client_context_KEY`/`context_2_clientContextKey`/g;
+s/`Context_2_Language_norms_KEY`/`context_2_languageNormsKey`/g;
+s/`Context_2_Stimword_position_KEY`/`context_2_stimwordPositionKey`/g;
 
 
+s/`Sound_auto_increment`/`soundAutoIncrement`/g;
+s/`Stimword_position_auto_increment`/`stimwordPositionAutoIncrement`/g;
+s/`Sound_2_Context_CONSTRAINT_1`/`sound_2_contextConstraint1`/g;
+s/`Sound_2_Context_CONSTRAINT_2`/`sound_2_contextConstraint2`/g;
 
+s/`Frequency_order`/`frequencyOrder`/g;
+s/`Frequency_list_2_Client_context_KEY`/`frequencyList_2_clientContextKey`/g;
+
+s/`Lang_spec_layout_name`/`langSpecLayoutName`/g;
+s/`Lang_spec_page_nbr`/`langSpecPageNbr`/g;
+s/`Lang_spec_line_nbr`/`langSpecLineNbr`/g;
+s/`Lang_spec_stimword`/`langSpecStimword`/g;
+s/`Lang_spec_position_nbr`/`langSpecPositionNbr`/g;
+s/`Lang_spec_position`/`langSpecPosition`/g;
+s/`Lang_spec_context`/`langSpecContext`/g;
+s/`Lang_spec_phoneme_1`/`langSpecPhoneme1`/g;
+s/`Lang_spec_phoneme_2`/`langSpecPhoneme2`/g;
+s/`Lang_spec_phoneme_3`/`langSpecPhoneme3`/g;
+s/`Lang_spec_phoneme`/`langSpecPhoneme`/g;
+s/`Lang_spec_language`/`langSpecLangauge`/g;
+
+
+# table names go below:
+s/`Frequency_list`/`frequencyList`/g;
 
 mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
 
