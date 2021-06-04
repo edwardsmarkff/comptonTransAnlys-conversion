@@ -289,8 +289,13 @@ s/`Stimword`/`stimword`/g;
 s/`Stimword_position`/`stimwordPosition`/g;
 s/`Teacher`/`teacher`/g;
 
-/`createdAt`/a
+## misc:
+
+/ON UPDATE current_timestamp()//g;
+
+/`createdAt`/a\
 `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ;
+
 
 mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
 
