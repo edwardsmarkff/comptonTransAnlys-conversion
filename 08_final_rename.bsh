@@ -113,6 +113,8 @@ s/\`Context_auto_increment\`/\`contextAutoIncr\`/g;
 s/\`Context_unique_key\`/\`contextUniqueKey\`/g;
 s/\`Context_2_Client_context_KEY\`/\`context_2_clientContextKey\`/g;
 s/\`Context_2_Language_norms_KEY\`/\`context_2_languageNormsKey\`/g;
+s/\`Context_2_Client_context_CONSTRAINT_1\`/\`context_2_clientContextConstraint1\'/g;
+s/\`Context_2_Client_context_CONSTRAINT_2\`/\`context_2_clientContextConstraint2\'/g;
 s/\`Context_2_Stimword_position_KEY\`/\`context_2_stimwordPositionKey\`/g;
 
 
