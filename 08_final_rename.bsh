@@ -204,7 +204,7 @@ s/\`Phonetic_spelling_timestamp\`/\`createdAt\`/g;
 
 ## session:
 
-s/\`Session_order_nbr\`/\`Session_order_nbr\`/g;
+s/\`Session_order_nbr\`/\`sessionOrderNbr\`/g;
 s/\`Session_name\`/\`sessionName\`/g;
 s/\`Session_replicate\`/\`sessionReplicate\`/g;
 s/\`Session_begin_line_nbr\`/\`sessionBeginLineNbr\`/g;
@@ -278,6 +278,7 @@ s/\`Stimword_2_Stimword_position_CONSTRAINT_2\`/\`stimword_2_stimwordPositionCon
 
 
 s/\`Teacher_email\`/\`teacherEmail\`/g;
+s/\`Teacher_password\`/\`teacherPassword\`/g;
 s/\`Teacher_firstname\`/\`teacherFirstName\`/g;
 s/\`Teacher_lastname\`/\`teacherLastName\`/g;
 s/\`Teacher_layout_name\`/\`teacherLayoutName\`/g;
