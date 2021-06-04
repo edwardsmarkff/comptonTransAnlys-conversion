@@ -5,6 +5,7 @@
 
 mysqldump   --extended-insert=FALSE  comptonTransAnlys  > comptonTransAnlys_08_FinalRename.sql ;
 
+
 sed   --in-place   --file=-    comptonTransAnlysFinalRename.sql   <<EOF ;
 ##
 
@@ -306,9 +307,11 @@ s/`Teacher`/`teacher`/g;
 `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ;
 
 
-mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
+
 
 EOF
+
+mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
 
 echo "end of sed part 08_final_rename.bsh.";
 
