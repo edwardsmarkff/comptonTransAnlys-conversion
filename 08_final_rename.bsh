@@ -269,46 +269,44 @@ s/\`Stimword_2_Stimword_position_CONSTRAINT_2\`/\`stimword_2_stimwordPositionCon
 
 
 
-s/`Teacher_email`/`teacherEmail`/g;
-s/`Teacher_firstname`/`teacherFirstName`/g;
-s/`Teacher_lastname`/`teacherLastName`/g;
-s/`Teacher_layout_name`/`teacherLayoutName`/g;
-s/`Teacher_security_level`/`teacherSecurityLevel`/g;
-s/`Teacher_legacy_name`/`teacherLegacyName`/g;
-s/`Teacher_create_date`/`createdAt`/g;
-s/`Teacher_auto_increment`/`teacherAutoIncr`/g;
+s/\`Teacher_email\`/\`teacherEmail\`/g;
+s/\`Teacher_firstname\`/\`teacherFirstName\`/g;
+s/\`Teacher_lastname\`/\`teacherLastName\`/g;
+s/\`Teacher_layout_name\`/\`teacherLayoutName\`/g;
+s/\`Teacher_security_level\`/\`teacherSecurityLevel\`/g;
+s/\`Teacher_legacy_name\`/\`teacherLegacyName\`/g;
+s/\`Teacher_create_date\`/\`createdAt\`/g;
+s/\`Teacher_auto_increment\`/\`teacherAutoIncr\`/g;
 ## keys:
-s/`Teacher_email_unique_index`/`teacherEmailIniqueIndex`/g;
-s/`Teacher_2_Client_master_KEY`/`teacher_2_clientMasterKey`/g;
+s/\`Teacher_email_unique_index\`/\`teacherEmailIniqueIndex\`/g;
+s/\`Teacher_2_Client_master_KEY\`/\`teacher_2_clientMasterKey\`/g;
 
 
 
 
 
 # table names go below:
-s/`Client_context`/`clientContext`/g;
-s/`Client_master`/`clientMaster`/g;
-s/`Client_stimword`/`clientStimword`/g;
-s/`Context`/`context`/g;
-s/`Frequency_list`/`frequencyList`/g;
-s/`Lang_spec`/`langSpec`/g;
-s/`Language_norms`/`languageNorms`/g;
-s/`Phonetic_grid`/`phoneticGrid`/g;
-s/`Phonetic_spelling`/`phoneticSpelling`/g;
-s/`Session_names`/`sessionNames`/g;
-s/`Sound`/`sound`/g;
-s/`Stimword`/`stimword`/g;
-s/`Stimword_position`/`stimwordPosition`/g;
-s/`Teacher`/`teacher`/g;
+s/\`Client_context\`/\`clientContext\`/g;
+s/\`Client_master\`/\`clientMaster\`/g;
+s/\`Client_stimword\`/\`clientStimword\`/g;
+s/\`Context\`/\`context\`/g;
+s/\`Frequency_list\`/\`frequencyList\`/g;
+s/\`Lang_spec\`/\`langSpec\`/g;
+s/\`Language_norms\`/\`languageNorms\`/g;
+s/\`Phonetic_grid\`/\`phoneticGrid\`/g;
+s/\`Phonetic_spelling\`/\`phoneticSpelling\`/g;
+s/\`Session_names\`/\`sessionNames\`/g;
+s/\`Sound\`/\`sound\`/g;
+s/\`Stimword\`/\`stimword\`/g;
+s/\`Stimword_position\`/\`stimwordPosition\`/g;
+s/\`Teacher\`/\`teacher\`/g;
 
 ## misc:
 
 /ON UPDATE current_timestamp()//g;
 
-/`createdAt`/a\
-`updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ;
-
-
+/\`createdAt\`/a\
+\`updatedAt\` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ;
 
 
 EOF
