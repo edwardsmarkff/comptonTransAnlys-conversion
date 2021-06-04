@@ -90,7 +90,7 @@ s/`Context_label_order`/`contextLabelOrder`/g;
 s/`Context_label_color`/`contextLabelColor`/g;
 s/`Context_count`/`contextCount`/g;
 s/`Context_timestamp`/`contextTimestamp`/g;
-s/`Context_auto_increment`/`contextAutoIncrement`/g;
+s/`Context_auto_increment`/`contextAutoIncr`/g;
 s/`Context_unique_key`/`contextUniqueKey`/g;
 s/`Context_2_Client_context_KEY`/`context_2_clientContextKey`/g;
 s/`Context_2_Language_norms_KEY`/`context_2_languageNormsKey`/g;
@@ -116,11 +116,53 @@ s/`Lang_spec_phoneme_1`/`langSpecPhoneme1`/g;
 s/`Lang_spec_phoneme_2`/`langSpecPhoneme2`/g;
 s/`Lang_spec_phoneme_3`/`langSpecPhoneme3`/g;
 s/`Lang_spec_phoneme`/`langSpecPhoneme`/g;
-s/`Lang_spec_language`/`langSpecLangauge`/g;
+s/`Lang_spec_error_1`/`langEpecError1`/g;
+s/`Lang_spec_error_2`/`langEpecError2`/g;
+s/`Lang_spec_error_3`/`langEpecError3`/g;
+s/`Lang_spec_error_4`/`langEpecError4`/g;
+s/`Lang_spec_language`/`langSpecLanguage`/g;
+s/`Lang_spec_auto_increment`/`langSpecAutoIncr`/g;
+s/`Lang_spec_timestamp`/`createdAt`/g;
+s/`Lang_spec_main_key_index`/`langSpecMainKeyIndex`/g
+
+s/`Language_norms_layout_name`/`languageNormsLayoutName`/g;
+s/`Language_norms_language_name`/`languageNormsName`/g;
+s/`Language_norms_position`/`languageNormsPosition`/g;
+s/`Language_norms_phoneme_1`/`languageNormsPhoneme1`/g;
+s/`Language_norms_phoneme_2`/`languageNormsPhoneme2`/g;
+s/`Language_norms_phoneme_3`/`languageNormsPhoneme3`/g;
+s/`Language_norms_phoneme`/`languageNormsPhoneme`/g;
+s/`Language_norms_percent`/`languageNormsPercent`/g;
+s/`Language_norms_auto_increment`/`languageNormsAutoIncr`/g;
+s/`Language_norms_timestamp`/`createdAt`/;g
+s/`Language_norms_NONunique_key`/`languageNormsNonUniqueKey`/g;
+s/`Context_2_Language_norms_CONSTRAINT_1`/`context_2_languageNormsConstraint1`/g;
+s/`Context_2_Language_norms_CONSTRAINT_2`/`context_2_languageNormsConstraint2`/g;
+
+
+s/`Phonetic_grid_layout_name`/`phoneticGridLayoutName`/g;
+s/`Phonetic_grid_row`/`phoneticGridRow`/g;
+s/`Phonetic_grid_col`/`phoneticGridCol;`/g;
+s/`Phonetic_grid_val`/`phoneticGridVal`/g;
+
+s/`Phonetic_spelling_layout_name`/`phoneticSpellingLayoutName`/g;
+s/`Phonetic_spelling_page_nbr`/`phoneticSpellingPageNbr`/g;
+s/`Phonetic_spelling_line_nbr`/`phoneticSpellingLineNbr`/g;
+s/`Phonetic_spelling_stimword`/`phoneticSpellingStimword`/g;
+s/`Phonetic_spelling_order_nbr`/`phoneticSpellingOrderNbr`/g;
+s/`Phonetic_spelling_target_sound`/`phoneticSpellingTargetSound`/g;
+s/`Phonetic_spelling_timestamp`/`createdAt`/g;
+
+
+
 
 
 # table names go below:
 s/`Frequency_list`/`frequencyList`/g;
+s/`Lang_spec`/`langSpec`/g;
+s/`Language_norms`/`languageNorms`/g;
+s/`Phonetic_grid`/`phoneticGrid`/g;
+s/`Phonetic_spelling`/`phoneticSpelling`/g;
 
 mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
 
