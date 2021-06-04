@@ -167,7 +167,7 @@ s/\`Language_norms_phoneme_3\`/\`languageNormsPhoneme3\`/g;
 s/\`Language_norms_phoneme\`/\`languageNormsPhoneme\`/g;
 s/\`Language_norms_percent\`/\`languageNormsPercent\`/g;
 s/\`Language_norms_auto_increment\`/\`languageNormsAutoIncr\`/g;
-s/\`Language_norms_timestamp\`/\`createdAt`/g;
+s/\`Language_norms_timestamp\`/\`createdAt\`/g;
 ## keys
 s/\`Language_norms_NONunique_key\`/\`languageNormsNonUniqueKey\`/g;
 s/\`Context_2_Language_norms_CONSTRAINT_1\`/\`context_2_languageNormsConstraint1\`/g;
