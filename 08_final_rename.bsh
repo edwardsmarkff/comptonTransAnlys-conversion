@@ -7,25 +7,63 @@ mysqldump   --extended-insert=FALSE  comptonTransAnlys  > comptonTransAnlys_08_F
 
 sed   --in-place   --file=-    comptonTransAnlysFinalRename.sql   <<EOF ;
 ##
-s/`Client_master_teacher_email`/`Teacher_email`/g;
-s/`Client_master_client_email`/`Client_master_email`/g;
+s/`Client_master_teacher_email`/`teacherEmail`/g;
+s/`Teacher_auto_increment`/`teacherAutoIncrement`/g
 
-s/`Client_context_teacher_email`/`Teacher_email`/g;
-s/`Client_context_client_email`/`Client_master_email`/g;
-s/`Client_context_session_name`/`Client_master_session_name`/g;
-s/`Client_context_layout_name`/`Client_master_layout_name`/g;
+s/`Client_master_client_email`/`clientMasterEmail`/g;
+s/`Client_master_spec_language`/`clientMasterSpecLanguage`/g
+s/`Client_master_auto_increment`/`clientMasterAutoIncrement`/g
+s/`Client_master_name`/`clientMasterName`/g
+s/`Client_master_anlys_notes`/`clientMasterAnlysNotes`/g
+s/`Client_master_active_flag`/`clientMasterActiveFlag`/g
+s/`Client_master_auto_increment/g
+s/`Client_master_timestamp`/g
+s/`Client_master_unique_key`/`clientMasterUniqueKey`/g
+s/`Client_master_2_Client_context_KEY`/`clientMaster_2_clientContextKey`/g
+s/`Session_names_2_Client_master_2_session_names_CONSTRAINT`/`sessionNames_2_clientMaster_2_Constraint`/g
+s/`Teacher_2_Client_master_CONSTRAINT_1`/`teacher_2_clientMasterConstraint_1`/g
+s/`Teacher_2_Client_master_CONSTRAINT_2`/`teacher_2_clientMasterConstraint_2`/g
 
-s/`Client_stimword_teacher_email`/`Teacher_email`/g;
-s/`Client_stimword_client_email`/`Client_master_email`/g;
-s/`Client_stimword_session_name`/`Client_master_session_name`/g;
-s/`Client_stimword_layout_name`/`Client_master_layout_name`/g;
-s/`Client_stimword_position`/`Client_context_position`/g;
-s/`Client_stimword_phoneme`/`Client_context_phoneme`/g;
-s/`Client_stimword_error_1`/`Client_context_error_1`/g;
-s/`Client_stimword_error_2`/`Client_context_error_3`/g;
-s/`Client_stimword_error_3`/`Client_context_error_4`/g;
-s/`Client_stimword_error_4`/`Client_context_error_4`/g;
-s/`Client_stimword_stimword`/`Client_stimword_word`/g;
+
+s/`Client_context_teacher_email`/`teacherEmail`/g;
+s/`Client_context_client_email`/`clientMasterEmail`/g;
+s/`Client_context_session_name`/`clientMasterSessionName`/g;
+s/`Client_context_layout_name`/`clientMasterLayoutName`/g;
+s/`Client_context_phoneme_1`/`clientContextPhoneme1`/g;
+s/`Client_context_phoneme_2`/`clientContextPhoneme2`/g;
+s/`Client_context_phoneme_3`/`clientContextPhoneme3`/g;
+s/`Client_context_position`/`clientContextPosition`/g; 
+s/`Client_context_phoneme`/`clientContextPhoneme1`/g;
+s/`Client_context_phoneme_1`/`clientContextError1`/g;
+s/`Client_context_phoneme_2`/`clientContextError2`/g;
+s/`Client_context_phoneme_3`/`clientContextError3`/g;
+s/`Client_context_phoneme_4`/`clientContextError4`/g;
+s/`Client_context_error_speaking_count`/`clientContextErrorSpeakingCount`/g
+s/`Client_context_error_frequency`/`clientContextErrorFrequency`/g
+s/`Client_context_error_notes`/`clientContextErrorNotes`/g
+s/`Context_auto_increment`/`contextAutoIncrement`/g
+
+s/`Client_context_auto_increment`/`clientContextAutoIncrement`/g
+s/`Client_context_timestamp`/`clientContextTimestamp`/g
+s/`Client_context_sounds_unique_index`/`clientContextSoundsUniqueIndex`/g
+s/`Client_master_2_Client_context_CONSTRAINT_1`/`clientMaster_2_ClientContextConstraint1`/g
+s/`Client_master_2_Client_context_CONSTRAINT_2`/`clientMaster_2_ClientContextConstraint2`/g
+
+s/`Frequency_list_2_Client_context_CONSTRAINT`/`frequencyList_2_clientContextConstraint`/g 
+
+
+s/`Client_stimword_teacher_email`/`teacherEmail`/g;
+s/`Client_stimword_client_email`/`clientMasterEmail`/g;
+s/`Client_stimword_session_name`/`clientMasterSessionName`/g;
+s/`Client_stimword_layout_name`/`clientMasterLayoutName`/g;
+s/`Client_stimword_position`/`clientContextPosition`/g;
+s/`Client_stimword_phoneme`/`clientContextPhoneme`/g;
+s/`Client_stimword_error_1`/`clientContextError1`/g;
+s/`Client_stimword_error_2`/`clientContextError3`/g;
+s/`Client_stimword_error_3`/`clientContextError4`/g;
+s/`Client_stimword_error_4`/`clientContextError4`/g;
+s/`Client_stimword_stimword`/`clientStimwordWord`/g;
+
 
 mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
 
