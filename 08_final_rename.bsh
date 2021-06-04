@@ -117,155 +117,155 @@ s/\`Context_2_Stimword_position_KEY\`/\`context_2_stimwordPositionKey\`/g;
 
 
 ## sound:
-s/`Sound_auto_increment`/`soundAutoIncr`/g;
-s/`Stimword_position_auto_increment`/`stimwordPositionAutoIncr`/g;
-s/`Sound_2_Context_CONSTRAINT_1`/`sound_2_contextConstraint1`/g;
-s/`Sound_2_Context_CONSTRAINT_2`/`sound_2_contextConstraint2`/g;
+s/\`Sound_auto_increment\`/\`soundAutoIncr\`/g;
+s/\`Stimword_position_auto_increment\`/\`stimwordPositionAutoIncr\`/g;
+s/\`Sound_2_Context_CONSTRAINT_1\`/\`sound_2_contextConstraint1\`/g;
+s/\`Sound_2_Context_CONSTRAINT_2\`/\`sound_2_contextConstraint2\`/g;
 
 
 
 ## frequency:
 
-s/`Frequency_order`/`frequencyOrder`/g;
-s/`Frequency_list_2_Client_context_KEY`/`frequencyList_2_clientContextKey`/g;
+s/\`Frequency_order\`/\`frequencyOrder\`/g;
+s/\`Frequency_list_2_Client_context_KEY\`/\`frequencyList_2_clientContextKey\`/g;
 
 
 
 ## langSpec:
 
-s/`Lang_spec_layout_name`/`languageSpecLayoutName`/g;
-s/`Lang_spec_page_nbr`/`languageSpecPageNbr`/g;
-s/`Lang_spec_line_nbr`/`languageSpecLineNbr`/g;
-s/`Lang_spec_stimword`/`languageSpecStimword`/g;
-s/`Lang_spec_position_nbr`/`languageSpecPositionNbr`/g;
-s/`Lang_spec_position`/`languageSpecPosition`/g;
-s/`Lang_spec_context`/`languageSpecContext`/g;
-s/`Lang_spec_phoneme_1`/`languageSpecPhoneme1`/g;
-s/`Lang_spec_phoneme_2`/`languageSpecPhoneme2`/g;
-s/`Lang_spec_phoneme_3`/`languageSpecPhoneme3`/g;
-s/`Lang_spec_phoneme`/`languageSpecPhoneme`/g;
-s/`Lang_spec_error_1`/`languageEpecError1`/g;
-s/`Lang_spec_error_2`/`languageEpecError2`/g;
-s/`Lang_spec_error_3`/`languageEpecError3`/g;
-s/`Lang_spec_error_4`/`languageEpecError4`/g;
-s/`Lang_spec_language`/`languageSpecName`/g;
-s/`Lang_spec_auto_increment`/`langSpecAutoIncr`/g;
-s/`Lang_spec_timestamp`/`createdAt`/g;
+s/\`Lang_spec_layout_name\`/\`languageSpecLayoutName\`/g;
+s/\`Lang_spec_page_nbr\`/\`languageSpecPageNbr\`/g;
+s/\`Lang_spec_line_nbr\`/\`languageSpecLineNbr\`/g;
+s/\`Lang_spec_stimword\`/\`languageSpecStimword\`/g;
+s/\`Lang_spec_position_nbr\`/\`languageSpecPositionNbr\`/g;
+s/\`Lang_spec_position\`/\`languageSpecPosition\`/g;
+s/\`Lang_spec_context\`/\`languageSpecContext\`/g;
+s/\`Lang_spec_phoneme_1\`/\`languageSpecPhoneme1\`/g;
+s/\`Lang_spec_phoneme_2\`/\`languageSpecPhoneme2\`/g;
+s/\`Lang_spec_phoneme_3\`/\`languageSpecPhoneme3\`/g;
+s/\`Lang_spec_phoneme\`/\`languageSpecPhoneme\`/g;
+s/\`Lang_spec_error_1\`/\`languageEpecError1\`/g;
+s/\`Lang_spec_error_2\`/\`languageEpecError2\`/g;
+s/\`Lang_spec_error_3\`/\`languageEpecError3\`/g;
+s/\`Lang_spec_error_4\`/\`languageEpecError4\`/g;
+s/\`Lang_spec_language\`/\`languageSpecName\`/g;
+s/\`Lang_spec_auto_increment\`/\`langSpecAutoIncr\`/g;
+s/\`Lang_spec_timestamp\`/\`createdAt\`/g;
 ## keys
-s/`Lang_spec_main_key_index`/`langSpecMainKeyIndex`/g;
+s/\`Lang_spec_main_key_index\`/\`langSpecMainKeyIndex\`/g;
 
 
 
 ## languageNorms:
 
-s/`Language_norms_layout_name`/`languageNormsLayoutName`/g;
-s/`Language_norms_language_name`/`languageNormsName`/g;
-s/`Language_norms_position`/`languageNormsPosition`/g;
-s/`Language_norms_phoneme_1`/`languageNormsPhoneme1`/g;
-s/`Language_norms_phoneme_2`/`languageNormsPhoneme2`/g;
-s/`Language_norms_phoneme_3`/`languageNormsPhoneme3`/g;
-s/`Language_norms_phoneme`/`languageNormsPhoneme`/g;
-s/`Language_norms_percent`/`languageNormsPercent`/g;
-s/`Language_norms_auto_increment`/`languageNormsAutoIncr`/g;
-s/`Language_norms_timestamp`/`createdAt`/g;
+s/\`Language_norms_layout_name\`/\`languageNormsLayoutName\`/g;
+s/\`Language_norms_language_name\`/\`languageNormsName\`/g;
+s/\`Language_norms_position\`/\`languageNormsPosition\`/g;
+s/\`Language_norms_phoneme_1\`/\`languageNormsPhoneme1\`/g;
+s/\`Language_norms_phoneme_2\`/\`languageNormsPhoneme2\`/g;
+s/\`Language_norms_phoneme_3\`/\`languageNormsPhoneme3\`/g;
+s/\`Language_norms_phoneme\`/\`languageNormsPhoneme\`/g;
+s/\`Language_norms_percent\`/\`languageNormsPercent\`/g;
+s/\`Language_norms_auto_increment\`/\`languageNormsAutoIncr\`/g;
+s/\`Language_norms_timestamp\`/\`createdAt`/g;
 ## keys
-s/`Language_norms_NONunique_key`/`languageNormsNonUniqueKey`/g;
-s/`Context_2_Language_norms_CONSTRAINT_1`/`context_2_languageNormsConstraint1`/g;
-s/`Context_2_Language_norms_CONSTRAINT_2`/`context_2_languageNormsConstraint2`/g;
+s/\`Language_norms_NONunique_key\`/\`languageNormsNonUniqueKey\`/g;
+s/\`Context_2_Language_norms_CONSTRAINT_1\`/\`context_2_languageNormsConstraint1\`/g;
+s/\`Context_2_Language_norms_CONSTRAINT_2\`/\`context_2_languageNormsConstraint2\`/g;
 
 
 ## phoneticGrid:
 
-s/`Phonetic_grid_layout_name`/`phoneticGridLayoutName`/g;
-s/`Phonetic_grid_row`/`phoneticGridRow`/g;
-s/`Phonetic_grid_col`/`phoneticGridCol;`/g;
-s/`Phonetic_grid_val`/`phoneticGridVal`/g;
+s/\`Phonetic_grid_layout_name\`/\`phoneticGridLayoutName\`/g;
+s/\`Phonetic_grid_row\`/\`phoneticGridRow\`/g;
+s/\`Phonetic_grid_col\`/\`phoneticGridCol\`/g;
+s/\`Phonetic_grid_val\`/\`phoneticGridVal\`/g;
 
 
 ## phoneticSpelling:
 
-s/`Phonetic_spelling_layout_name`/`phoneticSpellingLayoutName`/g;
-s/`Phonetic_spelling_page_nbr`/`phoneticSpellingPageNbr`/g;
-s/`Phonetic_spelling_line_nbr`/`phoneticSpellingLineNbr`/g;
-s/`Phonetic_spelling_stimword`/`phoneticSpellingStimword`/g;
-s/`Phonetic_spelling_order_nbr`/`phoneticSpellingOrderNbr`/g;
-s/`Phonetic_spelling_target_sound`/`phoneticSpellingTargetSound`/g;
-s/`Phonetic_spelling_timestamp`/`createdAt`/g;
+s/\`Phonetic_spelling_layout_name\`/\`phoneticSpellingLayoutName\`/g;
+s/\`Phonetic_spelling_page_nbr\`/\`phoneticSpellingPageNbr\`/g;
+s/\`Phonetic_spelling_line_nbr\`/\`phoneticSpellingLineNbr\`/g;
+s/\`Phonetic_spelling_stimword\`/\`phoneticSpellingStimword\`/g;
+s/\`Phonetic_spelling_order_nbr\`/\`phoneticSpellingOrderNbr\`/g;
+s/\`Phonetic_spelling_target_sound\`/\`phoneticSpellingTargetSound\`/g;
+s/\`Phonetic_spelling_timestamp\`/\`createdAt\`/g;
 
 
 
 ## session:
 
-s/`Session_order_nbr`/`Session_order_nbr`/g;
-s/`Session_name`/`sessionName`/g;
-s/`Session_replicate`/`session_Replicate`/g;
-s/`Session_begin_line_nbr`/`sessionBeginLineNbr`/g;
-s/`Session_end_line_nbr`/`sessionEndLineNbr`/g;
-s/`Session_errors_css_normal_class`/`sessionErrorsCssNormalClass`/g;
-s/`Session_errors_css_replicate_class`/`sessionErrorsCssReplicateClass`/g;
-s/`Session_create_date`/`createdAt`/g;
+s/\`Session_order_nbr\`/\`Session_order_nbr\`/g;
+s/\`Session_name\`/\`sessionName\`/g;
+s/\`Session_replicate\`/\`sessionReplicate\`/g;
+s/\`Session_begin_line_nbr\`/\`sessionBeginLineNbr\`/g;
+s/\`Session_end_line_nbr\`/\`sessionEndLineNbr\`/g;
+s/\`Session_errors_css_normal_class\`/\`sessionErrorsCssNormalClass\`/g;
+s/\`Session_errors_css_replicate_class\`/\`sessionErrorsCssReplicateClass\`/g;
+s/\`Session_create_date\`/\`createdAt\`/g;
 ## keys:
-s/`Session_name_unique_index`/`sessionNameUniqueIndex`/g;
+s/\`Session_name_unique_index\`/\`sessionNameUniqueIndex\`/g;
 
 
 
 ## soundPhoneme:
 
-s/`Sound_layout_name`/`soundLayoutName`/g;
-s/`Sound_phoneme_1`/`soundPhoneme1`/g;
-s/`Sound_phoneme_2`/`soundPhoneme2`/g;
-s/`Sound_phoneme_3`/`soundPhoneme3`/g;
-s/`Sound_phoneme`/`soundPhoneme`/g;
-s/`Sound_order`/`soundOrder`/g;
-s/`Sound_title_1`/`soundTitle1`/g;
-s/`Sound_title_2`/`soundTitle2`/g;
-s/`Sound_auto_increment`/`soundAutoIncr`/g;
-s/`Sound_timestamp`/`createdAt`/g;
-s/`Sound_unique_key`/`soundUniqueKey`/g;
-s/`Sound_2_Context_KEY`/`sound_2_contextKey`/g;
+s/\`Sound_layout_name\`/\`soundLayoutName\`/g;
+s/\`Sound_phoneme_1\`/\`soundPhoneme1\`/g;
+s/\`Sound_phoneme_2\`/\`soundPhoneme2\`/g;
+s/\`Sound_phoneme_3\`/\`soundPhoneme3\`/g;
+s/\`Sound_phoneme\`/\`soundPhoneme\`/g;
+s/\`Sound_order\`/\`soundOrder\`/g;
+s/\`Sound_title_1\`/\`soundTitle1\`/g;
+s/\`Sound_title_2\`/\`soundTitle2\`/g;
+s/\`Sound_auto_increment`\/\`soundAutoIncr\`/g;
+s/\`Sound_timestamp\`/\`createdAt\`/g;
+s/\`Sound_unique_key\`/\`soundUniqueKey\`/g;
+s/\`Sound_2_Context_KEY\`/\`sound_2_contextKey\`/g;
 
 
 
 
 ## stimword:
 
-s/`Stimword_layout_name`/`stimwordLayoutName`/g;
-s/`Stimword_page_nbr`/`stimwordPageNbr`/g;
-s/`Stimword_line_nbr`/`stimwordLineNbr`/g;
-s/`Stimword_stimword`/`stimwordWord`/g;
-s/`Stimword_auto_increment`/`stimwordAutoIncr`/g;
+s/\`Stimword_layout_name\`/\`stimwordLayoutName\`/g;
+s/\`Stimword_page_nbr\`/\`stimwordPageNbr\`/g;
+s/\`Stimword_line_nbr\`/\`stimwordLineNbr\`/g;
+s/\`Stimword_stimword\`/\`stimwordWord\`/g;
+s/\`Stimword_auto_increment\`/\`stimwordAutoIncr\`/g;
 ## keys
-s/`Stimword_2_Stimword_position_KEY`/`stimword_2_stimwordPositionKey`/g;
+s/\`Stimword_2_Stimword_position_KEY\`/\`stimword_2_stimwordPositionKey\`/g;
 
 
 
 ## stimword position:
 
-s/`Stimword_position_layout_name`/`stimwordPositionLayoutName`/g;
-s/`Stimword_position_page_nbr`/`stimwordPositionPageNbr`/g;
-s/`Stimword_position_line_nbr`/`stimwordPositionLineNbr`/g;
-s/`Stimword_position_stimword`/`stimwordPositionWord`/g;
-s/`Stimword_position_position`s/`stimwordPositionName`/g;
-s/`Stimword_position_position_nbr`/`stimwordPositionNbr`/g;
-s/`Stimword_position_setting`/`stimwordPositionSetting`/g;
-s/`Stimword_position_phoneme_1`/`stimwordPositionPhoneme1`/g;
-s/`Stimword_position_phoneme_2`/`stimwordPositionPhoneme2`/g;
-s/`Stimword_position_phoneme_3`/`stimwordPositionPhoneme3`/g;
-s/`Stimword_position_phoneme`/`stimwordPositionPhoneme`/g;
-s/`Stimword_position_background_color`/`stimwordPositionBackgroundColor`/g;
-s/`Stimword_position_bdr_color`/`stimwordPositionBdrColor`/g;
-s/`Stimword_position_bdr_style`/`stimwordPositionBdrStyle`/g;
-s/`Stimword_position_bdr_thickness`/`stimwordPositionBdrThickness`/g;
-s/`Stimword_position_timestamp`/`createdAt`/g;
-s/`Stimword_position_auto_increment`/`stimwordPositionAutoIncr`/g;
+s/\`Stimword_position_layout_name\`/\`stimwordPositionLayoutName\`/g;
+s/\`Stimword_position_page_nbr\`/\`stimwordPositionPageNbr\`/g;
+s/\`Stimword_position_line_nbr\`/\`stimwordPositionLineNbr\`/g;
+s/\`Stimword_position_stimword\`/\`stimwordPositionWord\`/g;
+s/\`Stimword_position_position\`s/\`stimwordPositionName\`/g;
+s/\`Stimword_position_position_nbr\`/\`stimwordPositionNbr\`/g;
+s/\`Stimword_position_setting\`/\`stimwordPositionSetting\`/g;
+s/\`Stimword_position_phoneme_1\`/\`stimwordPositionPhoneme1\`/g;
+s/\`Stimword_position_phoneme_2\`/\`stimwordPositionPhoneme2\`/g;
+s/\`Stimword_position_phoneme_3\`/\`stimwordPositionPhoneme3\`/g;
+s/\`Stimword_position_phoneme\`/\`stimwordPositionPhoneme\`/g;
+s/\`Stimword_position_background_color\`/\`stimwordPositionBackgroundColor\`/g;
+s/\`Stimword_position_bdr_color\`/\`stimwordPositionBdrColor\`/g;
+s/\`Stimword_position_bdr_style\`/\`stimwordPositionBdrStyle\`/g;
+s/\`Stimword_position_bdr_thickness\`/\`stimwordPositionBdrThickness\`/g;
+s/\`Stimword_position_timestamp\`/\`createdAt\`/g;
+s/\`Stimword_position_auto_increment\`/\`stimwordPositionAutoIncr\`/g;
 ## keys:
-s/`Stimword_position_unique_key`/`stimwordPositionUniqueKey`/g;
-s/`Stimword_position_secondary_key`/`stimwordPositionSecondaryKey`/g;
-s/`Context_2_Stimword_position_CONSTRAINT_1`/`context_2_StimwordPositionConstraint1`/g;
-s/`Context_2_Stimword_position_CONSTRAINT_2`/`context_2_StimwordPositionConstraint2`/g;
-s/`Stimword_position_2_Client_stimword_KEY`/`stimwordPosition_2_clientStimwordKey`/g;
-s/`Stimword_2_Stimword_position_CONSTRAINT_1`/`stimword_2_stimwordPositionConstraint1`/g;
-s/`Stimword_2_Stimword_position_CONSTRAINT_2`/`stimword_2_stimwordPositionConstraint2`/g;
+s/\`Stimword_position_unique_key\`/\`stimwordPositionUniqueKey\`/g;
+s/\`Stimword_position_secondary_key\`/\`stimwordPositionSecondaryKey\`/g;
+s/\`Context_2_Stimword_position_CONSTRAINT_1\`/\`context_2_StimwordPositionConstraint1\`/g;
+s/\`Context_2_Stimword_position_CONSTRAINT_2\`/\`context_2_StimwordPositionConstraint2\`/g;
+s/\`Stimword_position_2_Client_stimword_KEY\`/\`stimwordPosition_2_clientStimwordKey\`/g;
+s/\`Stimword_2_Stimword_position_CONSTRAINT_1\`/\`stimword_2_stimwordPositionConstraint1\`/g;
+s/\`Stimword_2_Stimword_position_CONSTRAINT_2\`/\`stimword_2_stimwordPositionConstraint2\`/g;
 
 
 
