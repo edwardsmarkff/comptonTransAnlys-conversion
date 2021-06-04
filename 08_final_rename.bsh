@@ -98,7 +98,7 @@ s/\`Stimword_position_2_Client_stimword_CONSTRAINT_2\`/\`stimwordPosition_2_clie
 
 ## contextLayout:
 
-s/\`Context_layout_name\`/\`contextLayoutName`/g;
+s/\`Context_layout_name\`/\`contextLayoutName\`/g;
 s/\`Context_phoneme_1\`/\`contextPhoneme1\`/g;
 s/\`Context_phoneme_2\`/\`contextPhoneme2\`/g;
 s/\`Context_phoneme_3\`/\`contextPhoneme3\`/g;
