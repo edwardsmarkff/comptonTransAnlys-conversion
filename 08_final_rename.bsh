@@ -6,7 +6,7 @@
 mysqldump   --extended-insert=FALSE  comptonTransAnlys  > comptonTransAnlys_08_FinalRename.sql ;
 
 
-sed   --in-place   --file=-    comptonTransAnlysFinalRename.sql   <<EOF ;
+sed   --in-place   --file=-    comptonTransAnlys_08_FinalRename.sql   <<EOF ;
 ##
 
 s/\`Client_master_auto_increment\` int(10) unsigned NOT NULL,/\`Client_master_auto_increment\` int unsigned NOT NULL,/g;
