@@ -76,7 +76,7 @@ s/`Client_stimword_page_nbr`/`clientStimwordPageNbr`/g;
 s/`Client_stimword_line_nbr`/`clientStimwordLineNbr`/g;
 s/`Client_stimword_setting`/`clientStimwordSetting`/g;
 s/`Client_stimword_notes`/`clientStimwordNotes`/g;
-s/`Client_context_auto_increment`/`clientContextAutoIncrement`/g;
+s/`Client_context_auto_increment`/`clientContextAutoIncr`/g;
 s/`Client_stimword_timestamp`/`clientStimwordTimestamp`/g;
 s/`Client_stimword_unique_index`/`clientStimwordUniqueIndex`/g;
 s/`Client_context_2_Client_stimword_CONSTRAINT_1`/`clientContext_2_clientStimwordConstraint1`/g;
