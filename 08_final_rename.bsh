@@ -169,6 +169,11 @@ s/\`Language_norms_phoneme_2\`/\`languageNormsPhoneme2\`/g;
 s/\`Language_norms_phoneme_3\`/\`languageNormsPhoneme3\`/g;
 s/\`Language_norms_phoneme\`/\`languageNormsPhoneme\`/g;
 s/\`Language_norms_percent\`/\`languageNormsPercent\`/g;
+s/\`Language_norms_error_1\`/\`languageNormsError1\`/g;
+s/\`Language_norms_error_2\`/\`languageNormsError2\`/g;
+s/\`Language_norms_error_3\`/\`languageNormsError3\`/g;
+s/\`Language_norms_error_4\`/\`languageNormsError4\`/g;
+
 s/\`Language_norms_auto_increment\`/\`languageNormsAutoIncr\`/g;
 s/\`Language_norms_timestamp\`/\`createdAt\`/g;
 ## keys
@@ -182,7 +187,7 @@ s/\`Context_2_Language_norms_CONSTRAINT_2\`/\`context_2_languageNormsConstraint2
 s/\`Phonetic_grid_layout_name\`/\`phoneticGridLayoutName\`/g;
 s/\`Phonetic_grid_row\`/\`phoneticGridRow\`/g;
 s/\`Phonetic_grid_col\`/\`phoneticGridCol\`/g;
-s/\`Phonetic_grid_val\`/\`phoneticGridVal\`/g;
+s/\`Phonetic_grid_value\`/\`phoneticGridValue\`/g;
 
 
 ## phoneticSpelling:
@@ -296,6 +301,7 @@ s/\`Context\`/\`context\`/g;
 s/\`Frequency_list\`/\`frequencyList\`/g;
 s/\`Lang_spec\`/\`langSpec\`/g;
 s/\`Language_norms\`/\`languageNorms\`/g;
+s/\`Phoneme_repeater\`/\`phonemeRepeater\`/g;
 s/\`Phonetic_grid\`/\`phoneticGrid\`/g;
 s/\`Phonetic_spelling\`/\`phoneticSpelling\`/g;
 s/\`Session_names\`/\`sessionNames\`/g;
