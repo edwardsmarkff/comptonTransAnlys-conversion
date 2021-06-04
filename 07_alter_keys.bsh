@@ -715,8 +715,8 @@ AND Stimword_position.Stimword_position_stimword	=	Stimword.Stimword_stimword
 ;
 
 ALTER TABLE Stimword_position
-	ADD CONSTRAINT	Stimword_2_Stimword_position_CONSTRAINT_2
-	FOREIGN KEY	Stimword_2_Stimword_position_FOREIGN_KEY_2
+	ADD CONSTRAINT	Stimword_2_Stimword_position_CONSTRAINT_1
+	FOREIGN KEY	Stimword_2_Stimword_position_FOREIGN_KEY_1
 		(	Stimword_auto_increment
 		)
 	REFERENCES	Stimword
@@ -740,8 +740,8 @@ ALTER TABLE Teacher
 
 ALTER TABLE Client_master
 
-	ADD CONSTRAINT	Teacher_2_Client_master_CONSTRAINT_1
-	FOREIGN KEY	Teacher_2_Client_master_FOREIGN_KEY_1
+	ADD CONSTRAINT	Teacher_2_Client_master_CONSTRAINT_2
+	FOREIGN KEY	Teacher_2_Client_master_FOREIGN_KEY_2
 			(	Client_master_teacher_email
 			)
 
