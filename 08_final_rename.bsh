@@ -14,7 +14,6 @@ sed   --in-place   --file=-    comptonTransAnlysFinalRename.sql   <<EOF ;
 s/`Client_master_teacher_email`/`teacherEmail`/g;
 s/`Client_master_client_email`/`clientMasterEmail`/g;
 s/`Client_master_spec_language`/`clientMasterSpecLanguage`/g;
-s/`Client_master_auto_increment`/`clientMasterAutoIncrement`/g;
 s/`Client_master_name`/`clientMasterName`/g;
 s/`Client_master_anlys_notes`/`clientMasterAnlysNotes`/g;
 s/`Client_master_active_flag`/`clientMasterActiveFlag`/g;
