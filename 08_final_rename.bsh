@@ -219,7 +219,7 @@ s/\`Sound_phoneme\`/\`soundPhoneme\`/g;
 s/\`Sound_order\`/\`soundOrder\`/g;
 s/\`Sound_title_1\`/\`soundTitle1\`/g;
 s/\`Sound_title_2\`/\`soundTitle2\`/g;
-s/\`Sound_auto_increment`\/\`soundAutoIncr\`/g;
+s/\`Sound_auto_increment\`/\`soundAutoIncr\`/g;
 s/\`Sound_timestamp\`/\`createdAt\`/g;
 s/\`Sound_unique_key\`/\`soundUniqueKey\`/g;
 s/\`Sound_2_Context_KEY\`/\`sound_2_contextKey\`/g;
