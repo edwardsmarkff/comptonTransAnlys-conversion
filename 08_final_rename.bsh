@@ -24,6 +24,7 @@ s/\`Stimword_position_auto_increment\` mediumint(9) NOT NULL,/\`Stimword_positio
 s/\`Client_master_teacher_email\`/\`teacherEmail\`/g;
 s/\`Client_master_client_email\`/\`clientMasterEmail\`/g;
 s/\`Client_master_spec_language\`/\`clientMasterSpecLanguage\`/g;
+s/\`Client_master_session_name\`/\`clientMasterSessionName\`/g;
 s/\`Client_master_name\`/\`clientMasterName\`/g;
 s/\`Client_master_anlys_notes\`/\`clientMasterAnlysNotes\`/g;
 s/\`Client_master_active_flag\`/\`clientMasterActiveFlag\`/g;
