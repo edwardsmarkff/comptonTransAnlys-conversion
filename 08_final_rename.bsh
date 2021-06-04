@@ -47,7 +47,7 @@ s/`Client_context_error_frequency`/`clientContextErrorFrequency`/g;
 s/`Client_context_error_notes`/`clientContextErrorNotes`/g;
 s/`Context_auto_increment`/`contextAutoIncr`/g;
 # keys:
-s/`Client_context_auto_increment`/`clientContextAutoIncrement`/g;
+s/`Client_context_auto_increment`/`clientContextAutoIncr`/g;
 s/`Client_context_timestamp`/`clientContextTimestamp`/g;
 s/`Client_context_sounds_unique_index`/`clientContextSoundsUniqueIndex`/g;
 s/`Client_master_2_Client_context_CONSTRAINT_1`/`clientMaster_2_ClientContextConstraint1`/g;
