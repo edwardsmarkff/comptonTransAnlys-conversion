@@ -511,8 +511,8 @@ ALTER TABLE Sound
 			)
 			;
 ALTER TABLE Context
-	ADD CONSTRAINT		Sound_2_Context_CONSTRAINT_1
-		FOREIGN KEY	Sound_2_Context_FOREIGN_KEY_1
+	ADD CONSTRAINT		Sound_2_Context_CONSTRAINT_2
+		FOREIGN KEY	Sound_2_Context_FOREIGN_KEY_2
 			(	Context_layout_name
 			,	Context_phoneme
 ## 2021-05-08			,	Context_phoneme_1
@@ -548,8 +548,8 @@ AND Context.Context_phoneme		= Sound.Sound_phoneme
 ;
 
 ALTER TABLE Context
-	ADD CONSTRAINT	Sound_2_Context_CONSTRAINT_2
-	FOREIGN KEY	Sound_2_Context_FOREIGN_KEY_2
+	ADD CONSTRAINT	Sound_2_Context_CONSTRAINT_1
+	FOREIGN KEY	Sound_2_Context_FOREIGN_KEY_1
 		(	Sound_auto_increment
 		)
 	REFERENCES	Sound
