@@ -48,7 +48,7 @@ s/`Client_context_error_notes`/`clientContextErrorNotes`/g;
 s/`Context_auto_increment`/`contextAutoIncr`/g;
 # keys:
 s/`Client_context_auto_increment`/`clientContextAutoIncr`/g;
-s/`Client_context_timestamp`/`clientContextTimestamp`/g;
+s/`Client_context_timestamp`/`createdAt`/g;
 s/`Client_context_sounds_unique_index`/`clientContextSoundsUniqueIndex`/g;
 s/`Client_master_2_Client_context_CONSTRAINT_1`/`clientMaster_2_ClientContextConstraint1`/g;
 s/`Client_master_2_Client_context_CONSTRAINT_2`/`clientMaster_2_ClientContextConstraint2`/g;
@@ -77,7 +77,7 @@ s/`Client_stimword_line_nbr`/`clientStimwordLineNbr`/g;
 s/`Client_stimword_setting`/`clientStimwordSetting`/g;
 s/`Client_stimword_notes`/`clientStimwordNotes`/g;
 s/`Client_context_auto_increment`/`clientContextAutoIncr`/g;
-s/`Client_stimword_timestamp`/`clientStimwordTimestamp`/g;
+s/`Client_stimword_timestamp`/`createdAt`/g;
 s/`Client_stimword_unique_index`/`clientStimwordUniqueIndex`/g;
 s/`Client_context_2_Client_stimword_CONSTRAINT_1`/`clientContext_2_clientStimwordConstraint1`/g;
 s/`Client_context_2_Client_stimword_CONSTRAINT_2`/`clientContext_2_clientStimwordConstraint2`/g;
@@ -96,7 +96,7 @@ s/`Context_position`/`contextPosition`/g;
 s/`Context_label_order`/`contextLabelOrder`/g;
 s/`Context_label_color`/`contextLabelColor`/g;
 s/`Context_count`/`contextCount`/g;
-s/`Context_timestamp`/`contextTimestamp`/g;
+s/`Context_timestamp`/`createdAt`/g;
 s/`Context_auto_increment`/`contextAutoIncr`/g;
 s/`Context_unique_key`/`contextUniqueKey`/g;
 s/`Context_2_Client_context_KEY`/`context_2_clientContextKey`/g;
@@ -106,7 +106,7 @@ s/`Context_2_Stimword_position_KEY`/`context_2_stimwordPositionKey`/g;
 
 ## sound:
 s/`Sound_auto_increment`/`soundAutoIncr`/g;
-s/`Stimword_position_auto_increment`/`stimwordPositionAutoIncrement`/g;
+s/`Stimword_position_auto_increment`/`stimwordPositionAutoIncr`/g;
 s/`Sound_2_Context_CONSTRAINT_1`/`sound_2_contextConstraint1`/g;
 s/`Sound_2_Context_CONSTRAINT_2`/`sound_2_contextConstraint2`/g;
 
@@ -288,6 +288,9 @@ s/`Sound`/`sound`/g;
 s/`Stimword`/`stimword`/g;
 s/`Stimword_position`/`stimwordPosition`/g;
 s/`Teacher`/`teacher`/g;
+
+/`createdAt`/a
+`updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ;
 
 mariadb --verbose  < comptonTransAnlys_08_FinalRename.sql ;
 
