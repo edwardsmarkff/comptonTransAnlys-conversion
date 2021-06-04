@@ -306,7 +306,7 @@ s/\`Teacher\`/\`teacher\`/g;
 s/ON UPDATE current_timestamp()//;
 
 /\`createdAt\`/a\
-\`updatedAt\` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ;
+    \`updatedAt\` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ,
 
 
 EOF
