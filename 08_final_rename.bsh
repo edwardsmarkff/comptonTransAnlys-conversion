@@ -38,7 +38,7 @@ s/\`Client_master_auto_increment\`/\`clientMasterAutoIncr\`/g;
 s/\`Client_master_timestamp\`/\`createdAt\`/g;
 s/\`Client_master_unique_key\`/\`clientMasterUniqueKey\`/g;
 ## keys:
-s/\`Client_master_2_Client_context_KEY\`/\`clientMaster_2_clientContext\`/g;
+s/\`Client_master_2_Client_context_KEY\`/\`clientMasterMiscKeys_2_clientContext\`/g;
 s/\`Session_names_2_Client_master_2_session_names_CONSTRAINT\`/\`sessionNames_2_clientMaster\`/g;
 s/\`Teacher_2_Client_master_CONSTRAINT_1\`/\`teacherMiscKeys_2_clientMaster\`/g;
 s/\`Teacher_2_Client_master_CONSTRAINT_2\`/\`teacherAutoIncr_2_clientMaster\`/g;
@@ -298,7 +298,7 @@ s/\`Teacher_create_date\`/\`createdAt\`/g;
 s/\`Teacher_auto_increment\`/\`teacherAutoIncr\`/g;
 ## keys:
 s/\`Teacher_email_unique_index\`/\`teacherEmailIniqueIndex\`/g;
-s/\`Teacher_2_Client_master_KEY\`/\`teacher_2_clientMasterKey\`/g;
+s/\`Teacher_2_Client_master_KEY\`/\`teacherMiscKeys_2_clientMaster\`/g;
 
 
 
