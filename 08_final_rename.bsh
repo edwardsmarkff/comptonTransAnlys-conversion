@@ -99,7 +99,7 @@ s/\`Client_stimword_timestamp\`/\`createdAt\`/g;
 s/\`Client_stimword_unique_index\`/\`clientStimwordUniqueIndex\`/g;
 s/\`Client_context_2_Client_stimword_KEY\`/\`clientContext_2_clientStimwordKey\`/g;
 s/\`Client_context_2_Client_stimword_CONSTRAINT_1\`/\`clientContext_2_clientStimwordConstraint1\`/g;
-s/\`Client_context_2_Client_stimword_CONSTRAINT_2\`/\`clientContext_2_clientStimwordConstraint2\`/g;
+s/\`Client_context_2_Client_stimword_CONSTRAINT_2\`/\`clientContext_2_clientStimwordAutoIncr\`/g;
 s/\`Stimword_position_2_Client_stimword_CONSTRAINT_1\`/\`stimwordPosition_2_clientStimwordConstraint1\`/g;
 s/\`Stimword_position_2_Client_stimword_CONSTRAINT_2\`/\`stimwordPosition_2_clientStimwordConstraint2\`/g;
 
