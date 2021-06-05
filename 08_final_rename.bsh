@@ -122,8 +122,8 @@ s/\`Context_unique_key\`/\`contextUniqueKey\`/g;
 s/\`Context_2_Client_context_KEY\`/\`context_2_clientContext\`/g;
 s/\`Context_2_Language_norms_KEY\`/\`context_2_languageNorms\`/g;
 s/\`Context_2_Stimword_position_KEY\`/\`context_2_stimwordPosition\`/g;
-s/\`Context_2_Client_context_CONSTRAINT_1\`/\`contextMiscKeys_2_clientContext\'/g;
-s/\`Context_2_Client_context_CONSTRAINT_2\`/\`contextAutoIncr_2_clientContext\'/g;
+s/\`Context_2_Client_context_CONSTRAINT_1\`/\`contextMiscKeys_2_clientContext\`/g;
+s/\`Context_2_Client_context_CONSTRAINT_2\`/\`contextAutoIncr_2_clientContext\`/g;
 
 
 
