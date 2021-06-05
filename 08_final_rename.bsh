@@ -41,7 +41,7 @@ s/\`Client_master_unique_key\`/\`clientMasterUniqueKey\`/g;
 s/\`Client_master_2_Client_context_KEY\`/\`clientMaster_2_clientContextKey\`/g;
 s/\`Session_names_2_Client_master_2_session_names_CONSTRAINT\`/\`sessionNames_2_clientMaster_2_Constraint\`/g;
 s/\`Teacher_2_Client_master_CONSTRAINT_1\`/\`teacher_2_clientMasterConstraint1\`/g;
-s/\`Teacher_2_Client_master_CONSTRAINT_2\`/\`teacher_2_clientMasterConstraint2\`/g;
+s/\`Teacher_2_Client_master_CONSTRAINT_2\`/\`teacherAutoIncr_2_clientMaster\`/g;
 
 
 ## clientContext:
@@ -67,8 +67,8 @@ s/\`Context_auto_increment\`/\`contextAutoIncr\`/g;
 s/\`Client_context_auto_increment\`/\`clientContextAutoIncr\`/g;
 s/\`Client_context_timestamp\`/\`createdAt\`/g;
 s/\`Client_context_sounds_unique_index\`/\`clientContextSoundsUniqueIndex\`/g;
-s/\`Client_master_2_Client_context_CONSTRAINT_1\`/\`clientMaster_2_ClientContextConstraint1\`/g;
-s/\`Client_master_2_Client_context_CONSTRAINT_2\`/\`clientMaster_2_ClientContextConstraint2\`/g;
+s/\`Client_master_2_Client_context_CONSTRAINT_1\`/\`clientMaster_2_clientContextConstraint1\`/g;
+s/\`Client_master_2_Client_context_CONSTRAINT_2\`/\`clientMasterAutoIncr_2_clientContext\`/g;
 s/\`Frequency_list_2_Client_context_CONSTRAINT\`/\`frequencyList_2_clientContextConstraint\`/g;
 
 
@@ -99,9 +99,9 @@ s/\`Client_stimword_timestamp\`/\`createdAt\`/g;
 s/\`Client_stimword_unique_index\`/\`clientStimwordUniqueIndex\`/g;
 s/\`Client_context_2_Client_stimword_KEY\`/\`clientContext_2_clientStimwordKey\`/g;
 s/\`Client_context_2_Client_stimword_CONSTRAINT_1\`/\`clientContext_2_clientStimwordConstraint1\`/g;
-s/\`Client_context_2_Client_stimword_CONSTRAINT_2\`/\`clientContextAutoIncr_2_clientStimwordAutoIncr\`/g;
+s/\`Client_context_2_Client_stimword_CONSTRAINT_2\`/\`clientContextAutoIncr_2_clientStimword\`/g;
 s/\`Stimword_position_2_Client_stimword_CONSTRAINT_1\`/\`stimwordPosition_2_clientStimwordConstraint1\`/g;
-s/\`Stimword_position_2_Client_stimword_CONSTRAINT_2\`/\`stimwordPositionAutoIncr_2_clientStimwordAutoIncr\`/g;
+s/\`Stimword_position_2_Client_stimword_CONSTRAINT_2\`/\`stimwordPositionAutoIncr_2_clientStimword\`/g;
 
 
 ## contextLayout:
@@ -122,7 +122,7 @@ s/\`Context_unique_key\`/\`contextUniqueKey\`/g;
 s/\`Context_2_Client_context_KEY\`/\`context_2_clientContextKey\`/g;
 s/\`Context_2_Language_norms_KEY\`/\`context_2_languageNormsKey\`/g;
 s/\`Context_2_Client_context_CONSTRAINT_1\`/\`context_2_clientContextConstraint1\'/g;
-s/\`Context_2_Client_context_CONSTRAINT_2\`/\`context_2_clientContextConstraint2\'/g;
+s/\`Context_2_Client_context_CONSTRAINT_2\`/\`contextAutoIncr_2_clientContext\'/g;
 s/\`Context_2_Stimword_position_KEY\`/\`context_2_stimwordPositionKey\`/g;
 
 
@@ -130,7 +130,7 @@ s/\`Context_2_Stimword_position_KEY\`/\`context_2_stimwordPositionKey\`/g;
 s/\`Sound_auto_increment\`/\`soundAutoIncr\`/g;
 s/\`Stimword_position_auto_increment\`/\`stimwordPositionAutoIncr\`/g;
 s/\`Sound_2_Context_CONSTRAINT_1\`/\`sound_2_contextConstraint1\`/g;
-s/\`Sound_2_Context_CONSTRAINT_2\`/\`sound_2_contextConstraint2\`/g;
+s/\`Sound_2_Context_CONSTRAINT_2\`/\`soundAutoIncr_2_context\`/g;
 
 
 
@@ -186,7 +186,7 @@ s/\`Language_norms_timestamp\`/\`createdAt\`/g;
 ## keys
 s/\`Language_norms_NONunique_key\`/\`languageNormsNonUniqueKey\`/g;
 s/\`Context_2_Language_norms_CONSTRAINT_1\`/\`context_2_languageNormsConstraint1\`/g;
-s/\`Context_2_Language_norms_CONSTRAINT_2\`/\`context_2_languageNormsConstraint2\`/g;
+s/\`Context_2_Language_norms_CONSTRAINT_2\`/\`contextAutoIncr_2_languageNorms\`/g;
 
 
 ## phoneticGrid:
@@ -277,10 +277,10 @@ s/\`Stimword_position_auto_increment\`/\`stimwordPositionAutoIncr\`/g;
 s/\`Stimword_position_unique_key\`/\`stimwordPositionUniqueKey\`/g;
 s/\`Stimword_position_secondary_key\`/\`stimwordPositionSecondaryKey\`/g;
 s/\`Context_2_Stimword_position_CONSTRAINT_1\`/\`context_2_StimwordPositionConstraint1\`/g;
-s/\`Context_2_Stimword_position_CONSTRAINT_2\`/\`context_2_StimwordPositionConstraint2\`/g;
+s/\`Context_2_Stimword_position_CONSTRAINT_2\`/\`contextAutoIncr_2_StimwordPosition\`/g;
 s/\`Stimword_position_2_Client_stimword_KEY\`/\`stimwordPosition_2_clientStimwordKey\`/g;
 s/\`Stimword_2_Stimword_position_CONSTRAINT_1\`/\`stimword_2_stimwordPositionConstraint1\`/g;
-s/\`Stimword_2_Stimword_position_CONSTRAINT_2\`/\`stimword_2_stimwordPositionConstraint2\`/g;
+s/\`Stimword_2_Stimword_position_CONSTRAINT_2\`/\`stimwordAutoIntr_2_stimwordPosition\`/g;
 
 
 
