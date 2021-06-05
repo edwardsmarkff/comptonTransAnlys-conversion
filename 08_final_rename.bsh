@@ -5,6 +5,7 @@
 #   TO DO:
 #   -   rename AutoIncr keys
 #   -   reorder rows in tables
+#   -   remove the AutoIncr minimum (?)
 
 
 mysqldump   --extended-insert=FALSE  comptonTransAnlys  > comptonTransAnlys_08_FinalRename.sql ;
