@@ -97,7 +97,7 @@ s/\`Client_stimword_auto_increment\`/\`clientStimwordAutoIncr\`/g;
 s/\`Client_stimword_timestamp\`/\`createdAt\`/g;
 ## keys:
 s/\`Client_stimword_unique_index\`/\`clientStimwordUniqueIndex\`/g;
-s/\`Client_context_2_Client_stimword_KEY\`/\`clientContext_2_clientStimword\`/g;
+s/\`Client_context_2_Client_stimword_KEY\`/\`clientContextAutoIncr_2_clientStimword\`/g;
 s/\`Client_context_2_Client_stimword_CONSTRAINT_1\`/\`clientContextMiscKeys_2_clientStimword\`/g;
 s/\`Client_context_2_Client_stimword_CONSTRAINT_2\`/\`clientContextAutoIncr_2_clientStimword\`/g;
 s/\`Stimword_position_2_Client_stimword_CONSTRAINT_1\`/\`stimwordPositionMiscKeys_2_clientStimword\`/g;
