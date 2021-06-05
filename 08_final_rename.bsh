@@ -3,7 +3,7 @@
 # 08_final_rename.bsh   -- 2021-06-03
 
 #   TO DO:
-#   -   rename AutoIncr keys
+#   -   rename AutoIncr keys  (remove 'Constraint' and 'Key' distinction ??)
 #   -   reorder rows in tables
 #   -   remove the AutoIncr minimum (?)
 
