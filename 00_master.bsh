@@ -28,5 +28,8 @@ bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log     
 echo $(date);
 bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1  ;
 echo $(date);
+bash -vx  07_final_rename.bsh                  > 07_final_rename.bsh.log               2>&1  ;
+echo $(date);
+
 
 echo "finished 00_master.bsh!"
