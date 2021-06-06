@@ -334,6 +334,7 @@ EOF
 mariadb --verbose <<END  ;
 
 use comptonTransAnlys ;
+SELECT  "Remove all existing tables!";
 drop table  if exists   Auth0_LoginUsers            ;
 drop table  if exists   Client_context              ;
 drop table  if exists   Client_master               ;
@@ -353,10 +354,11 @@ drop table  if exists   Teacher                     ;
 drop table  if exists   conversionTable             ;
 drop table  if exists   dummy_table                 ;
 drop table  if exists   fontTable                   ;
-
+SELECT "Done removing all existing tables!";
 END
 
 mariadb --verbose comptonTransAnlys   < comptonTransAnlys_08_FinalRename.sql ;
 
 echo "end of sed part 08_final_rename.bsh.";
 
+exit;
