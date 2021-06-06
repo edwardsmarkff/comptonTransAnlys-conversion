@@ -310,7 +310,7 @@ s/\`Client_master\`/\`clientMaster\`/g;
 s/\`Client_stimword\`/\`clientStimword\`/g;
 s/\`Context\`/\`context\`/g;
 s/\`Frequency_list\`/\`frequencyList\`/g;
-s/\`Lang_spec\`/\`langSpec\`/g;
+s/\`Lang_spec\`/\`languageSpec\`/g;
 s/\`Language_norms\`/\`languageNorms\`/g;
 s/\`Phoneme_repeater\`/\`phonemeRepeater\`/g;
 s/\`Phonetic_grid\`/\`phoneticGrid\`/g;
@@ -325,8 +325,7 @@ s/\`Teacher\`/\`teacher\`/g;
 
 s/ON UPDATE current_timestamp()//;
 
-/\`createdAt\`/a\
-    \`updatedAt\` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() ,
+
 
 
 EOF
@@ -360,6 +359,24 @@ SELECT "Done removing all existing tables!";
 END
 
 mariadb --verbose comptonTransAnlys   < comptonTransAnlys_08_FinalRename.sql ;
+
+mariadb --verbose comptonTransAnlys  <<END ;
+
+ALTER TABLE `clientContext`     ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `clientMaster`      ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `clientStimword`    ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `context`           ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `languageSpec`      ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `languageNorms`     ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `phoneticSpelling`  ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `sessionNames`      ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `sound`             ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `stimwordPosition`  ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+ALTER TABLE `teacher`           ADD COLUMN IF NOT EXISTS `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER `createdAt` ;
+
+END
+
+
 
 echo "end of sed part 08_final_rename.bsh.";
 
