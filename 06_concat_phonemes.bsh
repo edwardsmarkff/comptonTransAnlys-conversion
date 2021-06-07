@@ -23,19 +23,26 @@ ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_phoneme\`    CHAR
  
 
 
-UPDATE Context           SET Context_phoneme            = CONCAT( Context_phoneme_1           , Context_phoneme_2           , Context_phoneme_3           ) ;
+UPDATE \`Context\`
+  SET \`Context_phoneme\`            = CONCAT( \`Context_phoneme_1\`           , \`Context_phoneme_2\`           , \`Context_phoneme_3\`           ) ;
  
-UPDATE Sound             SET Sound_phoneme              = CONCAT( Sound_phoneme_1             , Sound_phoneme_2             , Sound_phoneme_3             ) ;
+UPDATE \`Sound\`
+  SET \`Sound_phoneme\`              = CONCAT( \`Sound_phoneme_1\`             , \`Sound_phoneme_2\`             , \`Sound_phoneme_3\`             ) ;
 
-UPDATE Client_context    SET Client_context_phoneme     = CONCAT( Client_context_phoneme_1    , Client_context_phoneme_2    , Client_context_phoneme_3    ) ;
+UPDATE \`Client_context\`
+  SET \`Client_context_phoneme\`     = CONCAT( \`Client_context_phoneme_1\`    , \`Client_context_phoneme_2\`    , \`Client_context_phoneme_3\`    ) ;
 
-UPDATE Client_stimword   SET Client_stimword_phoneme    = CONCAT( Client_stimword_phoneme_1   , Client_stimword_phoneme_2   , Client_stimword_phoneme_3   ) ;
+UPDATE \`Client_stimword\`
+  SET \`Client_stimword_phoneme\`    = CONCAT( \`Client_stimword_phoneme_1\`   , \`Client_stimword_phoneme_2\`   , \`Client_stimword_phoneme_3\`   ) ;
 
-UPDATE Stimword_position SET Stimword_position_phoneme  = CONCAT( Stimword_position_phoneme_1 , Stimword_position_phoneme_2 , Stimword_position_phoneme_3 ) ;
+UPDATE \`Stimword_position\`
+  SET \`Stimword_position_phoneme\`  = CONCAT( \`Stimword_position_phoneme_1\` , \`Stimword_position_phoneme_2\` , \`Stimword_position_phoneme_3\` ) ;
 
-UPDATE Lang_spec         SET Lang_spec_phoneme          = CONCAT( Lang_spec_phoneme_1         , Lang_spec_phoneme_2         , Lang_spec_phoneme_3         ) ;
+UPDATE \`Lang_spec\`
+  SET \`Lang_spec_phoneme\`          = CONCAT( \`Lang_spec_phoneme_1\`         , \`Lang_spec_phoneme_2\`         , \`Lang_spec_phoneme_3\`         ) ;
 
-UPDATE Language_norms    SET Language_norms_phoneme     = CONCAT( Language_norms_phoneme_1    , Language_norms_phoneme_2    , Language_norms_phoneme_3    ) ;
+UPDATE \`Language_norms\`
+  SET \`Language_norms_phoneme\`     = CONCAT( \`Language_norms_phoneme_1\`    , \`Language_norms_phoneme_2\`    , \`Language_norms_phoneme_3\`    ) ;
 
 END
 
