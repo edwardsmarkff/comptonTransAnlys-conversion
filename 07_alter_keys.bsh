@@ -12,73 +12,73 @@
 
 mariadb  --verbose   comptonTransAnlys   <<END;
 
-ALTER TABLE Teacher   DROP PRIMARY KEY  ;  -- 2021-06-03
+ALTER TABLE \`Teacher\`   DROP PRIMARY KEY  ;  -- 2021-06-03
 
-ALTER TABLE Stimword_position  DROP PRIMARY KEY ;
-ALTER TABLE Stimword_position ADD PRIMARY KEY ( Stimword_position_auto_increment) ;
+ALTER TABLE \`Stimword_position\`  DROP PRIMARY KEY ;
+ALTER TABLE \`Stimword_position\` ADD PRIMARY KEY ( \`Stimword_position_auto_increment\`) ;
 
-ALTER TABLE Stimword_position ADD UNIQUE KEY Stimword_position_unique_key
-(Stimword_position_layout_name
-,Stimword_position_page_nbr
-,Stimword_position_line_nbr
-,Stimword_position_stimword
-,Stimword_position_position
-,Stimword_position_position_nbr
-,Stimword_position_setting
-,Stimword_position_phoneme
+ALTER TABLE `\Stimword_position\` ADD UNIQUE KEY \`Stimword_position_unique_key\`
+(`\Stimword_position_layout_name\`
+,`\Stimword_position_page_nbr\`
+,\`Stimword_position_line_nbr`\
+,\`Stimword_position_stimword\`
+,\`Stimword_position_position\`
+,\`Stimword_position_position_nbr\`
+,\`Stimword_position_setting\`
+,`\Stimword_position_phoneme\`
 ##	2021-05-08	,Stimword_position_phoneme_1
 ##	2021-05-08	,Stimword_position_phoneme_2
 ##	2021-05-08	,Stimword_position_phoneme_3
 ) ;
 
-ALTER TABLE Client_master	DROP KEY Client_master_teacher_email;
-ALTER TABLE Client_master
-	ADD UNIQUE KEY Client_master_unique_key
-		( Client_master_teacher_email
-		, Client_master_client_email
-		, Client_master_session_name
-		, Client_master_layout_name
+ALTER TABLE \`Client_master\`	DROP KEY \`Client_master_teacher_email\`;
+ALTER TABLE \`Client_master\`
+	ADD UNIQUE KEY \`Client_master_unique_key\`
+		( \`Client_master_teacher_email\`
+		, \`Client_master_client_email\`
+		, \`Client_master_session_name\`
+		, \`Client_master_layout_name\`
 		)
 		;
 
-ALTER TABLE Context
-	ADD UNIQUE KEY	Context_unique_key
-		(	Context_layout_name
-		,	Context_position
-		,	Context_phoneme
+ALTER TABLE \`Context\`
+	ADD UNIQUE KEY	\`Context_unique_key\`
+		(	\`Context_layout_name\`
+		,	\`Context_position\`
+		,	\`Context_phoneme\`
 ## 2021-05-08		,	Context_phoneme_1
 ## 2021-05-08		,	Context_phoneme_2
 ## 2021-05-08		,	Context_phoneme_3
 		)
 		;
 
-ALTER TABLE Language_norms DROP KEY Language_norms_layout_name;
-ALTER TABLE Language_norms
-	ADD KEY	Language_norms_NONunique_key
-	( Language_norms_layout_name
-	, Language_norms_language_name
-	, Language_norms_position
-	, Language_norms_phoneme
+ALTER TABLE \`Language_norms\` DROP KEY \`Language_norms_layout_name\`;
+ALTER TABLE \`Language_norms\`
+	ADD KEY	\`Language_norms_NONunique_key\`
+	( \`Language_norms_layout_name\`
+	, \`Language_norms_language_name\`
+	, \`Language_norms_position\`
+	, \`Language_norms_phoneme\`
 ## 2021-05-08	, Language_norms_phoneme_1
 ## 2021-05-08	, Language_norms_phoneme_2
 ## 2021-05-08	, Language_norms_phoneme_3
 	)
 	;
 
-ALTER TABLE Sound DROP KEY Sound_key;
-ALTER TABLE Sound
-	ADD UNIQUE KEY Sound_unique_key
-		( Sound_layout_name
-		, Sound_phoneme
+ALTER TABLE \`Sound DROP\` KEY \`Sound_key\`;
+ALTER TABLE \`Sound\`
+	ADD UNIQUE KEY \`Sound_unique_key\`
+		( \`Sound_layout_name\`
+		, \`Sound_phoneme\`
 ## 2021-05-08		, Sound_phoneme_1
 ## 2021-05-08		, Sound_phoneme_2
 ## 2021-05-08		, Sound_phoneme_3
 		)
 		;
 
-ALTER TABLE Client_master MODIFY COLUMN Client_master_auto_increment INT UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE Client_context MODIFY COLUMN Client_context_auto_increment INT UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE Client_stimword MODIFY COLUMN Client_stimword_auto_increment INT UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE \`Client_master\`   MODIFY COLUMN \`Client_master_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE \`Client_context\`  MODIFY COLUMN \`Client_context_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE \`Client_stimword\` MODIFY COLUMN \`Client_stimword_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 #				2007-07-03
 #				redone 2010-04-13
