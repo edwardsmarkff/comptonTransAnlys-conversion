@@ -287,25 +287,25 @@ ALTER TABLE Client_context ADD COLUMN	\`Context_auto_increment\` MEDIUMINT UNSIG
 	AFTER \`Client_context_error_notes\`
 ;
 
-UPDATE        Client_context
-INNER JOIN    Context
-SET Client_context.Context_auto_increment		= Context.Context_auto_increment
+UPDATE        \`Client_context\`
+INNER JOIN    \`Context\`
+SET \`Client_context\`.\`Context_auto_increment\`		= \`Context\`.\`Context_auto_increment\`
 WHERE 1
-AND Client_context.Client_context_layout_name		= Context.Context_layout_name
-AND Client_context.Client_context_position		= Context.Context_position
-AND Client_context.Client_context_phoneme      		= Context.Context_phoneme
+AND \`Client_context\`.\`Client_context_layout_name\`		= \`Context\`.Context_layout_name\`
+AND \`Client_context\`.\`Client_context_position\`		= \`Context\`.Context_position\`
+AND \`Client_context\`.\`Client_context_phoneme\`      		= \`Context\`.Context_phoneme\`
 ## 2021-05-08	AND Client_context.Client_context_phoneme_1    		= Context.Context_phoneme_1
 ## 2021-05-08	AND Client_context.Client_context_phoneme_2		= Context.Context_phoneme_2
 ## 2021-05-08	AND Client_context.Client_context_phoneme_3		= Context.Context_phoneme_3
 ;
 
-ALTER TABLE Client_context
-	ADD CONSTRAINT		Context_2_Client_context_CONSTRAINT_2
-		FOREIGN KEY	Context_2_Client_context_FOREIGN_KEY_2
-			(	Context_auto_increment
+ALTER TABLE \`Client_context\`
+	ADD CONSTRAINT		\`Context_2_Client_context_CONSTRAINT_2\`
+		FOREIGN KEY	\`Context_2_Client_context_FOREIGN_KEY_2\`
+			(	\`Context_auto_increment\`
 			)
-	REFERENCES    Context
-			(	Context_auto_increment
+	REFERENCES    `\Context\`
+			(	\`Context_auto_increment\`
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -317,11 +317,11 @@ ALTER TABLE Client_context
 #	Language_norms_2_Context_foreign_key.sql
 #
 #
-ALTER TABLE Context
-	ADD KEY Context_2_Language_norms_KEY
-			(	Context_layout_name		## 01
-			,	Context_position		## 02
-			,	Context_phoneme			## 03
+ALTER TABLE \`Context\`
+	ADD KEY \`Context_2_Language_norms_KEY\`
+			(	\`Context_layout_name\`		## 01
+			,	\`Context_position\`		## 02
+			,	\`Context_phoneme\`			## 03
 ## 2021-05-08			,	Context_phoneme_1		## 03
 ## 2021-05-08			,	Context_phoneme_2		## 04
 ## 2021-05-08			,	Context_phoneme_3		## 05
@@ -329,19 +329,19 @@ ALTER TABLE Context
 			;
 
 ALTER TABLE Language_norms
-	ADD CONSTRAINT		Context_2_Language_norms_CONSTRAINT_1
-		FOREIGN KEY	Context_2_Language_norms_FOREIGN_KEY_1
-			(	Language_norms_layout_name	## 01
-			,	Language_norms_position		## 02
-			,	Language_norms_phoneme		## 03
+	ADD CONSTRAINT		\`Context_2_Language_norms_CONSTRAINT_1\`
+		FOREIGN KEY	\`Context_2_Language_norms_FOREIGN_KEY_1\`
+			(	\`Language_norms_layout_name\`	## 01
+			,	\`Language_norms_position\`		## 02
+			,	\`Language_norms_phoneme\`		## 03
 ## 2021-05-08			,	Language_norms_phoneme_1	## 03
 ## 2021-05-08			,	Language_norms_phoneme_2	## 04
 ## 2021-05-08			,	Language_norms_phoneme_3	## 05
 			)
-		REFERENCES	Context
-			(	Context_layout_name		## 01
-			,	Context_position		## 02
-			,	Context_phoneme			## 03
+		REFERENCES	\`Context\`
+			(	\`Context_layout_name\`		## 01
+			,	\`Context_position\`		## 02
+			,	\`Context_phoneme\`			## 03
 ## 2021-05-08			,	Context_phoneme_1		## 03
 ## 2021-05-08			,	Context_phoneme_2		## 04
 ## 2021-05-08			,	Context_phoneme_3		## 05
@@ -351,29 +351,29 @@ ALTER TABLE Language_norms
 	;
 
 
-ALTER TABLE Language_norms ADD COLUMN Context_auto_increment MEDIUMINT UNSIGNED NOT NULL
-	AFTER Language_norms_percent
+ALTER TABLE \`Language_norms\` ADD COLUMN \`Context_auto_increment\` MEDIUMINT UNSIGNED NOT NULL
+	AFTER \`Language_norms_percent\`
 ;
 
-UPDATE        Language_norms
-INNER JOIN    Context
-SET Language_norms.Context_auto_increment		= Context.Context_auto_increment
+UPDATE        \`Language_norms\`
+INNER JOIN    \`Context\`
+SET \`Language_norms\`.\`Context_auto_increment\`		= \`Context\`.\`Context_auto_increment\`
 WHERE 1
-AND Language_norms.Language_norms_layout_name		= Context.Context_layout_name
-AND Language_norms.Language_norms_position		= Context.Context_position
-AND Language_norms.Language_norms_phoneme      		= Context.Context_phoneme
-## 2021-05-08	AND Language_norms.Language_norms_phoneme_1    	= Context.Context_phoneme_1
+AND \`Language_norms\`.\`Language_norms_layout_name\`		= \`Context\`.\`Context_layout_name\`
+AND \`Language_norms\`.\`Language_norms_position\`		= \`Context\`.\`Context_position\`
+AND \`Language_norms\`.\`Language_norms_phoneme\`      		= \`Context\`.\`Context_phoneme\`
+## 2021-05-08	AND Language_norms.Language_norms_phoneme_1    	= \`Context\`.\`Context_phoneme_1\`
 ## 2021-05-08	AND Language_norms.Language_norms_phoneme_2		= Context.Context_phoneme_2
 ## 2021-05-08	AND Language_norms.Language_norms_phoneme_3		= Context.Context_phoneme_3
 ;
 
-ALTER TABLE Language_norms
-	ADD CONSTRAINT		Context_2_Language_norms_CONSTRAINT_2
-		FOREIGN KEY	Context_2_Language_norms_FOREIGN_KEY_2
-			(	Context_auto_increment
+ALTER TABLE \`Language_norms\`
+	ADD CONSTRAINT		\`Context_2_Language_norms_CONSTRAINT_2\`
+		FOREIGN KEY	\`Context_2_Language_norms_FOREIGN_KEY_2\`
+			(	\`Context_auto_increment\`
 			)
-	REFERENCES    Context
-			(	Context_auto_increment
+	REFERENCES    \`Context\`
+			(	\`Context_auto_increment\`
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -385,31 +385,31 @@ ALTER TABLE Language_norms
 ##	Context_2_Stimword_position_foreign_key.sql
 ##
 ##
-ALTER TABLE Context
-	ADD KEY	Context_2_Stimword_position_KEY
-			(	Context_layout_name	## 01
-			,	Context_position	## 02
-			,	Context_phoneme		## 03
+ALTER TABLE \`Context\`
+	ADD KEY	\`Context_2_Stimword_position_KEY\`
+			(	\`Context_layout_name\`		## 01
+			,	\`Context_position\`		## 02
+			,	\`Context_phoneme\`		## 03
 ## 2021-05-08			,	Context_phoneme_1	## 03
 ## 2021-05-08			,	Context_phoneme_2	## 04
 ## 2021-05-08			,	Context_phoneme_3	## 05
 			)
 			;
 
-ALTER TABLE Stimword_position
-	ADD CONSTRAINT		Context_2_Stimword_position_CONSTRAINT_1
-		FOREIGN KEY	Context_2_Stimword_position_FOREIGN_KEY_1
-			(	Stimword_position_layout_name	## 01
-			,	Stimword_position_position	## 02
-			,	Stimword_position_phoneme	## 03
+ALTER TABLE \`Stimword_position\`
+	ADD CONSTRAINT		\`Context_2_Stimword_position_CONSTRAINT_1\`
+		FOREIGN KEY	\`Context_2_Stimword_position_FOREIGN_KEY_1\`
+			(	\`Stimword_position_layout_name\`	## 01
+			,	\`Stimword_position_position\`		## 02
+			,	\`Stimword_position_phoneme\`		## 03
 ## 2021-05-08			,	Stimword_position_phoneme_1	## 03
 ## 2021-05-08			,	Stimword_position_phoneme_2	## 04
 ## 2021-05-08			,	Stimword_position_phoneme_3	## 05
 			)
-		REFERENCES	Context
-			(	Context_layout_name	## 01
-			,	Context_position	## 02
-			,	Context_phoneme		## 03
+		REFERENCES	\`Context\`
+			(	\`Context_layout_name\`		## 01
+			,	\`Context_position\`		## 02
+			,	\`Context_phoneme\`		## 03
 ## 2021-05-08			,	Context_phoneme_1	## 03
 ## 2021-05-08			,	Context_phoneme_2	## 04
 ## 2021-05-08			,	Context_phoneme_3	## 05
@@ -419,30 +419,30 @@ ALTER TABLE Stimword_position
 	;
 
 
-ALTER TABLE Context MODIFY COLUMN		Context_auto_increment MEDIUMINT UNSIGNED NOT NULL;
-ALTER TABLE Stimword_position ADD COLUMN	Context_auto_increment MEDIUMINT UNSIGNED NOT NULL
-	AFTER Stimword_position_bdr_thickness
+ALTER TABLE \`Context\` MODIFY COLUMN		\`Context_auto_increment\` MEDIUMINT UNSIGNED NOT NULL;
+ALTER TABLE \`Stimword_position\` ADD COLUMN	\`Context_auto_increment\` MEDIUMINT UNSIGNED NOT NULL
+	AFTER \`Stimword_position_bdr_thickness\`
 ;
 
-UPDATE        Stimword_position
-INNER JOIN    Context
-SET Stimword_position.Context_auto_increment	= Context.Context_auto_increment
+UPDATE        \`Stimword_position\`
+INNER JOIN    \`Context\`
+SET \`Stimword_position\`.\`Context_auto_increment\`	= \`Context\`.\`Context_auto_increment\`
 WHERE 1
-AND Stimword_position.Stimword_position_layout_name	= Context.Context_layout_name
-AND Stimword_position.Stimword_position_position	= Context.Context_position
-AND Stimword_position.Stimword_position_phoneme    	= Context.Context_phoneme
+AND \`Stimword_position\`.\`Stimword_position_layout_name\`	= \`Context\`.\`Context_layout_name\`
+AND \`Stimword_position\`.\`Stimword_position_position\`	= \`Context\`.\`Context_position\`
+AND \`Stimword_position\`.\`Stimword_position_phoneme\`    	= \`Context\`.\`Context_phoneme\`
 ## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_1    	= Context.Context_phoneme_1
 ## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_2		= Context.Context_phoneme_2
 ## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_3		= Context.Context_phoneme_3
 ;
 
-ALTER TABLE Stimword_position
-	ADD CONSTRAINT    	Context_2_Stimword_position_CONSTRAINT_2
-		FOREIGN KEY	Context_2_Stimword_position_FOREIGN_KEY_2
-			(	Context_auto_increment
+ALTER TABLE \`Stimword_position\`
+	ADD CONSTRAINT    	\`Context_2_Stimword_position_CONSTRAINT_2\`
+		FOREIGN KEY	\`Context_2_Stimword_position_FOREIGN_KEY_2\`
+			(	\`Context_auto_increment\`
 			)
-		REFERENCES    Context
-			(	Context_auto_increment
+		REFERENCES	\`Context\ `
+			(	\`Context_auto_increment\`
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -454,21 +454,21 @@ ALTER TABLE Stimword_position
 #	Frequency_list_2_Client_context_foreign_key.sql
 #
 #
-ALTER TABLE Frequency_list
-	ADD KEY  Frequency_list_2_Client_context_KEY
-			(	Frequency
+ALTER TABLE \`Frequency_list\`
+	ADD KEY  \`Frequency_list_2_Client_context_KEY\`
+			(	\`Frequency\`
 			)
 			;
 
-ALTER TABLE Client_context
+ALTER TABLE \`Client_context\`
 
-	ADD CONSTRAINT	Frequency_list_2_Client_context_CONSTRAINT
-	FOREIGN KEY	Frequency_list_2_Client_context_FOREIGN_KEY
-			(	Client_context_error_frequency
+	ADD CONSTRAINT	\`Frequency_list_2_Client_context_CONSTRAINT\`
+	FOREIGN KEY	\`Frequency_list_2_Client_context_FOREIGN_KEY\`
+			(	\`Client_context_error_frequency\`
 			)
 
-		REFERENCES	Frequency_list
-			(	Frequency
+		REFERENCES	\`Frequency_list\`
+			(	\`Frequency\`
 			)
 	ON UPDATE CASCADE
 	ON DELETE NO ACTION
@@ -482,46 +482,46 @@ ALTER TABLE Client_context
 
 ## already has "Session_name_unique_index"
 
-ALTER TABLE Client_master
+ALTER TABLE \`Client_master\`
 
-	ADD CONSTRAINT	Session_names_2_Client_master_2_session_names_CONSTRAINT
-	FOREIGN KEY	Session_names_2_Client_master_FOREIGN_KEY
-			(	Client_master_session_name
+	ADD CONSTRAINT	\`Session_names_2_Client_master_2_session_names_CONSTRAINT\`
+	FOREIGN KEY	\`Session_names_2_Client_master_FOREIGN_KEY\`
+			(	\`Client_master_session_name\`
 			)
 
-		REFERENCES	Session_names
-			(	Session_name
+		REFERENCES	\`Session_names\`
+			(	\`Session_name\`
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 	;
-#						2/28/2006
+
 #					redone 2010-04-13
 #
 #	Sound_2_Context_foreign_key.sql
 #
 #
-ALTER TABLE Sound
-	ADD KEY	Sound_2_Context_KEY
-			(	Sound_layout_name
-			,	Sound_phoneme
+ALTER TABLE \`Sound\`
+	ADD KEY	\`Sound_2_Context_KEY\`
+			(	\`Sound_layout_name\`
+			,	\`Sound_phoneme\`
 ## 2021-05-08			,	Sound_phoneme_1
 ## 2021-05-08			,	Sound_phoneme_2
 ## 2021-05-08			,	Sound_phoneme_3
 			)
 			;
-ALTER TABLE Context
-	ADD CONSTRAINT		Sound_2_Context_CONSTRAINT_2
-		FOREIGN KEY	Sound_2_Context_FOREIGN_KEY_2
-			(	Context_layout_name
-			,	Context_phoneme
+ALTER TABLE \`Context\`
+	ADD CONSTRAINT		\`Sound_2_Context_CONSTRAINT_2\`
+		FOREIGN KEY	\`Sound_2_Context_FOREIGN_KEY_2\`
+			(	\`Context_layout_name\`
+			,	\`Context_phoneme\`
 ## 2021-05-08			,	Context_phoneme_1
 ## 2021-05-08			,	Context_phoneme_2
 ## 2021-05-08			,	Context_phoneme_3
 			)
-		REFERENCES	Sound
-			(	Sound_layout_name
-			,	Sound_phoneme
+		REFERENCES	\`Sound\`
+			(	\`Sound_layout_name\`
+			,	\`Sound_phoneme\`
 ## 2021-05-08			,	Sound_phoneme_1
 ## 2021-05-08			,	Sound_phoneme_2
 ## 2021-05-08			,	Sound_phoneme_3
