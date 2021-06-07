@@ -19,15 +19,15 @@ ALTER TABLE \`Teacher\`   DROP PRIMARY KEY  ;  -- 2021-06-03
 ALTER TABLE \`Stimword_position\`  DROP PRIMARY KEY ;
 ALTER TABLE \`Stimword_position\` ADD PRIMARY KEY ( \`Stimword_position_auto_increment\`) ;
 
-ALTER TABLE `\Stimword_position\` ADD UNIQUE KEY \`Stimword_position_unique_key\`
-(`\Stimword_position_layout_name\`
-,`\Stimword_position_page_nbr\`
-,\`Stimword_position_line_nbr`\
+ALTER TABLE \`Stimword_position\` ADD UNIQUE KEY \`Stimword_position_unique_key\`
+(\`Stimword_position_layout_name\`
+,\`Stimword_position_page_nbr\`
+,\`Stimword_position_line_nbr\`
 ,\`Stimword_position_stimword\`
 ,\`Stimword_position_position\`
 ,\`Stimword_position_position_nbr\`
 ,\`Stimword_position_setting\`
-,`\Stimword_position_phoneme\`
+,\`Stimword_position_phoneme\`
 ##	2021-05-08	,Stimword_position_phoneme_1
 ##	2021-05-08	,Stimword_position_phoneme_2
 ##	2021-05-08	,Stimword_position_phoneme_3
