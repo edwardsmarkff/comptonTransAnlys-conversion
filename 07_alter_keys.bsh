@@ -284,7 +284,7 @@ ALTER TABLE \`Client_context\`
 	;
 
 
-ALTER TABLE \`Context\` MODIFY COLUMN	\`Context_auto_increment`\ MEDIUMINT UNSIGNED NOT NULL;
+ALTER TABLE \`Context\` MODIFY COLUMN	\`Context_auto_increment\` MEDIUMINT UNSIGNED NOT NULL;
 ALTER TABLE Client_context ADD COLUMN	\`Context_auto_increment\` MEDIUMINT UNSIGNED NOT NULL
 	AFTER \`Client_context_error_notes\`
 ;
@@ -306,7 +306,7 @@ ALTER TABLE \`Client_context\`
 		FOREIGN KEY	\`Context_2_Client_context_FOREIGN_KEY_2\`
 			(	\`Context_auto_increment\`
 			)
-	REFERENCES    `\Context\`
+	REFERENCES    \`Context\`
 			(	\`Context_auto_increment\`
 			)
 	ON UPDATE CASCADE
