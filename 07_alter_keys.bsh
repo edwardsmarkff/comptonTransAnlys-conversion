@@ -625,29 +625,29 @@ ALTER TABLE \`Client_stimword\`  ADD COLUMN  	\`Stimword_position_auto_increment
 	AFTER \`Client_stimword_notes\`
 ;
 
-UPDATE  Client_stimword
-INNER JOIN Stimword_position
-SET Client_stimword.Stimword_position_auto_increment		= Stimword_position.Stimword_position_auto_increment
+UPDATE  \`Client_stimword\`
+INNER JOIN \`Stimword_position\`
+SET \`Client_stimword\`.\`Stimword_position_auto_increment\`		= \`Stimword_position\`.\`Stimword_position_auto_increment\`
 WHERE 1
-AND Client_stimword.Client_stimword_layout_name		= Stimword_position.Stimword_position_layout_name
-AND Client_stimword.Client_stimword_page_nbr		= Stimword_position.Stimword_position_page_nbr
-AND Client_stimword.Client_stimword_line_nbr		= Stimword_position.Stimword_position_line_nbr
-AND Client_stimword.Client_stimword_stimword		= Stimword_position.Stimword_position_stimword
-AND Client_stimword.Client_stimword_position		= Stimword_position.Stimword_position_position
-AND Client_stimword.Client_stimword_position_nbr	= Stimword_position.Stimword_position_position_nbr
-AND Client_stimword.Client_stimword_setting		= Stimword_position.Stimword_position_setting
-AND Client_stimword.Client_stimword_phoneme		= Stimword_position.Stimword_position_phoneme
+AND \`Client_stimword\`.\`Client_stimword_layout_name\`		= \`Stimword_position\`.\`Stimword_position_layout_name\`
+AND \`Client_stimword\`.\`Client_stimword_page_nbr\`		= \`Stimword_position\`.\`Stimword_position_page_nbr\`
+AND \`Client_stimword\`.\`Client_stimword_line_nbr\`		= \`Stimword_position\`.\`Stimword_position_line_nbr\`
+AND \`Client_stimword\`.\`Client_stimword_stimword\`		= \`Stimword_position\`.\`Stimword_position_stimword\`
+AND \`Client_stimword\`.\`Client_stimword_position\`		= \`Stimword_position\`.\`Stimword_position_position\`
+AND \`Client_stimword\`.\`Client_stimword_position_nbr\`	= \`Stimword_position\`.\`Stimword_position_position_nbr\`
+AND \`Client_stimword\`.\`Client_stimword_setting\`		= \`Stimword_position\`.\`Stimword_position_setting\`
+AND \`Client_stimword\`.\`Client_stimword_phoneme\`		= \`Stimword_position\`\`.Stimword_position_phoneme\`
 ## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1		= Stimword_position.Stimword_position_phoneme_1
 ## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2		= Stimword_position.Stimword_position_phoneme_2
 ## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3		= Stimword_position.Stimword_position_phoneme_3
 ;
-ALTER TABLE Client_stimword
-	ADD CONSTRAINT	Stimword_position_2_Client_stimword_CONSTRAINT_2
-	FOREIGN KEY	Stimword_position_2_Client_stimword_FOREIGN_KEY_2
-		(	Stimword_position_auto_increment
+ALTER TABLE \`Client_stimword\`
+	ADD CONSTRAINT	\`Stimword_position_2_Client_stimword_CONSTRAINT_2\`
+	FOREIGN KEY	\`Stimword_position_2_Client_stimword_FOREIGN_KEY_2\`
+		(	\`Stimword_position_auto_increment\`
 		)
-	REFERENCES	Stimword_position
-		(	Stimword_position_auto_increment
+	REFERENCES	\`Stimword_position\`
+		(	\`Stimword_position_auto_increment\`
 		)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -664,38 +664,38 @@ ALTER TABLE Client_stimword
 #	Stimword_2_Stimword_position_foreign_key.sql
 #
 #
-ALTER TABLE Stimword		MODIFY COLUMN Stimword_layout_name		VARCHAR(30) NOT NULL;
-ALTER TABLE Stimword_position	MODIFY COLUMN Stimword_position_layout_name	VARCHAR(30) NOT NULL;
-ALTER TABLE Stimword		MODIFY COLUMN Stimword_page_nbr			TINYINT UNSIGNED NOT NULL;
-ALTER TABLE Stimword_position	MODIFY COLUMN Stimword_position_page_nbr	TINYINT UNSIGNED NOT NULL;
-ALTER TABLE Stimword		MODIFY COLUMN Stimword_line_nbr			TINYINT UNSIGNED NOT NULL;
-ALTER TABLE Stimword_position	MODIFY COLUMN Stimword_position_line_nbr	TINYINT UNSIGNED NOT NULL;
-ALTER TABLE Stimword		MODIFY COLUMN Stimword_stimword			CHAR(25) NOT NULL;
-ALTER TABLE Stimword_position	MODIFY COLUMN Stimword_position_stimword	CHAR(25) NOT NULL;
+ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_layout_name\`		VARCHAR(30) NOT NULL;
+ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_layout_name\`	VARCHAR(30) NOT NULL;
+ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_page_nbr\`		TINYINT UNSIGNED NOT NULL;
+ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_page_nbr\`	TINYINT UNSIGNED NOT NULL;
+ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_line_nbr\`		TINYINT UNSIGNED NOT NULL;
+ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_line_nbr\`	TINYINT UNSIGNED NOT NULL;
+ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_stimword\`		CHAR(25) NOT NULL;
+ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_stimword\`	CHAR(25) NOT NULL;
 
-ALTER TABLE Stimword
-	ADD KEY		Stimword_2_Stimword_position_KEY
-			(	Stimword_layout_name
-			,	Stimword_page_nbr
-			,	Stimword_line_nbr
-			,	Stimword_stimword
+ALTER TABLE \`Stimword\`
+	ADD KEY		\`Stimword_2_Stimword_position_KEY\`
+			(	\`Stimword_layout_name\`
+			,	\`Stimword_page_nbr\`
+			,	\`Stimword_line_nbr\`
+			,	\`Stimword_stimword\`
 			)
 			;
 
-ALTER TABLE Stimword_position
+ALTER TABLE \`Stimword_position\`
 
-	ADD CONSTRAINT	Stimword_2_Stimword_position_CONSTRAINT_1
-	FOREIGN KEY	Stimword_2_Stimword_position_FOREIGN_KEY_1
-			(	Stimword_position_layout_name
-			,	Stimword_position_page_nbr
-			,	Stimword_position_line_nbr
-			,	Stimword_position_stimword
+	ADD CONSTRAINT	\`Stimword_2_Stimword_position_CONSTRAINT_1\`
+	FOREIGN KEY	\`Stimword_2_Stimword_position_FOREIGN_KEY_1\`
+			(	\`Stimword_position_layout_name\`
+			,	\`Stimword_position_page_nbr\`
+			,	\`Stimword_position_line_nbr\`
+			,	\`Stimword_position_stimword\`
 			)
-		REFERENCES	Stimword
-			(	Stimword_layout_name
-			,	Stimword_page_nbr
-			,	Stimword_line_nbr
-			,	Stimword_stimword
+		REFERENCES	\`Stimword\`
+			(	\`Stimword_layout_name\`
+			,	\`Stimword_page_nbr\`
+			,	\`Stimword_line_nbr\`
+			,	\`Stimword_stimword\`
 			)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
