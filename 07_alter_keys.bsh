@@ -86,56 +86,56 @@ ALTER TABLE \`Client_stimword\` MODIFY COLUMN \`Client_stimword_auto_increment\`
 #	Client_context_2_Client_stimword_foreign_key.sql
 #
 #
-ALTER TABLE Client_context
-	ADD KEY		Client_context_2_Client_stimword_KEY
-			(	Client_context_client_email
-			,	Client_context_teacher_email
-			,	Client_context_session_name
-			,	Client_context_layout_name
-			,	Client_context_phoneme
+ALTER TABLE \`Client_context\`
+	ADD KEY		\`Client_context_2_Client_stimword_KEY\`
+			(	\`Client_context_client_email\`
+			,	\`Client_context_teacher_email\`
+			,	\`Client_context_session_name\`
+			,	\`Client_context_layout_name\`
+			,	\`Client_context_phoneme\`
 ## 2021-05-08			,	Client_context_phoneme_1
 ## 2021-05-08			,	Client_context_phoneme_2
 ## 2021-05-08			,	Client_context_phoneme_3
-			,	Client_context_position
-			,	Client_context_error_1
-			,	Client_context_error_2
-			,	Client_context_error_3
-			,	Client_context_error_4
+			,	\`Client_context_position
+			,	\`Client_context_error_1\`
+			,	\`Client_context_error_2\`
+			,	\`Client_context_error_3\`
+			,	\`Client_context_error_4\`
 			)
 			;
 
-ALTER TABLE Client_stimword
+ALTER TABLE \`Client_stimword\`
 
-	ADD CONSTRAINT	Client_context_2_Client_stimword_CONSTRAINT_1
-	FOREIGN KEY	Client_context_2_Client_stimword_FOREIGN_KEY_1
-			(	Client_stimword_client_email
-			,	Client_stimword_teacher_email
-			,	Client_stimword_session_name
-			,	Client_stimword_layout_name
-			,	Client_stimword_phoneme
+	ADD CONSTRAINT	\`Client_context_2_Client_stimword_CONSTRAINT_1\`
+	FOREIGN KEY	\`Client_context_2_Client_stimword_FOREIGN_KEY_1\`
+			(	\`Client_stimword_client_email\`
+			,	\`Client_stimword_teacher_email\`
+			,	\`Client_stimword_session_name\`
+			,	\`Client_stimword_layout_name\`
+			,	\`Client_stimword_phoneme\`
 ## 2021-05-08			,	Client_stimword_phoneme_1
 ## 2021-05-08			,	Client_stimword_phoneme_2
 ## 2021-05-08			,	Client_stimword_phoneme_3
-			,	Client_stimword_position
-			,	Client_stimword_error_1
-			,	Client_stimword_error_2
-			,	Client_stimword_error_3
-			,	Client_stimword_error_4
+			,	\`Client_stimword_position\`
+			,	\`Client_stimword_error_1\`
+			,	\`Client_stimword_error_2\`
+			,	\`Client_stimword_error_3\`
+			,	\`Client_stimword_error_4\`
 			)
-		REFERENCES	Client_context
-			(	Client_context_client_email
-			,	Client_context_teacher_email
-			,	Client_context_session_name
-			,	Client_context_layout_name
-			,	Client_context_phoneme		
+		REFERENCES	\`Client_context\`
+			(	\`Client_context_client_email\`
+			,	\`Client_context_teacher_email\`
+			,	\`Client_context_session_name\`
+			,	\`Client_context_layout_name\`
+			,	\`Client_context_phoneme\`	
 ## 2021-05-08			,	Client_context_phoneme_1
 ## 2021-05-08			,	Client_context_phoneme_2
 ## 2021-05-08			,	Client_context_phoneme_3
-			,	Client_context_position
-			,	Client_context_error_1
-			,	Client_context_error_2
-			,	Client_context_error_3
-			,	Client_context_error_4
+			,	\`Client_context_position\`
+			,	\`Client_context_error_1\`
+			,	\'Client_context_error_2\`
+			,	\'Client_context_error_3\`
+			,	\`Client_context_error_4\`
 			)
 
 	ON UPDATE CASCADE
@@ -143,37 +143,37 @@ ALTER TABLE Client_stimword
 	;
 
 
-ALTER TABLE Client_context MODIFY COLUMN	Client_context_auto_increment INT UNSIGNED NOT NULL;
-ALTER TABLE Client_stimword ADD COLUMN		Client_context_auto_increment INT UNSIGNED NOT NULL
-	AFTER Client_stimword_error_4
+ALTER TABLE \`Client_context\` MODIFY COLUMN	\`Client_context_auto_increment\` INT UNSIGNED NOT NULL;
+ALTER TABLE \`Client_stimword\` ADD COLUMN	\`Client_context_auto_increment\` INT UNSIGNED NOT NULL
+	AFTER \`Client_stimword_error_4\`
 ;
 
-UPDATE Client_stimword
-INNER JOIN Client_context
-SET Client_stimword.Client_context_auto_increment     = Client_context.Client_context_auto_increment
+UPDATE \`Client_stimword\`
+INNER JOIN \`Client_context\`
+SET \`Client_stimword\`.\`Client_context_auto_increment\`     = \`Client_context\`.\`Client_context_auto_increment\`
 WHERE 1
-AND Client_stimword.Client_stimword_teacher_email        = Client_context.Client_context_teacher_email
-AND Client_stimword.Client_stimword_client_email        = Client_context.Client_context_client_email
-AND Client_stimword.Client_stimword_session_name        = Client_context.Client_context_session_name
-AND Client_stimword.Client_stimword_layout_name        = Client_context.Client_context_layout_name
-AND Client_stimword.Client_stimword_phoneme          = Client_context.Client_context_phoneme
-## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1        = Client_context.Client_context_phoneme_1
-## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2        = Client_context.Client_context_phoneme_2
-## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3        = Client_context.Client_context_phoneme_3
-AND Client_stimword.Client_stimword_position            = Client_context.Client_context_position
-AND Client_stimword.Client_stimword_error_1         = Client_context.Client_context_error_1
-AND Client_stimword.Client_stimword_error_2         = Client_context.Client_context_error_2
-AND Client_stimword.Client_stimword_error_3         = Client_context.Client_context_error_3
-AND Client_stimword.Client_stimword_error_4         = Client_context.Client_context_error_4
+AND \`Client_stimword\`.\`Client_stimword_teacher_email\`       = \`Client_context\`.\`Client_context_teacher_email\`
+AND \`Client_stimword\`.\`Client_stimword_client_email\`        = \`Client_context\`.\`Client_context_client_email\`
+AND \`Client_stimword\`.\`Client_stimword_session_name\`        = \`Client_context\`.\`Client_context_session_name\`
+AND \`Client_stimword\`.\`Client_stimword_layout_name\`         = \`Client_context\`.\`Client_context_layout_name\`
+AND \`Client_stimword\`.\`Client_stimword_phoneme\`             = \`Client_context\`.\`Client_context_phoneme\`
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1        = Client_context.Client_context_phoneme_1\`
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2        = Client_context.Client_context_phoneme_2\`
+## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3        = Client_context.Client_context_phoneme_3\`
+AND \`Client_stimword\`.\`Client_stimword_position\`            = \`Client_context\`.\`Client_context_position\`
+AND \`Client_stimword\`.\`Client_stimword_error_1\`             = \`Client_context\`.\`Client_context_error_1\`
+AND \`Client_stimword\`.\`Client_stimword_error_2\`             = \`Client_context\`.\`Client_context_error_2\`
+AND \`Client_stimword\`.\`Client_stimword_error_3\`             = \`Client_context\`.\`Client_context_error_3\`
+AND \`Client_stimword\`.\`Client_stimword_error_4\`             = \`Client_context\`.\`Client_context_error_4\`
 ;
 
-ALTER TABLE Client_stimword
-	ADD CONSTRAINT	Client_context_2_Client_stimword_CONSTRAINT_2
-	FOREIGN KEY	Client_context_2_Client_stimword_FOREIGN_KEY_2
-		(	Client_context_auto_increment
+ALTER TABLE \`Client_stimword\`
+	ADD CONSTRAINT	\`Client_context_2_Client_stimword_CONSTRAINT_2\`
+	FOREIGN KEY	\`Client_context_2_Client_stimword_FOREIGN_KEY_2\`
+		(	\`Client_context_auto_increment\`
 		)
-	REFERENCES	Client_context
-		(	Client_context_auto_increment
+	REFERENCES	\`Client_context\`
+		(	\`Client_context_auto_increment\`
 		)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
