@@ -443,7 +443,7 @@ ALTER TABLE \`Stimword_position\`
 		FOREIGN KEY	\`Context_2_Stimword_position_FOREIGN_KEY_2\`
 			(	\`Context_auto_increment\`
 			)
-		REFERENCES	\`Context\ `
+		REFERENCES	\`Context\`
 			(	\`Context_auto_increment\`
 			)
 	ON UPDATE CASCADE
