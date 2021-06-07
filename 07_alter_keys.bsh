@@ -701,17 +701,17 @@ ALTER TABLE \`Stimword_position\`
 	ON DELETE CASCADE
 	;
 
-ALTER TABLE Stimword MODIFY		COLUMN Stimword_auto_increment MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE Stimword_position ADD	COLUMN Stimword_auto_increment MEDIUMINT UNSIGNED NOT NULL;
+ALTER TABLE \`Stimword\`	 	MODIFY	COLUMN \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE \`Stimword_position\`	ADD	COLUMN \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL;
 
-UPDATE Stimword_position
-INNER JOIN Stimword
-SET  Stimword_position.Stimword_auto_increment = Stimword.Stimword_auto_increment
+UPDATE \`Stimword_position\`
+INNER JOIN \`Stimword\`
+SET  \`Stimword_position\`.\`Stimword_auto_increment\`	= \`Stimword\`.\`Stimword_auto_increment\`
 WHERE 1
-AND Stimword_position.Stimword_position_layout_name	=	Stimword.Stimword_layout_name
-AND Stimword_position.Stimword_position_page_nbr	=	Stimword.Stimword_page_nbr
-AND Stimword_position.Stimword_position_line_nbr	=	Stimword.Stimword_line_nbr
-AND Stimword_position.Stimword_position_stimword	=	Stimword.Stimword_stimword
+AND \`Stimword_position\`.\`Stimword_position_layout_name\`	=	\`Stimword\`.\`Stimword_layout_name\`
+AND \`Stimword_position\`.\`Stimword_position_page_nbr\`	=	\`Stimword\`.\`Stimword_page_nbr\`
+AND \`Stimword_position\`.\`Stimword_position_line_nbr\`	=	\`Stimword\`.Stimword_line_nbr\`
+AND \`Stimword_position\`.\`Stimword_position_stimword\`	=	\`Stimword\`.Stimword_stimword\`
 ;
 
 ALTER TABLE Stimword_position
