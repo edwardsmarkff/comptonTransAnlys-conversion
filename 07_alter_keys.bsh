@@ -531,29 +531,29 @@ ALTER TABLE \`Context\`
 	;
 
 
-ALTER TABLE Sound MODIFY COLUMN Sound_auto_increment MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE Context ADD COLUMN Sound_auto_increment MEDIUMINT UNSIGNED NOT NULL
-	AFTER Context_count
+ALTER TABLE \`Sound\` MODIFY COLUMN \`Sound_auto_increment\` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
+ALTER TABLE \`Context\`  ADD COLUMN \`Sound_auto_increment\` MEDIUMINT UNSIGNED NOT NULL
+	AFTER \`Context_count\`
 ;
 
-UPDATE Context
-INNER JOIN Sound
-SET Context.Sound_auto_increment	= Sound.Sound_auto_increment
+UPDATE \`Context\`
+INNER JOIN \`Sound\`
+SET \`Context\`.\`Sound_auto_increment\`	= \`Sound\`.\`Sound_auto_increment\`
 WHERE 1
-AND Context.Context_layout_name		= Sound.Sound_layout_name
-AND Context.Context_phoneme		= Sound.Sound_phoneme
+AND \`Context\`.\`Context_layout_name\`		= \`Sound\`.\`Sound_layout_name\`
+AND \`Context\`.\`Context_phoneme\`		= \`Sound\`.\`Sound_phoneme\`
 ## 2021-05-08	AND Context.Context_phoneme_1		= Sound.Sound_phoneme_1
 ## 2021-05-08	AND Context.Context_phoneme_2		= Sound.Sound_phoneme_2
 ## 2021-05-08	AND Context.Context_phoneme_3		= Sound.Sound_phoneme_3
 ;
 
-ALTER TABLE Context
-	ADD CONSTRAINT	Sound_2_Context_CONSTRAINT_1
-	FOREIGN KEY	Sound_2_Context_FOREIGN_KEY_1
-		(	Sound_auto_increment
+ALTER TABLE \`Context\`
+	ADD CONSTRAINT	\`Sound_2_Context_CONSTRAINT_1\`
+	FOREIGN KEY	\`Sound_2_Context_FOREIGN_KEY_1\`
+		(	\`Sound_auto_increment\`
 		)
-	REFERENCES	Sound
-		(	Sound_auto_increment
+	REFERENCES	\`Sound\`
+		(	\`Sound_auto_increment\`
 		)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
@@ -566,47 +566,47 @@ ALTER TABLE Context
 #	Stimword_position_2_Client_stimword_foreign_key.sql
 #
 #
-ALTER TABLE Stimword_position
-	ADD KEY		Stimword_position_2_Client_stimword_KEY
-			(	Stimword_position_layout_name
-			,	Stimword_position_page_nbr
-			,	Stimword_position_line_nbr
-			,	Stimword_position_stimword
-			,	Stimword_position_position
-			,	Stimword_position_position_nbr
-			,	Stimword_position_setting
-			,	Stimword_position_phoneme
+ALTER TABLE \`Stimword_position\`
+	ADD KEY		\`Stimword_position_2_Client_stimword_KEY\`
+			(	\`Stimword_position_layout_name\`
+			,	\`Stimword_position_page_nbr\`
+			,	\`Stimword_position_line_nbr\`
+			,	\`Stimword_position_stimword\`
+			,	\`Stimword_position_position\`
+			,	\`Stimword_position_position_nbr\`
+			,	\`Stimword_position_setting\`
+			,	\`Stimword_position_phoneme\`
 ## 2021-05-08			,	Stimword_position_phoneme_1
 ## 2021-05-08			,	Stimword_position_phoneme_2
 ## 2021-05-08			,	Stimword_position_phoneme_3
 			)
 			;
 
-ALTER TABLE Client_stimword
+ALTER TABLE \`Client_stimword\`
 
-	ADD CONSTRAINT	Stimword_position_2_Client_stimword_CONSTRAINT_1
-	FOREIGN KEY	Stimword_position_2_Client_stimword_FOREIGN_KEY_1
-			(	Client_stimword_layout_name
-			,	Client_stimword_page_nbr
-			,	Client_stimword_line_nbr
-			,	Client_stimword_stimword
-			,	Client_stimword_position
-			,	Client_stimword_position_nbr
-			,	Client_stimword_setting
-			,	Client_stimword_phoneme
+	ADD CONSTRAINT	\`Stimword_position_2_Client_stimword_CONSTRAINT_1\`
+	FOREIGN KEY	\`Stimword_position_2_Client_stimword_FOREIGN_KEY_1\`
+			(	\`Client_stimword_layout_name\`
+			,	\`Client_stimword_page_nbr\`
+			,	\`Client_stimword_line_nbr\`
+			,	\`Client_stimword_stimword\`
+			,	\`Client_stimword_position\`
+			,	\`Client_stimword_position_nbr\`
+			,	\`Client_stimword_setting\`
+			,	\`Client_stimword_phoneme\`
 ## 2021-05-08			,	Client_stimword_phoneme_1
 ## 2021-05-08			,	Client_stimword_phoneme_2
 ## 2021-05-08			,	Client_stimword_phoneme_3
 			)
-		REFERENCES	Stimword_position
-			(	Stimword_position_layout_name
-			,	Stimword_position_page_nbr
-			,	Stimword_position_line_nbr
-			,	Stimword_position_stimword
-			,	Stimword_position_position
-			,	Stimword_position_position_nbr
-			,	Stimword_position_setting
-			,	Stimword_position_phoneme
+		REFERENCES	\`Stimword_position\`
+			(	\`Stimword_position_layout_name\`
+			,	\`Stimword_position_page_nbr\`
+			,	\`Stimword_position_line_nbr\`
+			,	\`Stimword_position_stimword\`
+			,	\`Stimword_position_position\`
+			,	\`Stimword_position_position_nbr\`
+			,	\`Stimword_position_setting\`
+			,	\`Stimword_position_phoneme\`
 ## 2021-05-08			,	Stimword_position_phoneme_1
 ## 2021-05-08			,	Stimword_position_phoneme_2
 ## 2021-05-08			,	Stimword_position_phoneme_3
@@ -616,13 +616,13 @@ ALTER TABLE Client_stimword
 	;
 
 
-ALTER TABLE Client_stimword  ADD COLUMN  Client_stimword_notes TEXT
-	AFTER Client_stimword_error_4
+ALTER TABLE \`Client_stimword\`  ADD COLUMN  \`Client_stimword_notes\` TEXT
+	AFTER \`Client_stimword_error_4\`
 ;
 
-ALTER TABLE Stimword_position MODIFY COLUMN	Stimword_position_auto_increment  MEDIUMINT NOT NULL;
-ALTER TABLE Client_stimword  ADD COLUMN  	Stimword_position_auto_increment  MEDIUMINT NOT NULL
-	AFTER Client_stimword_notes
+ALTER TABLE \`Stimword_position\` MODIFY COLUMN	\`Stimword_position_auto_increment\`  MEDIUMINT NOT NULL;
+ALTER TABLE \`Client_stimword\`  ADD COLUMN  	\`Stimword_position_auto_increment\`  MEDIUMINT NOT NULL
+	AFTER \`Client_stimword_notes\`
 ;
 
 UPDATE  Client_stimword
