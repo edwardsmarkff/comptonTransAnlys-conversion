@@ -13,22 +13,30 @@ while true; do
     esac
 done
 
-echo $(date);
+echo $(date) ' - 01_create_db.bsh';
 bash -vx  01_create_db.bsh                     > 01_create_db.bsh.log                  2>&1  ;
-echo $(date);
+
+echo $(date) ' - 02_initial_preparation.bsh';
 bash -vx  02_initial_preparation.bsh           > 02_initial_preparation.bsh.log        2>&1  ;
-echo $(date);
+
+echo $(date) ' - 03_long_part.bsh';
 bash -vx  03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1  ;
-echo $(date);
+
+echo $(date) ' - 04_sed_changes.bsh';
 bash -vx  04_sed_changes.bsh                   > 04_sed_changes.bsh.log                2>&1  ;
-echo $(date);
+
+echo $(date) ' - 05_convert_back_to_mariadb.bsh';
 bash -vx  05_convert_back_to_mariadb.bsh       > 05_convert_back_to_mariadb.bsh.log    2>&1  ;
-echo $(date);
+
+echo $(date) ' - 06_concat_phonemes.bsh';
 bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log            2>&1  ;
-echo $(date);
+
+echo $(date) ' - 07_alter_keys.bsh';
 bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1  ;
-echo $(date);
+
+echo $(date) ' - 08_final_rename.bsh';
 bash -vx  08_final_rename.bsh                  > 07_final_rename.bsh.log               2>&1  ;
+
 echo $(date);
 
 
