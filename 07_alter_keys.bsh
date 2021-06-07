@@ -704,7 +704,7 @@ ALTER TABLE \`Stimword_position\`
 	;
 
 ALTER TABLE \`Stimword\`	 	MODIFY	COLUMN \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE \`Stimword_position\`	ADD	COLUMN \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL;
+ALTER TABLE \`Stimword_position\`	ADD	COLUMN IF NOT EXISTS \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL;
 
 UPDATE \`Stimword_position\`
 INNER JOIN \`Stimword\`
