@@ -98,7 +98,7 @@ ALTER TABLE \`Client_context\`
 ## 2021-05-08			,	Client_context_phoneme_1
 ## 2021-05-08			,	Client_context_phoneme_2
 ## 2021-05-08			,	Client_context_phoneme_3
-			,	\`Client_context_position
+			,	\`Client_context_position\`
 			,	\`Client_context_error_1\`
 			,	\`Client_context_error_2\`
 			,	\`Client_context_error_3\`
