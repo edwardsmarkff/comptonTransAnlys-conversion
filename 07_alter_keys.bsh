@@ -734,7 +734,7 @@ ALTER TABLE \`Stimword_position\`
 #	Teacher_2_Client_master_foreign_key.sql
 #
 #
-ALTER TABLE \`Teacher
+ALTER TABLE \`Teacher\`
 	ADD KEY		\`Teacher_2_Client_master_KEY\`
 			(	\`Teacher_email\`
 			)
