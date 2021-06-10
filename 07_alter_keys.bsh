@@ -293,9 +293,9 @@ UPDATE        \`Client_context\`
 INNER JOIN    \`Context\`
 SET \`Client_context\`.\`Context_auto_increment\`		= \`Context\`.\`Context_auto_increment\`
 WHERE 1
-AND \`Client_context\`.\`Client_context_layout_name\`		= \`Context\`.Context_layout_name\`
-AND \`Client_context\`.\`Client_context_position\`		= \`Context\`.Context_position\`
-AND \`Client_context\`.\`Client_context_phoneme\`      		= \`Context\`.Context_phoneme\`
+AND \`Client_context\`.\`Client_context_layout_name\`		= \`Context\`.\`Context_layout_name\`
+AND \`Client_context\`.\`Client_context_position\`		= \`Context\`.\`Context_position\`
+AND \`Client_context\`.\`Client_context_phoneme\`      		= \`Context\`.\`Context_phoneme\`
 ## 2021-05-08	AND Client_context.Client_context_phoneme_1    		= Context.Context_phoneme_1
 ## 2021-05-08	AND Client_context.Client_context_phoneme_2		= Context.Context_phoneme_2
 ## 2021-05-08	AND Client_context.Client_context_phoneme_3		= Context.Context_phoneme_3
