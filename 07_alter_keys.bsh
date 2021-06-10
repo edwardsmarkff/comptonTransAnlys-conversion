@@ -67,7 +67,7 @@ ALTER TABLE \`Language_norms\`
 	)
 	;
 
-ALTER TABLE \`Sound DROP\` KEY \`Sound_key\`;
+ALTER TABLE \`Sound\` DROP KEY \`Sound_key\`;
 ALTER TABLE \`Sound\`
 	ADD UNIQUE KEY \`Sound_unique_key\`
 		( \`Sound_layout_name\`
