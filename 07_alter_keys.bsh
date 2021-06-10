@@ -712,8 +712,8 @@ SET  \`Stimword_position\`.\`Stimword_auto_increment\`	= \`Stimword\`.\`Stimword
 WHERE 1
 AND \`Stimword_position\`.\`Stimword_position_layout_name\`	=	\`Stimword\`.\`Stimword_layout_name\`
 AND \`Stimword_position\`.\`Stimword_position_page_nbr\`	=	\`Stimword\`.\`Stimword_page_nbr\`
-AND \`Stimword_position\`.\`Stimword_position_line_nbr\`	=	\`Stimword\`.Stimword_line_nbr\`
-AND \`Stimword_position\`.\`Stimword_position_stimword\`	=	\`Stimword\`.Stimword_stimword\`
+AND \`Stimword_position\`.\`Stimword_position_line_nbr\`	=	\`Stimword\`.\`Stimword_line_nbr\`
+AND \`Stimword_position\`.\`Stimword_position_stimword\`	=	\`Stimword\`.\`Stimword_stimword\`
 ;
 
 ALTER TABLE \`Stimword_position\`
