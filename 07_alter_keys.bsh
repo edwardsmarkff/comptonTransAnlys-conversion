@@ -769,7 +769,7 @@ ALTER TABLE \`Client_master\` MODIFY COLUMN \`Client_master_active_flag\` TINYIN
 ;
 
 UPDATE \`Client_master\`
-INNER \`JOIN Teacher\`
+INNER JOIN \`Teacher\`
 SET \`Client_master\`.\`Teacher_auto_increment\`             = \`Teacher\`.\`Teacher_auto_increment\`
 WHERE 1
 AND \`Client_master\`.\`Client_master_teacher_email\`             = \`Teacher\`.\`Teacher_email\`
