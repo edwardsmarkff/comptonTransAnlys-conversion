@@ -28,7 +28,7 @@ ALTER TABLE `clientStimword`    MODIFY COLUMN `stimwordPositionAutoIncr` MEDIUMI
 ALTER TABLE `context`           MODIFY COLUMN `contextAutoIncr`          MEDIUMINT(08) UNSIGNED NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
 ALTER TABLE `context`           MODIFY COLUMN `soundAutoIncr`            MEDIUMINT(08) UNSIGNED NOT NULL                         AFTER `updatedAt`  ;
 
-ALTER TABLE `languageNorms`     MODIFY COLUMN `langaugeNormsAutoIncr`    MEDIUMINT(08) UNSIGNED NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
+ALTER TABLE `languageNorms`     MODIFY COLUMN `languageNormsAutoIncr`    MEDIUMINT(08) UNSIGNED NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
 
 ALTER TABLE `sound`             MODIFY COLUMN `soundAutoIncr`            MEDIUMINT(08) UNSIGNED NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
 
