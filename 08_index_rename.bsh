@@ -1,6 +1,6 @@
 #! /bin/bash  -w
 
-# 08_final_rename.bsh   -- 2021-06-03
+# 08_index_rename.bsh   -- 2021-06-03
 
 #   TO DO:
 #   -   rename AutoIncr keys  (remove 'Constraint' and 'Key' distinction ??)
@@ -378,6 +378,6 @@ END
 
 
 
-echo "end of sed part 08_final_rename.bsh.";
+echo "end of sed part 08_index_rename.bsh.";
 
 exit;
