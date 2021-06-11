@@ -6,7 +6,7 @@
 ##	2021-06-02	- deleted Client_master_auto_increment line duplicate of line #76
 ##	2021-06-03	- drop primary key of Teacher table
 ##	2021-06-06	- added backtick to most names
-##	2021-06-09	- minor typo bugs
+##	2021-06-10	- minor typo bugs, added "IF NOT EXISTS" in several spots-- not sure why this is/was needed?
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
