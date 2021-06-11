@@ -4,11 +4,21 @@
 #
 #  written from:
 #    https://stackoverflow.com/questions/10718905/how-to-change-the-column-position-of-mysql-table-without-losing-column-data/10718926
+
+#
 #
 mysql  --verbose  comptonTransAnlys   <<END  ;
 
--- ALTER TABLE \`Teacher\`           MODIFY COLUMN \`teacherAutoIncr\`         AFTER \`updatedAt\`  ;
+SET FOREIGN_KEY_CHECKS=0;
+
+
 ALTER TABLE `clientMaster`     MODIFY COLUMN `clientMasterAutoIncr`  int(10) unsigned NOT NULL AUTO_INCREMENT   AFTER `updatedAt`  ;
+
+SET FOREIGN_KEY_CHECKS=0;
+ALTER TABLE `clientContext`      MODIFY COLUMN `clientContextAutoIncr`   int(10) unsigned NOT NULL AUTO_INCREMENT  AFTER `updatedAt`  ;
+ALTER TABLE `clientContext`      MODIFY COLUMN `clientMasterAutoIncr`    int(10) unsigned NOT NULL                 AFTER `updatedAt`  ;
+ALTER TABLE `clientContext`      MODIFY COLUMN `contextAutoIncr`         mediumint(10) unsigned NOT NULL           AFTER `updatedAt`  ;
+
 
 END
 
