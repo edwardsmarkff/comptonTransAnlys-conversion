@@ -38,4 +38,4 @@ SET FOREIGN_KEY_CHECKS=1  ;
 
 END
 
-echo "Done with 09_move_columns.bsh!';
+echo 'Done with 09_move_columns.bsh!';
