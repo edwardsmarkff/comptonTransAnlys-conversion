@@ -7,8 +7,8 @@
 #
 mysql  --verbose  comptonTransAnlys   <<END  ;
 
-ALTER TABLE \`Teacher\`           MODIFY COLUMN \`teacherAutoIncr\`         AFTER \`updatedAt\`  ;
-ALTER TABLE \`clientMaster\`      MODIFY COLUMN \`clientMasterAutoIncr\`    AFTER \`updatedAt\`  ;
+-- ALTER TABLE \`Teacher\`           MODIFY COLUMN \`teacherAutoIncr\`         AFTER \`updatedAt\`  ;
+ALTER TABLE `clientMaster`     MODIFY COLUMN `clientMasterAutoIncr`  int(10) unsigned NOT NULL AUTO_INCREMENT   AFTER `updatedAt`  ;
 
 END
 
