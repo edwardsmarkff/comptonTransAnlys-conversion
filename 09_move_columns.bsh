@@ -28,6 +28,12 @@ ALTER TABLE `clientStimword`      MODIFY COLUMN `stimwordPositionAutoIncr` mediu
 ALTER TABLE `context`      MODIFY COLUMN `contextAutoIncr`   mediumint(08) unsigned NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
 ALTER TABLE `context`      MODIFY COLUMN `soundAutoIncr`     mediumint(08) unsigned NOT NULL                         AFTER `updatedAt`  ;
 
+ALTER TABLE `languageNorms` MODIFY COLUMN `langaugeNormsAutoIncr` mediumint(08) unsigned NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
+
+ALTER TABLE `sound`      MODIFY COLUMN `soundAutoIncr`       mediumint(08) unsigned NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
+
+ALTER TABLE `stimwordPosition` MODIFY COLUMN `stimwordPositionAutoIncr` mediumint(10) unsigned NOT NULL AUTO_INCREMENT AFTER `updatedAt`  ;
+
 SET FOREIGN_KEY_CHECKS=1  ;
 
 END
