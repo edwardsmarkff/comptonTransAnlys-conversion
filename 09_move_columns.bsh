@@ -1,0 +1,15 @@
+#!  /bin/bash -w
+
+#  09_move_columns.bsh
+#
+#  written from:
+#    https://stackoverflow.com/questions/10718905/how-to-change-the-column-position-of-mysql-table-without-losing-column-data/10718926
+#
+mysql  --verbose  comptonTransAnlys   <<END  ;
+
+ALTER TABLE \`Teacher\`           MODIFY COLUMN \`teacherAutoIncr\`         AFTER \`updatedAt\`  ;
+ALTER TABLE \`clientMaster\`      MODIFY COLUMN \`clientMasterAutoIncr\`    AFTER \`updatedAt\`  ;
+
+END
+
+echo "Done with 09_move_columns.bsh!';
