@@ -12,27 +12,27 @@ mysql  --verbose  comptonTransAnlys   <<END  ;
 SET FOREIGN_KEY_CHECKS=0;
 
 
-ALTER TABLE `clientMaster`     MODIFY COLUMN `clientMasterAutoIncr`  int(10) unsigned NOT NULL AUTO_INCREMENT   AFTER `updatedAt`  ;
+ALTER TABLE `clientMaster`     MODIFY COLUMN `clientMasterAutoIncr`  INT(10) unsigned NOT NULL AUTO_INCREMENT   AFTER `updatedAt`  ;
 
 
 
-ALTER TABLE `clientContext`      MODIFY COLUMN `clientContextAutoIncr`   int(10) unsigned NOT NULL AUTO_INCREMENT  AFTER `updatedAt`  ;
-ALTER TABLE `clientContext`      MODIFY COLUMN `clientMasterAutoIncr`    int(10) unsigned NOT NULL                 AFTER `updatedAt`  ;
-ALTER TABLE `clientContext`      MODIFY COLUMN `contextAutoIncr`         mediumint(10) unsigned NOT NULL           AFTER `updatedAt`  ;
+ALTER TABLE `clientContext`     MODIFY COLUMN `clientContextAutoIncr`    INT(10)       UNSIGNED NOT NULL AUTO_INCREMENT  AFTER `updatedAt`  ;
+ALTER TABLE `clientContext`     MODIFY COLUMN `clientMasterAutoIncr`     INT(10)       UNSIGNED NOT NULL                 AFTER `updatedAt`  ;
+ALTER TABLE `clientContext`     MODIFY COLUMN `contextAutoIncr`          MEDIUMINT(10) UNSIGNED NOT NULL                 AFTER `updatedAt`  ;
 
 
-ALTER TABLE `clientStimword`      MODIFY COLUMN `clientStimwordAutoIncr`   int(10) unsigned NOT NULL AUTO_INCREMENT  AFTER `updatedAt`  ;
-ALTER TABLE `clientStimword`      MODIFY COLUMN `clientContextAutoIncr`    int(10) unsigned NOT NULL                 AFTER `updatedAt`  ;
-ALTER TABLE `clientStimword`      MODIFY COLUMN `stimwordPositionAutoIncr` mediumint(10) unsigned NOT NULL           AFTER `updatedAt`  ;
+ALTER TABLE `clientStimword`    MODIFY COLUMN `clientStimwordAutoIncr`   INT(10)       UNSIGNED NOT NULL AUTO_INCREMENT  AFTER `updatedAt`  ;
+ALTER TABLE `clientStimword`    MODIFY COLUMN `clientContextAutoIncr`    INT(10)       UNSIGNED NOT NULL                 AFTER `updatedAt`  ;
+ALTER TABLE `clientStimword`    MODIFY COLUMN `stimwordPositionAutoIncr` MEDIUMINT(10) UNSIGNED NOT NULL                 AFTER `updatedAt`  ;
 
-ALTER TABLE `context`      MODIFY COLUMN `contextAutoIncr`   mediumint(08) unsigned NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
-ALTER TABLE `context`      MODIFY COLUMN `soundAutoIncr`     mediumint(08) unsigned NOT NULL                         AFTER `updatedAt`  ;
+ALTER TABLE `context`           MODIFY COLUMN `contextAutoIncr`          MEDIUMINT(08) UNSIGNED NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
+ALTER TABLE `context`           MODIFY COLUMN `soundAutoIncr`            MEDIUMINT(08) UNSIGNED NOT NULL                         AFTER `updatedAt`  ;
 
-ALTER TABLE `languageNorms` MODIFY COLUMN `langaugeNormsAutoIncr` mediumint(08) unsigned NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
+ALTER TABLE `languageNorms`     MODIFY COLUMN `langaugeNormsAutoIncr`    MEDIUMINT(08) UNSIGNED NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
 
-ALTER TABLE `sound`      MODIFY COLUMN `soundAutoIncr`       mediumint(08) unsigned NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
+ALTER TABLE `sound`             MODIFY COLUMN `soundAutoIncr`            MEDIUMINT(08) UNSIGNED NOT NULL AUTO_INCREMENT          AFTER `updatedAt`  ;
 
-ALTER TABLE `stimwordPosition` MODIFY COLUMN `stimwordPositionAutoIncr` mediumint(10) unsigned NOT NULL AUTO_INCREMENT AFTER `updatedAt`  ;
+ALTER TABLE `stimwordPosition`  MODIFY COLUMN `stimwordPositionAutoIncr` MEDIUMINT(10) UNSIGNED NOT NULL AUTO_INCREMENT  AFTER `updatedAt`  ;
 
 SET FOREIGN_KEY_CHECKS=1  ;
 
