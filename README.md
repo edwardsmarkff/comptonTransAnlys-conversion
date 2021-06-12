@@ -5,6 +5,10 @@ copied from the drive.google.com
 
 2021-04-26- since we are using unicodes, this conversion should be done on a linux workstation, or at least a command-line-interpretor that can handle unicodes.  using an ordinary minimial centos-8 could not handle unicodes.  probably an easy fix....  but i found it easier to use a linux workstation instead.
 
+to test results:
+
+grep ERROR  *.log  | grep -v ERRORS  | grep -v 'SEMANTIC ERROR' | grep -v 'ERROR LINKING' | grep -v  'SEMANTIC' ;
+
 DAMAGED KEY FIXED 2020-10-30 -
 
 still to do:
