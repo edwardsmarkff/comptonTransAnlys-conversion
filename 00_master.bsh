@@ -34,8 +34,8 @@ bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log     
 echo $(date) ' - 07_alter_keys.bsh';
 bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1  ;
 
-echo $(date) ' - 08_index_rename.bsh';
-bash -vx  08_index_rename.bsh                  > 07_index_rename.bsh.log               2>&1  ;
+echo $(date) ' - 08_final_sed_rename.bsh';
+bash -vx  08_final_sed_rename.bsh              > 07_final_sed_rename.bsh.log           2>&1  ;
 
 echo $(date) ' - 09_move_columns.bsh';
 bash -vx  09_move_columns.bsh                  > 09_move_columns.bsh.log               2>&1  ;
