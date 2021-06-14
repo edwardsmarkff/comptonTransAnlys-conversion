@@ -8,7 +8,7 @@
 				================			==============
 Eval_master_stimulus_word    => stimwordPositionWord		==	clientPositionWord
 Eval_master_position         => stimwordPostionName		==	clientContextPositionName (!!!!!)  clientContextPosition		(????)
-Eval_master_position_nbr     =>	stimwordPositionNbr		==	clientStimwordPostionNbr  (??? this needs to be changed to clientContextPositionNbr
+Eval_master_position_nbr     =>	stimwordPositionNbr		==	clientStimwordPostionNbr
 Eval_master_context          => stimwordPositionSetting		==	clientStimwordSetting
 
 
@@ -76,7 +76,7 @@ Eval_master_context          => stimwordPositionSetting		==	clientStimwordSettin
 		AND	stimwordPosition.stimwordPositionWord 		=	clientStimwordCURRENT.clientStimwordWord
 
 		AND	stimwordPosition.stimwordPositionName		=	clientStimwordCURRENT.clientContextPositionName
-		AND	stimwordPosition.stimwordPositionNbr		=	clientStimwordCURRENT.clientStimwordPositionNbr   ####  ?????
+		AND	stimwordPosition.stimwordPositionNbr		=	clientStimwordCURRENT.clientStimwordPositionNbr
 		AND	stimwordPosition.stimwordPositionSetting	=	clientStimwordCURRENT.clientStimwordSetting
 
 		AND	stimwordPosition.stimwordPositionPhoneme	=	clientStimwordCURRENT.clientContextPhoneme	
@@ -97,7 +97,7 @@ Eval_master_context          => stimwordPositionSetting		==	clientStimwordSettin
 		AND	stimwordPosition.stimwordPositionWord 		=	clientStimwordREPLICATE.clientStimwordWord
 
 		AND	stimwordPosition.stimwordPositionName		=	clientStimwordREPLICATE.clientContextPositionName
-		AND	stimwordPosition.stimwordPositionNbr		=	clientStimwordREPLICATE.clientStimwordPositionNbr  ### ???
+		AND	stimwordPosition.stimwordPositionNbr		=	clientStimwordREPLICATE.clientStimwordPositionNbr
 		AND	stimwordPosition.stimwordPositionSetting	=	clientStimwordREPLICATE.clientStimwordSetting
 
 		AND	stimwordPosition.stimwordPositionPhoneme	=	clientStimwordREPLICATE.clientContextPhoneme	
