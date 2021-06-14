@@ -1,3 +1,31 @@
+		
+		Eval_master		=>	stimwordPosition
+		Client_anlys_detail	=>	clientContext
+		Client_eval_detail	=>	clientStimword
+
+
+				stimwordPosition			clientStimword
+				================			==============
+Eval_master_stimulus_word    => stimwordPositionWord		==	clientPositionWord
+Eval_master_position         => stimwordPostionName		==	clientContextPosition		(????)
+Eval_master_position_nbr     =>	stimwordPositionNbr		==	clientStimwordPostionNbr
+Eval_master_context          => stimwordPositionSetting		==	clientStimwordSetting
+
+
+`stimwordPositionWord` char(25) NOT NULL,
+`stimwordPositionName` varchar(20) NOT NULL,
+`stimwordPositionNbr` tinyint(3) unsigned NOT NULL,
+`stimwordPositionSetting` char(20) NOT NULL,
+
+`clientStimwordWord` char(25) NOT NULL,
+`clientContextPosition` varchar(20) NOT NULL,
+`clientStimwordPositionNbr` tinyint(3) unsigned NOT NULL,
+`clientStimwordSetting` char(20) NOT NULL,
+
+
+
+
+
 		SELECT	DISTINCT ''
 		,	stimwordPosition.stimwordPositionPageNbr
 		,	stimwordPosition.stimwordPositionLineNbr
@@ -9,8 +37,6 @@
 		ORDER BY
 			stimwordPosition.stimwordPositionAutoIncr
 		;
-
-
 
 
 
@@ -92,3 +118,77 @@
 		ORDER BY	stimwordPosition.stimwordPositionAutoIncr
 		;
 
+===========  TO DO:
+
+
+
+
+
+		SELECT  Session_names.Session_replicate
+		,	Session_names.Session_beginLineNbr
+		,	Session_names.Session_endLineNbr
+		,	Session_names.Session_error_sounds_css_normal_class
+		,	Session_names.Session_error_sounds_css_replicate_class
+		FROM	Session_names
+		WHERE	1=1
+		AND	Session_names.Session_name				=	'Time1'
+		;
+
+
+
+		SELECT  COUNT(*)
+			FROM stimwordPosition
+			WHERE	1=1
+			AND	stimwordPositionLayoutName			= 'P-ESL'
+			AND	stimwordPositionPageNbr			= 1
+			AND	stimwordPositionLineNbr			= 1
+			AND	stimwordPosition_stimulus_word		= 'Horse'
+		UNION ALL
+		SELECT COUNT(*)
+			FROM Language_norms
+			RIGHT JOIN (stimwordPosition)
+			ON	(	1
+				AND	stimwordPositionLayoutName		/* added 05-19-2006 */
+				    =	Language_normsLayoutName		/* added 05-19-2006 */
+				AND	stimwordPosition_position
+				    =	Language_norms_position
+				AND	stimwordPosition_target_sound_1
+				    =	Language_norms_target_sound_1
+				AND	stimwordPosition_target_sound_2
+				    =	Language_norms_target_sound_2
+				AND	stimwordPosition_target_sound_3
+				    =	Language_norms_target_sound_3
+
+				AND	stimwordPositionLayoutName		= 'P-ESL'
+				AND	stimwordPositionPageNbr		= 1
+				AND	stimwordPositionLineNbr		= 1
+				AND	stimwordPosition_stimulus_word	= 'Horse'
+				)
+			WHERE	Language_norms_language_name		= 'Filipino'
+
+
+	SELECT	Language_norms_error_sound_1
+	,	Language_norms_error_sound_2
+	,	Language_norms_error_sound_3
+	,	Language_norms_error_sound_4
+	FROM	Language_norms
+	WHERE	1
+	AND	Language_normsLayoutName	=	'P-ESL'
+	AND	Language_norms_language_name	=	'Filipino'
+	AND	Language_norms_position		=	'blend'
+	AND	Language_norms_target_sound_1	=	'd'
+	AND	Language_norms_target_sound_2	=	'r'
+	AND	Language_norms_target_sound_3	=	''
+	;
+
+
+		SELECT	Phonetic_spelling_target_sound
+		FROM	Phonetic_spelling
+		WHERE	1
+		AND	Phonetic_spellingLayoutName	=	'P-ESL'
+		AND	Phonetic_spellingPageNbr	=	1
+		AND	Phonetic_spellingLineNbr	=	1
+		AND	Phonetic_spelling_stimulus_word	=	'Horse'
+		ORDER BY
+			Phonetic_spelling_order_nbr
+		;
