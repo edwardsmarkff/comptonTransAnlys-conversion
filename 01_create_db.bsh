@@ -5,7 +5,7 @@
 #	set fileformat=unix
 #
 #
-sed --in-place  --expression='s/dipthong/diphthong/g;s/ON DELETE NO ACTION/ON DELETE CASCADE/g;' comptonTransAnlys.sql;
+sed --in-place  --expression= 's/dipthong/diphthong/g;  s/ON DELETE NO ACTION/ON DELETE CASCADE/g; ' comptonTransAnlys.sql;
 
 mariadb  -e  'drop database if exists comptonTransAnlys ; create database comptonTransAnlys'  ;
 mariadb  --verbose  comptonTransAnlys < comptonTransAnlys.sql  ;
