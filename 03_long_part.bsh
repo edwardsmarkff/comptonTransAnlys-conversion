@@ -79,61 +79,74 @@ END
 
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
-## move the client_master emails over to the Client_master_client_name
-UPDATE Client_master SET Client_master_client_name = Client_master_email ;
+  ## move the client_master emails over to the Client_master_client_name
+  UPDATE Client_master SET Client_master_client_name = Client_master_email ;
+END
+
+mariadb    --verbose  comptonTransAnlys  <<END ;
+
+  ## create a legacy column for the teacher username ((??))
+  ### 2021-09-05  change VARCHAR(50) to VARCHAR(120)
+  ALTER TABLE Teacher ADD COLUMN Teacher_legacy_name  VARCHAR(120)  NOT NULL AFTER Teacher_security_level ;
+
+  ## copy existing Teacher names to the new legacy column:
+  UPDATE Teacher SET Teacher_legacy_name = Teacher_name;
+
+  ## move the Teacher_email to the Teacher_name
+  UPDATE Teacher SET Teacher_name = Teacher_email ;
+END
 
 
-## create a legacy column for the teacher username ((??))
-### 2021-09-05  change VARCHAR(50) to VARCHAR(120)
-ALTER TABLE Teacher ADD COLUMN Teacher_legacy_name  VARCHAR(120)  NOT NULL AFTER Teacher_security_level ;
+mariadb    --verbose  comptonTransAnlys  <<END ;
 
-## copy existing Teacher names to the new legacy column:
-UPDATE Teacher SET Teacher_legacy_name = Teacher_name;
+ ## delete the old email columns:
+ --  drop-all-email-columns.sql
+  ALTER TABLE Teacher DROP COLUMN Teacher_email;
+  ALTER TABLE Client_master DROP COLUMN Client_master_email;
 
-## move the Teacher_email to the Teacher_name
-UPDATE Teacher SET Teacher_name = Teacher_email ;
+  ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_1   VARBINARY(20) NOT NULL;
+  ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_2   VARBINARY(20) NOT NULL;
+  ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_3   VARBINARY(20) NOT NULL;
 
+  UPDATE Eval_spec SET Eval_spec_position = 'diphthong' where Eval_spec_position = 'dipthong';
+  DELETE FROM Eval_spec where Eval_spec_target_sound_1 = '';
+  
+  ## add our new table - the name will be changed later   2010-06-10
+  DROP TABLE IF EXISTS TEMP_Eval_master;
+  CREATE TABLE TEMP_Eval_master (
+    Eval_master_layout_name   varchar(30) NOT NULL
+  , Eval_master_page_nbr  tinyint(4) NOT NULL
+  , Eval_master_line_nbr    tinyint(4) NOT NULL
+  , Eval_master_stimulus_word  CHAR(25) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+  ;
+END
 
+mariadb    --verbose  comptonTransAnlys  <<END ;
 
-## delete the old email columns:
---  drop-all-email-columns.sql
-ALTER TABLE Teacher DROP COLUMN Teacher_email;
-ALTER TABLE Client_master DROP COLUMN Client_master_email;
-
-ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_1   VARBINARY(20) NOT NULL;
-ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_2   VARBINARY(20) NOT NULL;
-ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_3   VARBINARY(20) NOT NULL;
-
-UPDATE Eval_spec SET Eval_spec_position = 'diphthong' where Eval_spec_position = 'dipthong';
-DELETE FROM Eval_spec where Eval_spec_target_sound_1 = '';
-
-## add our new table - the name will be changed later   2010-06-10
-DROP TABLE IF EXISTS TEMP_Eval_master;
-CREATE TABLE TEMP_Eval_master (
-  Eval_master_layout_name   varchar(30) NOT NULL
-, Eval_master_page_nbr  tinyint(4) NOT NULL
-, Eval_master_line_nbr    tinyint(4) NOT NULL
-, Eval_master_stimulus_word  CHAR(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO TEMP_Eval_master 
-SELECT DISTINCT  Eval_master_layout_name
-, Eval_master_page_nbr
-, Eval_master_line_nbr
-, Eval_master_stimulus_word
-FROM  Eval_master
-;
-
-ALTER TABLE TEMP_Eval_master ADD COLUMN TEMP_Eval_master_auto_increment MEDIUMINT  NOT NULL AUTO_INCREMENT PRIMARY KEY
-, CHANGE COLUMN Eval_master_layout_name     TEMP_Eval_master_layout_name VARCHAR(30) NOT NULL
-, CHANGE COLUMN  Eval_master_page_nbr       TEMP_Eval_master_page_nbr    TINYINT(4) NOT NULL
-, CHANGE COLUMN  Eval_master_line_nbr       TEMP_Eval_master_line_nbr    TINYINT(4) NOT NULL
-, CHANGE COLUMN  Eval_master_stimulus_word  TEMP_Eval_master_stimulus_word CHAR(25) NOT NULL
-;
-## 2010-06-10
+  INSERT INTO TEMP_Eval_master 
+  SELECT DISTINCT  Eval_master_layout_name
+  , Eval_master_page_nbr
+  , Eval_master_line_nbr
+  , Eval_master_stimulus_word
+  FROM  Eval_master
+  ;
+END
 
 
-SELECT 'finished with this long part!' ;
+mariadb    --verbose  comptonTransAnlys  <<END ;
+  ALTER TABLE TEMP_Eval_master ADD COLUMN TEMP_Eval_master_auto_increment MEDIUMINT  NOT NULL AUTO_INCREMENT PRIMARY KEY
+  , CHANGE COLUMN Eval_master_layout_name     TEMP_Eval_master_layout_name VARCHAR(30) NOT NULL
+  , CHANGE COLUMN  Eval_master_page_nbr       TEMP_Eval_master_page_nbr    TINYINT(4) NOT NULL
+  , CHANGE COLUMN  Eval_master_line_nbr       TEMP_Eval_master_line_nbr    TINYINT(4) NOT NULL
+  , CHANGE COLUMN  Eval_master_stimulus_word  TEMP_Eval_master_stimulus_word CHAR(25) NOT NULL
+  ;
+  ## 2010-06-10
+END
+
+
+
+echo 'finished with this long part!' ;
 
 END
 ##
