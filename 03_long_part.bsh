@@ -5,7 +5,7 @@
 ##  2021-05-09  - remove the script_name and script_line columns
 ##  2021-05-09  - removed Karen Bragg's fake email client fix, probably no longer needed.
 #   2021-06-01  - made all email(name) references varchar(320) instead of varchar(100)
-##  2021-09-04  - removed all the ALTER TABLE for email and changed VARCHAR(50) to VARCHAR(120)
+##  2021-09-05  - removed all the ALTER TABLE for email and changed VARCHAR(50) to VARCHAR(120)
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
@@ -27,7 +27,7 @@ ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_n
 ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_line          ;  ## 2021-05-09
 
 
-## 2021-09-04 - for some reason, Client_master_email is coming through as blank.
+## 2021-09-05 - for some reason, Client_master_email is coming through as blank.
 UPDATE `Client_master` SET `Client_master_email` = `Client_master_client_name` WHERE `Client_master_email` IS NULL ;
   
 ##
@@ -35,18 +35,18 @@ UPDATE `Client_master` SET `Client_master_email` = `Client_master_client_name` W
 ## expand all the Teacher_name and Client_name fields to accomodate the email addresses 
 --  expand-all-email-columns.sql
 
-## 2021-09-04 - no longer needed   ALTER TABLE Teacher              MODIFY COLUMN Teacher_name            VARCHAR(320) NOT NULL; 
-## 2021-09-04 - no longer needed   ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(320) NOT NULL;
+## 2021-09-05 - no longer needed   ALTER TABLE Teacher              MODIFY COLUMN Teacher_name            VARCHAR(320) NOT NULL; 
+## 2021-09-05 - no longer needed   ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(320) NOT NULL;
 ALTER TABLE Client_master        MODIFY COLUMN Client_master_client_name     VARCHAR(320) NOT NULL;
    ## 2021-05-09  ALTER TABLE Client_master        MODIFY COLUMN Client_master_script_name  VARCHAR(200) NOT NULL;
 
-## 2021-09-04 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(320) NOT NULL;
-## 2021-09-04 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(320) NOT NULL;
+## 2021-09-05 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(320) NOT NULL;
+## 2021-09-05 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(320) NOT NULL;
    ## 2021-05-09  ALTER TABLE Client_anlys_detail      MODIFY COLUMN   Client_anlys_detail_script_name varchar(200) NOT NULL;
 ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_auto_increment  INT   NOT NULL ;
 
-## 2021-09-04 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(320) NOT NULL;
-## 2021-09-04 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(320) NOT NULL;
+## 2021-09-05 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(320) NOT NULL;
+## 2021-09-05 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(320) NOT NULL;
    ## 2021-05-09  ALTER TABLE Client_eval_detail      MODIFY COLUMN   Client_eval_detail_script_name   VARCHAR(200) NOT NULL;
 ALTER TABLE Client_eval_detail      MODIFY COLUMN Client_eval_detail_auto_increment  INT   NOT NULL ;
 
@@ -74,7 +74,7 @@ UPDATE Client_master SET Client_master_client_name = Client_master_email ;
 
 
 ## create a legacy column for the teacher username ((??))
-### 2021-09-04  change VARCHAR(50) to VARCHAR(120)
+### 2021-09-05  change VARCHAR(50) to VARCHAR(120)
 ALTER TABLE Teacher ADD COLUMN Teacher_legacy_name  VARCHAR(120)  NOT NULL AFTER Teacher_security_level ;
 
 ## copy existing Teacher names to the new legacy column:
