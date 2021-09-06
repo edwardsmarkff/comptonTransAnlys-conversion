@@ -13,61 +13,71 @@
 
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
-###### 2021-05-09 UPDATE Client_master         SET Client_master_script_name       = '' ;  ## 2020-10-30
-###### 2021-05-09 UPDATE Client_anlys_detail   SET Client_anlys_detail_script_name = ''  ; ## 2020-10-30
-###### 2021-05-09 UPDATE Client_eval_detail    SET Client_eval_detail_script_name  = ''  ; ## 2020-10-30
+  ###### 2021-05-09 UPDATE Client_master         SET Client_master_script_name       = '' ;  ## 2020-10-30
+  ###### 2021-05-09 UPDATE Client_anlys_detail   SET Client_anlys_detail_script_name = ''  ; ## 2020-10-30
+  ###### 2021-05-09 UPDATE Client_eval_detail    SET Client_eval_detail_script_name  = ''  ; ## 2020-10-30
 
-ALTER TABLE Client_anlys_detail   DROP COLUMN IF EXISTS   Client_anlys_detail_script_name    ;  ## 2021-05-09
-ALTER TABLE Client_anlys_detail   DROP COLUMN IF EXISTS   Client_anlys_detail_script_line    ;  ## 2021-05-09
+  ALTER TABLE Client_anlys_detail   DROP COLUMN IF EXISTS   Client_anlys_detail_script_name    ;  ## 2021-05-09
+  ALTER TABLE Client_anlys_detail   DROP COLUMN IF EXISTS   Client_anlys_detail_script_line    ;  ## 2021-05-09
 
-ALTER TABLE Client_eval_detail    DROP COLUMN IF EXISTS   Client_eval_detail_script_name     ;  ## 2021-05-09
-ALTER TABLE Client_eval_detail    DROP COLUMN IF EXISTS   Client_eval_detail_script_line     ;  ## 2021-05-09
+  ALTER TABLE Client_eval_detail    DROP COLUMN IF EXISTS   Client_eval_detail_script_name     ;  ## 2021-05-09
+  ALTER TABLE Client_eval_detail    DROP COLUMN IF EXISTS   Client_eval_detail_script_line     ;  ## 2021-05-09
 
-ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_name          ;  ## 2021-05-09
-ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_line          ;  ## 2021-05-09
+  ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_name          ;  ## 2021-05-09
+  ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_line          ;  ## 2021-05-09
+END
 
+mariadb    --verbose  comptonTransAnlys  <<END ;
 
-## 2021-09-05 - for some reason, Client_master_email is coming through as blank.
-UPDATE Client_master SET Client_master_email = Client_master_client_name WHERE Client_master_email IS NULL ;
+  ## 2021-09-05 - for some reason, Client_master_email is coming through as blank.
+  UPDATE Client_master SET Client_master_email = Client_master_client_name WHERE Client_master_email IS NULL ;
   
-##
-##
-## expand all the Teacher_name and Client_name fields to accomodate the email addresses 
+  ##
+  ##
+  ## expand all the Teacher_name and Client_name fields to accomodate the email addresses 
 --  expand-all-email-columns.sql
 
-## 2021-09-05 - no longer needed   ALTER TABLE Teacher              MODIFY COLUMN Teacher_name            VARCHAR(320) NOT NULL; 
-## 2021-09-05 - no longer needed   ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(320) NOT NULL;
-ALTER TABLE Client_master        MODIFY COLUMN Client_master_client_name     VARCHAR(320) NOT NULL;
-   ## 2021-05-09  ALTER TABLE Client_master        MODIFY COLUMN Client_master_script_name  VARCHAR(200) NOT NULL;
+  ## 2021-09-05 - no longer needed   ALTER TABLE Teacher              MODIFY COLUMN Teacher_name            VARCHAR(320) NOT NULL; 
+  ## 2021-09-05 - no longer needed   ALTER TABLE Client_master        MODIFY COLUMN Client_master_teacher_name     VARCHAR(320) NOT NULL;
+  ALTER TABLE Client_master        MODIFY COLUMN Client_master_client_name     VARCHAR(320) NOT NULL;
+     ## 2021-05-09  ALTER TABLE Client_master        MODIFY COLUMN Client_master_script_name  VARCHAR(200) NOT NULL;
 
-## 2021-09-05 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(320) NOT NULL;
-## 2021-09-05 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(320) NOT NULL;
-   ## 2021-05-09  ALTER TABLE Client_anlys_detail      MODIFY COLUMN   Client_anlys_detail_script_name varchar(200) NOT NULL;
-ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_auto_increment  INT   NOT NULL ;
+  ## 2021-09-05 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_teacher_name    VARCHAR(320) NOT NULL;
+  ## 2021-09-05 - no longer needed   ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_client_name    VARCHAR(320) NOT NULL;
+     ## 2021-05-09  ALTER TABLE Client_anlys_detail      MODIFY COLUMN   Client_anlys_detail_script_name varchar(200) NOT NULL;
+  ALTER TABLE Client_anlys_detail        MODIFY COLUMN Client_anlys_detail_auto_increment  INT   NOT NULL ;
 
-## 2021-09-05 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(320) NOT NULL;
-## 2021-09-05 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(320) NOT NULL;
-   ## 2021-05-09  ALTER TABLE Client_eval_detail      MODIFY COLUMN   Client_eval_detail_script_name   VARCHAR(200) NOT NULL;
-ALTER TABLE Client_eval_detail      MODIFY COLUMN Client_eval_detail_auto_increment  INT   NOT NULL ;
-
-
-## create 'fake' email addresses in the client_master table for the blank ones  
---  change-client-master-emails-for-blanks.qbquery
+  ## 2021-09-05 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_teacher_name    VARCHAR(320) NOT NULL;
+  ## 2021-09-05 - no longer needed   ALTER TABLE Client_eval_detail        MODIFY COLUMN Client_eval_detail_client_name    VARCHAR(320) NOT NULL;
+    ## 2021-05-09  ALTER TABLE Client_eval_detail      MODIFY COLUMN   Client_eval_detail_script_name   VARCHAR(200) NOT NULL;
+  ALTER TABLE Client_eval_detail      MODIFY COLUMN Client_eval_detail_auto_increment  INT   NOT NULL ;
+END
 
 
-#### 2021-05-09 UPDATE Client_master set Client_master_email =  lower(concat(replace(Client_master_client_name,' ','_') , "@" , replace(Client_master_client_name,' ','_') , ".com"))
-#### 2021-05-09 WHERE 1
-#### 2021-05-09 AND  Client_master_email = ''
-#### 2021-05-09 OR Client_master_email IN ('karen.bragg@ucps.k12.nc.us', 'katie.young@att.net');
+mariadb    --verbose  comptonTransAnlys  <<END ;
+
+  ## create 'fake' email addresses in the client_master table for the blank ones  
+   --  change-client-master-emails-for-blanks.qbquery
 
 
-## create *NEW* client name column:
-ALTER TABLE Client_master   ADD COLUMN Client_master_name  VARCHAR(50) NOT NULL 
-     AFTER  Client_master_spec_language ;
+  #### 2021-05-09 UPDATE Client_master set Client_master_email =  lower(concat(replace(Client_master_client_name,' ','_') , "@" , replace(Client_master_client_name,' ','_') , ".com"))
+  #### 2021-05-09 WHERE 1
+  #### 2021-05-09 AND  Client_master_email = ''
+  #### 2021-05-09 OR Client_master_email IN ('karen.bragg@ucps.k12.nc.us', 'katie.young@att.net');
 
-## copy existing client names from the "keyed" field into the new Client_master_name column
-UPDATE Client_master SET Client_master_name = Client_master_client_name;
+END
 
+mariadb    --verbose  comptonTransAnlys  <<END ;
+
+  ## create *NEW* client name column:
+  ALTER TABLE Client_master   ADD COLUMN Client_master_name  VARCHAR(50) NOT NULL 
+       AFTER  Client_master_spec_language ;
+
+  ## copy existing client names from the "keyed" field into the new Client_master_name column
+  UPDATE Client_master SET Client_master_name = Client_master_client_name;
+END
+
+mariadb    --verbose  comptonTransAnlys  <<END ;
 
 ## move the client_master emails over to the Client_master_client_name
 UPDATE Client_master SET Client_master_client_name = Client_master_email ;
