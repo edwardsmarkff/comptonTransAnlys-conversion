@@ -27,7 +27,8 @@ ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_n
 ALTER TABLE Client_master         DROP COLUMN IF EXISTS   Client_master_script_line          ;  ## 2021-05-09
 
 
-
+## 2021-09-04 - for some reason, Client_master_email is coming through as blank.
+UPDATE `Client_master` SET `Client_master_email` = `Client_master_client_name` WHERE `Client_master_email` IS NULL ;
   
 ##
 ##
