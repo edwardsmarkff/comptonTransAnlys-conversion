@@ -523,408 +523,407 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		;
 END
 
+
 mariadb  --verbose   comptonTransAnlys   <<END;
-#						2007-07-07
-#					redone 2010-04-13
-#
-#	Frequency_list_2_Client_context_foreign_key.sql
-#
-#
-ALTER TABLE \`Frequency_list\`
-	ADD KEY  \`Frequency_list_2_Client_context_KEY\`
+	#						2007-07-07
+	#					redone 2010-04-13
+	#
+	#	Frequency_list_2_Client_context_foreign_key.sql
+	#
+	#
+	ALTER TABLE \`Frequency_list\`
+		ADD KEY  \`Frequency_list_2_Client_context_KEY\`
 			(	\`Frequency\`
 			)
 			;
 END
 
+
 mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Client_context\`
-
-	ADD CONSTRAINT	\`Frequency_list_2_Client_context_CONSTRAINT\`
-	FOREIGN KEY	\`Frequency_list_2_Client_context_FOREIGN_KEY\`
-			(	\`Client_context_error_frequency\`
-			)
-
+	ALTER TABLE \`Client_context\`
+		ADD CONSTRAINT	\`Frequency_list_2_Client_context_CONSTRAINT\`
+		FOREIGN KEY	\`Frequency_list_2_Client_context_FOREIGN_KEY\`
+				(	\`Client_context_error_frequency\`
+				)
 		REFERENCES	\`Frequency_list\`
-			(	\`Frequency\`
-			)
-	ON UPDATE CASCADE
-	ON DELETE NO ACTION
-	;
+				(	\`Frequency\`
+				)
+		ON UPDATE CASCADE
+		ON DELETE NO ACTION
+		;
 END
 
+
 mariadb  --verbose   comptonTransAnlys   <<END;
-#						2007-07-07
-#					redone	2010-04-13
-### already has "Session_name_unique_index"
+	#						2007-07-07
+	#					redone	2010-04-13
+	### already has "Session_name_unique_index"
 
-ALTER TABLE \`Client_master\`
-
-	ADD CONSTRAINT	\`Session_names_2_Client_master_2_session_names_CONSTRAINT\`
-	FOREIGN KEY	\`Session_names_2_Client_master_FOREIGN_KEY\`
+	ALTER TABLE \`Client_master\`
+		ADD CONSTRAINT	\`Session_names_2_Client_master_2_session_names_CONSTRAINT\`
+		FOREIGN KEY	\`Session_names_2_Client_master_FOREIGN_KEY\`
 			(	\`Client_master_session_name\`
 			)
-
 		REFERENCES	\`Session_names\`
 			(	\`Session_name\`
 			)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	#					redone 2010-04-13
+	#
+	#		Sound_2_Context_foreign_key.sql
+	#
+	#
+	ALTER TABLE \`Sound\`
+		ADD KEY	\`Sound_2_Context_KEY\`
+				(	\`Sound_layout_name\`
+				,	\`Sound_phoneme\`
+	## 2021-05-08			,	Sound_phoneme_1
+	## 2021-05-08			,	Sound_phoneme_2
+	## 2021-05-08			,	Sound_phoneme_3
+				)
+				;
+END
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Context\`
+		ADD CONSTRAINT		\`Sound_2_Context_CONSTRAINT_2\`
+			FOREIGN KEY	\`Sound_2_Context_FOREIGN_KEY_2\`
+				(	\`Context_layout_name\`
+				,	\`Context_phoneme\`
+	## 2021-05-08			,	Context_phoneme_1
+	## 2021-05-08			,	Context_phoneme_2
+	## 2021-05-08			,	Context_phoneme_3
+				)
+			REFERENCES	\`Sound\`
+				(	\`Sound_layout_name\`
+				,	\`Sound_phoneme\`
+	## 2021-05-08			,	Sound_phoneme_1
+	## 2021-05-08			,	Sound_phoneme_2
+	## 2021-05-08			,	Sound_phoneme_3
+				)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Sound\` MODIFY COLUMN \`Sound_auto_increment\` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
+	ALTER TABLE \`Context\`  ADD COLUMN \`Sound_auto_increment\` MEDIUMINT UNSIGNED NOT NULL
+		AFTER \`Context_count\`
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	UPDATE \`Context\`
+	INNER JOIN \`Sound\`
+	SET \`Context\`.\`Sound_auto_increment\`	= \`Sound\`.\`Sound_auto_increment\`
+	WHERE 1
+	AND \`Context\`.\`Context_layout_name\`		= \`Sound\`.\`Sound_layout_name\`
+	AND \`Context\`.\`Context_phoneme\`		= \`Sound\`.\`Sound_phoneme\`
+	## 2021-05-08	AND Context.Context_phoneme_1		= Sound.Sound_phoneme_1
+	## 2021-05-08	AND Context.Context_phoneme_2		= Sound.Sound_phoneme_2
+	## 2021-05-08	AND Context.Context_phoneme_3		= Sound.Sound_phoneme_3
 	;
 END
 
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-#					redone 2010-04-13
-#
-#	Sound_2_Context_foreign_key.sql
-#
-#
-ALTER TABLE \`Sound\`
-	ADD KEY	\`Sound_2_Context_KEY\`
-			(	\`Sound_layout_name\`
-			,	\`Sound_phoneme\`
-## 2021-05-08			,	Sound_phoneme_1
-## 2021-05-08			,	Sound_phoneme_2
-## 2021-05-08			,	Sound_phoneme_3
-			)
-			;
-			
-END
 
 mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Context\`
-	ADD CONSTRAINT		\`Sound_2_Context_CONSTRAINT_2\`
-		FOREIGN KEY	\`Sound_2_Context_FOREIGN_KEY_2\`
-			(	\`Context_layout_name\`
-			,	\`Context_phoneme\`
-## 2021-05-08			,	Context_phoneme_1
-## 2021-05-08			,	Context_phoneme_2
-## 2021-05-08			,	Context_phoneme_3
+	ALTER TABLE \`Context\`
+		ADD CONSTRAINT	\`Sound_2_Context_CONSTRAINT_1\`
+		FOREIGN KEY	\`Sound_2_Context_FOREIGN_KEY_1\`
+			(	\`Sound_auto_increment\`
 			)
 		REFERENCES	\`Sound\`
-			(	\`Sound_layout_name\`
-			,	\`Sound_phoneme\`
-## 2021-05-08			,	Sound_phoneme_1
-## 2021-05-08			,	Sound_phoneme_2
-## 2021-05-08			,	Sound_phoneme_3
+			(	\`Sound_auto_increment\`
 			)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	#				2/28/2006
+	#				redone 2010-04-13
+	#
+	#	Stimword_position_2_Client_stimword_foreign_key.sql
+	#
+	#
+	ALTER TABLE \`Stimword_position\`
+		ADD KEY		\`Stimword_position_2_Client_stimword_KEY\`
+				(	\`Stimword_position_layout_name\`
+				,	\`Stimword_position_page_nbr\`
+				,	\`Stimword_position_line_nbr\`
+				,	\`Stimword_position_stimword\`
+				,	\`Stimword_position_position\`
+				,	\`Stimword_position_position_nbr\`
+				,	\`Stimword_position_setting\`
+				,	\`Stimword_position_phoneme\`
+	## 2021-05-08			,	Stimword_position_phoneme_1
+	## 2021-05-08			,	Stimword_position_phoneme_2
+	## 2021-05-08			,	Stimword_position_phoneme_3
+				)
+				;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Client_stimword\`
+		ADD CONSTRAINT	\`Stimword_position_2_Client_stimword_CONSTRAINT_1\`
+		FOREIGN KEY	\`Stimword_position_2_Client_stimword_FOREIGN_KEY_1\`
+				(	\`Client_stimword_layout_name\`
+				,	\`Client_stimword_page_nbr\`
+				,	\`Client_stimword_line_nbr\`
+				,	\`Client_stimword_stimword\`
+				,	\`Client_stimword_position\`
+				,	\`Client_stimword_position_nbr\`
+				,	\`Client_stimword_setting\`
+				,	\`Client_stimword_phoneme\`
+	## 2021-05-08			,	Client_stimword_phoneme_1
+	## 2021-05-08			,	Client_stimword_phoneme_2
+	## 2021-05-08			,	Client_stimword_phoneme_3
+				)
+			REFERENCES	\`Stimword_position\`
+				(	\`Stimword_position_layout_name\`
+				,	\`Stimword_position_page_nbr\`
+				,	\`Stimword_position_line_nbr\`
+				,	\`Stimword_position_stimword\`
+				,	\`Stimword_position_position\`
+				,	\`Stimword_position_position_nbr\`
+				,	\`Stimword_position_setting\`
+				,	\`Stimword_position_phoneme\`
+	## 2021-05-08			,	Stimword_position_phoneme_1
+	## 2021-05-08			,	Stimword_position_phoneme_2
+	## 2021-05-08			,	Stimword_position_phoneme_3
+				)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Client_stimword\`  ADD COLUMN  \`Client_stimword_notes\` TEXT
+		AFTER \`Client_stimword_error_4\`
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;\
+	ALTER TABLE \`Stimword_position\` MODIFY COLUMN	\`Stimword_position_auto_increment\`  MEDIUMINT NOT NULL;
+	ALTER TABLE \`Client_stimword\`  ADD COLUMN  	\`Stimword_position_auto_increment\`  MEDIUMINT NOT NULL
+		AFTER \`Client_stimword_notes\`
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+UPDATE  \`Client_stimword\`
+	INNER JOIN \`Stimword_position\`
+	SET \`Client_stimword\`.\`Stimword_position_auto_increment\`		= \`Stimword_position\`.\`Stimword_position_auto_increment\`
+	WHERE 1
+	AND \`Client_stimword\`.\`Client_stimword_layout_name\`		= \`Stimword_position\`.\`Stimword_position_layout_name\`
+	AND \`Client_stimword\`.\`Client_stimword_page_nbr\`		= \`Stimword_position\`.\`Stimword_position_page_nbr\`
+	AND \`Client_stimword\`.\`Client_stimword_line_nbr\`		= \`Stimword_position\`.\`Stimword_position_line_nbr\`
+	AND \`Client_stimword\`.\`Client_stimword_stimword\`		= \`Stimword_position\`.\`Stimword_position_stimword\`
+	AND \`Client_stimword\`.\`Client_stimword_position\`		= \`Stimword_position\`.\`Stimword_position_position\`
+	AND \`Client_stimword\`.\`Client_stimword_position_nbr\`	= \`Stimword_position\`.\`Stimword_position_position_nbr\`
+	AND \`Client_stimword\`.\`Client_stimword_setting\`		= \`Stimword_position\`.\`Stimword_position_setting\`
+	AND \`Client_stimword\`.\`Client_stimword_phoneme\`		= \`Stimword_position\`.\`Stimword_position_phoneme\`
+		## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1		= Stimword_position.Stimword_position_phoneme_1
+		## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2		= Stimword_position.Stimword_position_phoneme_2
+		## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3		= Stimword_position.Stimword_position_phoneme_3
 	;
 END
 
 
 mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Sound\` MODIFY COLUMN \`Sound_auto_increment\` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE \`Context\`  ADD COLUMN \`Sound_auto_increment\` MEDIUMINT UNSIGNED NOT NULL
-	AFTER \`Context_count\`
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-UPDATE \`Context\`
-INNER JOIN \`Sound\`
-SET \`Context\`.\`Sound_auto_increment\`	= \`Sound\`.\`Sound_auto_increment\`
-WHERE 1
-AND \`Context\`.\`Context_layout_name\`		= \`Sound\`.\`Sound_layout_name\`
-AND \`Context\`.\`Context_phoneme\`		= \`Sound\`.\`Sound_phoneme\`
-## 2021-05-08	AND Context.Context_phoneme_1		= Sound.Sound_phoneme_1
-## 2021-05-08	AND Context.Context_phoneme_2		= Sound.Sound_phoneme_2
-## 2021-05-08	AND Context.Context_phoneme_3		= Sound.Sound_phoneme_3
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Context\`
-	ADD CONSTRAINT	\`Sound_2_Context_CONSTRAINT_1\`
-	FOREIGN KEY	\`Sound_2_Context_FOREIGN_KEY_1\`
-		(	\`Sound_auto_increment\`
-		)
-	REFERENCES	\`Sound\`
-		(	\`Sound_auto_increment\`
-		)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
-	;
-END
-
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-#				2/28/2006
-#				redone 2010-04-13
-#
-#	Stimword_position_2_Client_stimword_foreign_key.sql
-#
-#
-ALTER TABLE \`Stimword_position\`
-	ADD KEY		\`Stimword_position_2_Client_stimword_KEY\`
-			(	\`Stimword_position_layout_name\`
-			,	\`Stimword_position_page_nbr\`
-			,	\`Stimword_position_line_nbr\`
-			,	\`Stimword_position_stimword\`
-			,	\`Stimword_position_position\`
-			,	\`Stimword_position_position_nbr\`
-			,	\`Stimword_position_setting\`
-			,	\`Stimword_position_phoneme\`
-## 2021-05-08			,	Stimword_position_phoneme_1
-## 2021-05-08			,	Stimword_position_phoneme_2
-## 2021-05-08			,	Stimword_position_phoneme_3
-			)
-			;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Client_stimword\`
-
-	ADD CONSTRAINT	\`Stimword_position_2_Client_stimword_CONSTRAINT_1\`
-	FOREIGN KEY	\`Stimword_position_2_Client_stimword_FOREIGN_KEY_1\`
-			(	\`Client_stimword_layout_name\`
-			,	\`Client_stimword_page_nbr\`
-			,	\`Client_stimword_line_nbr\`
-			,	\`Client_stimword_stimword\`
-			,	\`Client_stimword_position\`
-			,	\`Client_stimword_position_nbr\`
-			,	\`Client_stimword_setting\`
-			,	\`Client_stimword_phoneme\`
-## 2021-05-08			,	Client_stimword_phoneme_1
-## 2021-05-08			,	Client_stimword_phoneme_2
-## 2021-05-08			,	Client_stimword_phoneme_3
+	ALTER TABLE \`Client_stimword\`
+		ADD CONSTRAINT	\`Stimword_position_2_Client_stimword_CONSTRAINT_2\`
+		FOREIGN KEY	\`Stimword_position_2_Client_stimword_FOREIGN_KEY_2\`
+			(	\`Stimword_position_auto_increment\`
 			)
 		REFERENCES	\`Stimword_position\`
-			(	\`Stimword_position_layout_name\`
-			,	\`Stimword_position_page_nbr\`
-			,	\`Stimword_position_line_nbr\`
-			,	\`Stimword_position_stimword\`
-			,	\`Stimword_position_position\`
-			,	\`Stimword_position_position_nbr\`
-			,	\`Stimword_position_setting\`
-			,	\`Stimword_position_phoneme\`
-## 2021-05-08			,	Stimword_position_phoneme_1
-## 2021-05-08			,	Stimword_position_phoneme_2
-## 2021-05-08			,	Stimword_position_phoneme_3
+			(	\`Stimword_position_auto_increment\`
 			)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	#				2010-06-10
+	#
+	#	Stimword_2_Stimword_position_foreign_key.sql
+	#
+	#
+	ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_layout_name\`		VARCHAR(30) NOT NULL;
+	ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_layout_name\`	VARCHAR(30) NOT NULL;
+	ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_page_nbr\`		TINYINT UNSIGNED NOT NULL;
+	ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_page_nbr\`	TINYINT UNSIGNED NOT NULL;
+	ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_line_nbr\`		TINYINT UNSIGNED NOT NULL;
+	ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_line_nbr\`	TINYINT UNSIGNED NOT NULL;
+	ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_stimword\`		CHAR(25) NOT NULL;
+	ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_stimword\`	CHAR(25) NOT NULL;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Stimword\`
+		ADD KEY		\`Stimword_2_Stimword_position_KEY\`
+				(	\`Stimword_layout_name\`
+				,	\`Stimword_page_nbr\`
+				,	\`Stimword_line_nbr\`
+				,	\`Stimword_stimword\`
+				)
+				;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Stimword_position\`
+		ADD CONSTRAINT	\`Stimword_2_Stimword_position_CONSTRAINT_1\`
+		FOREIGN KEY	\`Stimword_2_Stimword_position_FOREIGN_KEY_1\`
+				(	\`Stimword_position_layout_name\`
+				,	\`Stimword_position_page_nbr\`
+				,	\`Stimword_position_line_nbr\`
+				,	\`Stimword_position_stimword\`
+				)
+			REFERENCES	\`Stimword\`
+				(	\`Stimword_layout_name\`
+				,	\`Stimword_page_nbr\`
+				,	\`Stimword_line_nbr\`
+				,	\`Stimword_stimword\`
+				)
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Stimword\`	 	MODIFY	COLUMN \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
+	ALTER TABLE \`Stimword_position\`	ADD	COLUMN IF NOT EXISTS \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	UPDATE \`Stimword_position\`
+	INNER JOIN \`Stimword\`
+	SET  \`Stimword_position\`.\`Stimword_auto_increment\`	= \`Stimword\`.\`Stimword_auto_increment\`
+	WHERE 1
+	AND \`Stimword_position\`.\`Stimword_position_layout_name\`	=	\`Stimword\`.\`Stimword_layout_name\`
+	AND \`Stimword_position\`.\`Stimword_position_page_nbr\`	=	\`Stimword\`.\`Stimword_page_nbr\`
+	AND \`Stimword_position\`.\`Stimword_position_line_nbr\`	=	\`Stimword\`.\`Stimword_line_nbr\`
+	AND \`Stimword_position\`.\`Stimword_position_stimword\`	=	\`Stimword\`.\`Stimword_stimword\`
 	;
 END
 
 
 mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Client_stimword\`  ADD COLUMN  \`Client_stimword_notes\` TEXT
-	AFTER \`Client_stimword_error_4\`
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Stimword_position\` MODIFY COLUMN	\`Stimword_position_auto_increment\`  MEDIUMINT NOT NULL;
-ALTER TABLE \`Client_stimword\`  ADD COLUMN  	\`Stimword_position_auto_increment\`  MEDIUMINT NOT NULL
-	AFTER \`Client_stimword_notes\`
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-UPDATE  \`Client_stimword\`
-INNER JOIN \`Stimword_position\`
-SET \`Client_stimword\`.\`Stimword_position_auto_increment\`		= \`Stimword_position\`.\`Stimword_position_auto_increment\`
-WHERE 1
-AND \`Client_stimword\`.\`Client_stimword_layout_name\`		= \`Stimword_position\`.\`Stimword_position_layout_name\`
-AND \`Client_stimword\`.\`Client_stimword_page_nbr\`		= \`Stimword_position\`.\`Stimword_position_page_nbr\`
-AND \`Client_stimword\`.\`Client_stimword_line_nbr\`		= \`Stimword_position\`.\`Stimword_position_line_nbr\`
-AND \`Client_stimword\`.\`Client_stimword_stimword\`		= \`Stimword_position\`.\`Stimword_position_stimword\`
-AND \`Client_stimword\`.\`Client_stimword_position\`		= \`Stimword_position\`.\`Stimword_position_position\`
-AND \`Client_stimword\`.\`Client_stimword_position_nbr\`	= \`Stimword_position\`.\`Stimword_position_position_nbr\`
-AND \`Client_stimword\`.\`Client_stimword_setting\`		= \`Stimword_position\`.\`Stimword_position_setting\`
-AND \`Client_stimword\`.\`Client_stimword_phoneme\`		= \`Stimword_position\`.\`Stimword_position_phoneme\`
-## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1		= Stimword_position.Stimword_position_phoneme_1
-## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2		= Stimword_position.Stimword_position_phoneme_2
-## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3		= Stimword_position.Stimword_position_phoneme_3
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Client_stimword\`
-	ADD CONSTRAINT	\`Stimword_position_2_Client_stimword_CONSTRAINT_2\`
-	FOREIGN KEY	\`Stimword_position_2_Client_stimword_FOREIGN_KEY_2\`
-		(	\`Stimword_position_auto_increment\`
-		)
-	REFERENCES	\`Stimword_position\`
-		(	\`Stimword_position_auto_increment\`
-		)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
-	;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-#				2010-06-10
-#
-#	Stimword_2_Stimword_position_foreign_key.sql
-#
-#
-ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_layout_name\`		VARCHAR(30) NOT NULL;
-ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_layout_name\`	VARCHAR(30) NOT NULL;
-ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_page_nbr\`		TINYINT UNSIGNED NOT NULL;
-ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_page_nbr\`	TINYINT UNSIGNED NOT NULL;
-ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_line_nbr\`		TINYINT UNSIGNED NOT NULL;
-ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_line_nbr\`	TINYINT UNSIGNED NOT NULL;
-ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_stimword\`		CHAR(25) NOT NULL;
-ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_stimword\`	CHAR(25) NOT NULL;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Stimword\`
-	ADD KEY		\`Stimword_2_Stimword_position_KEY\`
-			(	\`Stimword_layout_name\`
-			,	\`Stimword_page_nbr\`
-			,	\`Stimword_line_nbr\`
-			,	\`Stimword_stimword\`
-			)
-			;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-ALTER TABLE \`Stimword_position\`
-
-	ADD CONSTRAINT	\`Stimword_2_Stimword_position_CONSTRAINT_1\`
-	FOREIGN KEY	\`Stimword_2_Stimword_position_FOREIGN_KEY_1\`
-			(	\`Stimword_position_layout_name\`
-			,	\`Stimword_position_page_nbr\`
-			,	\`Stimword_position_line_nbr\`
-			,	\`Stimword_position_stimword\`
+	ALTER TABLE \`Stimword_position\`
+		ADD CONSTRAINT	\`Stimword_2_Stimword_position_CONSTRAINT_2\`
+		FOREIGN KEY	\`Stimword_2_Stimword_position_FOREIGN_KEY_2\`
+			(	\`Stimword_auto_increment\`
 			)
 		REFERENCES	\`Stimword\`
-			(	\`Stimword_layout_name\`
-			,	\`Stimword_page_nbr\`
-			,	\`Stimword_line_nbr\`
-			,	\`Stimword_stimword\`
+			(	\`Stimword_auto_increment\`
 			)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
+		ON UPDATE CASCADE
+		ON DELETE CASCADE
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	#						2007-07-07
+	#						2010-04-13
+	#
+	#	Teacher_2_Client_master_foreign_key.sql
+	#
+	#
+	ALTER TABLE \`Teacher\`
+		ADD KEY		\`Teacher_2_Client_master_KEY\`
+				(	\`Teacher_email\`
+				)
+				;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Client_master\`
+		ADD CONSTRAINT	\`Teacher_2_Client_master_CONSTRAINT_2\`
+		FOREIGN KEY	\`Teacher_2_Client_master_FOREIGN_KEY_2\`
+				(	\`Client_master_teacher_email\`
+				)
+			REFERENCES	\`Teacher\`
+				(	\`Teacher_email\`
+				)
+		ON UPDATE CASCADE
+		ON DELETE NO ACTION
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Teacher\` ADD COLUMN IF NOT EXISTS
+		\`Teacher_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY 
+		AFTER \`Teacher_create_date\`
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	SHOW CREATE TABLE Teacher ;  -- 2021-06-02 - for some reason, Teacher_auto_increment is not appearing!
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Client_master\` ADD COLUMN IF NOT EXISTS
+	 	\`Teacher_auto_increment\` INT UNSIGNED NOT NULL
+		AFTER \`Client_master_anlys_notes\`
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	ALTER TABLE \`Client_master\` MODIFY COLUMN \`Client_master_active_flag\` TINYINT
+		AFTER \`Client_master_anlys_notes\`
+		;
+END
+
+
+mariadb  --verbose   comptonTransAnlys   <<END;
+	UPDATE \`Client_master\`
+	INNER JOIN \`Teacher\`
+	SET \`Client_master\`.\`Teacher_auto_increment\`             = \`Teacher\`.\`Teacher_auto_increment\`
+	WHERE 1
+	AND \`Client_master\`.\`Client_master_teacher_email\`             = \`Teacher\`.\`Teacher_email\`
 	;
 END
 
-mariadb  --verbose   comptonTransAnlys   <<END;
-ALTER TABLE \`Stimword\`	 	MODIFY	COLUMN \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE \`Stimword_position\`	ADD	COLUMN IF NOT EXISTS \`Stimword_auto_increment\` MEDIUMINT UNSIGNED NOT NULL;
-END
 
 mariadb  --verbose   comptonTransAnlys   <<END;
-UPDATE \`Stimword_position\`
-INNER JOIN \`Stimword\`
-SET  \`Stimword_position\`.\`Stimword_auto_increment\`	= \`Stimword\`.\`Stimword_auto_increment\`
-WHERE 1
-AND \`Stimword_position\`.\`Stimword_position_layout_name\`	=	\`Stimword\`.\`Stimword_layout_name\`
-AND \`Stimword_position\`.\`Stimword_position_page_nbr\`	=	\`Stimword\`.\`Stimword_page_nbr\`
-AND \`Stimword_position\`.\`Stimword_position_line_nbr\`	=	\`Stimword\`.\`Stimword_line_nbr\`
-AND \`Stimword_position\`.\`Stimword_position_stimword\`	=	\`Stimword\`.\`Stimword_stimword\`
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-ALTER TABLE \`Stimword_position\`
-	ADD CONSTRAINT	\`Stimword_2_Stimword_position_CONSTRAINT_2\`
-	FOREIGN KEY	\`Stimword_2_Stimword_position_FOREIGN_KEY_2\`
-		(	\`Stimword_auto_increment\`
-		)
-	REFERENCES	\`Stimword\`
-		(	\`Stimword_auto_increment\`
-		)
-	ON UPDATE CASCADE
-	ON DELETE CASCADE
-	;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-#						2007-07-07
-#						2010-04-13
-#
-#	Teacher_2_Client_master_foreign_key.sql
-#
-#
-ALTER TABLE \`Teacher\`
-	ADD KEY		\`Teacher_2_Client_master_KEY\`
-			(	\`Teacher_email\`
+	ALTER TABLE \`Client_master\`
+		ADD CONSTRAINT	\`Teacher_2_Client_master_CONSTRAINT_1\`
+		FOREIGN KEY	\`Teacher_2_Client_master_FOREIGN_KEY_1\`
+			(	\`Teacher_auto_increment\`
 			)
-			;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Client_master\`
-
-	ADD CONSTRAINT	\`Teacher_2_Client_master_CONSTRAINT_2\`
-	FOREIGN KEY	\`Teacher_2_Client_master_FOREIGN_KEY_2\`
-			(	\`Client_master_teacher_email\`
+		REFERENCES    \`Teacher\`
+			(	\`Teacher_auto_increment\`
 			)
-
-		REFERENCES	\`Teacher\`
-			(	\`Teacher_email\`
-			)
-	ON UPDATE CASCADE
-	ON DELETE NO ACTION
-	;
-END
-
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-
-ALTER TABLE \`Teacher\` ADD COLUMN IF NOT EXISTS
-	\`Teacher_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY 
-	AFTER \`Teacher_create_date\`	;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-SHOW CREATE TABLE Teacher ;  -- 2021-06-02 - for some reason, Teacher_auto_increment is not appearing!
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-ALTER TABLE \`Client_master\` ADD COLUMN IF NOT EXISTS
- 	\`Teacher_auto_increment\` INT UNSIGNED NOT NULL
-	AFTER \`Client_master_anlys_notes\`
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-ALTER TABLE \`Client_master\` MODIFY COLUMN \`Client_master_active_flag\` TINYINT
-	AFTER \`Client_master_anlys_notes\`
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-UPDATE \`Client_master\`
-INNER JOIN \`Teacher\`
-SET \`Client_master\`.\`Teacher_auto_increment\`             = \`Teacher\`.\`Teacher_auto_increment\`
-WHERE 1
-AND \`Client_master\`.\`Client_master_teacher_email\`             = \`Teacher\`.\`Teacher_email\`
-;
-END
-
-mariadb  --verbose   comptonTransAnlys   <<END;
-ALTER TABLE \`Client_master\`
-	ADD CONSTRAINT	\`Teacher_2_Client_master_CONSTRAINT_1\`
-	FOREIGN KEY	\`Teacher_2_Client_master_FOREIGN_KEY_1\`
-		(	\`Teacher_auto_increment\`
-		)
-	REFERENCES    \`Teacher\`
-		(	\`Teacher_auto_increment\`
-		)
-	ON UPDATE CASCADE
-	ON DELETE NO ACTION
-	;
+		ON UPDATE CASCADE
+		ON DELETE NO ACTION
+		;
 END
 
 echo 'finished with the conversion!' ;
