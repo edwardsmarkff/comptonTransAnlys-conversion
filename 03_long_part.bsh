@@ -29,9 +29,9 @@ END
 
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
-  ## 2021-09-05 - for some reason, Client_master_email is coming through as blank.
-  SELECT * FROM Client_master                                               WHERE 1 AND Client_master_email IS   NULL   ;
-  UPDATE Client_master SET Client_master_email = Client_master_client_name  WHERE 1 AND Client_master_email IS   NULL   ;
+  ####  2021-09-07  ## 2021-09-05 - for some reason, Client_master_email is coming through as blank.
+  ####  2021-09-07  SELECT * FROM Client_master                                               WHERE 1 AND Client_master_email IS   NULL   ;
+  ####  2021-09-07  UPDATE Client_master SET Client_master_email = Client_master_client_name  WHERE 1 AND Client_master_email IS   NULL   ;
   
   ##
   ##
