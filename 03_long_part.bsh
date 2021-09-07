@@ -70,7 +70,8 @@ END
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
   ## create *NEW* client name column:
-  ALTER TABLE Client_master   ADD COLUMN Client_master_name  VARCHAR(50) NOT NULL 
+   ### 2021-09-05  change VARCHAR(50) to VARCHAR(120)
+  ALTER TABLE Client_master   ADD COLUMN Client_master_name  VARCHAR(120) NOT NULL 
        AFTER  Client_master_spec_language ;
 
   ## copy existing client names from the "keyed" field into the new Client_master_name column
