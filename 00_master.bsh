@@ -16,8 +16,11 @@ done
 echo $(date) ' - 01_create_db.bsh';
 bash -vx  01_create_db.bsh                     > 01_create_db.bsh.log                  2>&1  ;
 
-echo $(date) ' - 02_initial_preparation.bsh';
-bash -vx  02_initial_preparation.bsh           > 02_initial_preparation.bsh.log        2>&1  ;
+echo $(date) ' - 02a_initial_preparation.bsh';
+bash -vx  02a_initial_preparation.bsh          > 02a_initial_preparation.bsh.log       2>&1  ;
+
+echo $(date) ' - 02b_initial_preparation.bsh';
+bash -vx  02b_initial_preparation.bsh          > 02b_initial_preparation.bsh.log       2>&1  ;
 
 echo $(date) ' - 03_long_part.bsh';
 bash -vx  03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1  ;
