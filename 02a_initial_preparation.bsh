@@ -8,32 +8,42 @@
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
   DELETE FROM Client_master
-  WHERE ( Client_master_teacher_name, Client_master_client_name, Client_master_session_name, Client_master_client_name) NOT IN 
-  ( SELECT Client_anlys_detail_teacher_name
-  , Client_anlys_detail_client_name
-  , Client_anlys_detail_session_name
-  , Client_anlys_detail_client_name
-  FROM Client_anlys_detail
-  WHERE 1
-  )
+  WHERE ( Client_master_teacher_name
+        , Client_master_client_name
+        , Client_master_session_name
+        , Client_master_client_name
+        )
+  NOT IN 
+    ( SELECT Client_anlys_detail_teacher_name
+    , Client_anlys_detail_client_name
+    , Client_anlys_detail_session_name
+    , Client_anlys_detail_client_name
+    FROM Client_anlys_detail
+    WHERE 1
+    )
+    ;
+  
+  SELECT Client_master_teacher_name
+  ,     Client_master_client_name
+  ,     Client_master_session_name
+  ,     Client_master_client_name
+  ,     Client_master_timestamp
+  ,     Client_master_auto_increment
+  FROM Client_master
+  WHERE ( Client_master_teacher_name, Client_master_client_name, Client_master_session_name, Client_master_client_name)
+  NOT IN 
+    ( SELECT Client_anlys_detail_teacher_name
+    , Client_anlys_detail_client_name
+    , Client_anlys_detail_session_name
+    , Client_anlys_detail_client_name
+    FROM Client_anlys_detail
+    WHERE 1
+    )
+    ;
 
 END
 
 exit;
 
 
-  SELECT Client_master_teacher_name
-  , Client_master_client_name
-  , Client_master_session_name
-  , Client_master_client_name
-  , Client_master_timestamp
-  , Client_master_auto_increment
-  FROM Client_master
-  WHERE ( Client_master_teacher_name, Client_master_client_name, Client_master_session_name, Client_master_client_name) NOT IN 
-  ( SELECT Client_anlys_detail_teacher_name
-  , Client_anlys_detail_client_name
-  , Client_anlys_detail_session_name
-  , Client_anlys_detail_client_name
-  FROM Client_anlys_detail
-  WHERE 1
-  )
+  
