@@ -43,6 +43,8 @@ mariadb    --verbose  comptonTransAnlys  <<END ;
 
 END
 
+echo 'completed 02a_initial_preparation.bsh !';
+
 exit;
 
 
