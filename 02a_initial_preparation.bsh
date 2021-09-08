@@ -1,5 +1,4 @@
-
-! /bin/bash
+#! /bin/bash
 
 ##      02a_initial_preparation.bsh        -- 2021-09-07
 ##
@@ -8,22 +7,33 @@
 
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
-SELECT Client_master_teacher_name
-, Client_master_client_name
-, Client_master_session_name
-, Client_master_client_name
-, Client_master_timestamp
-, Client_master_auto_increment
-FROM Client_master
-WHERE ( Client_master_teacher_name, Client_master_client_name, Client_master_session_name, Client_master_client_name) NOT IN 
-( SELECT Client_anlys_detail_teacher_name
-, Client_anlys_detail_client_name
-, Client_anlys_detail_session_name
-, Client_anlys_detail_client_name
-FROM Client_anlys_detail
-WHERE 1
-)
+  DELETE FROM Client_master
+  WHERE ( Client_master_teacher_name, Client_master_client_name, Client_master_session_name, Client_master_client_name) NOT IN 
+  ( SELECT Client_anlys_detail_teacher_name
+  , Client_anlys_detail_client_name
+  , Client_anlys_detail_session_name
+  , Client_anlys_detail_client_name
+  FROM Client_anlys_detail
+  WHERE 1
+  )
 
 END
 
 exit;
+
+
+  SELECT Client_master_teacher_name
+  , Client_master_client_name
+  , Client_master_session_name
+  , Client_master_client_name
+  , Client_master_timestamp
+  , Client_master_auto_increment
+  FROM Client_master
+  WHERE ( Client_master_teacher_name, Client_master_client_name, Client_master_session_name, Client_master_client_name) NOT IN 
+  ( SELECT Client_anlys_detail_teacher_name
+  , Client_anlys_detail_client_name
+  , Client_anlys_detail_session_name
+  , Client_anlys_detail_client_name
+  FROM Client_anlys_detail
+  WHERE 1
+  )
