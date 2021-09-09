@@ -23,7 +23,6 @@ s/\`Context_auto_increment\` mediumint(8) unsigned NOT NULL,/\`Context_auto_incr
 s/\`Stimword_position_auto_increment\` mediumint(9) NOT NULL,/\`Stimword_position_auto_increment\` mediumint(10) NOT NULL,/g;
 
 
-
 ##    clientMaster:
 
 s/\`Client_master_teacher_email\`/\`teacherEmail\`/g;
@@ -126,7 +125,6 @@ s/\`Context_2_Client_context_CONSTRAINT_1\`/\`contextMiscKeys_2_clientContext\`/
 s/\`Context_2_Client_context_CONSTRAINT_2\`/\`contextAutoIncr_2_clientContext\`/g;
 
 
-
 ## sound:
 s/\`Sound_auto_increment\`/\`soundAutoIncr\`/g;
 s/\`Stimword_position_auto_increment\`/\`stimwordPositionAutoIncr\`/g;
@@ -135,13 +133,11 @@ s/\`Sound_2_Context_CONSTRAINT_1\`/\`soundMiscKeys_2_context\`/g;
 s/\`Sound_2_Context_CONSTRAINT_2\`/\`soundAutoIncr_2_context\`/g;
 
 
-
 ## frequency:
 
 s/\`Frequency_order\`/\`frequencyOrder\`/g;
 ## keys:
 s/\`Frequency_list_2_Client_context_KEY\`/\`frequencyList_2_clientContext\`/g;
-
 
 
 ## langSpec:
@@ -166,7 +162,6 @@ s/\`Lang_spec_auto_increment\`/\`langSpecAutoIncr\`/g;
 s/\`Lang_spec_timestamp\`/\`createdAt\`/g;
 ## keys
 s/\`Lang_spec_main_key_index\`/\`langSpecMainKeyIndex\`/g;
-
 
 
 ## languageNorms:
@@ -211,7 +206,6 @@ s/\`Phonetic_spelling_target_sound\`/\`phoneticSpellingTargetSound\`/g;
 s/\`Phonetic_spelling_timestamp\`/\`createdAt\`/g;
 
 
-
 ## session:
 
 s/\`Session_order_nbr\`/\`sessionOrderNbr\`/g;
@@ -224,7 +218,6 @@ s/\`Session_errors_css_replicate_class\`/\`sessionErrorsCssReplicateClass\`/g;
 s/\`Session_create_date\`/\`createdAt\`/g;
 ## keys:
 s/\`Session_name_unique_index\`/\`sessionNameUniqueIndex\`/g;
-
 
 
 ## soundPhoneme:
@@ -243,8 +236,6 @@ s/\`Sound_unique_key\`/\`soundUniqueKey\`/g;
 s/\`Sound_2_Context_KEY\`/\`sound_2_context\`/g;
 
 
-
-
 ## stimword:
 
 s/\`Stimword_layout_name\`/\`stimwordLayoutName\`/g;
@@ -254,7 +245,6 @@ s/\`Stimword_stimword\`/\`stimwordWord\`/g;
 s/\`Stimword_auto_increment\`/\`stimwordAutoIncr\`/g;
 ## keys
 s/\`Stimword_2_Stimword_position_KEY\`/\`stimword_2_stimwordPosition\`/g;
-
 
 
 ## stimword position:
@@ -302,8 +292,6 @@ s/\`Teacher_2_Client_master_KEY\`/\`teacherMiscKeys_2_clientMaster\`/g;
 
 
 
-
-
 # table names go below:
 s/\`Client_context\`/\`clientContext\`/g;
 s/\`Client_master\`/\`clientMaster\`/g;
@@ -326,9 +314,10 @@ s/\`Teacher\`/\`teacher\`/g;
 s/ON UPDATE current_timestamp()//;
 
 
-
-
 EOF
+
+echo -n 'Current sed status result is: ' ;
+echo  $?                                  ;
 
 mariadb --verbose <<END  ;
 
@@ -378,6 +367,6 @@ END
 
 
 
-echo "end of sed part 08_final_sed_rename.bsh.";
+echo "end of sed part 08_final_sed_rename.bsh." ;
 
-exit;
+exit        ;
