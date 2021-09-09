@@ -221,18 +221,15 @@ s/\\&chi;/χ/g;
 
 /\`Phonetic_spelling_target_sound/s/varbinary(20)/CHAR(01)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin /;
 
-
-
 ## 2021-05-05 (above)
 
 
-
-
-
-
-
- 
 ###
 EOF
 
-echo "end of sed part 04_sed_changes.bsh.";
+echo -n 'The sed status result is: '   ;
+echo $?                         ;
+
+echo "end of sed part 04_sed_changes.bsh." ;
+
+end  ;
