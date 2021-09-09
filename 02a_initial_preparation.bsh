@@ -7,6 +7,11 @@
 
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
+        ## 2021-09-09
+  DELETE FROM Client_master
+  WHERE  Client_master_teacher_name IS NULL
+  ;
+
   DELETE FROM Client_master
   WHERE ( Client_master_teacher_name
         , Client_master_client_name
