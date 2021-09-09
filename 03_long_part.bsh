@@ -148,11 +148,13 @@ END
 
 
 
-echo 'finished with this long part!' ;
+echo 'finished with the long part!' ;
 
 END
 ##
 echo  'finished with 03_long_part.bsh!';
+
+exit;
 
 
 
