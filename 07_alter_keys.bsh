@@ -315,32 +315,32 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	--
 	ALTER TABLE \`Context\`
 		ADD KEY \`Context_2_Language_norms_KEY\`
-				(	\`Context_layout_name\`		## 01
-				,	\`Context_position\`		## 02
-					,	\`Context_phoneme\`			## 03
-				-- 2021-05-08			,	Context_phoneme_1		## 03
-				-- 2021-05-08			,	Context_phoneme_2		## 04
-				-- 2021-05-08			,	Context_phoneme_3		## 05
+				(	\`Context_layout_name\`		-- 01
+				,	\`Context_position\`		-- 02
+					,	\`Context_phoneme\`			-- 03
+				-- 2021-05-08			,	Context_phoneme_1		-- 03
+				-- 2021-05-08			,	Context_phoneme_2		-- 04
+				-- 2021-05-08			,	Context_phoneme_3		-- 05
 				)
 				;
 
 	ALTER TABLE Language_norms
 		ADD CONSTRAINT		\`Context_2_Language_norms_CONSTRAINT_1\`
 			FOREIGN KEY	\`Context_2_Language_norms_FOREIGN_KEY_1\`
-				(	\`Language_norms_layout_name\`	## 01
-				,	\`Language_norms_position\`		## 02
-				,	\`Language_norms_phoneme\`		## 03
-				-- 2021-05-08			,	Language_norms_phoneme_1	## 03
-				-- 2021-05-08			,	Language_norms_phoneme_2	## 04
-				-- 2021-05-08			,	Language_norms_phoneme_3	## 05
+					(	\`Language_norms_layout_name\`		-- 01
+					,	\`Language_norms_position\`		-- 02
+					,	\`Language_norms_phoneme\`		-- 03
+				-- 2021-05-08			,	Language_norms_phoneme_1	-- 03
+				-- 2021-05-08			,	Language_norms_phoneme_2	-- 04
+				-- 2021-05-08			,	Language_norms_phoneme_3	-- 05
 				)
 			REFERENCES	\`Context\`
-				(	\`Context_layout_name\`		## 01
-				,	\`Context_position\`		## 02
-				,	\`Context_phoneme\`			## 03
-				-- 2021-05-08			,	Context_phoneme_1		## 03
-				-- 2021-05-08			,	Context_phoneme_2		## 04
-				-- 2021-05-08			,	Context_phoneme_3		## 05
+				(	\`Context_layout_name\`		-- 01
+				,	\`Context_position\`		-- 02
+				,	\`Context_phoneme\`		-- 03
+				-- 2021-05-08			,	Context_phoneme_1		-- 03
+				-- 2021-05-08			,	Context_phoneme_2		-- 04
+				-- 2021-05-08			,	Context_phoneme_3		-- 05
 				)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -382,32 +382,32 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	--
 	ALTER TABLE \`Context\`
 		ADD KEY	\`Context_2_Stimword_position_KEY\`
-				(	\`Context_layout_name\`		## 01
-				,	\`Context_position\`		## 02
-				,	\`Context_phoneme\`		## 03
-				-- 2021-05-08			,	Context_phoneme_1	## 03
-				-- 2021-05-08			,	Context_phoneme_2	## 04
-				-- 2021-05-08			,	Context_phoneme_3	## 05
+				(	\`Context_layout_name\`		-- 01
+				,	\`Context_position\`		-- 02
+				,	\`Context_phoneme\`		-- 03
+				-- 2021-05-08			,	Context_phoneme_1	-- 03
+				-- 2021-05-08			,	Context_phoneme_2	-- 04
+				-- 2021-05-08			,	Context_phoneme_3	-- 05
 				)
 				;
 
 	ALTER TABLE \`Stimword_position\`
 		ADD CONSTRAINT		\`Context_2_Stimword_position_CONSTRAINT_1\`
 			FOREIGN KEY	\`Context_2_Stimword_position_FOREIGN_KEY_1\`
-				(	\`Stimword_position_layout_name\`	## 01
-				,	\`Stimword_position_position\`		## 02
-				,	\`Stimword_position_phoneme\`		## 03
-				-- 2021-05-08			,	Stimword_position_phoneme_1	## 03
-				-- 2021-05-08			,	Stimword_position_phoneme_2	## 04
-				-- 2021-05-08			,	Stimword_position_phoneme_3	## 05
+				(	\`Stimword_position_layout_name\`	-- 01
+				,	\`Stimword_position_position\`		-- 02
+				,	\`Stimword_position_phoneme\`		-- 03
+				-- 2021-05-08			,	Stimword_position_phoneme_1	-- 03
+				-- 2021-05-08			,	Stimword_position_phoneme_2	-- 04
+				-- 2021-05-08			,	Stimword_position_phoneme_3	-- 05
 				)
 			REFERENCES	\`Context\`
-			(	\`Context_layout_name\`		## 01
-			,	\`Context_position\`		## 02
-			,	\`Context_phoneme\`		## 03
-				-- 2021-05-08			,	Context_phoneme_1	## 03
-				-- 2021-05-08			,	Context_phoneme_2	## 04
-				-- 2021-05-08			,	Context_phoneme_3	## 05
+			(	\`Context_layout_name\`		-- 01
+			,	\`Context_position\`		-- 02
+			,	\`Context_phoneme\`		-- 03
+				-- 2021-05-08			,	Context_phoneme_1	-- 03
+				-- 2021-05-08			,	Context_phoneme_2	-- 04
+				-- 2021-05-08			,	Context_phoneme_3	-- 05
 			)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
