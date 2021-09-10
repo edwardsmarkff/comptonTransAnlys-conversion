@@ -59,8 +59,15 @@ echo $(date) ' - 09_move_columns.bsh'                                           
 bash -vx  09_move_columns.bsh                  > 09_move_columns.bsh.log               2>&1       ;
 grep   ERROR  09_move_columns.bsh.log                                                             ;
 
-
 echo $(date)                                                                                      ;
+
+grep 'ERROR '  *.bsh.log                                                                          \
+       | grep -v  'ARTICULATION ERRORS'                                                           \
+       | grep -v 'GRAMMAR ERRORS'                                                                 \
+       | grep -v  'ERRORS: inserting'                                                             \
+       | grep -v  'SEMANTIC ERROR'                                                                \
+       | grep -v 'ERROR LINKING:'                                                                 ;
+
 
 echo "finished 00_master.bsh!"                                                                    ;
 
