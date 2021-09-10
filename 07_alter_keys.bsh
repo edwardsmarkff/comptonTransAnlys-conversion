@@ -74,11 +74,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 
 	ALTER TABLE \`Sound\` DROP KEY \`Sound_key\`;
 	ALTER TABLE \`Sound\`
-		ADD UNIQUE KEY \`Sound_unique_key\`
-			( \`Sound_layout_name\`
-			, \`Sound_phoneme\`
-			)
-			;
+		ADD UNIQUE INDEX	\`Sound_unique_key\`
+				(	\`Sound_layout_name\`
+				,	\`Sound_phoneme\`
+				)
+				;
 						## 2021-05-08		, Sound_phoneme_1
 						## 2021-05-08		, Sound_phoneme_2
 						## 2021-05-08		, Sound_phoneme_3
