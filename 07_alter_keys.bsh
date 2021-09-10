@@ -178,12 +178,12 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 
-	#						2/27/2006
-	#					redone 2010-04-13
-	#
-	#	Client_master_2_Client_context_foreign_key.sql
-	#	
-	#
+	--						2/27/2006
+	--					redone 2010-04-13
+	--
+	--	Client_master_2_Client_context_foreign_key.sql
+	--	
+	--
 	ALTER TABLE \`Client_master\`
 		ADD KEY \`Client_master_2_Client_context_KEY\`
 				(	\`Client_master_teacher_email\`
@@ -239,40 +239,40 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 
-	#						2007-07-03
-	#					redone 2010-04-13
-	#
-	#	Context_2_Client_context_foreign_key.sql
-	#
-	#
+	--						2007-07-03
+	--					redone 2010-04-13
+	--
+	--	Context_2_Client_context_foreign_key.sql
+	--
+	--
 	ALTER TABLE \`Context\`
 		ADD KEY \`Context_2_Client_context_KEY\`
-				(	\`Context_layout_name\`		## 01
-				,	\`Context_position\`		## 02
-				,	\`Context_phoneme\`			## 03
-				-- 2021-05-08			,	Context_phoneme_1		## 03
-				-- 2021-05-08			,	Context_phoneme_2		## 04
-				-- 2021-05-08			,	Context_phoneme_3		## 05
+				(	\`Context_layout_name\`		-- 01
+				,	\`Context_position\`		-- 02
+				,	\`Context_phoneme\`		-- 03
+				-- 2021-05-08			,	Context_phoneme_1		-- 03
+				-- 2021-05-08			,	Context_phoneme_2		-- 04
+				-- 2021-05-08			,	Context_phoneme_3		-- 05
 				)
 				;
 
 	ALTER TABLE \`Client_context\`
 		ADD CONSTRAINT		\`Context_2_Client_context_CONSTRAINT_1\`
 			FOREIGN KEY	\`Context_2_Client_context_FOREIGN_KEY_1\`
-				(	\`Client_context_layout_name\`		## 01
-				,	\`Client_context_position\`		## 02
-				,	\`Client_context_phoneme\`		## 03
-				-- 2021-05-08			,	Client_context_phoneme_1	## 03
-				-- 2021-05-08			,	Client_context_phoneme_2	## 04
-				-- 2021-05-08			,	Client_context_phoneme_3	## 05
+				(	\`Client_context_layout_name\`		-- 01
+				,	\`Client_context_position\`		-- 02
+				,	\`Client_context_phoneme\`		-- 03
+				-- 2021-05-08			,	Client_context_phoneme_1	-- 03
+				-- 2021-05-08			,	Client_context_phoneme_2	-- 04
+				-- 2021-05-08			,	Client_context_phoneme_3	-- 05
 				)
 			REFERENCES	\`Context\`
-				(	\`Context_layout_name\`		## 01
-				,	\`Context_position\`		## 02
-				,	\`Context_phoneme\`			## 03
-				-- 2021-05-08			,	Context_phoneme_1		## 03
-				-- 2021-05-08			,	Context_phoneme_2		## 04
-				-- 2021-05-08			,	Context_phoneme_3		## 05
+				(	\`Context_layout_name\`		-- 01
+				,	\`Context_position\`		-- 02
+				,	\`Context_phoneme\`		-- 03
+				-- 2021-05-08			,	Context_phoneme_1		-- 03
+				-- 2021-05-08			,	Context_phoneme_2		-- 04
+				-- 2021-05-08			,	Context_phoneme_3		-- 05
 				)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
