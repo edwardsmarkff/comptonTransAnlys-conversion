@@ -7,6 +7,7 @@
 ##	2021-06-03	- drop primary key of Teacher table
 ##	2021-06-06	- added backtick to most names
 ##	2021-06-11	- minor typo bugs, added "IF NOT EXISTS" in several spots-- not sure why this is/was needed?
+##	2021-09-10	- had to change all '##" comments to '--'
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
