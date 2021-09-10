@@ -19,17 +19,17 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	ALTER TABLE \`Stimword_position\` ADD PRIMARY KEY ( \`Stimword_position_auto_increment\`) 
 	
 	ALTER TABLE \`Stimword_position\`
-		ADD UNIQUE KEY \`Stimword_position_unique_key\`
-			(	\`Stimword_position_layout_name\`
-			,	\`Stimword_position_page_nbr\`
-			,	\`Stimword_position_line_nbr\`
-			,	\`Stimword_position_stimword\`
-			,	\`Stimword_position_position\`
-			,	\`Stimword_position_position_nbr\`
-			,	\`Stimword_position_setting\`
-			,	\`Stimword_position_phoneme\`
-			)
-			;
+		ADD UNIQUE INDEX	\`Stimword_position_unique_key\`
+				(	\`Stimword_position_layout_name\`
+				,	\`Stimword_position_page_nbr\`
+				,	\`Stimword_position_line_nbr\`
+				,	\`Stimword_position_stimword\`
+				,	\`Stimword_position_position\`
+				,	\`Stimword_position_position_nbr\`
+				,	\`Stimword_position_setting\`
+				,	\`Stimword_position_phoneme\`
+				)
+				;
 				##	2021-05-08	,Stimword_position_phoneme_1
 				##	2021-05-08	,Stimword_position_phoneme_2
 				##	2021-05-08	,Stimword_position_phoneme_3
@@ -37,21 +37,21 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 
 	ALTER TABLE \`Client_master\`	DROP KEY \`Client_master_teacher_email\`	;
 	ALTER TABLE \`Client_master\`
-		ADD UNIQUE KEY \`Client_master_unique_key\`
-			(	\`Client_master_teacher_email\`
-			, 	\`Client_master_client_email\`
-			,	\`Client_master_session_name\`
-			, 	\`Client_master_layout_name\`
-			)
-			;
+		ADD UNIQUE INDEX	\`Client_master_unique_key\`
+				(	\`Client_master_teacher_email\`
+				, 	\`Client_master_client_email\`
+				,	\`Client_master_session_name\`
+				, 	\`Client_master_layout_name\`
+				)
+				;
 
 	ALTER TABLE \`Context\`
-		ADD UNIQUE KEY	\`Context_unique_key\`
-			(	\`Context_layout_name\`
-			,	\`Context_position\`
-			,	\`Context_phoneme\`
-			)
-			;
+		ADD UNIQUE INDEX	\`Context_unique_key\`
+				(	\`Context_layout_name\`
+				,	\`Context_position\`
+				,	\`Context_phoneme\`
+				)
+				;
 						## 2021-05-08		,	Context_phoneme_1	
 						## 2021-05-08		,	Context_phoneme_2
 						## 2021-05-08		,	Context_phoneme_3
