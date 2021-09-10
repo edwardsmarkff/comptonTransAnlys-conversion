@@ -385,9 +385,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				(	\`Context_layout_name\`		## 01
 				,	\`Context_position\`		## 02
 				,	\`Context_phoneme\`		## 03
-				## 2021-05-08			,	Context_phoneme_1	## 03
-				## 2021-05-08			,	Context_phoneme_2	## 04
-				## 2021-05-08			,	Context_phoneme_3	## 05
+				-- 2021-05-08			,	Context_phoneme_1	## 03
+				-- 2021-05-08			,	Context_phoneme_2	## 04
+				-- 2021-05-08			,	Context_phoneme_3	## 05
 				)
 				;
 
@@ -397,17 +397,17 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				(	\`Stimword_position_layout_name\`	## 01
 				,	\`Stimword_position_position\`		## 02
 				,	\`Stimword_position_phoneme\`		## 03
-				## 2021-05-08			,	Stimword_position_phoneme_1	## 03
-				## 2021-05-08			,	Stimword_position_phoneme_2	## 04
-				## 2021-05-08			,	Stimword_position_phoneme_3	## 05
+				-- 2021-05-08			,	Stimword_position_phoneme_1	## 03
+				-- 2021-05-08			,	Stimword_position_phoneme_2	## 04
+				-- 2021-05-08			,	Stimword_position_phoneme_3	## 05
 				)
 			REFERENCES	\`Context\`
 			(	\`Context_layout_name\`		## 01
 			,	\`Context_position\`		## 02
 			,	\`Context_phoneme\`		## 03
-				## 2021-05-08			,	Context_phoneme_1	## 03
-				## 2021-05-08			,	Context_phoneme_2	## 04
-				## 2021-05-08			,	Context_phoneme_3	## 05
+				-- 2021-05-08			,	Context_phoneme_1	## 03
+				-- 2021-05-08			,	Context_phoneme_2	## 04
+				-- 2021-05-08			,	Context_phoneme_3	## 05
 			)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -425,9 +425,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	AND \`Stimword_position\`.\`Stimword_position_layout_name\`	= \`Context\`.\`Context_layout_name\`
 	AND \`Stimword_position\`.\`Stimword_position_position\`	= \`Context\`.\`Context_position\`
 	AND \`Stimword_position\`.\`Stimword_position_phoneme\`    	= \`Context\`.\`Context_phoneme\`
-				## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_1    		= Context.Context_phoneme_1
-				## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_2		= Context.Context_phoneme_2
-				## 2021-05-08	AND Stimword_position.Stimword_position_phoneme_3		= Context.Context_phoneme_3
+				-- 2021-05-08	AND Stimword_position.Stimword_position_phoneme_1    		= Context.Context_phoneme_1
+				-- 2021-05-08	AND Stimword_position.Stimword_position_phoneme_2		= Context.Context_phoneme_2
+				-- 2021-05-08	AND Stimword_position.Stimword_position_phoneme_3		= Context.Context_phoneme_3
 	;
 
 	ALTER TABLE \`Stimword_position\`
@@ -442,12 +442,12 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 
-	#						2007-07-07
-	#					redone 2010-04-13
-	#
-	#	Frequency_list_2_Client_context_foreign_key.sql
-	#
-	#
+	--						2007-07-07
+	--					redone 2010-04-13
+	--
+	--	Frequency_list_2_Client_context_foreign_key.sql
+	--
+	--
 	ALTER TABLE \`Frequency_list\`
 		ADD KEY  \`Frequency_list_2_Client_context_KEY\`
 			(	\`Frequency\`
@@ -466,8 +466,8 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE NO ACTION
 		;
 
-	#						2007-07-07
-	#					redone	2010-04-13
+	--						2007-07-07
+	--					redone	2010-04-13
 	### already has "Session_name_unique_index"
 
 	ALTER TABLE \`Client_master\`
@@ -482,18 +482,18 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 
-	#					redone 2010-04-13
-	#
-	#		Sound_2_Context_foreign_key.sql
-	#
-	#
+	--					redone 2010-04-13
+	--
+	--		Sound_2_Context_foreign_key.sql
+	--
+	--
 	ALTER TABLE \`Sound\`
 		ADD KEY	\`Sound_2_Context_KEY\`
 				(	\`Sound_layout_name\`
 				,	\`Sound_phoneme\`
-					## 2021-05-08			,	Sound_phoneme_1
-					## 2021-05-08			,	Sound_phoneme_2
-					## 2021-05-08			,	Sound_phoneme_3
+					-- 2021-05-08			,	Sound_phoneme_1
+					-- 2021-05-08			,	Sound_phoneme_2
+					-- 2021-05-08			,	Sound_phoneme_3
 				)
 				;
 
@@ -502,16 +502,16 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 			FOREIGN KEY	\`Sound_2_Context_FOREIGN_KEY_2\`
 				(	\`Context_layout_name\`
 				,	\`Context_phoneme\`
-					## 2021-05-08			,	Context_phoneme_1
-					## 2021-05-08			,	Context_phoneme_2
-					## 2021-05-08			,	Context_phoneme_3
+					-- 2021-05-08			,	Context_phoneme_1
+					-- 2021-05-08			,	Context_phoneme_2
+					-- 2021-05-08			,	Context_phoneme_3
 				)
 			REFERENCES	\`Sound\`
 				(	\`Sound_layout_name\`
 				,	\`Sound_phoneme\`
-					## 2021-05-08			,	Sound_phoneme_1
-					## 2021-05-08			,	Sound_phoneme_2
-					## 2021-05-08			,	Sound_phoneme_3
+					-- 2021-05-08			,	Sound_phoneme_1
+					-- 2021-05-08			,	Sound_phoneme_2
+					-- 2021-05-08			,	Sound_phoneme_3
 				)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -528,9 +528,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	WHERE 1
 	AND \`Context\`.\`Context_layout_name\`		= \`Sound\`.\`Sound_layout_name\`
 	AND \`Context\`.\`Context_phoneme\`		= \`Sound\`.\`Sound_phoneme\`
-				## 2021-05-08	AND Context.Context_phoneme_1		= Sound.Sound_phoneme_1
-				## 2021-05-08	AND Context.Context_phoneme_2		= Sound.Sound_phoneme_2
-				## 2021-05-08	AND Context.Context_phoneme_3		= Sound.Sound_phoneme_3
+				-- 2021-05-08	AND Context.Context_phoneme_1		= Sound.Sound_phoneme_1
+				-- 2021-05-08	AND Context.Context_phoneme_2		= Sound.Sound_phoneme_2
+				-- 2021-05-08	AND Context.Context_phoneme_3		= Sound.Sound_phoneme_3
 	;
 
 	ALTER TABLE \`Context\`
@@ -545,12 +545,12 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 
-	#				2/28/2006
-	#				redone 2010-04-13
-	#
-	#	Stimword_position_2_Client_stimword_foreign_key.sql
-	#
-	#
+	--				2/28/2006
+	--				redone 2010-04-13
+	--
+	--	Stimword_position_2_Client_stimword_foreign_key.sql
+	--
+	--
 	ALTER TABLE \`Stimword_position\`
 		ADD KEY		\`Stimword_position_2_Client_stimword_KEY\`
 				(	\`Stimword_position_layout_name\`
@@ -561,9 +561,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Stimword_position_position_nbr\`
 				,	\`Stimword_position_setting\`
 				,	\`Stimword_position_phoneme\`
-					## 2021-05-08			,	Stimword_position_phoneme_1
-					## 2021-05-08			,	Stimword_position_phoneme_2
-					## 2021-05-08			,	Stimword_position_phoneme_3
+					-- 2021-05-08			,	Stimword_position_phoneme_1
+					-- 2021-05-08			,	Stimword_position_phoneme_2
+					-- 2021-05-08			,	Stimword_position_phoneme_3
 				)
 				;
 
@@ -578,9 +578,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Client_stimword_position_nbr\`
 				,	\`Client_stimword_setting\`
 				,	\`Client_stimword_phoneme\`
-					## 2021-05-08			,	Client_stimword_phoneme_1
-					## 2021-05-08			,	Client_stimword_phoneme_2
-					## 2021-05-08			,	Client_stimword_phoneme_3
+					-- 2021-05-08			,	Client_stimword_phoneme_1
+					-- 2021-05-08			,	Client_stimword_phoneme_2
+					-- 2021-05-08			,	Client_stimword_phoneme_3
 				)
 			REFERENCES	\`Stimword_position\`
 				(	\`Stimword_position_layout_name\`
@@ -591,9 +591,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Stimword_position_position_nbr\`
 				,	\`Stimword_position_setting\`
 				,	\`Stimword_position_phoneme\`
-	## 2021-05-08			,	Stimword_position_phoneme_1
-	## 2021-05-08			,	Stimword_position_phoneme_2
-	## 2021-05-08			,	Stimword_position_phoneme_3
+	-- 2021-05-08			,	Stimword_position_phoneme_1
+	-- 2021-05-08			,	Stimword_position_phoneme_2
+	-- 2021-05-08			,	Stimword_position_phoneme_3
 				)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -620,9 +620,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		AND \`Client_stimword\`.\`Client_stimword_position_nbr\`	= \`Stimword_position\`.\`Stimword_position_position_nbr\`
 		AND \`Client_stimword\`.\`Client_stimword_setting\`		= \`Stimword_position\`.\`Stimword_position_setting\`
 		AND \`Client_stimword\`.\`Client_stimword_phoneme\`		= \`Stimword_position\`.\`Stimword_position_phoneme\`
-				## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1		= Stimword_position.Stimword_position_phoneme_1
-				## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2		= Stimword_position.Stimword_position_phoneme_2
-				## 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3		= Stimword_position.Stimword_position_phoneme_3
+				-- 2021-05-08	AND Client_stimword.Client_stimword_phoneme_1		= Stimword_position.Stimword_position_phoneme_1
+				-- 2021-05-08	AND Client_stimword.Client_stimword_phoneme_2		= Stimword_position.Stimword_position_phoneme_2
+				-- 2021-05-08	AND Client_stimword.Client_stimword_phoneme_3		= Stimword_position.Stimword_position_phoneme_3
 		;
 
 	ALTER TABLE \`Client_stimword\`
@@ -637,11 +637,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 
-	#				2010-06-10
-	#
-	#	Stimword_2_Stimword_position_foreign_key.sql
-	#
-	#
+	--				2010-06-10
+	--
+	--	Stimword_2_Stimword_position_foreign_key.sql
+	--
+	--
 	ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_layout_name\`		VARCHAR(30) NOT NULL;
 	ALTER TABLE \`Stimword_position\`	MODIFY COLUMN \`Stimword_position_layout_name\`	VARCHAR(30) NOT NULL;
 	ALTER TABLE \`Stimword\`		MODIFY COLUMN \`Stimword_page_nbr\`		TINYINT UNSIGNED NOT NULL;
@@ -703,12 +703,12 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 
-	#						2007-07-07
-	#						2010-04-13
-	#
-	#	Teacher_2_Client_master_foreign_key.sql
-	#
-	#
+	--						2007-07-07
+	--						2010-04-13
+	--
+	--	Teacher_2_Client_master_foreign_key.sql
+	--
+	--
 	ALTER TABLE \`Teacher\`
 		ADD KEY		\`Teacher_2_Client_master_KEY\`
 				(	\`Teacher_email\`
