@@ -468,7 +468,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 
 	--						2007-07-07
 	--					redone	2010-04-13
-	### already has "Session_name_unique_index"
+	-- already has "Session_name_unique_index"
 
 	ALTER TABLE \`Client_master\`
 		ADD CONSTRAINT	\`Session_names_2_Client_master_2_session_names_CONSTRAINT\`
