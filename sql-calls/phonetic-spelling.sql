@@ -1,5 +1,7 @@
 /* combine the phonetic spelliing into ONE field  */
 
+-- https://stackoverflow.com/questions/276927/can-i-concatenate-multiple-mysql-rows-into-one-field
+
 SELECT DISTINCT Eval_master.Eval_master_layout_name
 ,      Phonetic_spelling.Phonetic_spelling_layout_name
 ,     Eval_master.Eval_master_page_nbr
