@@ -8,7 +8,7 @@
 #   -   remove the AutoIncr minimum (?)
 
 
-mysqldump   --extended-insert=FALSE  comptonTransAnlys  > comptonTransAnlys_08_FinalRename.sql ;
+/usr/bin/mariadb-dump   --extended-insert=FALSE  comptonTransAnlys  > comptonTransAnlys_08_FinalRename.sql ;
 
 
 sed   --in-place   --file=-    comptonTransAnlys_08_FinalRename.sql   <<EOF ;
