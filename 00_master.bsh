@@ -59,6 +59,10 @@ echo $(date) ' - 09_move_columns.bsh'                                           
 bash -vx  09_move_columns.bsh                  > 09_move_columns.bsh.log               2>&1       ;
 grep   ERROR  09_move_columns.bsh.log                                                             ;
 
+echo $(date) ' - 10_combine_stimword_phoneme.bsh'                                                             ;
+bash -vx  10_combine_stimword_phoneme.bsh                  > 10_combine_stimword_phoneme.bsh.log               2>&1       ;
+grep   ERROR  10_combine_stimword_phoneme.bsh.log                                                             ;
+
 echo $(date)                                                                                      ;
 
 grep 'ERROR '  *.bsh.log                                                                          \
