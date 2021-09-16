@@ -11,7 +11,7 @@
 ##	set fileformat=unix
 
 
-mariadb    --verbose  comptonTransAnlys  <<END ;
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
   ###### 2021-05-09 UPDATE Client_master         SET Client_master_script_name       = '' ;  ## 2020-10-30
   ###### 2021-05-09 UPDATE Client_anlys_detail   SET Client_anlys_detail_script_name = ''  ; ## 2020-10-30
