@@ -5,7 +5,7 @@
 ##    remove ALL unneeded Client_master records that have no corresponding entry in the Client_anlys_detail table.
 
 
-mariadb    --verbose  comptonTransAnlys  <<END ;
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
         ## 2021-09-09
   DELETE FROM Client_master
