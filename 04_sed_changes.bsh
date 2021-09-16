@@ -13,7 +13,7 @@
 
 #
 
-mysqldump   --extended-insert=FALSE  comptonTransAnlys  >comptonTransAnlysSedChanges.sql ;
+/usr/bin/mariadb-dump   --extended-insert=FALSE  comptonTransAnlys  >comptonTransAnlysSedChanges.sql ;
 
 
 sed   --in-place   --file=-    comptonTransAnlysSedChanges.sql   <<EOF ;
