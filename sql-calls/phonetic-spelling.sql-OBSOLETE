@@ -1,3 +1,5 @@
+
+MOVED TO:   https://github.com/edwardsmarkf/comptonTransAnlys-conversion/blob/main/10_combine_stimword_phoneme.bsh
 /* combine the phonetic spelliing into ONE field  */
 
 -- https://stackoverflow.com/questions/276927/can-i-concatenate-multiple-mysql-rows-into-one-field
