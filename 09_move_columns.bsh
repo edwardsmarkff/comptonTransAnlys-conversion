@@ -7,7 +7,7 @@
 
 #
 #
-mysql  --verbose  comptonTransAnlys   <<END  ;
+/usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
 
 SET FOREIGN_KEY_CHECKS=0;
 
