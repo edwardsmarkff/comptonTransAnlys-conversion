@@ -1,6 +1,8 @@
 #!  /bin/bash -w
 
-#  10_combine_stimword_phoneme.bsh
+#	10_combine_stimword_phoneme.bsh
+#
+#	2021-09-16	- initial writing
 #
 #
 
@@ -50,6 +52,9 @@ AND  stimword.stimwordWord          = tempPhonetic.stimwordWord
 ;
 
 DROP TABLE IF EXISTS tempPhonetic
+;
+
+RENAME TABLE phoneticSpelling TO phoneticSpellingUnused
 ;
 
 END
