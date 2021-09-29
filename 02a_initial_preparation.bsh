@@ -1,6 +1,8 @@
 #! /bin/bash
-#
-#     02a_initial_preparation.bsh
+
+##      02a_initial_preparation.bsh        -- 2021-09-07
+##
+##    remove ALL unneeded Client_master records that have no corresponding entry in the Client_anlys_detail table.
 
 
-
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
