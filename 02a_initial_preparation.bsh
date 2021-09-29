@@ -40,7 +40,7 @@ AND Phonetic_spelling_stimulus_word = 'than'
 AND  Phonetic_spelling_order_nbr = 1
 AND  Phonetic_spelling_target_sound = '&#603;'
 
-
+##### him #####
     ###SELECT *
     ###FROM comptonTransAnlys.Phonetic_spelling
 UPDATE comptonTransAnlys.Phonetic_spelling
@@ -50,6 +50,15 @@ AND Phonetic_spelling_stimulus_word = 'him'
 AND  Phonetic_spelling_order_nbr = 1
 AND  Phonetic_spelling_target_sound = '&#603;'
 
+##### dollars #####
+    ###SELECT *
+    ###FROM comptonTransAnlys.Phonetic_spelling
+UPDATE comptonTransAnlys.Phonetic_spelling
+SET Phonetic_spelling_target_sound = 'z'
+WHERE 1
+AND Phonetic_spelling_stimulus_word = 'dollars'
+AND  Phonetic_spelling_order_nbr = 4
+AND  Phonetic_spelling_target_sound = 's'
 
 END
 
