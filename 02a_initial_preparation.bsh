@@ -114,10 +114,25 @@ AND Eval_master_target_sound_1          =       's'
 AND Eval_master_auto_increment          IN      ( 10364, 577, 642 )
 ;
 
+UPDATE Eval_master
+SET  Eval_master_target_sound_2         =       'z'
+WHERE 1
+AND   Eval_master_target_sound_1        =       'd'
+AND   Eval_master_target_sound_2        =       's'
+AND   Eval_master_stimulus_word         =       'bodyguards'
+AND   Eval_master_position              =       'cluster'
+AND   Eval_master_auto_increment        IN      ( 974 )
+;
+
+
+#####  P A R T  T H R E E    -  Client_eval_detail  TABLE   #####
 
 
 
-####  remove all orphaned Client_eval_detail records
+
+
+
+####    L A S T    - remove all orphaned Client_eval_detail records   ######
 
 ##                              SELECT  Client_eval_detail_auto_increment
 ##                                , Client_eval_detail_stimulus_word
