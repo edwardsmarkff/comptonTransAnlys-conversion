@@ -6,3 +6,30 @@
 
 
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
+
+
+## SELECT * 
+## FROM comptonTransAnlys.Phonetic_spelling
+UPDATE comptonTransAnlys.Phonetic_spelling
+SET Phonetic_spelling_target_sound = 'z'
+WHERE 1
+AND Phonetic_spelling_stimulus_word = 'potatoes'
+AND  Phonetic_spelling_order_nbr = 6
+AND  Phonetic_spelling_target_sound = 's'
+
+###SELECT *
+###FROM comptonTransAnlys.Phonetic_spelling
+UPDATE comptonTransAnlys.Phonetic_spelling
+SET Phonetic_spelling_target_sound = 'd'
+WHERE 1
+AND Phonetic_spelling_stimulus_word = 'acquired'
+AND  Phonetic_spelling_target_sound = 't'
+
+
+
+END
+
+echo 'completed 02b_initial_preparation.bsh !';
+
+exit;
+
