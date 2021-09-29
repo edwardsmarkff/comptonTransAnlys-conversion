@@ -10,6 +10,12 @@
 
 ####  'potatoes',    ' acquired',   'than',    'him',    'dollars',      'bodyguards'  
 
+SET FOREIGN_KEY_CHECKS=0;
+
+
+#####  P A R T  O N E   -  Phonetic_spelling TABLE   #####
+
+
 #####  potatoes   #######
 UPDATE comptonTransAnlys.Phonetic_spelling
 SET Phonetic_spelling_target_sound = 'z'
@@ -59,6 +65,58 @@ AND  Phonetic_spelling_order_nbr = 8
 AND  Phonetic_spelling_target_sound = 's'
 
 
+#####  P A R T  T W O    -  Eval_master TABLE   #####
+
+
+UPDATE Eval_master
+SET  Eval_master_target_sound_1         =       'z'
+WHERE 1
+AND   Eval_master_target_sound_1        =       's'
+AND   Eval_master_stimulus_word         =       'potatoes'
+AND   Eval_master_position              =       'final'
+AND   Eval_master_auto_increment        IN      ( 484, 10271 )
+SET FOREIGN_KEY_CHECKS=1;
+
+
+UPDATE Eval_master
+SET  Eval_master_target_sound_1         =       'd'
+WHERE 1
+AND   Eval_master_stimulus_word         =       'acquired'
+AND   Eval_master_position              =       'final'
+AND   Eval_master_target_sound_1        =       't'
+AND   Eval_master_auto_increment        IN      ( 10217, 430, 1340 )
+;
+
+UPDATE Eval_master
+SET  Eval_master_target_sound_1         =       '&#230;'
+WHERE 1
+AND   Eval_master_stimulus_word         =       'than'
+AND   Eval_master_position              =       'vowel'
+AND   Eval_master_target_sound_1        =       '&#603;'
+AND   Eval_master_auto_increment        IN      ( 808 )
+;
+
+UPDATE comptonTransAnlys.Eval_master
+SET  Eval_master_target_sound_1         =       '&#618;'
+WHERE 1
+AND Eval_master_stimulus_word           =       'him'
+AND Eval_master_position                =       'vowel'
+AND Eval_master_target_sound_1cw        =       '&#603;'
+AND Eval_master_auto_increment          IN      ( 681, 938 )
+;
+
+UPDATE comptonTransAnlys.Eval_master
+SET  Eval_master_target_sound_1         =       'z'
+WHERE 1
+AND Eval_master_stimulus_word           =       'dollars'
+AND Eval_master_position                =       'final'
+AND Eval_master_target_sound_1          =       's'
+AND Eval_master_auto_increment          IN      ( 10364, 577, 642 )
+;
+
+
+
+
 ####  remove all orphaned Client_eval_detail records
 
 ##                              SELECT  Client_eval_detail_auto_increment
@@ -95,6 +153,7 @@ AND Client_eval_detail_auto_increment
 )
 
 
+SET FOREIGN_KEY_CHECKS=1;
 
 
 END
