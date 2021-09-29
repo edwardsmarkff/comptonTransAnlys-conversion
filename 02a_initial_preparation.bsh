@@ -35,7 +35,9 @@ SET FOREIGN_KEY_CHECKS=0;
 
 
 #####  potatoes   #######
-UPDATE Phonetic_spelling
+UPDATE 
+       ## SELECT COUNT(*) FROM
+    Phonetic_spelling
 SET Phonetic_spelling_target_sound   = 'z'
 WHERE 1
 AND Phonetic_spelling_stimulus_word  = 'potatoes'
@@ -43,7 +45,9 @@ AND  Phonetic_spelling_order_nbr     = 6
 AND  Phonetic_spelling_target_sound  = 's'
 
 #####   acquired   #####
-UPDATE Phonetic_spelling
+UPDATE 
+       ## SELECT COUNT(*) FROM
+    Phonetic_spelling
 SET Phonetic_spelling_target_sound    = 'd'
 WHERE 1
 AND Phonetic_spelling_stimulus_word   = 'acquired'
@@ -51,7 +55,9 @@ AND  Phonetic_spelling_order_nbr      = 6
 AND  Phonetic_spelling_target_sound   = 't'
 
 ##### than  ######
-UPDATE Phonetic_spelling
+UPDATE
+       ## SELECT COUNT(*) FROM
+    Phonetic_spelling
 SET  Phonetic_spelling_target_sound   = '&#230;'
 WHERE 1
 AND Phonetic_spelling_stimulus_word   = 'than'
@@ -59,7 +65,9 @@ AND  Phonetic_spelling_order_nbr      = 1
 AND  Phonetic_spelling_target_sound   = '&#603;'
 
 ##### him #####
-UPDATE Phonetic_spelling
+UPDATE
+    ## SELECT COUNT(*) FROM 
+    Phonetic_spelling
 SET Phonetic_spelling_target_sound    = '&#618;'
 WHERE 1
 AND Phonetic_spelling_stimulus_word   = 'him'
@@ -67,7 +75,9 @@ AND  Phonetic_spelling_order_nbr      = 1
 AND  Phonetic_spelling_target_sound   = '&#603;'
 
 ##### dollars #####
-UPDATE Phonetic_spelling
+UPDATE
+    ## SELECT COUNT(*) FROM
+    Phonetic_spelling
 SET Phonetic_spelling_target_sound     = 'z'
 WHERE 1
 AND Phonetic_spelling_stimulus_word    = 'dollars'
@@ -75,7 +85,9 @@ AND  Phonetic_spelling_order_nbr       = 4
 AND  Phonetic_spelling_target_sound    = 's'
 
 ##### bodyguards  ######
-UPDATE Phonetic_spelling
+UPDATE
+    ## SELECT COUNT(*) FROM
+    Phonetic_spelling
 SET Phonetic_spelling_target_sound       = 'z'
 WHERE 1
 AND Phonetic_spelling_stimulus_word     = 'bodyguards'
@@ -86,7 +98,9 @@ AND  Phonetic_spelling_target_sound     = 's'
 #####  P A R T  T W O    -  Eval_master TABLE   #####
 
 
-UPDATE Eval_master
+UPDATE 
+    ## SELECT COUNT(*) FROM
+    Eval_master
 SET  Eval_master_target_sound_1         =       'z'
 WHERE 1
 AND   Eval_master_target_sound_1        =       's'
@@ -96,7 +110,9 @@ AND   Eval_master_auto_increment        IN      ( 484, 10271 )
 SET FOREIGN_KEY_CHECKS=1;
 
 
-UPDATE Eval_master
+UPDATE
+    ## SELECT COUNT(*) FROM
+    Eval_master
 SET  Eval_master_target_sound_1         =       'd'
 WHERE 1
 AND   Eval_master_stimulus_word         =       'acquired'
@@ -105,7 +121,9 @@ AND   Eval_master_target_sound_1        =       't'
 AND   Eval_master_auto_increment        IN      ( 10217, 430, 1340 )
 ;
 
-UPDATE Eval_master
+UPDATE
+    ## SELECT COUNT(*) FROM
+    Eval_master
 SET  Eval_master_target_sound_1         =       '&#230;'
 WHERE 1
 AND   Eval_master_stimulus_word         =       'than'
@@ -114,7 +132,9 @@ AND   Eval_master_target_sound_1        =       '&#603;'
 AND   Eval_master_auto_increment        IN      ( 808 )
 ;
 
-UPDATE Eval_master
+UPDATE
+    ## SELECT COUNT(*) FROM
+    Eval_master
 SET  Eval_master_target_sound_1         =       '&#618;'
 WHERE 1
 AND Eval_master_stimulus_word           =       'him'
@@ -123,7 +143,9 @@ AND Eval_master_target_sound_1cw        =       '&#603;'
 AND Eval_master_auto_increment          IN      ( 681, 938 )
 ;
 
-UPDATE Eval_master
+UPDATE
+    ## SELECT COUNT(*) FROM
+    Eval_master
 SET  Eval_master_target_sound_1         =       'z'
 WHERE 1
 AND Eval_master_stimulus_word           =       'dollars'
@@ -132,7 +154,9 @@ AND Eval_master_target_sound_1          =       's'
 AND Eval_master_auto_increment          IN      ( 10364, 577, 642 )
 ;
 
-UPDATE Eval_master
+UPDATE
+    ## SELECT COUNT(*) FROM
+    Eval_master
 SET  Eval_master_target_sound_2         =       'z'
 WHERE 1
 AND   Eval_master_target_sound_1        =       'd'
@@ -149,9 +173,10 @@ AND   Eval_master_auto_increment        IN      ( 974 )
 
 
 
-UPDATE Client_eval_detail
-SET  Client_eval_detail_target_sound_1          =       'z'
-       #### SELECT COUNT(*) FROM Client_eval_detail
+UPDATE 
+    ## SELECT COUNT(*) FROM
+     Client_eval_detail
+SET  Client_eval_detail_target_sound_1          =       'z'   
 WHERE 1
 AND   Client_eval_detail_target_sound_1         =       's'
 AND   Client_eval_detail_stimulus_word          =       'potatoes'
@@ -191,9 +216,10 @@ AND   Client_eval_detail_auto_increment  IN
 
 
 
-UPDATE  Client_eval_detail
+UPDATE
+       Client_eval_detail
+       #### SELECT COUNT(*) FROM
 SET     Client_eval_detail_target_sound_1        =      'd'
-       #### SELECT COUNT(*) FROM Client_eval_detail
 WHERE 1
 AND     Client_eval_detail_target_sound_1       =       't'
 AND     Client_eval_detail_stimulus_word        =       'acquired'
@@ -310,9 +336,10 @@ AND     Client_eval_detail_auto_increment       IN
 
 
 
-UPDATE  Client_eval_detail
+UPDATE
+       Client_eval_detail
+       ##SELECT COUNT(*)  FROM
 SET     Client_eval_detail_target_sound_1       =       '&#230;'
-     ####SELECT COUNT(*)  FROM Client_eval_detail
 WHERE 1
 AND     Client_eval_detail_target_sound_1       =       '&#603;'
 AND     Client_eval_detail_stimulus_word        =       'than'
@@ -340,9 +367,11 @@ AND     Client_eval_detail_auto_increment       IN
 
 
 
-UPDATE Client_eval_detail
+UPDATE
+       Client_eval_detail
+       ## SELECT COUNT(*) FROM
 SET  Client_eval_detail_target_sound_1         = '&#618;'
-         ####  SELECT COUNT(*) FROM Client_eval_detail
+         
 WHERE 1
 AND   Client_eval_detail_target_sound_1        = '&#603;'
 AND   Client_eval_detail_stimulus_word         = 'him'
@@ -420,7 +449,9 @@ AND   Client_eval_detail_auto_increment in
 ) ; 
 
 
-UPDATE Client_eval_detail
+UPDATE
+       ## SET COUNT(*) FROM
+       Client_eval_detail
 SET  Client_eval_detail_target_sound_1    = 'z'
 WHERE 1
 AND   Client_eval_detail_target_sound_1   = 's'
@@ -463,10 +494,11 @@ AND   Client_eval_detail_auto_increment in
 
 
 
-UPDATE  cClient_eval_detail
+UPDATE  
+       ## SELECT COUNT(*) FROM
+       Client_eval_detail
 SET     Client_eval_detail_target_sound_1       =       'd'
   ,     Client_eval_detail_target_sound_2       =       'z'
-        ####SELECT COUNT(*) FROM Client_eval_detail
 WHERE 1
 AND     Client_eval_detail_target_sound_1       =       'd'
 AND     Client_eval_detail_target_sound_2       =       's'
@@ -585,8 +617,9 @@ AND     Client_eval_detail_auto_increment       IN
 ##                                , CAST(Client_eval_detail_error_sound_2 AS CHAR)  'e2'
 ##                                , CAST(Client_eval_detail_error_sound_3 AS CHAR)  'e3'
 ##                                , CAST(Client_eval_detail_error_sound_4 AS CHAR)  'e4'
-DELETE
-FROM Client_eval_detail
+DELETE FROM
+       ## SELECT COUNT(*) FROM
+       Client_eval_detail
 WHERE 1
 AND Client_eval_detail_auto_increment
      NOT IN
