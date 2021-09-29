@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##		02b_initial_preparation.bsh
+##		02c_initial_preparation.bsh
 
 ##  2021-04-26 - we MAY be able to skip this step......!
 
@@ -128,4 +128,4 @@ GROUP BY
 HAVING EMAIL>1;
 
 END
-echo 'done with 02b_initial_preparation.bsh';
+echo 'done with 02c_initial_preparation.bsh';
