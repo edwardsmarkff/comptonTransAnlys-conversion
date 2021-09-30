@@ -5,7 +5,7 @@
 #
        # https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
 while true; do
-    read -p "Is everything working properly?" yn
+    read -p "Is everything working properly?? " yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) exit;;
