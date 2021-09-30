@@ -376,7 +376,6 @@ UPDATE
        Client_eval_detail
 ## SELECT COUNT(*) FROM
 SET  Client_eval_detail_target_sound_1         = '&#618;'
-         
 WHERE 1
 AND   Client_eval_detail_target_sound_1        = '&#603;'
 AND   Client_eval_detail_stimulus_word         = 'him'
