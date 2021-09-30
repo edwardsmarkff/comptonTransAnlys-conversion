@@ -8,6 +8,12 @@
 ##     three tables:    Phonetic_spelling
 ##                      Eval_master
 ##                      Client_eval_detail
+##
+##      TO TEST:
+##      %s/^UPDATE/ # &/
+##      %s/^DELETE/ # &/
+##      %s/^## SELECT COUNT/SELECT COUNT/
+##      %s/^SET/ # &
 
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
