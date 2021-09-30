@@ -43,6 +43,7 @@ WHERE 1
 AND Phonetic_spelling_stimulus_word  = 'potatoes'
 AND  Phonetic_spelling_order_nbr     = 6
 AND  Phonetic_spelling_target_sound  = 's'
+;
 
 #####   acquired   #####
 UPDATE 
@@ -53,6 +54,7 @@ WHERE 1
 AND Phonetic_spelling_stimulus_word   = 'acquired'
 AND  Phonetic_spelling_order_nbr      = 6
 AND  Phonetic_spelling_target_sound   = 't'
+;
 
 ##### than  ######
 UPDATE
@@ -63,6 +65,7 @@ WHERE 1
 AND Phonetic_spelling_stimulus_word   = 'than'
 AND  Phonetic_spelling_order_nbr      = 1
 AND  Phonetic_spelling_target_sound   = '&#603;'
+;
 
 ##### him #####
 UPDATE
@@ -73,6 +76,7 @@ WHERE 1
 AND Phonetic_spelling_stimulus_word   = 'him'
 AND  Phonetic_spelling_order_nbr      = 1
 AND  Phonetic_spelling_target_sound   = '&#603;'
+;
 
 ##### dollars #####
 UPDATE
@@ -83,6 +87,7 @@ WHERE 1
 AND Phonetic_spelling_stimulus_word    = 'dollars'
 AND  Phonetic_spelling_order_nbr       = 4
 AND  Phonetic_spelling_target_sound    = 's'
+;
 
 ##### bodyguards  ######
 UPDATE
@@ -93,6 +98,7 @@ WHERE 1
 AND Phonetic_spelling_stimulus_word     = 'bodyguards'
 AND  Phonetic_spelling_order_nbr        = 8
 AND  Phonetic_spelling_target_sound     = 's'
+;
 
 
 #####  P A R T  T W O    -  Eval_master TABLE   #####
@@ -107,7 +113,7 @@ AND   Eval_master_target_sound_1        =       's'
 AND   Eval_master_stimulus_word         =       'potatoes'
 AND   Eval_master_position              =       'final'
 AND   Eval_master_auto_increment        IN      ( 484, 10271 )
-SET FOREIGN_KEY_CHECKS=1;
+;
 
 
 UPDATE
@@ -210,7 +216,7 @@ AND   Client_eval_detail_auto_increment  IN
 , 6564258 , 6575180 , 6598954 , 6612772 , 6615947 , 6623765 , 6624057 , 6632036 , 6642006 , 6647961 , 6650640
 , 6677427 , 6679455 , 6682621 , 6689782 , 6710648 , 6712802 , 6727690 , 6730819 , 6762429 , 6810282 , 6816417
 , 6828285 , 6834496 , 6845417 , 6868929 , 6892812 , 6906399 , 6927186 , 6974006 , 6974021
-)
+);
 
 
 
@@ -362,8 +368,7 @@ AND     Client_eval_detail_auto_increment       IN
  , 5832092 , 5918496 , 5923782 , 5937341 , 5943060 , 6022295 , 6080479 , 6095448 , 6153901 , 6158914 , 6182378 , 6184003 , 6199370
  , 6257961 , 6278425 , 6338902 , 6356046 , 6438436 , 6479655 , 6534043 , 6559914 , 6608857 , 6632067 , 6644843 , 6908758 , 6974008
  , 6974290
- )
-;
+ ) ;
 
 
 
@@ -601,7 +606,7 @@ AND     Client_eval_detail_auto_increment       IN
 , 6836872 , 6843501 , 6845251 , 6851664 , 6858324 , 6859302 , 6865520 , 6868826 , 6880793 , 6887574 , 6892720 , 6900232 , 6902727
 , 6902791 , 6906493 , 6912387 , 6915844 , 6924367 , 6925892 , 6942847 , 6958507 , 6961510 , 6963664 , 6966587 , 6974010 , 6974280
 , 6974574 , 6975101
-)
+) ;
 
 
 
@@ -639,7 +644,7 @@ AND Client_eval_detail_auto_increment
     AND   Client_anlys_detail_error_sound_2 = Client_eval_detail_error_sound_2
     AND   Client_anlys_detail_error_sound_3 = Client_eval_detail_error_sound_3
     AND   Client_anlys_detail_error_sound_4 = Client_eval_detail_error_sound_4
-)
+) ;
 
 
 SET FOREIGN_KEY_CHECKS=1;
@@ -647,7 +652,7 @@ SET FOREIGN_KEY_CHECKS=1;
 
 END
 
-echo 'completed 02b_initial_preparation.bsh !';
+echo 'completed 02a_initial_preparation.bsh !';
 
 exit;
 
