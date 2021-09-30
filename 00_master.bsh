@@ -31,6 +31,10 @@ echo $(date) ' - 02b_initial_preparation.bsh'                                   
 bash -vx  02b_initial_preparation.bsh          > 02b_initial_preparation.bsh.log       2>&1       ;
 grep  ERROR   02b_initial_preparation.bsh.log                                                     ;
 
+echo $(date) ' - 02c_initial_preparation.bsh'                                                     ;
+bash -vx  02c_initial_preparation.bsh          > 02c_initial_preparation.bsh.log       2>&1       ;
+grep  ERROR   02c_initial_preparation.bsh.log                                                     ;
+
 echo $(date) ' - 03_long_part.bsh'                                                                ;
 bash -vx  03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1       ;
 grep  ERROR          03_long_part.bsh.log                                                         ;
