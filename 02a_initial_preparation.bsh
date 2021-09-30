@@ -343,8 +343,8 @@ AND     Client_eval_detail_auto_increment       IN
 
 
 UPDATE
-       Client_eval_detail
 ## SELECT COUNT(*)  FROM
+       Client_eval_detail
 SET     Client_eval_detail_target_sound_1       =       '&#230;'
 WHERE 1
 AND     Client_eval_detail_target_sound_1       =       '&#603;'
