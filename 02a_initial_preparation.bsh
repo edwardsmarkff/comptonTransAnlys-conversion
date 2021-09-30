@@ -145,7 +145,7 @@ SET  Eval_master_target_sound_1         =       '&#618;'
 WHERE 1
 AND Eval_master_stimulus_word           =       'him'
 AND Eval_master_position                =       'vowel'
-AND Eval_master_target_sound_1cw        =       '&#603;'
+AND Eval_master_target_sound_1          =       '&#603;'
 AND Eval_master_auto_increment          IN      ( 681, 938 )
 ;
 
