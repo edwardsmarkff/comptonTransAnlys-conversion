@@ -669,7 +669,8 @@ AND Client_anlys_detail.Client_anlys_detail_target_sound_1    =  Anlys_detail.An
 AND Client_anlys_detail.Client_anlys_detail_target_sound_2    =  Anlys_detail.Anlys_detail_target_sound_2
 AND Client_anlys_detail.Client_anlys_detail_target_sound_3    =  Anlys_detail.Anlys_detail_target_sound_3
 AND Client_anlys_detail.Client_anlys_detail_position          =  Anlys_detail.Anlys_detail_position
-)
+) 
+;
 
 
 
