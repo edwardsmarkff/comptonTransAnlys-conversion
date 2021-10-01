@@ -5,9 +5,11 @@
 ##    remove ALL unneeded Client_master records that have no corresponding entry in the Client_anlys_detail table.
 ##
 ##     six words:       potatoes    acquired   than   him    dollars    bodyguards
-##     three tables:    Phonetic_spelling
-##                      Eval_master
+##     three tables:    Phonetic_spelling   (six changes, one for each owrd))
+##                      Eval_master         (10ish changes, one for each word)
 ##                      Client_eval_detail
+##                      Anlys_detail        (just one minor change for cluster ds => dz, neede for the word 'bodyguard' in Client_Eval_detail)
+##                                  
 ##
 ##      TO TEST:
 ##      %s/^UPDATE/ # &/
@@ -629,7 +631,31 @@ AND     Client_eval_detail_auto_increment       IN
 , 6902791 , 6906493 , 6912387 , 6915844 , 6924367 , 6925892 , 6942847 , 6958507 , 6961510 , 6963664 , 6966587 , 6974010 , 6974280
 , 6974574 , 6975101
 ) ;
+
+
+
+#####  P A R T  F O U R    -  Anlys_detail  TABLE   #####
+
+                        ##SELECT Anlys_detail_layout_name
+                        ##, CAST(Anlys_detail_target_sound_1 AS CHAR) 't1'
+                        ##, CAST(Anlys_detail_target_sound_2 AS CHAR) 't2'
+                        ##, CAST(Anlys_detail_target_sound_3 AS CHAR) 't3'
+                        ##, Anlys_detail_position
+                        ##, Anlys_detail_auto_increment
+UPDATE
+## SELECT COUNT(*) FROM
+    Anlys_detail
+SET Anlys_detail_target_sound_2     = 'z'
+WHERE 1
+AND  Anlys_detail_target_sound_1    = 'd'
+AND  Anlys_detail_target_sound_2    = 's'
+AND  Anlys_detail_position          = 'cluster'
+AND  Anlys_detail_auto_increment    IN  ( 127, 256, 1804 )
+;
 SELECT ROW_COUNT() ;
+
+
+
 
 
 
