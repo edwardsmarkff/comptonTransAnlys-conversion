@@ -118,8 +118,11 @@ AND  Phonetic_spelling_target_sound     = 's'
 ;
 SELECT ROW_COUNT() ;
 
-
+#####################################################
+#####                                           ##### 
 #####  P A R T  T W O    -  Eval_master TABLE   #####
+#####                                           ##### 
+#####################################################
 
 
 UPDATE 
@@ -198,9 +201,11 @@ SELECT ROW_COUNT() ;
 
 
 
-
+#################################################################
+#####                                                       #####
 #####  P A R T  T H R E E    -  Client_eval_detail  TABLE   #####
-
+#####                                                       #####
+#################################################################
 
 
 UPDATE 
@@ -637,7 +642,38 @@ AND     Client_eval_detail_auto_increment       IN
 
 
 
-#####  P A R T  F O U R    -  Anlys_detail  TABLE   #####
+################################################################
+#####                                                      #####
+#####  P A R T  F O U R    -  Client_anlys_detail  TABLE   #####
+#####                                                      #####
+################################################################
+
+
+UPDATE
+## SELECT COUNT(*) FROM
+    Client_anlys_detail
+SET Client_anlys_detail_target_sound_2 = 'z'
+WHERE Client_anlys_detail_auto_increment NOT IN
+(
+SELECT  Client_anlys_detail_auto_increment
+FROM Client_anlys_detail
+ ,   Anlys_detail
+WHERE 1
+AND Client_anlys_detail.Client_anlys_detail_layout_name       =  Anlys_detail.Anlys_detail_layout_name
+AND Client_anlys_detail.Client_anlys_detail_target_sound_1    =  Anlys_detail.Anlys_detail_target_sound_1
+AND Client_anlys_detail.Client_anlys_detail_target_sound_2    =  Anlys_detail.Anlys_detail_target_sound_2
+AND Client_anlys_detail.Client_anlys_detail_target_sound_3    =  Anlys_detail.Anlys_detail_target_sound_3
+AND Client_anlys_detail.Client_anlys_detail_position          =  Anlys_detail.Anlys_detail_position
+)
+
+
+
+
+##########################################################
+####                                                 #####
+#####  P A R T   F I V E    -  Anlys_master  TABLE   #####
+####                                                 #####
+##########################################################
 
 
 UPDATE
@@ -654,7 +690,13 @@ SELECT ROW_COUNT() ;
 
 
 
-#####  P A R T  F I V E    -  Anlys_detail  TABLE   #####
+
+#########################################################
+#####                                               #####
+#####  P A R T  S I X     -  Anlys_detail  TABLE    #####
+#####                                               ######
+#########################################################
+
 
                         ##SELECT Anlys_detail_layout_name
                         ##, CAST(Anlys_detail_target_sound_1 AS CHAR) 't1'
@@ -678,8 +720,11 @@ SELECT ROW_COUNT() ;
 
 
 
-
+############################################################################
+####                                                                  ######
 ####    L A S T    - remove all orphaned Client_eval_detail records   ######
+####                                                                  ######
+############################################################################
 
 ##                              SELECT  Client_eval_detail_auto_increment
 ##                                , Client_eval_detail_stimulus_word
