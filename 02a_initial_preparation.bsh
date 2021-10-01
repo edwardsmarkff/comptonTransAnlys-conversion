@@ -12,11 +12,12 @@
 ##                      Anlys_detail        (just one minor change for cluster ds => dz, needed for the word 'bodyguard' in Client_Eval_detail)
 ##                                  
 ##
-##      TO TEST:
-##      %s/^UPDATE/ ## &/
-##      %s/^DELETE/ ## &/
-##      %s/^## SELECT COUNT/SELECT COUNT/
-##      %s/^SET/ ## &/
+##      TO TEST:                                                TO UNSET:
+##      %s/^UPDATE/ ## &/                                       %s/^ ## UPDATE/UPDATE/
+##      %s/^DELETE/ ## &/                                       %s/^ ## DELETE/DELETE/
+##      %s/^## SELECT COUNT/SELECT COUNT/                       %s/^SELECT COUNT/## SELECT COUNT/
+##      %s/^SET/ ## &/                                          %s/^ ## SET/SET/
+##
 
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
