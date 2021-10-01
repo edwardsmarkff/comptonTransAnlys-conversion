@@ -651,6 +651,9 @@ AND     Client_eval_detail_auto_increment       IN
 
 ## for some reason, only the cluster-d-z has an error.... (?)
 
+
+###### THIS M-A-Y  NOT BE NECESSARY    ? ? ? ? ? ? ? ? 
+
 UPDATE
 ## SELECT COUNT(*) FROM
     Client_anlys_detail
