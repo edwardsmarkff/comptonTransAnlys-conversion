@@ -13,10 +13,10 @@
 ##                                  
 ##
 ##      TO TEST:
-##      %s/^UPDATE/ # &/
-##      %s/^DELETE/ # &/
+##      %s/^UPDATE/ ## &/
+##      %s/^DELETE/ ## &/
 ##      %s/^## SELECT COUNT/SELECT COUNT/
-##      %s/^SET/ # &
+##      %s/^SET/ ## &/
 
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
