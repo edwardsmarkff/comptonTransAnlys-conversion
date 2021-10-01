@@ -8,7 +8,8 @@
 ##     three tables:    Phonetic_spelling   (six changes, one for each owrd))
 ##                      Eval_master         (10ish changes, one for each word)
 ##                      Client_eval_detail
-##                      Anlys_detail        (just one minor change for cluster ds => dz, neede for the word 'bodyguard' in Client_Eval_detail)
+##                      Anlys_master        (just one minor change for "Cluster" sd => dz, needed for word 'bodyguard' in Anlys_detail)
+##                      Anlys_detail        (just one minor change for cluster ds => dz, needed for the word 'bodyguard' in Client_Eval_detail)
 ##                                  
 ##
 ##      TO TEST:
@@ -634,7 +635,25 @@ AND     Client_eval_detail_auto_increment       IN
 
 
 
+
 #####  P A R T  F O U R    -  Anlys_detail  TABLE   #####
+
+
+UPDATE
+## SELECT COUNT(*) FROM
+    Anlys_master
+SET Anlys_master_target_sound_2      = 'z'
+WHERE 1
+AND  Anlys_master_target_sound_1     = 'd'
+AND  Anlys_master_title_1            = 'Clusters'
+AND  Anlys_master_target_sound_2     = 's'
+AND  Anlys_master_auto_increment     IN  ( 86, 174, 1230 )
+;
+SELECT ROW_COUNT() ;
+
+
+
+#####  P A R T  F I V E    -  Anlys_detail  TABLE   #####
 
                         ##SELECT Anlys_detail_layout_name
                         ##, CAST(Anlys_detail_target_sound_1 AS CHAR) 't1'
