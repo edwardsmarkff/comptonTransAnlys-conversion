@@ -662,7 +662,7 @@ FROM Client_anlys_detail
  ,   Anlys_detail
 WHERE 1
 AND Client_anlys_detail_target_sound_1 = 'd'
-AND Client_anlys_detail_target_sound_1 = 's'
+AND Client_anlys_detail_target_sound_2 = 's'
 AND Client_anlys_detail_position       = 'cluster'
 AND Client_anlys_detail.Client_anlys_detail_layout_name       =  Anlys_detail.Anlys_detail_layout_name
 AND Client_anlys_detail.Client_anlys_detail_target_sound_1    =  Anlys_detail.Anlys_detail_target_sound_1
