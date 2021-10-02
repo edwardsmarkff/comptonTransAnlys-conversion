@@ -538,6 +538,7 @@ AND  Client_anlys_detail_error_sound_3  =  Client_eval_detail_error_sound_3
 AND  Client_anlys_detail_error_sound_4  =  Client_eval_detail_error_sound_4
 )
 );
+SELECT ROW_COUNT() ;
 
 /*
 UPDATE
