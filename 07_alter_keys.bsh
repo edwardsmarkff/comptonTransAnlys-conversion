@@ -325,7 +325,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				)
 				;
 
-	ALTER TABLE Language_norms
+	ALTER TABLE \`Language_norms\`
 		ADD CONSTRAINT		\`Context_2_Language_norms_CONSTRAINT_1\`
 			FOREIGN KEY	\`Context_2_Language_norms_FOREIGN_KEY_1\`
 					(	\`Language_norms_layout_name\`		-- 01
