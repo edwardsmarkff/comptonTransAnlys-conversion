@@ -459,7 +459,7 @@ AND     Client_eval_detail_auto_increment       IN
 ##########################   him   &#603;-> &#618;  ##################################
 
 UPDATE 
-##SELECT COUNT(*) FROM
+## SELECT COUNT(*) FROM
    Client_eval_detail
 SET Client_eval_detail_target_sound_1 = '&#618;'            ##     '&#618;'
 WHERE 1
@@ -501,7 +501,7 @@ SELECT ROW_COUNT() ;
 ##########################   dollars  s-> z  ##################################
 
 UPDATE 
-##SELECT COUNT(*) FROM
+## SELECT COUNT(*) FROM
    Client_eval_detail
 SET Client_eval_detail_target_sound_1 = 'z'            ## 'z'  
 WHERE 1
