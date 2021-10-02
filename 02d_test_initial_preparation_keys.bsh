@@ -8,6 +8,19 @@
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 
+          ####   Eval_master to Anlys_master  TEST
+
+SELECT COUNT(*)
+FROM Anlys_detail,
+,    Eval_master
+WHERE 1
+AND  Eval_master_layout_name   = Anlys_detail_layout_name
+AND Eval_master_position              =  Anlys_detail_position
+AND  Eval_master_target_sound_1 = Anlys_detail_target_sound_1
+AND  Eval_master_target_sound_2 = Anlys_detail_target_sound_2
+AND  Eval_master_target_sound_3 = Anlys_detail_target_sound_3
+;
+
       ### Eval_master  to Client_eval_detail TEST
       
 SELECT COUNT(*)
