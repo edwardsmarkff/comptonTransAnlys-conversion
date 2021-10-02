@@ -8,18 +8,23 @@
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 
-          ####   Eval_master to Anlys_master  TEST
+          ####   Anlys_detail  Eval_master    TEST
 
 SELECT COUNT(*)
 FROM Eval_master
-FROM Anlys_detail,
-,    Eval_master
+WHERE 1
+AND Eval_master_auto_increment NOT IN
+(
+SELECT Eval_master_auto_increment
+FROM        Anlys_detail,
+,           Eval_master
 WHERE 1
 AND  Eval_master_layout_name   = Anlys_detail_layout_name
 AND Eval_master_position              =  Anlys_detail_position
 AND  Eval_master_target_sound_1 = Anlys_detail_target_sound_1
 AND  Eval_master_target_sound_2 = Anlys_detail_target_sound_2
 AND  Eval_master_target_sound_3 = Anlys_detail_target_sound_3
+)
 ;
 
       ### Eval_master  to Client_eval_detail TEST
@@ -39,7 +44,8 @@ NOT IN
 ,   Client_eval_detail_target_sound_2
 ,  Client_eval_detail_target_sound_3
 ,  Client_eval_detail_position
-FROM Eval_master, Client_eval_detail
+FROM    Eval_master
+,       Client_eval_detail
 WHERE 1
 AND Eval_master_layout_name  = Client_eval_detail_layout_name
 AND Eval_master_target_sound_1 = Client_eval_detail_target_sound_1
@@ -69,8 +75,8 @@ SELECT  Client_anlys_detail_layout_name
 , Client_anlys_detail_target_sound_2
 , Client_anlys_detail_target_sound_3
 , Client_anlys_detail_position
-FROM Anlys_detail
-, Client_anlys_detail
+FROM    Anlys_detail
+,       Client_anlys_detail
 WHERE 1
 AND  Anlys_detail_layout_name     = Client_anlys_detail_layout_name
 AND  Anlys_detail_target_sound_1  = Client_anlys_detail_target_sound_1
@@ -90,8 +96,8 @@ WHERE 1
 AND Client_eval_detail_auto_increment
 NOT IN
 ( SELECT Client_eval_detail_auto_increment
-        FROM Client_anlys_detail
-        ,    Client_eval_detail
+        FROM      Client_anlys_detail
+        ,         Client_eval_detail
         WHERE 1
     AND   Client_anlys_detail_teacher_name  = Client_eval_detail_teacher_name
     AND   Client_anlys_detail_client_name  = Client_eval_detail_client_name
