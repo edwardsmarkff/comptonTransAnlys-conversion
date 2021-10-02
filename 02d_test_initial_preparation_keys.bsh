@@ -11,6 +11,7 @@
           ####   Eval_master to Anlys_master  TEST
 
 SELECT COUNT(*)
+FROM Eval_master
 FROM Anlys_detail,
 ,    Eval_master
 WHERE 1
