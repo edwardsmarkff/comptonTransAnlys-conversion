@@ -466,7 +466,8 @@ WHERE 1
 AND Client_eval_detail_stimulus_word = 'him'          ##  'him'
 AND Client_eval_detail_target_sound_1 = '&#603;'            ##     '&#603;'
 AND Client_eval_detail_auto_increment IN (
-SELECT /* Client_eval_detail_position             'position'
+SELECT 
+/* Client_eval_detail_position             'position'
 , CAST(Client_eval_detail_target_sound_1 AS CHAR) 't1'
 , CAST(Client_eval_detail_target_sound_2 AS CHAR) 't2'
 , CAST(Client_eval_detail_target_sound_3 AS CHAR) 't3'
