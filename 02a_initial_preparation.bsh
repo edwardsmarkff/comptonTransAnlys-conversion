@@ -204,7 +204,51 @@ SELECT ROW_COUNT() ;
 
 #################################################################
 #####                                                       #####
-#####  P A R T  T H R E E    -  Client_eval_detail  TABLE   #####
+#####  P A R T  T H R E E    -   Anlys_master  TABLE        #####
+#####                                                       #####
+#################################################################
+
+
+UPDATE
+## SELECT COUNT(*) FROM
+    Anlys_master
+SET Anlys_master_target_sound_2      = 'z'
+WHERE 1
+AND  Anlys_master_target_sound_1     = 'd'
+AND  Anlys_master_target_sound_2     = 's'
+AND  Anlys_master_title_1            = 'Clusters'
+AND  Anlys_master_auto_increment     IN  ( 86, 174, 1230 )
+;
+SELECT ROW_COUNT() ;
+
+#################################################################
+#####                                                       #####
+#####  P A R T  F O U R      -   Anlys_detail  TABLE        #####
+#####                                                       #####
+#################################################################
+
+
+                        ##SELECT Anlys_detail_layout_name
+                        ##, CAST(Anlys_detail_target_sound_1 AS CHAR) 't1'
+                        ##, CAST(Anlys_detail_target_sound_2 AS CHAR) 't2'
+                        ##, CAST(Anlys_detail_target_sound_3 AS CHAR) 't3'
+                        ##, Anlys_detail_position
+                        ##, Anlys_detail_auto_increment
+UPDATE
+## SELECT COUNT(*) FROM
+    Anlys_detail
+SET Anlys_detail_target_sound_2     = 'z'
+WHERE 1
+AND  Anlys_detail_target_sound_1    = 'd'
+AND  Anlys_detail_target_sound_2    = 's'
+AND  Anlys_detail_position          = 'cluster'
+AND  Anlys_detail_auto_increment    IN  ( 127, 256, 1804 )
+;
+SELECT ROW_COUNT() ;
+
+#################################################################
+#####                                                       #####
+#####  P A R T  F I V E      -  Client_eval_detail  TABLE   #####
 #####                                                       #####
 #################################################################
 
@@ -645,7 +689,7 @@ AND     Client_eval_detail_auto_increment       IN
 
 ################################################################
 #####                                                      #####
-#####  P A R T  F O U R    -  Client_anlys_detail  TABLE   #####
+#####  P A R T  S I X      -  Client_anlys_detail  TABLE   #####
 #####                                                      #####
 ################################################################
 
@@ -681,50 +725,24 @@ AND Client_anlys_detail_auto_increment NOT IN
 
 ##########################################################
 ####                                                 #####
-#####  P A R T   F I V E    -  Anlys_master  TABLE   #####
+#####  P A R T   S E V E N    -     TABLE   #####
 ####                                                 #####
 ##########################################################
 
 
-UPDATE
-## SELECT COUNT(*) FROM
-    Anlys_master
-SET Anlys_master_target_sound_2      = 'z'
-WHERE 1
-AND  Anlys_master_target_sound_1     = 'd'
-AND  Anlys_master_target_sound_2     = 's'
-AND  Anlys_master_title_1            = 'Clusters'
-AND  Anlys_master_auto_increment     IN  ( 86, 174, 1230 )
-;
-SELECT ROW_COUNT() ;
+
 
 
 
 
 #########################################################
 #####                                               #####
-#####  P A R T  S I X     -  Anlys_detail  TABLE    #####
+#####  P A R T  S I X     -    TABLE    #####
 #####                                               ######
 #########################################################
 
 
-                        ##SELECT Anlys_detail_layout_name
-                        ##, CAST(Anlys_detail_target_sound_1 AS CHAR) 't1'
-                        ##, CAST(Anlys_detail_target_sound_2 AS CHAR) 't2'
-                        ##, CAST(Anlys_detail_target_sound_3 AS CHAR) 't3'
-                        ##, Anlys_detail_position
-                        ##, Anlys_detail_auto_increment
-UPDATE
-## SELECT COUNT(*) FROM
-    Anlys_detail
-SET Anlys_detail_target_sound_2     = 'z'
-WHERE 1
-AND  Anlys_detail_target_sound_1    = 'd'
-AND  Anlys_detail_target_sound_2    = 's'
-AND  Anlys_detail_position          = 'cluster'
-AND  Anlys_detail_auto_increment    IN  ( 127, 256, 1804 )
-;
-SELECT ROW_COUNT() ;
+
 
 
 
@@ -752,6 +770,38 @@ DELETE FROM
 WHERE 1
 AND Client_eval_detail_auto_increment
      NOT IN
+( SELECT Client_eval_detail_auto_increment
+        FROM Client_anlys_detail
+        ,    Client_eval_detail
+        WHERE 1
+    AND   Client_anlys_detail_teacher_name  = Client_eval_detail_teacher_name
+    AND   Client_anlys_detail_client_name  = Client_eval_detail_client_name
+    AND   Client_anlys_detail_session_name  = Client_eval_detail_session_name
+    AND   Client_anlys_detail_layout_name  = Client_eval_detail_layout_name
+    AND   Client_anlys_detail_position     = Client_eval_detail_position
+    AND   Client_anlys_detail_target_sound_1 = Client_eval_detail_target_sound_1
+    AND   Client_anlys_detail_target_sound_2 = Client_eval_detail_target_sound_2
+    AND   Client_anlys_detail_target_sound_3 = Client_eval_detail_target_sound_3
+    AND   Client_anlys_detail_error_sound_1 = Client_eval_detail_error_sound_1
+    AND   Client_anlys_detail_error_sound_2 = Client_eval_detail_error_sound_2
+    AND   Client_anlys_detail_error_sound_3 = Client_eval_detail_error_sound_3
+    AND   Client_anlys_detail_error_sound_4 = Client_eval_detail_error_sound_4
+) ;
+
+/*
+SELECT Client_eval_detail_layout_name
+,      CAST(Client_eval_detail_target_sound_1 AS CHAR) 't1'
+,      CAST(Client_eval_detail_target_sound_2 AS CHAR) 't2'
+,      CAST(Client_eval_detail_target_sound_3 AS CHAR) 't3'
+,      Client_eval_detail_position
+,      Client_eval_detail_stimulus_word
+,      Client_eval_detail_context
+,		Client_eval_detail_auto_increment */
+DELETE
+FROM  Client_eval_detail
+WHERE 1
+AND Client_eval_detail_auto_increment
+NOT IN
 ( SELECT Client_eval_detail_auto_increment
         FROM Client_anlys_detail
         ,    Client_eval_detail
