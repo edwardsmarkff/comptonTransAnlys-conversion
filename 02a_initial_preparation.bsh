@@ -5,9 +5,10 @@
 ##    remove ALL unneeded Client_master records that have no corresponding entry in the Client_anlys_detail table.
 ##
 ##     six words:       potatoes    acquired   than   him    dollars    bodyguards
-##     three tables:    Phonetic_spelling   (six changes, one for each owrd))
+##     seven tables:    Phonetic_spelling   (six changes, one for each owrd))
+##                      Language_norms      (47 places cluster-d-s => d-z
 ##                      Eval_master         (10ish changes, one for each word)
-##                      Client_anlys_detail ( only for cluster-d-s )
+##                      Client_anlys_detail ( only for cluster-d-s => d-z )
 ##                      Client_eval_detail
 ##                      Anlys_master        (just one minor change for "Cluster" sd => dz, needed for word 'bodyguard' in Anlys_detail)
 ##                      Anlys_detail        (just one minor change for cluster ds => dz, needed for the word 'bodyguard' in Client_Eval_detail)
@@ -42,10 +43,37 @@
 SET FOREIGN_KEY_CHECKS=0;
 
 
-#####  P A R T  O N E   -  Phonetic_spelling TABLE   #####
+
+##########################################################
+#####                                                ##### 
+#####  P A R T  Z E R O    -  Langauge_norms TABLE   #####
+#####                                                ##### 
+##########################################################
 
 
-#####  potatoes   #######
+## SELECT COUNT(*) FROM
+UPDATE
+    Language_norms
+SET Language_norms_target_sound_2 = 'z'
+WHERE 1
+AND Language_norms_position = 'cluster'
+AND Language_norms_target_sound_1 = 'd'
+;
+SELECT ROW_COUNT() ;
+
+
+
+
+
+
+###########################################################
+#####                                                 ##### 
+#####  P A R T  O N E    -  Phonetic_spelling TABLE   #####
+#####                                                 ##### 
+###########################################################
+
+
+                            #####  potatoes   #######
 UPDATE 
 ## SELECT COUNT(*) FROM
     Phonetic_spelling
@@ -57,7 +85,7 @@ AND  Phonetic_spelling_order_nbr     = 6
 ;
 SELECT ROW_COUNT() ;
 
-#####   acquired   #####
+                    #####   acquired   #####
 UPDATE 
 ## SELECT COUNT(*) FROM
     Phonetic_spelling
@@ -69,7 +97,7 @@ AND  Phonetic_spelling_order_nbr      = 6
 ;
 SELECT ROW_COUNT() ;
 
-##### than  ######
+                    ##### than  ######
 UPDATE
 ## SELECT COUNT(*) FROM
     Phonetic_spelling
@@ -82,7 +110,7 @@ AND  Phonetic_spelling_order_nbr      = 1
 ;
 SELECT ROW_COUNT() ;
 
-##### him #####
+                    ##### him #####
 UPDATE
 ## SELECT COUNT(*) FROM 
     Phonetic_spelling
@@ -94,7 +122,7 @@ AND  Phonetic_spelling_order_nbr      = 1
 ;
 SELECT ROW_COUNT() ;
 
-##### dollars #####
+                    ##### dollars #####
 UPDATE
 ## SELECT COUNT(*) FROM
     Phonetic_spelling
@@ -106,7 +134,7 @@ AND  Phonetic_spelling_order_nbr       = 4
 ;
 SELECT ROW_COUNT() ;
 
-##### bodyguards  ######
+                    ##### bodyguards  ######
 UPDATE
 ## SELECT COUNT(*) FROM
     Phonetic_spelling
@@ -119,13 +147,17 @@ AND  Phonetic_spelling_target_sound     = 's'
 ;
 SELECT ROW_COUNT() ;
 
+
+
+
+
 #####################################################
 #####                                           ##### 
 #####  P A R T  T W O    -  Eval_master TABLE   #####
 #####                                           ##### 
 #####################################################
 
-
+                        ## potatoes
 UPDATE 
 ## SELECT COUNT(*) FROM
     Eval_master
@@ -138,7 +170,7 @@ AND   Eval_master_auto_increment        IN      ( 484, 10271 )
 ;
 SELECT ROW_COUNT() ;
 
-
+                    ## acquired
 UPDATE
 ## SELECT COUNT(*) FROM
     Eval_master
@@ -151,6 +183,7 @@ AND   Eval_master_auto_increment        IN      ( 10217, 430, 1340 )
 ;
 SELECT ROW_COUNT() ;
 
+                #### than
 UPDATE
 ## SELECT COUNT(*) FROM
     Eval_master
@@ -163,6 +196,7 @@ AND   Eval_master_auto_increment        IN      ( 808 )
 ;
 SELECT ROW_COUNT() ;
 
+                #### him
 UPDATE
 ## SELECT COUNT(*) FROM
     Eval_master
@@ -175,6 +209,7 @@ AND Eval_master_auto_increment          IN      ( 681, 938 )
 ;
 SELECT ROW_COUNT() ;
 
+                ####  dollars
 UPDATE
 ## SELECT COUNT(*) FROM
     Eval_master
@@ -187,6 +222,7 @@ AND Eval_master_auto_increment          IN      ( 10364, 577, 642 )
 ;
 SELECT ROW_COUNT() ;
 
+                #####  bodyguards
 UPDATE
 ## SELECT COUNT(*) FROM
     Eval_master
@@ -208,7 +244,7 @@ SELECT ROW_COUNT() ;
 #####                                                       #####
 #################################################################
 
-
+                ### change all "Clusters" from ds=>dz
 UPDATE
 ## SELECT COUNT(*) FROM
     Anlys_master
@@ -236,6 +272,8 @@ SELECT ROW_COUNT() ;
                         ##, CAST(Anlys_detail_target_sound_3 AS CHAR) 't3'
                         ##, Anlys_detail_position
                         ##, Anlys_detail_auto_increment
+                        
+                ### change all "Clusters" from ds=>dz
 UPDATE
 ## SELECT COUNT(*) FROM
     Anlys_detail
@@ -252,15 +290,13 @@ SELECT ROW_COUNT() ;
 
 
 
-
-
 #################################################################
 #####                                                       #####
 #####  P A R T  F I V E      -  Client_eval_detail  TABLE   #####
 #####                                                       #####
 #################################################################
 
-
+                    ##  potatoes
 UPDATE 
 ## SELECT COUNT(*) FROM
      Client_eval_detail
@@ -304,7 +340,7 @@ SELECT ROW_COUNT() ;
 
 
 
-
+                ## acquired
 UPDATE
 ## SELECT COUNT(*) FROM
        Client_eval_detail
@@ -425,7 +461,7 @@ AND     Client_eval_detail_auto_increment       IN
 SELECT ROW_COUNT() ;
 
 
-
+                ## than
 UPDATE
 ## SELECT COUNT(*)  FROM
        Client_eval_detail
@@ -454,6 +490,7 @@ AND     Client_eval_detail_auto_increment       IN
  , 6974290
  ) ;
  SELECT ROW_COUNT() ;
+
 
 
 ##########################   him   &#603;-> &#618;  ##################################
@@ -546,7 +583,7 @@ SELECT ROW_COUNT() ;
 
 
 
-
+                ##  bodyguards
 UPDATE  
 ## SELECT COUNT(*) FROM
        Client_eval_detail
@@ -667,8 +704,6 @@ AND     Client_eval_detail_auto_increment       IN
 ## for some reason, only the cluster-d-z has an error.... (?)
 
 
-###### THIS M-A-Y  NOT BE NECESSARY    ? ? ? ? ? ? ? ? 
-
 UPDATE
 ## SELECT COUNT(*) FROM
     Client_anlys_detail
@@ -693,12 +728,6 @@ AND Client_anlys_detail_auto_increment NOT IN
 
 
 
-
-##########################################################
-####                                                 #####
-#####  P A R T   S E V E N    -     TABLE   #####
-####                                                 #####
-##########################################################
 
 
 
