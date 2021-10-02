@@ -86,6 +86,9 @@ AND  (   Anlys_detail_position = 'final'    AND Anlys_detail_target_sound_1 IN (
      OR  Anlys_detail_position = 'cluster'   AND Anlys_detail_target_sound_1 =  'd'                                                     AND Anlys_detail_target_sound_2 IN ('s', 'z')  
      )
 ORDER BY layout,  position, t1, t2
+;
+
+
 
 
 ##  Client_anlys_detail   to Client_eval_detail  TEST
