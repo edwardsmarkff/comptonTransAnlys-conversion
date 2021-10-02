@@ -703,22 +703,6 @@ AND Client_anlys_detail_auto_increment NOT IN
 
 
 
-
-
-
-#########################################################
-#####                                               #####
-#####  P A R T  S I X     -    TABLE    #####
-#####                                               ######
-#########################################################
-
-
-
-
-
-
-
-
 ############################################################################
 ####                                                                  ######
 ####    L A S T    - remove all orphaned Client_eval_detail records   ######
@@ -767,9 +751,11 @@ SELECT Client_eval_detail_layout_name
 ,      Client_eval_detail_position
 ,      Client_eval_detail_stimulus_word
 ,      Client_eval_detail_context
-,		Client_eval_detail_auto_increment */
+,		Client_eval_detail_auto_increment 
+*/
 DELETE
-FROM  Client_eval_detail
+## SELECT COUNT(*) FROM
+     Client_eval_detail
 WHERE 1
 AND Client_eval_detail_auto_increment
 NOT IN
