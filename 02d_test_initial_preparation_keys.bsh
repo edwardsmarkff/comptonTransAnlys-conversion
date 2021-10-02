@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##      02aa_initial_preparation.bsh        -- 2021-09-29
+##      02d_initial_preparation.bsh        -- 2021-09-29
 ##
 ##    test all the large table key relationships.
 ##
