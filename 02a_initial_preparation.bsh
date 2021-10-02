@@ -753,7 +753,7 @@ SELECT Client_eval_detail_layout_name
 ,      Client_eval_detail_context
 ,		Client_eval_detail_auto_increment 
 */
-DELETE
+DELETE FROM
 ## SELECT COUNT(*) FROM
      Client_eval_detail
 WHERE 1
