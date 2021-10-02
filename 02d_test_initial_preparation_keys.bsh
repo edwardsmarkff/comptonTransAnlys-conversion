@@ -37,7 +37,7 @@ AND Eval_master_position       = Client_eval_detail_position
 
 
 
-##   Anlys_master  to Client_anlys_detail  TEST
+##   Anlys_detail  to Client_anlys_detail  TEST
 
 SELECT COUNT(*)
 FROM Client_anlys_detail
@@ -55,7 +55,8 @@ SELECT  Client_anlys_detail_layout_name
 , Client_anlys_detail_target_sound_2
 , Client_anlys_detail_target_sound_3
 , Client_anlys_detail_position
-FROM Anlys_detail, Client_anlys_detail
+FROM Anlys_detail
+, Client_anlys_detail
 WHERE 1
 AND  Anlys_detail_layout_name     = Client_anlys_detail_layout_name
 AND  Anlys_detail_target_sound_1  = Client_anlys_detail_target_sound_1
