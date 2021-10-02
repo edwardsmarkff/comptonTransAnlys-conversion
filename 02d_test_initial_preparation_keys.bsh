@@ -65,30 +65,6 @@ AND  Anlys_detail_position        = Client_anlys_detail_position
 )
 ;
 
-##   Anlys_master to Anlys_detail   TEST
-
-SELECT ALL   Anlys_detail_layout_name                        'layout'
-,      Anlys_detail_position                                                     'position'
-,      CAST(Anlys_detail_target_sound_1 AS CHAR)      't1'
-,      CAST(Anlys_detail_target_sound_2 AS CHAR)      't2'
-,      CAST(Anlys_detail_target_sound_3 AS CHAR)       't3'
-#,      Anlys_master_auto_increment
-#,      Anlys_detail_auto_increment
-FROM Anlys_master, Anlys_detail
-WHERE 1
-AND  Anlys_master_layout_name    = Anlys_detail_layout_name
-AND  Anlys_master_target_sound_1 = Anlys_detail_target_sound_1
-AND  Anlys_master_target_sound_2 = Anlys_detail_target_sound_2
-AND  Anlys_master_target_sound_3 = Anlys_detail_target_sound_3
-AND Anlys_detail_target_sound_3 = ''
-AND  (   Anlys_detail_position = 'final'    AND Anlys_detail_target_sound_1 IN ('d', 's', 't', 'z')                                      AND Anlys_detail_target_sound_2 = ''  
-     OR  Anlys_detail_position = 'vowel'   AND Anlys_detail_target_sound_1 IN ( '&#230;', '&#603;',  '&#618;')       AND Anlys_detail_target_sound_2 = ''  
-     OR  Anlys_detail_position = 'cluster'   AND Anlys_detail_target_sound_1 =  'd'                                                     AND Anlys_detail_target_sound_2 IN ('s', 'z')  
-     )
-ORDER BY layout,  position, t1, t2
-;
-
-
 
 
 ##  Client_anlys_detail   to Client_eval_detail  TEST
@@ -115,6 +91,33 @@ NOT IN
     AND   Client_anlys_detail_error_sound_3 = Client_eval_detail_error_sound_3
     AND   Client_anlys_detail_error_sound_4 = Client_eval_detail_error_sound_4
 ) ;
+
+
+##   Anlys_master to Anlys_detail   TEST
+
+SELECT ALL   Anlys_detail_layout_name                        'layout'
+,      Anlys_detail_position                                                     'position'
+,      CAST(Anlys_detail_target_sound_1 AS CHAR)      't1'
+,      CAST(Anlys_detail_target_sound_2 AS CHAR)      't2'
+,      CAST(Anlys_detail_target_sound_3 AS CHAR)       't3'
+#,      Anlys_master_auto_increment
+#,      Anlys_detail_auto_increment
+FROM Anlys_master, Anlys_detail
+WHERE 1
+AND  Anlys_master_layout_name    = Anlys_detail_layout_name
+AND  Anlys_master_target_sound_1 = Anlys_detail_target_sound_1
+AND  Anlys_master_target_sound_2 = Anlys_detail_target_sound_2
+AND  Anlys_master_target_sound_3 = Anlys_detail_target_sound_3
+AND Anlys_detail_target_sound_3 = ''
+AND  (   Anlys_detail_position = 'final'    AND Anlys_detail_target_sound_1 IN ('d', 's', 't', 'z')                                      AND Anlys_detail_target_sound_2 = ''  
+     OR  Anlys_detail_position = 'vowel'   AND Anlys_detail_target_sound_1 IN ( '&#230;', '&#603;',  '&#618;')       AND Anlys_detail_target_sound_2 = ''  
+     OR  Anlys_detail_position = 'cluster'   AND Anlys_detail_target_sound_1 =  'd'                                                     AND Anlys_detail_target_sound_2 IN ('s', 'z')  
+     )
+ORDER BY layout,  position, t1, t2
+;
+
+
+
 
 END
 
