@@ -185,6 +185,8 @@ ORDER BY layout,  position, t1, t2
 
 END
 
+echo 'end of 02d_initial_preparation.bsh! ';
+
 exit;
 
 2021-10-02:
