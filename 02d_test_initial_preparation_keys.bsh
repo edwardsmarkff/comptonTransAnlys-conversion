@@ -59,7 +59,7 @@ WHERE 1
 AND Eval_master_auto_increment NOT IN
 (
 SELECT Eval_master_auto_increment
-FROM        Anlys_detail,
+FROM        Anlys_detail
 ,           Eval_master
 WHERE 1
 AND  Eval_master_layout_name   = Anlys_detail_layout_name
