@@ -8,6 +8,49 @@
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 
+
+         ##### Anlys_detail  Language_norms   TEST
+
+SELECT COUNT(*)
+     /*Language_norms_layout_name
+    , Language_norms_language_name
+    , Language_norms_position
+    , CAST(Language_norms_target_sound_1 AS CHAR) 't1'
+    , CAST(Language_norms_target_sound_2 AS CHAR) 't2'
+    , CAST(Language_norms_target_sound_3 AS CHAR) 't3'
+    , Language_norms_auto_increment
+    */
+FROM Language_norms
+WHERE 1
+    ####    AND  Language_norms_position = 'cluster'
+AND
+( Language_norms_layout_name
+						####, Language_norms_language_name
+, Language_norms_position
+, Language_norms_target_sound_1
+, Language_norms_target_sound_2
+, Language_norms_target_sound_3
+) NOT IN (
+SELECT 
+ Language_norms_layout_name
+						#####, Language_norms_language_name
+, Language_norms_position
+, Language_norms_target_sound_1
+, Language_norms_target_sound_2
+, Language_norms_target_sound_3
+FROM Anlys_detail
+,    Language_norms
+WHERE 1
+AND  Anlys_detail_layout_name        =  Language_norms_layout_name
+AND  Anlys_detail_position           =  Language_norms_position
+AND  Anlys_detail_target_sound_1    =  Language_norms_target_sound_1
+AND  Anlys_detail_target_sound_2    =  Language_norms_target_sound_2
+AND  Anlys_detail_target_sound_3    =  Language_norms_target_sound_3
+  ####  AND  Anlys_detail_position = 'cluster'
+);
+
+
+
           ####   Anlys_detail  Eval_master    TEST
 
 SELECT COUNT(*)
