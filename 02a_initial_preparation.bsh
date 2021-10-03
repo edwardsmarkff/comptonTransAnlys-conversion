@@ -480,16 +480,6 @@ AND Client_anlys_detail_auto_increment NOT IN
 SELECT ROW_COUNT() ;
 
 
-SET FOREIGN_KEY_CHECKS=1;
-
-END
-
-echo 'completed 02a_initial_preparation.bsh !';
-
-exit;
-
-
-
 
 ##                              SELECT  Client_eval_detail_auto_increment
 ##                                , Client_eval_detail_stimulus_word
@@ -525,39 +515,12 @@ AND Client_eval_detail_auto_increment
     AND   Client_anlys_detail_error_sound_4 = Client_eval_detail_error_sound_4
 ) ;
 
-/*
-SELECT Client_eval_detail_layout_name
-,      CAST(Client_eval_detail_target_sound_1 AS CHAR) 't1'
-,      CAST(Client_eval_detail_target_sound_2 AS CHAR) 't2'
-,      CAST(Client_eval_detail_target_sound_3 AS CHAR) 't3'
-,      Client_eval_detail_position
-,      Client_eval_detail_stimulus_word
-,      Client_eval_detail_context
-,		Client_eval_detail_auto_increment 
-*/
-DELETE FROM
-## SELECT COUNT(*) FROM
-     Client_eval_detail
-WHERE 1
-AND Client_eval_detail_auto_increment
-NOT IN
-( SELECT Client_eval_detail_auto_increment
-        FROM Client_anlys_detail
-        ,    Client_eval_detail
-        WHERE 1
-    AND   Client_anlys_detail_teacher_name  = Client_eval_detail_teacher_name
-    AND   Client_anlys_detail_client_name  = Client_eval_detail_client_name
-    AND   Client_anlys_detail_session_name  = Client_eval_detail_session_name
-    AND   Client_anlys_detail_layout_name  = Client_eval_detail_layout_name
-    AND   Client_anlys_detail_position     = Client_eval_detail_position
-    AND   Client_anlys_detail_target_sound_1 = Client_eval_detail_target_sound_1
-    AND   Client_anlys_detail_target_sound_2 = Client_eval_detail_target_sound_2
-    AND   Client_anlys_detail_target_sound_3 = Client_eval_detail_target_sound_3
-    AND   Client_anlys_detail_error_sound_1 = Client_eval_detail_error_sound_1
-    AND   Client_anlys_detail_error_sound_2 = Client_eval_detail_error_sound_2
-    AND   Client_anlys_detail_error_sound_3 = Client_eval_detail_error_sound_3
-    AND   Client_anlys_detail_error_sound_4 = Client_eval_detail_error_sound_4
-) ;
-SELECT ROW_COUNT() ;
 
+SET FOREIGN_KEY_CHECKS=1;
+
+END
+
+echo 'completed 02a_initial_preparation.bsh !';
+
+exit;
 
