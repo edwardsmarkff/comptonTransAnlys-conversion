@@ -1,0 +1,163 @@
+#! /bin/bash
+
+##      99_key_tests.bsh        -- 2021-10-03
+##
+##    test all the large table key relationships.
+##
+
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
+
+
+
+         ##### Context  Language_norms   TEST
+
+SELECT COUNT(*)
+     /*Language_norms_layout_name
+    , Language_norms_language_name
+    , Language_norms_position
+    , Language_norms_phoneme
+    , Language_norms_auto_increment
+    */
+FROM Language_norms
+WHERE 1
+    ####    AND  Language_norms_position = 'cluster'
+AND
+( Language_norms_layout_name
+                                                ####, Language_norms_language_name
+, Language_norms_position
+, Language_norms_phoneme
+) NOT IN (
+SELECT
+ Language_norms_layout_name
+                                                #####, Language_norms_language_name
+, Language_norms_position
+, Language_norms_phoneme
+FROM Context
+,    Language_norms
+WHERE 1
+AND  Context_layout_name        =  Language_norms_layout_name
+AND  Context_position           =  Language_norms_position
+AND  Context_phoneme    =  Language_norms_phoneme
+  ####  AND  Context_position = 'cluster'
+);
+
+
+
+          ####   Context  Stimword_position    TEST
+
+SELECT COUNT(*)
+FROM Stimword_position
+WHERE 1
+AND Stimword_position_auto_increment NOT IN
+(
+SELECT Stimword_position_auto_increment
+FROM        Context
+,           Stimword_position
+WHERE 1
+AND  Stimword_position_layout_name   = Context_layout_name
+AND Stimword_position_position              =  Context_position
+AND  Stimword_position_phoneme = Context_phoneme
+)
+;
+
+      ### Stimword_position  to Client_stimword TEST
+
+SELECT COUNT(*)
+FROM Client_stimword
+WHERE 1
+AND ( Client_stimword_layout_name
+,    Client_stimword_phoneme
+,   Client_stimword_position
+)
+NOT IN
+(       SELECT Client_stimword_layout_name
+,    Client_stimword_phoneme
+,  Client_stimword_position
+FROM    Stimword_position
+,       Client_stimword
+WHERE 1
+AND Stimword_position_layout_name  = Client_stimword_layout_name
+AND Stimword_position_phoneme = Client_stimword_phoneme
+AND Stimword_position_position       = Client_stimword_position
+)
+;
+
+
+
+##   Context  to Client_context  TEST
+
+SELECT COUNT(*)
+FROM Client_context
+WHERE
+( Client_context_layout_name
+, Client_context_phoneme
+, Client_context_position
+)
+NOT  IN
+(
+SELECT  Client_context_layout_name
+, Client_context_phoneme
+, Client_context_position
+FROM    Context
+,       Client_context
+WHERE 1
+AND  Context_layout_name     = Client_context_layout_name
+AND  Context_phoneme  = Client_context_phoneme
+AND  Context_position        = Client_context_position
+)
+;
+
+
+
+##  Client_context   to Client_stimword  TEST
+
+SELECT COUNT(*)
+FROM  Client_stimword
+WHERE 1
+AND Client_stimword_auto_increment
+NOT IN
+( SELECT Client_stimword_auto_increment
+        FROM      Client_context
+        ,         Client_stimword
+        WHERE 1
+    AND   Client_context_teacher_email  = Client_stimword_teacher_email
+    AND   Client_context_client_email  = Client_stimword_client_email
+    AND   Client_context_session_name  = Client_stimword_session_name
+    AND   Client_context_layout_name  = Client_stimword_layout_name
+    AND   Client_context_position     = Client_stimword_position
+    AND   Client_context_phoneme = Client_stimword_phoneme
+    AND   Client_context_error_1 = Client_stimword_error_1
+    AND   Client_context_error_2 = Client_stimword_error_2
+    AND   Client_context_error_3 = Client_stimword_error_3
+    AND   Client_context_error_4 = Client_stimword_error_4
+) ;
+
+
+##   Sound to Context   TEST
+
+SELECT ALL   Context_layout_name                        'layout'
+,      Context_position                                                     'position'
+,      Context_phoneme                          'phoneme'
+#,      Sound_auto_increment
+#,      Context_auto_increment
+FROM Sound, Context
+WHERE 1
+AND  Sound_layout_name    = Context_layout_name
+AND  Sound_phoneme = Context_phoneme
+AND Context_phoneme_3 = ''
+AND  (   Context_position = 'final'    AND Context_phoneme IN ('d', 's', 't', 'z')
+     OR  Context_position = 'vowel'   AND Context_phoneme IN ( 'æ', 'ɛ',  'ɪ')
+     OR  Context_position = 'cluster'   AND Context_phoneme =  'd'
+     )
+ORDER BY layout,  position, phoneme
+;
+
+
+
+
+END
+
+
+echo 'end of 99_key_test.bsh!';
+
+exit;
