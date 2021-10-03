@@ -187,3 +187,15 @@ END
 
 exit;
 
+2021-10-02:
+
+1 look in mariadb dump for target sound one-two-three
+
+2 identify every place where it is used in foreign key
+
+2.5 - Create parent-child sql "NOT IN" test for every target sound one-two-three table relationship.
+
+
+3 create table of parent child auto increment keys for each of the six words
+
+4 use new table to update table
