@@ -58,11 +58,6 @@ bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log     
 grep   ERROR  06_concat_phonemes.bsh.log                                                          ;
 
 
-echo 'Stimword_position_2_Client_stimword_CONSTRAINT_1 in  07_alter_keys.bsh'   ;
-
-exit;
-
-
 echo $(date) ' - 07_alter_keys.bsh'                                                               ;
 bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1       ;
 grep   ERROR  07_alter_keys.bsh.log                                                               ;
