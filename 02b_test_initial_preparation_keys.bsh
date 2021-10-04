@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##      02d_initial_preparation.bsh        -- 2021-09-29
+##      02b_test_initial_preparation.bsh        -- 2021-09-29
 ##
 ##    test all the large table key relationships.
 ##
@@ -185,7 +185,7 @@ ORDER BY layout,  position, t1, t2
 
 END
 
-echo 'end of 02d_initial_preparation.bsh! ';
+echo 'end of 02b_test_initial_preparation.bsh! ';
 
 exit;
 
