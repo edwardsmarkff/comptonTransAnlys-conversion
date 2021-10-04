@@ -637,7 +637,7 @@ IN
     AND  Client_eval_detail_target_sound_1           = 'd'
     AND  Client_eval_detail_target_sound_2           = 's'  #  => z
     AND  Client_eval_detail_stimulus_word            = 'bodyguards'
-    AND  Client_eval_detail_position                 = 'final'
+    AND  Client_eval_detail_position                 = 'cluster'
     AND  Client_eval_detail_context                  = 'reading'
     AND  Client_anlys_detail_teacher_name       =  Client_eval_detail_teacher_name
     AND  Client_anlys_detail_client_name        =  Client_eval_detail_client_name
