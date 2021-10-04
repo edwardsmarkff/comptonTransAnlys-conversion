@@ -291,7 +291,7 @@ SELECT ROW_COUNT() ;
 
 ##########################   potatoes  s-> z  ##################################
 
-UPDATE 
+UPDATE IGNORE
 ## SELECT COUNT(*) FROM
    Client_anlys_detail
 SET Client_anlys_detail_target_sound_1      = 'z'
@@ -351,7 +351,7 @@ SELECT ROW_COUNT() ;
 
 ##########################   acquired  s-> d  ##################################
 
-UPDATE 
+UPDATE IGNORE
 ## SELECT COUNT(*) FROM
    Client_anlys_detail
 SET Client_anlys_detail_target_sound_1      = 'd'
@@ -412,7 +412,7 @@ SELECT ROW_COUNT() ;
 
 ##########################   than  &#603;-> &#230;  ##################################
 
-UPDATE 
+UPDATE IGNORE
 ## SELECT COUNT(*) FROM
    Client_anlys_detail
 SET Client_anlys_detail_target_sound_1      = '&#230;'
@@ -473,7 +473,7 @@ SELECT ROW_COUNT() ;
 
 ##########################   him  &#603;-> &#618;  ##################################
 
-UPDATE 
+UPDATE IGNORE
 ## SELECT COUNT(*) FROM
    Client_anlys_detail
 SET Client_anlys_detail_target_sound_1      = '&#618;'
@@ -534,7 +534,7 @@ SELECT ROW_COUNT() ;
 
 ##########################   dollars  s-> z  ##################################
 
-UPDATE 
+UPDATE IGNORE
 ## SELECT COUNT(*) FROM
    Client_anlys_detail
 SET Client_anlys_detail_target_sound_1      = 'z'
@@ -596,7 +596,7 @@ SELECT ROW_COUNT() ;
 
 ##########################   bodyguards (t2)  s-> z  ##################################
 
-UPDATE 
+UPDATE IGNORE
 ## SELECT COUNT(*) FROM
    Client_anlys_detail
 SET Client_anlys_detail_target_sound_2      = 'z'
