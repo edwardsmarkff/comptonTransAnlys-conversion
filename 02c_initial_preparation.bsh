@@ -67,10 +67,10 @@ HAVING COUNT(*) > 1
 ;
 UPDATE comptonTransAnlys.Client_master
 ,      comptonTransAnlys.temp_email_table
-SET     Client_master.Client_master_email           =    temp_email_table.newEmail
+SET     Client_master.Client_master_email           =    LOWER(temp_email_table.newEmail)
 WHERE   Client_master.Client_master_auto_increment =    temp_email_table.autoIncrement
-AND     Client_master.Client_master_teacher_name   =    temp_email_table.teacherName
-AND     Client_master.Client_master_email          =    temp_email_table.originalEmail
+AND     Client_master.Client_master_teacher_name   =    LOWER(temp_email_table.teacherName)
+AND     Client_master.Client_master_email          =    LOWER(temp_email_table.originalEmail)
 ;
 
 
