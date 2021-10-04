@@ -46,7 +46,7 @@ SET FOREIGN_KEY_CHECKS=0;
 
 ##########################################################
 #####                                                ##### 
-#####  P A R T  Z E R O    -  Langauge_norms TABLE   #####
+#####  P A R T  O N E      -  Langauge_norms TABLE   #####
 #####                                                ##### 
 ##########################################################
 
@@ -68,7 +68,7 @@ SELECT ROW_COUNT() ;
 
 ###########################################################
 #####                                                 ##### 
-#####  P A R T  O N E    -  Phonetic_spelling TABLE   #####
+#####  P A R T  T W O    -  Phonetic_spelling TABLE   #####
 #####                                                 ##### 
 ###########################################################
 
@@ -150,10 +150,52 @@ SELECT ROW_COUNT() ;
 
 
 
+#################################################################
+#####                                                       #####
+#####  P A R T  T H R E E    -   Anlys_master  TABLE        #####
+#####                                                       #####
+#################################################################
+
+                ### change all "Clusters" from ds=>dz
+UPDATE
+## SELECT COUNT(*) FROM
+    Anlys_master
+SET Anlys_master_target_sound_2      = 'z'
+WHERE 1
+AND  Anlys_master_target_sound_1     = 'd'
+AND  Anlys_master_target_sound_2     = 's'
+AND  Anlys_master_title_1            = 'Clusters'
+AND  Anlys_master_auto_increment     IN  ( 86, 174, 1230 )
+;
+SELECT ROW_COUNT() ;
+
+
+
+#################################################################
+#####                                                       #####
+#####  P A R T  F O U R      -  Anlys_detail  TABLE         #####
+#####                                                       #####
+#################################################################
+
+ 
+                        
+                ### change all "Clusters" from ds=>dz
+UPDATE
+## SELECT COUNT(*) FROM
+    Anlys_detail
+SET Anlys_detail_target_sound_2     = 'z'
+WHERE 1
+AND  Anlys_detail_target_sound_1    = 'd'
+AND  Anlys_detail_target_sound_2    = 's'
+AND  Anlys_detail_position          = 'cluster'
+;
+SELECT ROW_COUNT() ;
+
+
 
 #####################################################
 #####                                           ##### 
-#####  P A R T  T W O    -  Eval_master TABLE   #####
+#####  P A R T  F I V E  -  Eval_master TABLE   #####
 #####                                           ##### 
 #####################################################
 
@@ -238,30 +280,11 @@ SELECT ROW_COUNT() ;
 
 
 
-#################################################################
-#####                                                       #####
-#####  P A R T  T H R E E    -   Anlys_master  TABLE        #####
-#####                                                       #####
-#################################################################
-
-                ### change all "Clusters" from ds=>dz
-UPDATE
-## SELECT COUNT(*) FROM
-    Anlys_master
-SET Anlys_master_target_sound_2      = 'z'
-WHERE 1
-AND  Anlys_master_target_sound_1     = 'd'
-AND  Anlys_master_target_sound_2     = 's'
-AND  Anlys_master_title_1            = 'Clusters'
-AND  Anlys_master_auto_increment     IN  ( 86, 174, 1230 )
-;
-SELECT ROW_COUNT() ;
-
 
 
 #########################################################################
 #####                                                               #####
-#####  P A R T  F O U R      -   Client_anlys_detail  TABLE         #####
+#####  P A R T  S I X        -   Client_anlys_detail  TABLE         #####
 #####                                                               #####
 #########################################################################
 
@@ -637,30 +660,9 @@ SELECT ROW_COUNT() ;
 
 
 
-
-
-
-             
-                        
-                ### change all "Clusters" from ds=>dz
-UPDATE
-## SELECT COUNT(*) FROM
-    Anlys_detail
-SET Anlys_detail_target_sound_2     = 'z'
-WHERE 1
-AND  Anlys_detail_target_sound_1    = 'd'
-AND  Anlys_detail_target_sound_2    = 's'
-AND  Anlys_detail_position          = 'cluster'
-;
-SELECT ROW_COUNT() ;
-
-
-
-
-
 #################################################################
 #####                                                       #####
-#####  P A R T  F I V E      -  Client_eval_detail  TABLE   #####
+#####  P A R T  S E V E N    -  Client_eval_detail  TABLE   #####
 #####                                                       #####
 #################################################################
 
@@ -759,13 +761,13 @@ SELECT ROW_COUNT() ;
 
 
 
-################################################################
-#####                                                      #####
-#####  P A R T  S I X      -  Client_anlys_detail  TABLE   #####
-#####                                                      #####
-################################################################
+#####################################################################
+#####                                                           #####
+#####  P A R T  E I G H T      -  Client_anlys_detail  TABLE    #####
+#####                                                           #####
+#####################################################################
 
-
+## this is a: DELETE DELETE DELETE DELETE DELETE DELETE DELETE
 
 
 ##                              SELECT  Client_eval_detail_auto_increment
