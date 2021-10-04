@@ -28,18 +28,18 @@ bash -vx  02a_initial_preparation.bsh          > 02a_initial_preparation.bsh.log
 grep ERROR  02a_initial_preparation.bsh.log                                                       ;
 
 
-echo $(date) ' - 02d_test_initial_preparation_keys.bsh'                                             ;
-bash -vx  02d_test_initial_preparation_keys.bsh  > 02d_test_initial_preparation_keys.bsh.log  2>&1  ;
-grep ERROR  02d_test_initial_preparation_keys.bsh.log                                               ;
+echo $(date) ' - 02b_test_initial_preparation_keys.bsh'                                             ;
+bash -vx  02b_test_initial_preparation_keys.bsh  > 02b_test_initial_preparation_keys.bsh.log  2>&1  ;
+grep ERROR  02b_test_initial_preparation_keys.bsh.log                                               ;
 
-
-echo $(date) ' - 02b_initial_preparation.bsh'                                                     ;
-bash -vx  02b_initial_preparation.bsh          > 02b_initial_preparation.bsh.log       2>&1       ;
-grep  ERROR   02b_initial_preparation.bsh.log                                                     ;
 
 echo $(date) ' - 02c_initial_preparation.bsh'                                                     ;
 bash -vx  02c_initial_preparation.bsh          > 02c_initial_preparation.bsh.log       2>&1       ;
 grep  ERROR   02c_initial_preparation.bsh.log                                                     ;
+
+echo $(date) ' - 02d_initial_preparation.bsh'                                                     ;
+bash -vx  02d_initial_preparation.bsh          > 02d_initial_preparation.bsh.log       2>&1       ;
+grep  ERROR   02d_initial_preparation.bsh.log                                                     ;
 
 echo $(date) ' - 03_long_part.bsh'                                                                ;
 bash -vx  03_long_part.bsh                     > 03_long_part.bsh.log                  2>&1       ;
