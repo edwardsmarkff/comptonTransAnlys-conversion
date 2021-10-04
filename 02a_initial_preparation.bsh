@@ -568,6 +568,78 @@ IN
 ;
 SELECT ROW_COUNT() ;
 
+
+
+
+##########################   bodyguards (t2)  s-> z  ##################################
+
+UPDATE 
+## SELECT COUNT(*) FROM
+   Client_anlys_detail
+SET Client_anlys_detail_target_sound_2      = 'z'
+WHERE 1
+AND Client_anlys_detail_target_sound_1       = 'd'
+AND Client_anlys_detail_target_sound_2       = 's'
+AND    
+(  Client_anlys_detail_teacher_name 
+,  Client_anlys_detail_client_name
+,  Client_anlys_detail_session_name
+,  Client_anlys_detail_layout_name
+,  Client_anlys_detail_target_sound_1
+,  Client_anlys_detail_target_sound_2
+,  Client_anlys_detail_target_sound_3
+,  Client_anlys_detail_position
+,  Client_anlys_detail_error_sound_1
+,  Client_anlys_detail_error_sound_2
+,  Client_anlys_detail_error_sound_3
+,  Client_anlys_detail_error_sound_4
+)
+IN
+(
+    SELECT  Client_anlys_detail_teacher_name 
+    ,       Client_anlys_detail_client_name
+    ,       Client_anlys_detail_session_name
+    ,       Client_anlys_detail_layout_name
+    ,       Client_anlys_detail_target_sound_1
+    ,       Client_anlys_detail_target_sound_2
+    ,       Client_anlys_detail_target_sound_3
+    ,       Client_anlys_detail_position
+    ,       Client_anlys_detail_error_sound_1
+    ,       Client_anlys_detail_error_sound_2
+    ,       Client_anlys_detail_error_sound_3
+    ,       Client_anlys_detail_error_sound_4
+    FROM    Client_anlys_detail
+    ,       Client_eval_detail
+    WHERE 1
+    AND  Client_eval_detail_target_sound_1           = 'd'
+    AND  Client_eval_detail_target_sound_2           = 's'  #  => z
+    AND  Client_eval_detail_stimulus_word            = 'bodyguards'
+    AND  Client_eval_detail_position                 = 'final'
+    AND  Client_eval_detail_context                  = 'reading'
+    AND  Client_anlys_detail_teacher_name       =  Client_eval_detail_teacher_name
+    AND  Client_anlys_detail_client_name        =  Client_eval_detail_client_name
+    AND  Client_anlys_detail_session_name       =  Client_eval_detail_session_name
+    AND  Client_anlys_detail_layout_name        =  Client_eval_detail_layout_name
+    AND  Client_anlys_detail_target_sound_1     =  Client_eval_detail_target_sound_1
+    AND  Client_anlys_detail_target_sound_2     =  Client_eval_detail_target_sound_2
+    AND  Client_anlys_detail_target_sound_3     =  Client_eval_detail_target_sound_3
+    AND  Client_anlys_detail_position           =  Client_eval_detail_position
+    AND  Client_anlys_detail_error_sound_1      =  Client_eval_detail_error_sound_1
+    AND  Client_anlys_detail_error_sound_2      =  Client_eval_detail_error_sound_2
+    AND  Client_anlys_detail_error_sound_3      =  Client_eval_detail_error_sound_3
+    AND  Client_anlys_detail_error_sound_4      =  Client_eval_detail_error_sound_4
+)
+;
+SELECT ROW_COUNT() ;
+
+
+
+
+
+
+
+
+
              
                         
                 ### change all "Clusters" from ds=>dz
@@ -693,31 +765,6 @@ SELECT ROW_COUNT() ;
 #####                                                      #####
 ################################################################
 
-## for some reason, only the cluster-d-z has an error.... (?)
-
-
-UPDATE
-## SELECT COUNT(*) FROM
-    Client_anlys_detail
-SET Client_anlys_detail_target_sound_2 = 'z'
-WHERE 1
-AND Client_anlys_detail_target_sound_1 = 'd'
-AND Client_anlys_detail_target_sound_2 = 's'
-AND Client_anlys_detail_position       = 'cluster'
-AND Client_anlys_detail_auto_increment NOT IN
-(
-    SELECT  Client_anlys_detail_auto_increment
-    FROM Client_anlys_detail
-     ,   Anlys_detail
-    WHERE 1
-    AND Client_anlys_detail.Client_anlys_detail_layout_name       =  Anlys_detail.Anlys_detail_layout_name
-    AND Client_anlys_detail.Client_anlys_detail_target_sound_1    =  Anlys_detail.Anlys_detail_target_sound_1
-    AND Client_anlys_detail.Client_anlys_detail_target_sound_2    =  Anlys_detail.Anlys_detail_target_sound_2
-    AND Client_anlys_detail.Client_anlys_detail_target_sound_3    =  Anlys_detail.Anlys_detail_target_sound_3
-    AND Client_anlys_detail.Client_anlys_detail_position          =  Anlys_detail.Anlys_detail_position
-) 
-;
-SELECT ROW_COUNT() ;
 
 
 
@@ -913,3 +960,32 @@ IN
     AND  Client_anlys_detail_error_sound_4      =  Client_eval_detail_error_sound_4
 )
 ;
+
+
+
+
+## for some reason, only the cluster-d-z has an error.... (?)
+
+
+UPDATE
+## SELECT COUNT(*) FROM
+    Client_anlys_detail
+SET Client_anlys_detail_target_sound_2 = 'z'
+WHERE 1
+AND Client_anlys_detail_target_sound_1 = 'd'
+AND Client_anlys_detail_target_sound_2 = 's'
+AND Client_anlys_detail_position       = 'cluster'
+AND Client_anlys_detail_auto_increment NOT IN
+(
+    SELECT  Client_anlys_detail_auto_increment
+    FROM Client_anlys_detail
+     ,   Anlys_detail
+    WHERE 1
+    AND Client_anlys_detail.Client_anlys_detail_layout_name       =  Anlys_detail.Anlys_detail_layout_name
+    AND Client_anlys_detail.Client_anlys_detail_target_sound_1    =  Anlys_detail.Anlys_detail_target_sound_1
+    AND Client_anlys_detail.Client_anlys_detail_target_sound_2    =  Anlys_detail.Anlys_detail_target_sound_2
+    AND Client_anlys_detail.Client_anlys_detail_target_sound_3    =  Anlys_detail.Anlys_detail_target_sound_3
+    AND Client_anlys_detail.Client_anlys_detail_position          =  Anlys_detail.Anlys_detail_position
+) 
+;
+SELECT ROW_COUNT() ;
