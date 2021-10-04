@@ -27,6 +27,12 @@ echo $(date) ' - 02a_initial_preparation.bsh'                                   
 bash -vx  02a_initial_preparation.bsh          > 02a_initial_preparation.bsh.log       2>&1       ;
 grep ERROR  02a_initial_preparation.bsh.log                                                       ;
 
+
+echo $(date) ' - 02d_test_initial_preparation_keys.bsh'                                             ;
+bash -vx  02d_test_initial_preparation_keys.bsh  > 02d_test_initial_preparation_keys.bsh.log  2>&1  ;
+grep ERROR  02d_test_initial_preparation_keys.bsh.log                                               ;
+
+
 echo $(date) ' - 02b_initial_preparation.bsh'                                                     ;
 bash -vx  02b_initial_preparation.bsh          > 02b_initial_preparation.bsh.log       2>&1       ;
 grep  ERROR   02b_initial_preparation.bsh.log                                                     ;
@@ -50,6 +56,12 @@ grep  ERROR          05_convert_back_to_mariadb.bsh.log                         
 echo $(date) ' - 06_concat_phonemes.bsh'                                                          ;
 bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log            2>&1       ;
 grep   ERROR  06_concat_phonemes.bsh.log                                                          ;
+
+
+echo 'Stimword_position_2_Client_stimword_CONSTRAINT_1 in  07_alter_keys.bsh'   ;
+
+exit;
+
 
 echo $(date) ' - 07_alter_keys.bsh'                                                               ;
 bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1       ;
