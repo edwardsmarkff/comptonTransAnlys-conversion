@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##      02b_initial_preparation.bsh        -- 2021-09-07
+##      02c_initial_preparation.bsh        -- 2021-09-07
 ##
 ##    remove ALL unneeded Client_master records that have no corresponding entry in the Client_anlys_detail table.
 
@@ -48,7 +48,7 @@
 
 END
 
-echo 'completed 02b_initial_preparation.bsh !';
+echo 'completed 02c_initial_preparation.bsh !';
 
 exit;
 
