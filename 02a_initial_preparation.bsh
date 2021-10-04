@@ -296,7 +296,7 @@ SELECT ROW_COUNT() ;
 #####                                                       #####
 #################################################################
 
-                    ##  potatoes
+##########################   potatoes  s-> z  ##################################
 UPDATE 
 ## SELECT COUNT(*) FROM
      Client_eval_detail
@@ -310,9 +310,8 @@ AND     Client_eval_detail_context              =       'reading'
 SELECT ROW_COUNT() ;
 
 
+##########################   acquired  t-> d  ##################################
 
-
-                ## acquired
 UPDATE
 ## SELECT COUNT(*) FROM
        Client_eval_detail
@@ -326,7 +325,8 @@ AND     Client_eval_detail_context              =       'reading'
 SELECT ROW_COUNT() ;
 
 
-                ## than
+##########################   than  &#603;-> &#230;  ##################################
+
 UPDATE
 ## SELECT COUNT(*)  FROM
        Client_eval_detail
@@ -340,48 +340,20 @@ AND     Client_eval_detail_context              =       'reading'
  SELECT ROW_COUNT() ;
 
 
-
 ##########################   him   &#603;-> &#618;  ##################################
 
 UPDATE 
 ## SELECT COUNT(*) FROM
    Client_eval_detail
-SET Client_eval_detail_target_sound_1 = '&#618;'            ##     '&#618;'
+SET Client_eval_detail_target_sound_1       = '&#618;'
 WHERE 1
-AND Client_eval_detail_stimulus_word = 'him'          ##  'him'
-AND Client_eval_detail_target_sound_1 = '&#603;'            ##     '&#603;'
-AND Client_eval_detail_auto_increment IN (
-SELECT 
-/* Client_eval_detail_position             'position'
-, CAST(Client_eval_detail_target_sound_1 AS CHAR) 't1'
-, CAST(Client_eval_detail_target_sound_2 AS CHAR) 't2'
-, CAST(Client_eval_detail_target_sound_3 AS CHAR) 't3'
-, Client_eval_detail_stimulus_word
-, */ Client_eval_detail_auto_increment
-FROM Client_eval_detail
-WHERE 1
-AND Client_eval_detail_stimulus_word = 'him'       ##  'him'
-AND Client_eval_detail_target_sound_1 = '&#603;'   ##       '&#603;'
-AND Client_eval_detail_auto_increment NOT IN (
-SELECT 
-#,  Client_anlys_detail_auto_increment
-  Client_eval_detail_auto_increment
-FROM Client_anlys_detail, Client_eval_detail
-WHERE 1
-AND  Client_anlys_detail_teacher_name  =  Client_eval_detail_teacher_name
-AND  Client_anlys_detail_client_name  =  Client_eval_detail_client_name
-AND  Client_anlys_detail_session_name  =  Client_eval_detail_session_name
-AND  Client_anlys_detail_layout_name  =  Client_eval_detail_layout_name
-AND  Client_anlys_detail_target_sound_1  =  Client_eval_detail_target_sound_1
-AND  Client_anlys_detail_target_sound_2  =  Client_eval_detail_target_sound_2
-AND  Client_anlys_detail_target_sound_3  =  Client_eval_detail_target_sound_3
-AND  Client_anlys_detail_position        =  Client_eval_detail_position
-AND  Client_anlys_detail_error_sound_1  =  Client_eval_detail_error_sound_1
-AND  Client_anlys_detail_error_sound_2  =  Client_eval_detail_error_sound_2
-AND  Client_anlys_detail_error_sound_3  =  Client_eval_detail_error_sound_3
-AND  Client_anlys_detail_error_sound_4  =  Client_eval_detail_error_sound_4
-)
-);
+AND Client_eval_detail_target_sound_1       = '&#603;' 
+AND Client_eval_detail_stimulus_word        = 'him' 
+AND Client_eval_detail_position             = 'vowel'
+AND Client_eval_detail_context              = 'reading'
+;
+
+
 SELECT ROW_COUNT() ;
 
 
@@ -390,46 +362,18 @@ SELECT ROW_COUNT() ;
 UPDATE 
 ## SELECT COUNT(*) FROM
    Client_eval_detail
-SET Client_eval_detail_target_sound_1 = 'z'            ## 'z'  
+SET Client_eval_detail_target_sound_1           = 'z'
 WHERE 1
-AND Client_eval_detail_stimulus_word = 'dollars'          ## 'dollars'
-AND Client_eval_detail_target_sound_1 = 's'            ## 's'     
-AND Client_eval_detail_auto_increment IN (
-SELECT /* Client_eval_detail_position             'position'
-, CAST(Client_eval_detail_target_sound_1 AS CHAR) 't1'
-, CAST(Client_eval_detail_target_sound_2 AS CHAR) 't2'
-, CAST(Client_eval_detail_target_sound_3 AS CHAR) 't3'
-, Client_eval_detail_stimulus_word
-, */ Client_eval_detail_auto_increment
-FROM Client_eval_detail
-WHERE 1
-AND Client_eval_detail_stimulus_word = 'dollars'       ## 'dollars'
-AND Client_eval_detail_target_sound_1 = 's'   ##   's'    
-AND Client_eval_detail_auto_increment NOT IN (
-SELECT 
-#,  Client_anlys_detail_auto_increment
-  Client_eval_detail_auto_increment
-FROM Client_anlys_detail, Client_eval_detail
-WHERE 1
-AND  Client_anlys_detail_teacher_name  =  Client_eval_detail_teacher_name
-AND  Client_anlys_detail_client_name  =  Client_eval_detail_client_name
-AND  Client_anlys_detail_session_name  =  Client_eval_detail_session_name
-AND  Client_anlys_detail_layout_name  =  Client_eval_detail_layout_name
-AND  Client_anlys_detail_target_sound_1  =  Client_eval_detail_target_sound_1
-AND  Client_anlys_detail_target_sound_2  =  Client_eval_detail_target_sound_2
-AND  Client_anlys_detail_target_sound_3  =  Client_eval_detail_target_sound_3
-AND  Client_anlys_detail_position        =  Client_eval_detail_position
-AND  Client_anlys_detail_error_sound_1  =  Client_eval_detail_error_sound_1
-AND  Client_anlys_detail_error_sound_2  =  Client_eval_detail_error_sound_2
-AND  Client_anlys_detail_error_sound_3  =  Client_eval_detail_error_sound_3
-AND  Client_anlys_detail_error_sound_4  =  Client_eval_detail_error_sound_4
-)
-);
+AND Client_eval_detail_target_sound_1           = 's'
+AND Client_eval_detail_stimulus_word            = 'dollars'
+AND Client_eval_detail_position                 = 'final'
+AND Client_eval_detail_context                  = 'reading'
+;
 SELECT ROW_COUNT() ;
 
 
 
-
+##########################   bodyguards (ts-2)  d-> s   ##################################
 
                 ##  bodyguards
 UPDATE  
@@ -525,3 +469,148 @@ echo 'completed 02a_initial_preparation.bsh !';
 
 exit;
 
+
+
+
+
+
+
+
+
+UPDATE 
+## SELECT COUNT(*) FROM
+   Client_eval_detail
+SET Client_eval_detail_target_sound_1 = '&#618;'            ##     '&#618;'
+WHERE 1
+AND Client_eval_detail_stimulus_word = 'him'          ##  'him'
+AND Client_eval_detail_target_sound_1 = '&#603;'            ##     '&#603;'
+AND Client_eval_detail_auto_increment IN (
+SELECT 
+/* Client_eval_detail_position             'position'
+, CAST(Client_eval_detail_target_sound_1 AS CHAR) 't1'
+, CAST(Client_eval_detail_target_sound_2 AS CHAR) 't2'
+, CAST(Client_eval_detail_target_sound_3 AS CHAR) 't3'
+, Client_eval_detail_stimulus_word
+, */ Client_eval_detail_auto_increment
+FROM Client_eval_detail
+WHERE 1
+AND Client_eval_detail_stimulus_word = 'him'       ##  'him'
+AND Client_eval_detail_target_sound_1 = '&#603;'   ##       '&#603;'
+AND Client_eval_detail_auto_increment NOT IN (
+SELECT 
+#,  Client_anlys_detail_auto_increment
+  Client_eval_detail_auto_increment
+FROM Client_anlys_detail, Client_eval_detail
+WHERE 1
+AND  Client_anlys_detail_teacher_name  =  Client_eval_detail_teacher_name
+AND  Client_anlys_detail_client_name  =  Client_eval_detail_client_name
+AND  Client_anlys_detail_session_name  =  Client_eval_detail_session_name
+AND  Client_anlys_detail_layout_name  =  Client_eval_detail_layout_name
+AND  Client_anlys_detail_target_sound_1  =  Client_eval_detail_target_sound_1
+AND  Client_anlys_detail_target_sound_2  =  Client_eval_detail_target_sound_2
+AND  Client_anlys_detail_target_sound_3  =  Client_eval_detail_target_sound_3
+AND  Client_anlys_detail_position        =  Client_eval_detail_position
+AND  Client_anlys_detail_error_sound_1  =  Client_eval_detail_error_sound_1
+AND  Client_anlys_detail_error_sound_2  =  Client_eval_detail_error_sound_2
+AND  Client_anlys_detail_error_sound_3  =  Client_eval_detail_error_sound_3
+AND  Client_anlys_detail_error_sound_4  =  Client_eval_detail_error_sound_4
+)
+);
+
+
+
+UPDATE 
+## SELECT COUNT(*) FROM
+   Client_eval_detail
+SET Client_eval_detail_target_sound_1 = 'z'            ## 'z'  
+WHERE 1
+AND Client_eval_detail_stimulus_word = 'dollars'          ## 'dollars'
+AND Client_eval_detail_target_sound_1 = 's'            ## 's'     
+AND Client_eval_detail_auto_increment IN (
+SELECT /* Client_eval_detail_position             'position'
+, CAST(Client_eval_detail_target_sound_1 AS CHAR) 't1'
+, CAST(Client_eval_detail_target_sound_2 AS CHAR) 't2'
+, CAST(Client_eval_detail_target_sound_3 AS CHAR) 't3'
+, Client_eval_detail_stimulus_word
+, */ Client_eval_detail_auto_increment
+FROM Client_eval_detail
+WHERE 1
+AND Client_eval_detail_stimulus_word = 'dollars'       ## 'dollars'
+AND Client_eval_detail_target_sound_1 = 's'   ##   's'    
+AND Client_eval_detail_auto_increment NOT IN (
+SELECT 
+#,  Client_anlys_detail_auto_increment
+  Client_eval_detail_auto_increment
+FROM Client_anlys_detail, Client_eval_detail
+WHERE 1
+AND  Client_anlys_detail_teacher_name  =  Client_eval_detail_teacher_name
+AND  Client_anlys_detail_client_name  =  Client_eval_detail_client_name
+AND  Client_anlys_detail_session_name  =  Client_eval_detail_session_name
+AND  Client_anlys_detail_layout_name  =  Client_eval_detail_layout_name
+AND  Client_anlys_detail_target_sound_1  =  Client_eval_detail_target_sound_1
+AND  Client_anlys_detail_target_sound_2  =  Client_eval_detail_target_sound_2
+AND  Client_anlys_detail_target_sound_3  =  Client_eval_detail_target_sound_3
+AND  Client_anlys_detail_position        =  Client_eval_detail_position
+AND  Client_anlys_detail_error_sound_1  =  Client_eval_detail_error_sound_1
+AND  Client_anlys_detail_error_sound_2  =  Client_eval_detail_error_sound_2
+AND  Client_anlys_detail_error_sound_3  =  Client_eval_detail_error_sound_3
+AND  Client_anlys_detail_error_sound_4  =  Client_eval_detail_error_sound_4
+)
+);
+
+
+
+##########################   dollars  s-> z  ##################################
+
+UPDATE 
+## SELECT COUNT(*) FROM
+   Client_anlys_detail
+SET Client_anlys_detail_target_sound_1      = 'z'
+WHERE 1
+AND Client_eval_detail_stimulus_word        = 'dollars'
+AND Client_eval_detail_target_sound_1       = 's'
+AND    
+(  Client_anlys_detail_teacher_name 
+,  Client_anlys_detail_client_name
+,  Client_anlys_detail_session_name
+,  Client_anlys_detail_layout_name
+,  Client_anlys_detail_target_sound_1
+,  Client_anlys_detail_target_sound_2
+,  Client_anlys_detail_target_sound_3
+,  Client_anlys_detail_position
+,  Client_anlys_detail_error_sound_1
+,  Client_anlys_detail_error_sound_2
+,  Client_anlys_detail_error_sound_3
+,  Client_anlys_detail_error_sound_4
+)
+IN
+(
+    SELECT  Client_anlys_detail_teacher_name 
+    ,       Client_anlys_detail_client_name
+    ,       Client_anlys_detail_session_name
+    ,       Client_anlys_detail_layout_name
+    ,       Client_anlys_detail_target_sound_1
+    ,       Client_anlys_detail_target_sound_2
+    ,       Client_anlys_detail_target_sound_3
+    ,       Client_anlys_detail_position
+    ,       Client_anlys_detail_error_sound_1
+    ,       Client_anlys_detail_error_sound_2
+    ,       Client_anlys_detail_error_sound_3
+    ,       Client_anlys_detail_error_sound_4
+    FROM    Client_anlys_detail
+    ,       Client_eval_detail
+    WHERE 1
+    AND  Client_anlys_detail_teacher_name       =  Client_eval_detail_teacher_name
+    AND  Client_anlys_detail_client_name        =  Client_eval_detail_client_name
+    AND  Client_anlys_detail_session_name       =  Client_eval_detail_session_name
+    AND  Client_anlys_detail_layout_name        =  Client_eval_detail_layout_name
+    AND  Client_anlys_detail_target_sound_1     =  Client_eval_detail_target_sound_1
+    AND  Client_anlys_detail_target_sound_2     =  Client_eval_detail_target_sound_2
+    AND  Client_anlys_detail_target_sound_3     =  Client_eval_detail_target_sound_3
+    AND  Client_anlys_detail_position           =  Client_eval_detail_position
+    AND  Client_anlys_detail_error_sound_1      =  Client_eval_detail_error_sound_1
+    AND  Client_anlys_detail_error_sound_2      =  Client_eval_detail_error_sound_2
+    AND  Client_anlys_detail_error_sound_3      =  Client_eval_detail_error_sound_3
+    AND  Client_anlys_detail_error_sound_4      =  Client_eval_detail_error_sound_4
+)
+;
