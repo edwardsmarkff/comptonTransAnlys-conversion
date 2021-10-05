@@ -58,9 +58,13 @@ bash -vx  06_concat_phonemes.bsh               > 06_concat_phonemes.bsh.log     
 grep   ERROR  06_concat_phonemes.bsh.log                                                          ;
 
 
-echo $(date) ' - 07_alter_keys.bsh'                                                               ;
-bash -vx  07_alter_keys.bsh                    > 07_alter_keys.bsh.log                 2>&1       ;
-grep   ERROR  07_alter_keys.bsh.log                                                               ;
+echo $(date) ' - 07a_alter_keys.bsh'                                                              ;
+bash -vx  07a_alter_keys.bsh                    > 07a_alter_keys.bsh.log               2>&1       ;
+grep   ERROR  07a_alter_keys.bsh.log                                                              ;
+
+echo $(date) ' - 07b_alter_keys_test.bsh'                                                         ;
+bash -vx  07b_alter_keys_test.bsh                    > 07b_alter_keys.bsh_test.log     2>&1       ;
+grep   ERROR  07b_alter_keys_test.bsh.log                                                         ;
 
 echo $(date) ' - 08_final_sed_rename.bsh'                                                         ;
 bash -vx  08_final_sed_rename.bsh              > 08_final_sed_rename.bsh.log           2>&1       ;
