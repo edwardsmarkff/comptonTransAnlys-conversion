@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##	07_alter_key.bsh		2018-02-21
+##	07a_alter_key.bsh		2018-02-21
 ##
 ##	2021-05-08	- merged phoneme columns into one.
 ##	2021-06-02	- deleted Client_master_auto_increment line duplicate of line #76
@@ -764,4 +764,4 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		;
 END
 
-echo 'finished with the conversion 07_alter_keys.bsh !!';
+echo 'finished with the conversion 07a_alter_keys.bsh !!';
