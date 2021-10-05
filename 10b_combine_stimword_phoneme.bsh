@@ -1,0 +1,161 @@
+#! /bin/bash
+
+##
+##    test all the large table key relationships.
+##
+
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
+
+
+
+         ##### context  languageNorms   TEST
+
+SELECT COUNT(*)
+     /*languageNormsLayoutName
+    , languageNormsName
+    , languageNormsPosition
+    , languageNormsPhoneme
+    , languageNormsAutoIncr
+    */
+FROM languageNorms
+WHERE 1
+    ####    AND  languageNormsPosition = 'cluster'
+AND
+( languageNormsLayoutName
+                                                ####, languageNormsName
+, languageNormsPosition
+, languageNormsPhoneme
+) NOT IN (
+SELECT
+ languageNormsLayoutName
+                                                #####, languageNormsName
+, languageNormsPosition
+, languageNormsPhoneme
+FROM context
+,    languageNorms
+WHERE 1
+AND  contextLayoutName        =  languageNormsLayoutName
+AND  contextPosition           =  languageNormsPosition
+AND  contextPhoneme    =  languageNormsPhoneme
+  ####  AND  contextPosition = 'cluster'
+);
+
+
+
+          ####   context  stimwordPosition    TEST
+
+SELECT COUNT(*)
+FROM stimwordPosition
+WHERE 1
+AND stimwordPositionAutoIncr NOT IN
+(
+SELECT stimwordPositionAutoIncr
+FROM        context
+,           stimwordPosition
+WHERE 1
+AND  stimwordPositionLayoutName   = contextLayoutName
+AND stimwordPositionName              =  contextPosition
+AND  stimwordPositionPhoneme = contextPhoneme
+)
+;
+
+      ### stimwordPosition  to clientStimword TEST
+
+SELECT COUNT(*)
+FROM clientStimword
+WHERE 1
+AND ( clientMasterLayoutName
+,    clientContextPhoneme
+,   clientContextPositionName
+)
+NOT IN
+(       SELECT clientMasterLayoutName
+,    clientContextPhoneme
+,  clientContextPositionName
+FROM    stimwordPosition
+,       clientStimword
+WHERE 1
+AND stimwordPositionLayoutName  = clientMasterLayoutName
+AND stimwordPositionPhoneme = clientContextPhoneme
+AND stimwordPositionName       = clientContextPositionName
+)
+;
+
+
+
+##   context  to clientContext  TEST
+
+SELECT COUNT(*)
+FROM clientContext
+WHERE
+( clientMasterLayoutName
+, clientContextPhoneme
+, clientContextPositionName
+)
+NOT  IN
+(
+SELECT  clientMasterLayoutName
+, clientContextPhoneme
+, clientContextPositionName
+FROM    context
+,       clientContext
+WHERE 1
+AND  contextLayoutName     = clientMasterLayoutName
+AND  contextPhoneme  = clientContextPhoneme
+AND  contextPosition        = clientContextPositionName
+)
+;
+
+
+
+##  clientContext   to clientStimword  TEST
+
+SELECT COUNT(*)
+FROM  clientStimword
+WHERE 1
+AND clientStimwordAutoIncr
+NOT IN
+( SELECT clientStimwordAutoIncr
+        FROM      clientContext
+        ,         clientStimword
+        WHERE 1
+    AND   clientContext.teacherEmail                            =       clientStimword.teacherEmail
+    AND   clientContext.clientMasterEmail                       =       clientStimword.clientMasterEmail
+    AND   clientContext.clientMasterSessionName                 =       clientStimword.clientMasterSessionName
+    AND   clientContext.clientMasterLayoutName                  =       clientStimword.clientMasterLayoutName
+    AND   clientContext.clientContextPositionName               =       clientStimword.clientContextPositionName
+    AND   clientContext.clientContextPhoneme                    =       clientStimword.clientContextPhoneme
+    AND   clientContext.clientContextError1                     =       clientStimword.clientContextError1
+    AND   clientContext.clientContextError2                     =       clientStimword.clientContextError2
+    AND   clientContext.clientContextError3                     =       clientStimword.clientContextError3
+    AND   clientContext.clientContextError4                     =       clientStimword.clientContextError4
+) ;
+
+
+##   sound to context   TEST
+
+SELECT ALL   contextLayoutName                        'layout'
+,      contextPosition                                                     'position'
+,      contextPhoneme                          'phoneme'
+#,      soundAutoIncr
+#,      contextAutoIncr
+FROM sound
+, context
+WHERE 1
+AND  soundLayoutName    = contextLayoutName
+AND  soundPhoneme = contextPhoneme
+AND contextPhoneme3 = ''
+AND  (   contextPosition = 'final'    AND contextPhoneme IN ('d', 's', 't', 'z')
+     OR  contextPosition = 'vowel'   AND contextPhoneme IN ( 'æ', 'ɛ',  'ɪ')
+     OR  contextPosition = 'cluster'   AND contextPhoneme =  'd'
+     )
+ORDER BY layout,  position, phoneme
+;
+
+
+END
+
+
+echo 'end of 99_key_test.bsh!';
+
+exit;
