@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##      99_key_tests.bsh        -- 2021-10-03
+##      07b_alter_keys_test.bsh       -- 2021-10-03
 ##
 ##    test all the large table key relationships.
 ##
@@ -158,6 +158,6 @@ ORDER BY layout,  position, phoneme
 END
 
 
-echo 'end of 99_key_test.bsh!';
+echo 'end of 07b_alter_keys_test.bsh!';
 
 exit;
