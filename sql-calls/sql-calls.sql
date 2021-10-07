@@ -69,6 +69,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 FROM    stimwordPosition
                 LEFT OUTER JOIN clientStimword clientStimwordCURRENT ON
                 (       1
+                AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordCURRENT.clientStimwordAutoIncr
                 AND     stimwordPosition.stimwordPositionLayoutName     =       clientStimwordCURRENT.clientMasterLayoutName
                 AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordCURRENT.clientStimwordPageNbr
                 AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordCURRENT.clientStimwordLineNbr
@@ -90,6 +91,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 )
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
                 (       1
+                AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordREPLICATE.clientStimwordAutoIncr
                 AND     stimwordPosition.stimwordPositionLayoutName     =       clientStimwordREPLICATE.clientMasterLayoutName
                 AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordREPLICATE.clientStimwordPageNbr
                 AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordREPLICATE.clientStimwordLineNbr
