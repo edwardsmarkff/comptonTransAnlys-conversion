@@ -77,6 +77,10 @@ echo $(date) ' - 10b_combine_stimword_phoneme_test.bsh'                         
 bash -vx  10b_combine_stimword_phoneme_test.bsh  > 10b_combine_stimword_phoneme_test.bsh.log  2>&1  ;
 grep '^ERROR'  10b_combine_stimword_phoneme_test.bsh.log                                            ;
 
+echo $(date) ' - 11_display_table_counts.bsh'                                                      ;
+bash -vx  11_display_table_counts.bsh  > 11_display_table_counts.bsh  2>&1                         ;
+grep '^ERROR'  11_display_table_counts.bsh                                                         ;
+
 
 echo $(date)                                                                                      ;
 
