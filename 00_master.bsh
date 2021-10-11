@@ -71,7 +71,7 @@ grep  '^ERROR'  09_move_columns.bsh.log                                         
 
 echo $(date) ' - 10a_combine_stimword_phoneme.bsh'                                                 ;
 bash -vx  10a_combine_stimword_phoneme.bsh      > 10a_combine_stimword_phoneme.bsh.log   2>&1      ;
-grep  '^ERROR'  1a0_combine_stimword_phoneme.bsh.log                                               ;
+grep  '^ERROR'  10a_combine_stimword_phoneme.bsh.log                                               ;
 
 echo $(date) ' - 10b_combine_stimword_phoneme_test.bsh'                                             ;
 bash -vx  10b_combine_stimword_phoneme_test.bsh  > 10b_combine_stimword_phoneme_test.bsh.log  2>&1  ;
