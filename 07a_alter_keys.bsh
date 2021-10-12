@@ -8,6 +8,7 @@
 ##	2021-06-06	- added backtick to most names
 ##	2021-06-11	- minor typo bugs, added "IF NOT EXISTS" in several spots-- not sure why this is/was needed?
 ##	2021-09-10	- had to change all '##" comments to '--'
+##	2021-10-12	- fixed unique indexes for Client_context and Client_stimword to remove the individual phonemes & replace with new composite one
 
 ##	set fileencoding=ASCII
 ##	set fileformat=unix
