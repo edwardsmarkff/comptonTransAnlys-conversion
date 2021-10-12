@@ -91,7 +91,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	ALTER TABLE \`Client_stimword\` MODIFY COLUMN \`Client_stimword_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
 		--2021-10-12
-	ALTER TABLE \`Client_context\`  DROP INDEX    \`Client_context_sounds_unique_index\`   ;
+	ALTER TABLE \`Client_context\`  DROP INDEX IF EXISTS   \`Client_context_sounds_unique_index\`   ;
 
 		-- 2021-10-12
 	ALTER TABLE \`Client_context\`
@@ -128,7 +128,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 					-- 2021-05-08			,	Client_context_phoneme_3
 
 			-- 2021-10-12
-	ALTER TABLE \`Client_stimword\`  DROP KEY    \`Client_stimword_unique_index\`   ;
+	ALTER TABLE \`Client_stimword\`  DROP KEY IF EXISTS   \`Client_stimword_unique_index\`   ;
 	
 			-- 2021-10-12
 	ALTER TABLE \`Client_stimword\`
