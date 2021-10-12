@@ -89,6 +89,25 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	ALTER TABLE \`Client_context\`  MODIFY COLUMN \`Client_context_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
 	ALTER TABLE \`Client_stimword\` MODIFY COLUMN \`Client_stimword_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
 
+		--2021-10-12
+	ALTER TABLE \`Client_context\`  DROP INDEX    \`Client_context_sounds_unique_index\`   ;
+
+		-- 2021-10-12
+	ALTER TABLE \`Client_context\`
+		ADD UNIQUE INDEX \`Client_context_sounds_unique_index\` 
+			(	\`Client_context_teacher_email\`
+			,	\`Client_context_client_email\`
+			,	\`Client_context_session_name\`
+			,	\`Client_context_layout_name\`
+			,	\`Client_context_phoneme\`
+			,	\`Client_context_position\`
+			,	\`Client_context_error_1\`
+			,	\`Client_context_error_2\`
+			,	\`Client_context_error_3\`
+			,	\`Client_context_error_4\`
+			)
+			;
+
 	ALTER TABLE \`Client_context\`
 			ADD KEY		\`Client_context_2_Client_stimword_KEY\`
 					(	\`Client_context_client_email\`
@@ -106,6 +125,27 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 					-- 2021-05-08			,	Client_context_phoneme_1
 					-- 2021-05-08			,	Client_context_phoneme_2
 					-- 2021-05-08			,	Client_context_phoneme_3
+
+			-- 2021-10-12
+	ALTER TABLE \`Client_stimword\`  DROP KEY    \`Client_stimword_unique_index\`   ;
+	
+			-- 2021-10-12
+	ALTER TABLE \'Client_stimword\'
+		ADD UNIQUE UNQUE \`Client_stimword_unique_index\` 
+			(	\`Client_stimword_teacher_email\`
+			,	\`Client_stimword_client_email\`
+			,	\`Client_stimword_session_name\`
+			,	\`Client_stimword_layout_name\`
+			,	\`Client_stimword_page_nbr\`
+			,	\`Client_stimword_line_nbr\`
+			,	\`Client_stimword_stimword\`
+			,	\`Client_stimword_position\`
+			,	\`Client_stimword_position_nbr\`
+			,	\`Client_stimword_setting\`
+			,	\`Client_stimword_phoneme\`
+			)
+			;
+
 
 	ALTER TABLE \`Client_stimword\`
 		ADD CONSTRAINT	\`Client_context_2_Client_stimword_CONSTRAINT_1\`
