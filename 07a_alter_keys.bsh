@@ -132,7 +132,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	
 			-- 2021-10-12
 	ALTER TABLE \`Client_stimword\`
-		ADD UNIQUE UNQUE \`Client_stimword_unique_index\` 
+		ADD UNIQUE INDEX \`Client_stimword_unique_index\` 
 			(	\`Client_stimword_teacher_email\`
 			,	\`Client_stimword_client_email\`
 			,	\`Client_stimword_session_name\`
