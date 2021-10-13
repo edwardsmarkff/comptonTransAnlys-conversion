@@ -2,6 +2,7 @@
 #
 # run this ONLY if you are SURE everything works!
 #   2021-06-02  - initial writing
+#   2021-10-12  - misc fixes
 #
        # https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
 while true; do
