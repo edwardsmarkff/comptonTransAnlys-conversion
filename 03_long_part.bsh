@@ -147,10 +147,6 @@ mariadb    --verbose  comptonTransAnlys  <<END ;
 END
 
 
-
-echo 'finished with the long part!' ;
-
-END
 ##
 echo  'finished with 03_long_part.bsh!';
 
