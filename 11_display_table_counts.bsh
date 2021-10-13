@@ -21,7 +21,7 @@
         SELECT COUNT(*) FROM    languageSpec            ;
         SELECT COUNT(*) FROM    languageNorms           ;
         SELECT COUNT(*) FROM    phoneticGrid            ;
-        SELECT COUNT(*) FROM    phoneticSpelling        ;
+        SELECT COUNT(*) FROM    phoneticSpellingUnused  ;
         SELECT COUNT(*) FROM    sessionNames            ;
         SELECT COUNT(*) FROM    sound                   ;
         SELECT COUNT(*) FROM    stimword                ;
