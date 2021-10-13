@@ -31,10 +31,8 @@
 END
 
 
-
 echo 'finished with the long part!' ;
 
-END
 ##
 echo  'finished with 11_display_table_counts.bsh!';
 
