@@ -79,7 +79,8 @@ grep '^ERROR'  10b_combine_stimword_phoneme_test.bsh.log                        
 
 echo $(date) ' - 11_display_table_counts.bsh'                                                      ;
 bash -vx  11_display_table_counts.bsh           > 11_display_table_counts.bsh.log  2>&1            ;
-grep '^ERROR'  11_display_table_counts.bsh                                                         ;
+grep  '^[0-9]'   11_display_table_counts.bsh.log                                                   ;
+grep '^ERROR'    11_display_table_counts.bsh.log                                                   ;
 
 
 echo $(date)                                                                                      ;
