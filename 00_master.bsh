@@ -67,7 +67,7 @@ sleep 1m                                                                        
 
 echo $(date) ' - 08a_final_sed_rename.bsh'                                                        ;
 bash -vx  08a_final_sed_rename.bsh              > 08a_final_sed_rename.bsh.log           2>&1     ;
-grep  --line-number  '^ERROR'                     0a8_final_sed_rename.bsh.log                    ;
+grep  --line-number  '^ERROR'                     08a_final_sed_rename.bsh.log                    ;
 
 echo $(date) ' - 08b_final_sed_rename.bsh'                                                        ;
 bash -vx  08b_final_sed_rename.bsh              > 08b_final_sed_rename.bsh.log           2>&1     ;
