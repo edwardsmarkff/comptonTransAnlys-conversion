@@ -1,0 +1,12 @@
+#! /bin/bash  -w
+
+# 08a_final_sed_rename.bsh   -- 2021-06-03
+
+/usr/bin/mariadb-dump   --extended-insert=FALSE  comptonTransAnlys  > ./comptonTransAnlys_08_FinalRename.sql ;
+
+ls -l  ././comptonTransAnlys_08_FinalRename.sql ;
+
+echo "end of sed part 08a_final_sed_rename.bsh." ;
+
+exit        ;
+
