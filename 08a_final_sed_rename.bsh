@@ -4,7 +4,7 @@
 
      ## it appears that my feathers project is already creating this table!
 mariadb  --verbose   comptonTransAnlys <<END ;
-    DROP TABLE IF EXISTS `comptonTransAnlys`.`stimwordPosition` ;
+    DROP TABLE IF EXISTS \`comptonTransAnlys\`.\`stimwordPosition\` ;
 END
 
 
