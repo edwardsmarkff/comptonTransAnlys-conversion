@@ -81,6 +81,10 @@ echo $(date) ' - 08d_final_sed_rename.bsh'                                      
 bash -vx  08d_final_sed_rename.bsh              > 08d_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08d_final_sed_rename.bsh.log                    ;
 
+echo $(date) ' - 08e_final_sed_rename.bsh'                                                        ;
+bash -vx  08e_final_sed_rename.bsh              > 08e_final_sed_rename.bsh.log           2>&1     ;
+grep  --line-number  '^ERROR'                     08e_final_sed_rename.bsh.log                    ;
+
 
 
 echo $(date) ' - 09_move_columns.bsh'                                                             ;
