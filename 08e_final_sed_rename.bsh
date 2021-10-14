@@ -2,8 +2,6 @@
 
 # 08e_final_sed_rename.bsh   -- 2021-06-03
 
-mariadb --verbose comptonTransAnlys   < comptonTransAnlys_08_FinalRename.sql ;
-
 mariadb --verbose comptonTransAnlys  <<END ;
 ALTER TABLE \`clientContext\`     ADD COLUMN IF NOT EXISTS \`updatedAt\` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER \`createdAt\` ;
 ALTER TABLE \`clientMaster\`      ADD COLUMN IF NOT EXISTS \`updatedAt\` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER \`createdAt\` ;
