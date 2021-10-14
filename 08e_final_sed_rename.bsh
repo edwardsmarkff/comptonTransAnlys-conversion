@@ -1,6 +1,6 @@
 #! /bin/bash  -w
 
-# 08d_final_sed_rename.bsh   -- 2021-06-03
+# 08e_final_sed_rename.bsh   -- 2021-06-03
 
 mariadb --verbose comptonTransAnlys   < comptonTransAnlys_08_FinalRename.sql ;
 
@@ -18,7 +18,7 @@ ALTER TABLE \`stimwordPosition\`  ADD COLUMN IF NOT EXISTS \`updatedAt\` TIMESTA
 ALTER TABLE \`teacher\`           ADD COLUMN IF NOT EXISTS \`updatedAt\` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP() AFTER \`createdAt\` ;
 END
 
-echo "end of sed part 08d_final_sed_rename.bsh." ;
+echo "end of sed part 08e_final_sed_rename.bsh." ;
 
 exit        ;
 
