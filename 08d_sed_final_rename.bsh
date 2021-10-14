@@ -1,0 +1,16 @@
+#! /bin/bash  -w
+
+# 08d_final_sed_rename.bsh   -- 2021-06-03
+
+mariadb --verbose comptonTransAnlys   < comptonTransAnlys_08_FinalRename.sql ;
+
+mariadb --verbose comptonTransAnlys  <<END ;
+
+    SHOW TABLES ;
+
+END
+
+echo "end of sed part 08d_final_sed_rename.bsh." ;
+
+exit        ;
+
