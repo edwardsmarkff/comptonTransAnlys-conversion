@@ -1,0 +1,15 @@
+#! /bin/bash  -w
+
+# 08c_final_sed_rename.bsh   -- 2021-06-03
+
+mariadb  --verbose  <<END ;
+    DROP    DATABASE  comptonTransAnlys;
+    CREATE  DATABASE  comptonTransAnlys;
+    
+END
+
+
+echo "end of sed part 08c_final_sed_rename.bsh." ;
+
+exit        ;
+
