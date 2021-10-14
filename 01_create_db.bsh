@@ -8,9 +8,10 @@
 
 grep  'INSERT INTO'  comptonTransAnlys.sql   |  wc  --lines ;   ## we need to be SURE that  "mariadb-dump  --extended-insert=FALSE"   was used!
 
-sed --in-place  --expression="s/dipthong/diphthong/g;  s/ON DELETE NO ACTION/ON DELETE CASCADE/g; /'mbirje'/d; " comptonTransAnlys.sql  ;
+sed --in-place  --expression="s/dipthong/diphthong/g;  s/ON DELETE NO ACTION/ON DELETE CASCADE/g; /'mbirje'/d; "   ./comptonTransAnlys.sql  ;
 
-/usr/bin/mariadb  -e  'drop database if exists comptonTransAnlys ; create database comptonTransAnlys'  ;
-/usr/bin/mariadb  --verbose  comptonTransAnlys < comptonTransAnlys.sql  ;
+/usr/bin/mariadb  -e  'DROP DATABASE IF EXISTS comptonTransAnlys ; CREATE DATABASE comptonTransAnlys'  ;
+
+/usr/bin/mariadb  --verbose  comptonTransAnlys <     ./comptonTransAnlys.sql  ;
 
 echo 'Done with 01_create_db.bsh';
