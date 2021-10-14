@@ -62,11 +62,26 @@ echo $(date) ' - 07b_alter_keys_test.bsh'                                       
 bash -vx  07b_alter_keys_test.bsh                    > 07b_alter_keys_test.bsh.log     2>&1       ;
 grep  --line-number '^ERROR'                            07b_alter_keys_test.bsh.log               ;
 
-sleep 2m                                                                                          ;
 
-echo $(date) ' - 08_final_sed_rename.bsh'                                                         ;
-bash -vx  08_final_sed_rename.bsh              > 08_final_sed_rename.bsh.log           2>&1       ;
-grep  --line-number  '^ERROR'                    08_final_sed_rename.bsh.log                      ;
+sleep 1m                                                                                          ;
+
+echo $(date) ' - 08a_final_sed_rename.bsh'                                                        ;
+bash -vx  08a_final_sed_rename.bsh              > 08a_final_sed_rename.bsh.log           2>&1     ;
+grep  --line-number  '^ERROR'                     0a8_final_sed_rename.bsh.log                    ;
+
+echo $(date) ' - 08b_final_sed_rename.bsh'                                                        ;
+bash -vx  08b_final_sed_rename.bsh              > 08b_final_sed_rename.bsh.log           2>&1     ;
+grep  --line-number  '^ERROR'                     08b_final_sed_rename.bsh.log                    ;
+
+echo $(date) ' - 08c_final_sed_rename.bsh'                                                        ;
+bash -vx  08c_final_sed_rename.bsh              > 08c_final_sed_rename.bsh.log           2>&1     ;
+grep  --line-number  '^ERROR'                     08c_final_sed_rename.bsh.log                    ;
+
+echo $(date) ' - 08d_final_sed_rename.bsh'                                                        ;
+bash -vx  08d_final_sed_rename.bsh              > 08d_final_sed_rename.bsh.log           2>&1     ;
+grep  --line-number  '^ERROR'                     08d_final_sed_rename.bsh.log                    ;
+
+
 
 echo $(date) ' - 09_move_columns.bsh'                                                             ;
 bash -vx  09_move_columns.bsh                  > 09_move_columns.bsh.log               2>&1       ;
@@ -83,7 +98,6 @@ grep  --line-number   '^COUNT(\|^0'                10b_combine_stimword_phoneme_
 
 echo $(date) ' - 11_display_table_counts.bsh'                                                      ;
 bash -vx  11_display_table_counts.bsh           >       11_display_table_counts.bsh.log  2>&1      ;
-grep  --line-number    '^[0-9]'                         11_display_table_counts.bsh.log            ;
 grep  --line-number   '^ERROR'                          11_display_table_counts.bsh.log            ;
 grep  --line-number   '^COUNT(\|^[0-9]'                 11_display_table_counts.bsh.log            ;
 
