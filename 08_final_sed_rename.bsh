@@ -313,39 +313,19 @@ s/\`Teacher\`/\`teacher\`/g;
 
 s/ON UPDATE current_timestamp()//;
 
-
 EOF
 
 echo -n 'Current sed status result is: ' ;
 echo  $?                                  ;
 
-mariadb --verbose <<END  ;
 
-use comptonTransAnlys ;
-SELECT  "Remove all existing tables!";
-SET FOREIGN_KEY_CHECKS=0;
-USE comptonTransAnlys ;
-DROP TABLE  IF EXISTS   \`Auth0_LoginUsers\`            ;
-DROP TABLE  IF EXISTS   \`Client_context\`              ;
-DROP TABLE  IF EXISTS   \`Client_master\`               ;
-DROP TABLE  IF EXISTS   \`Client_stimword\`             ;
-DROP TABLE  IF EXISTS   \`Context\`                     ;
-DROP TABLE  IF EXISTS   \`Frequency_list\`              ;
-DROP TABLE  IF EXISTS   \`Lang_spec\`                   ;
-DROP TABLE  IF EXISTS   \`Language_norms\`              ;
-DROP TABLE  IF EXISTS   \`Phoneme_repeater\`            ;
-DROP TABLE  IF EXISTS   \`Phonetic_grid\`               ;
-DROP TABLE  IF EXISTS   \`Phonetic_spelling\`           ;
-DROP TABLE  IF EXISTS   \`Session_names\`               ;
-DROP TABLE  IF EXISTS   \`Sound\`                       ;
-DROP TABLE  IF EXISTS   \`Stimword\`                    ;
-DROP TABLE  IF EXISTS   \`Stimword_position\`           ;
-DROP TABLE  IF EXISTS   \`Teacher\`                     ;
-DROP TABLE  IF EXISTS   \`conversionTable\`             ;
-DROP TABLE  IF EXISTS   \`dummy_table\`                 ;
-DROP TABLE  IF EXISTS   \`fontTable\`                   ;
-SELECT "Done removing all existing tables!";
+mariadb  --verbose  <<END ;
+
+    DROP    DATABASE  comptonTransAnlys;
+    CREATE  DATABASE  comptonTransAnlys;
+    
 END
+
 
 mariadb --verbose comptonTransAnlys   < comptonTransAnlys_08_FinalRename.sql ;
 
@@ -366,7 +346,37 @@ ALTER TABLE \`teacher\`           ADD COLUMN IF NOT EXISTS \`updatedAt\` TIMESTA
 END
 
 
-
 echo "end of sed part 08_final_sed_rename.bsh." ;
 
 exit        ;
+
+
+
+
+######    mariadb --verbose <<END  ;
+
+######    use comptonTransAnlys ;
+######    SELECT  "Remove all existing tables!";
+######    SET FOREIGN_KEY_CHECKS=0;
+######    USE comptonTransAnlys ;
+######    DROP TABLE  IF EXISTS   \`Auth0_LoginUsers\`            ;
+######    DROP TABLE  IF EXISTS   \`Client_context\`              ;
+######    DROP TABLE  IF EXISTS   \`Client_master\`               ;
+######    DROP TABLE  IF EXISTS   \`Client_stimword\`             ;
+######    DROP TABLE  IF EXISTS   \`Context\`                     ;
+######    DROP TABLE  IF EXISTS   \`Frequency_list\`              ;
+######    DROP TABLE  IF EXISTS   \`Lang_spec\`                   ;
+######    DROP TABLE  IF EXISTS   \`Language_norms\`              ;
+######    DROP TABLE  IF EXISTS   \`Phoneme_repeater\`            ;
+######    DROP TABLE  IF EXISTS   \`Phonetic_grid\`               ;
+######    DROP TABLE  IF EXISTS   \`Phonetic_spelling\`           ;
+######    DROP TABLE  IF EXISTS   \`Session_names\`               ;
+######    DROP TABLE  IF EXISTS   \`Sound\`                       ;
+######    DROP TABLE  IF EXISTS   \`Stimword\`                    ;
+######    DROP TABLE  IF EXISTS   \`Stimword_position\`           ;
+######    DROP TABLE  IF EXISTS   \`Teacher\`                     ;
+######    DROP TABLE  IF EXISTS   \`conversionTable\`             ;
+######    DROP TABLE  IF EXISTS   \`dummy_table\`                 ;
+######    DROP TABLE  IF EXISTS   \`fontTable\`                   ;
+######    SELECT "Done removing all existing tables!";
+######    END
