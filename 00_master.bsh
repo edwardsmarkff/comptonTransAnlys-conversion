@@ -62,6 +62,8 @@ echo $(date) ' - 07b_alter_keys_test.bsh'                                       
 bash -vx  07b_alter_keys_test.bsh                    > 07b_alter_keys_test.bsh.log     2>&1       ;
 grep  --line-number '^ERROR'                            07b_alter_keys_test.bsh.log               ;
 
+sleep 2m                                                                                          ;
+
 echo $(date) ' - 08_final_sed_rename.bsh'                                                         ;
 bash -vx  08_final_sed_rename.bsh              > 08_final_sed_rename.bsh.log           2>&1       ;
 grep  --line-number  '^ERROR'                    08_final_sed_rename.bsh.log                      ;
