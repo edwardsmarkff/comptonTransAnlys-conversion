@@ -2,6 +2,12 @@
 
 # 08a_final_sed_rename.bsh   -- 2021-06-03
 
+     ## it appears that my feathers project is already creating this table!
+mariadb  --verbose   comptonTransAnlys <<END ;
+    DROP TABLE IF EXISTS `comptonTransAnlys`.`stimwordPosition` ;
+END
+
+
 /usr/bin/mariadb-dump   --extended-insert=FALSE  comptonTransAnlys  > ./comptonTransAnlys_08_FinalRename.sql ;
 
 ls -l  ././comptonTransAnlys_08_FinalRename.sql ;
