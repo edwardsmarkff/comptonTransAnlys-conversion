@@ -63,31 +63,31 @@ bash -vx  07b_alter_keys_test.bsh                    > 07b_alter_keys_test.bsh.l
 grep  --line-number '^ERROR'                            07b_alter_keys_test.bsh.log               ;
 
 
-sleep 1m                                                                                          ;
-
 echo $(date) ' - 08a_final_sed_rename.bsh'                                                        ;
 bash -vx  08a_final_sed_rename.bsh              > 08a_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08a_final_sed_rename.bsh.log                    ;
 
-sleep 1m                                                                                          ;
 
 echo $(date) ' - 08b_final_sed_rename.bsh'                                                        ;
 bash -vx  08b_final_sed_rename.bsh              > 08b_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08b_final_sed_rename.bsh.log                    ;
 
-sleep 1m                                                                                          ;
 
 echo $(date) ' - 08c_final_sed_rename.bsh'                                                        ;
 bash -vx  08c_final_sed_rename.bsh              > 08c_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08c_final_sed_rename.bsh.log                    ;
 
-sleep 1m                                                                                          ;
 
 echo $(date) ' - 08d_final_sed_rename.bsh'                                                        ;
 bash -vx  08d_final_sed_rename.bsh              > 08d_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08d_final_sed_rename.bsh.log                    ;
+grep ERROR  08d_final_sed_rename.bsh.log                                                          \
+    | grep -v 'SEMANTIC ERROR'                                                                    \
+    | grep -v 'ERROR LINKING'                                                                     \
+    | grep -v 'ERRORS: inserting'                                                                 \
+    | grep -v   'ARTICULATION ERRORS'                                                             \
+    | grep -v  'GRAMMAR ERRORS:'                                                                  ;
 
-sleep 1m                                                                                          ;
 
 echo $(date) ' - 08e_final_sed_rename.bsh'                                                        ;
 bash -vx  08e_final_sed_rename.bsh              > 08e_final_sed_rename.bsh.log           2>&1     ;
