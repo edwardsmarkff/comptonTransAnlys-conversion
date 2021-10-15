@@ -3,16 +3,22 @@
 # run this ONLY if you are SURE everything works!
 #   2021-06-02  - initial writing
 #   2021-10-12  - misc fixes
+#   2021-10-15  - added flag "PASS" to bypass the silly tested? question
 #
-       # https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
-while true; do
-    read -p "Is everything working properly?? " yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) exit;;
-        * ) echo "Please answer yes or no.";;
-    esac
-done
+
+if  [[ "$1" != "PASS" ]]; then 
+           # https://stackoverflow.com/questions/226703/how-do-i-prompt-for-yes-no-cancel-input-in-a-linux-shell-script
+        while true; do
+            read -p "Is everything working properly?? " yn
+            case $yn in
+                [Yy]* ) break;;
+                [Nn]* ) exit;;
+                * ) echo "Please answer yes or no.";;
+            esac
+        done
+else
+    echo 'skipping approval question!';
+fi
 
 echo $(date) ' - 01_create_db.bsh'                                                                ;
 bash -vx  01_create_db.bsh                     > 01_create_db.bsh.log                  2>&1       ;
