@@ -2,6 +2,7 @@
 
 ##      02a_initial_preparation.bsh        -- 2021-09-29
 ##
+ ? ? ? ? ? ? ? ? ?? ? ? ? ? ?? ? ? 
 ##    remove ALL unneeded Client_master records that have no corresponding entry in the Client_anlys_detail table.
 ##
 ##     six words:       potatoes    acquired   than   him    dollars    bodyguards
