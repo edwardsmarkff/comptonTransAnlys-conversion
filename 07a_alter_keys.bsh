@@ -505,7 +505,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				(	\`Frequency\`
 				)
 		ON UPDATE CASCADE
-		ON DELETE NO ACTION
+		ON DELETE CASCADE
 		;
 
 	--						2007-07-07
@@ -766,7 +766,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				(	\`Teacher_email\`
 				)
 		ON UPDATE CASCADE
-		ON DELETE NO ACTION
+		ON DELETE CASCADE
 		;
 
 	ALTER TABLE \`Teacher\` ADD COLUMN IF NOT EXISTS
@@ -801,7 +801,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 			(	\`Teacher_auto_increment\`
 			)
 		ON UPDATE CASCADE
-		ON DELETE NO ACTION
+		ON DELETE CASCADE
 		;
 END
 
