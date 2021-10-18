@@ -69,17 +69,17 @@ WHERE 1
 AND (    clientStimword.clientMasterLayoutName
     ,    clientStimword.clientContextPhoneme
     ,    clientStimword.clientContextPositionName
-    ,    clientStimword.clientContextPageNbr
-    ,    clientStimword.clientContextLineNbr
-    ,    clientStimword.clientContextWord
+    ,    clientStimword.stimwordPositionPageNbr
+    ,    clientStimword.stimwordPositionLineNbr
+    ,    clientStimword.stimwordPositionWord
     )
 NOT IN
 (       SELECT clientStimword.clientMasterLayoutName
         ,      clientStimword.clientContextPhoneme
         ,      clientStimword.clientContextPositionName
-        ,      clientStimword.clientContextPageNbr
-        ,      clientStimword.clientContextLineNbr
-        ,      clientStimword.clientContextWord
+        ,      clientStimword.stimwordPositionPageNbr
+        ,      clientStimword.stimwordPositionLineNbr
+        ,      clientStimword.stimwordPositionWord
         FROM    stimwordPosition
         ,       clientStimword
         WHERE 1
