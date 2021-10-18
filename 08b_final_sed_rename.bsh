@@ -1,6 +1,19 @@
 #! /bin/bash  -w
 
 # 08b_final_sed_rename.bsh   -- 2021-06-03
+#
+#
+#   2021-10-17:
+# clientStimwordPageNbr  => stimwordPositionPageNbr
+# clientStimwordLineNbr    => stimwordPositionLineNbr
+# clientStimwordWord        => stimwordPositionWord  
+#
+# s/\`Client_stimword_stimword\`/\`stimwordPositionWord\`/g;
+# s/\`Client_stimword_page_nbr\`/\`stimwordPositionPageNbr\`/g;
+# s/\`Client_stimword_line_nbr\`/\`stimwordPositionLineNbr\`/g;
+#
+#
+#
 
 sed   --in-place   --file=-    ./comptonTransAnlys_08_FinalRename.sql   <<EOF ;
 ##
