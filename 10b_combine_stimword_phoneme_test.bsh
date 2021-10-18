@@ -51,13 +51,13 @@ FROM stimwordPosition
 WHERE 1
 AND stimwordPositionAutoIncr NOT IN
 (
-SELECT stimwordPositionAutoIncr
+SELECT   stimwordPosition.stimwordPositionAutoIncr
 FROM        context
 ,           stimwordPosition
 WHERE 1
-AND  stimwordPositionLayoutName   = contextLayoutName
-AND stimwordPositionName              =  contextPosition
-AND  stimwordPositionPhoneme = contextPhoneme
+AND  stimwordPosition.stimwordPositionLayoutName         = context.contextLayoutName
+AND  stimwordPosition.stimwordPositionName               = context.contextPosition
+AND  stimwordPosition.stimwordPositionPhoneme            = context.contextPhoneme
 )
 ;
 
@@ -66,20 +66,29 @@ AND  stimwordPositionPhoneme = contextPhoneme
 SELECT COUNT(*)
 FROM clientStimword
 WHERE 1
-AND ( clientMasterLayoutName
-,    clientContextPhoneme
-,   clientContextPositionName
-)
+AND (    clientStimword.clientMasterLayoutName
+    ,    clientStimword.clientContextPhoneme
+    ,    clientStimword.clientContextPositionName
+    ,    clientStimword.clientContextPageNbr
+    ,    clientStimword.clientContextLineNbr
+    ,    clientStimword.clientContextWord
+    )
 NOT IN
-(       SELECT clientMasterLayoutName
-,    clientContextPhoneme
-,  clientContextPositionName
-FROM    stimwordPosition
-,       clientStimword
-WHERE 1
-AND stimwordPositionLayoutName  = clientMasterLayoutName
-AND stimwordPositionPhoneme = clientContextPhoneme
-AND stimwordPositionName       = clientContextPositionName
+(       SELECT clientStimword.clientMasterLayoutName
+        ,      clientStimword.clientContextPhoneme
+        ,      clientStimword.clientContextPositionName
+        ,      clientStimword.clientContextPageNbr
+        ,      clientStimword.clientContextLineNbr
+        ,      clientStimword.clientContextWord
+        FROM    stimwordPosition
+        ,       clientStimword
+        WHERE 1
+        AND stimwordPosition.stimwordPositionLayoutName  = clientStimword.clientMasterLayoutName
+        AND stimwordPosition.stimwordPositionPhoneme     = clientStimword.clientContextPhoneme
+        AND stimwordPosition.stimwordPositionName        = clientStimword.clientContextPositionName
+        AND stimwordPosition.stimwordPositionPageNbr     = clientStimword.stimwordPositionPageNbr
+        AND stimwordPosition.stimwordPositionLineNbr     = clientStimword.stimwordPositionLineNbr
+        AND stimwordPosition.stimwordPositionWord        = clientStimword.stimwordPositionWord
 )
 ;
 
