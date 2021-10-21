@@ -116,7 +116,7 @@ s/\\&\\#160;/ /g;
 ###  https://sites.psu.edu/symbolcodes/codehtml/   -- 216 is UPPERCASE "O" with slash, 248 is lowercase "o" with slash
 ###       we are not using uppercase "O" i dont think.
 s/\\&\\#216;/ø/g;
-                          #####  s/\\&\\#248;/O/g;
+                          #####  s/\\&\\#248;/O/g; ?????????????
 s/\\&\\#248;/ø/g;
 
 
