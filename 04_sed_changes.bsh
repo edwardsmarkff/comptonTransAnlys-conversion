@@ -113,13 +113,18 @@ s/) ENGINE=MyISAM AUTO_INCREMENT=311 DEFAULT CHARSET=latin1;/) ENGINE=InnoDB AUT
 
 s/\\&\\#160;/ /g;
 
+###  https://sites.psu.edu/symbolcodes/codehtml/   -- 216 is UPPERCASE "O" with slash, 248 is lowercase "o" with slash
+###       we are not using uppercase "O" i dont think.
 s/\\&\\#216;/ø/g;
+                          #####  s/\\&\\#248;/O/g;
+s/\\&\\#248;/ø/g;
+
+
                           #####  s/\\&\\#230;/1/g;
 s/\\&\\#230;/æ/g;
                           #####  s/\\&\\#240;/H/g;
 s/\\&\\#240;/ð/g;
-                          #####  s/\\&\\#248;/O/g;
-s/\\&\\#248;/ø/g;
+
                           #####  s/\\&\\#331;/N/g;
 s/\\&\\#331;/ŋ/g;
                           #####  s/\\&\\#477;/C/g;
