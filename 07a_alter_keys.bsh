@@ -569,7 +569,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		;
 
 	ALTER TABLE \`Client_stimword\`  ADD COLUMN  \`Client_stimword_notes\` TEXT
-		AFTER \`Client_stimword_error_4\`
+		AFTER \`Client_stimword_error\`
 		;
 
 	ALTER TABLE \`Stimword_position\` MODIFY COLUMN	\`Stimword_position_auto_increment\`  MEDIUMINT NOT NULL;
