@@ -136,10 +136,11 @@ NOT IN
     AND   clientContext.clientMasterLayoutName                  =       clientStimword.clientMasterLayoutName
     AND   clientContext.clientContextPositionName               =       clientStimword.clientContextPositionName
     AND   clientContext.clientContextPhoneme                    =       clientStimword.clientContextPhoneme
-    AND   clientContext.clientContextError1                     =       clientStimword.clientContextError1
-    AND   clientContext.clientContextError2                     =       clientStimword.clientContextError2
-    AND   clientContext.clientContextError3                     =       clientStimword.clientContextError3
-    AND   clientContext.clientContextError4                     =       clientStimword.clientContextError4
+    AND   clientContext.clientContextError                      =       clientStimword.clientContextError
+                                    --    AND   clientContext.clientContextError1                     =       clientStimword.clientContextError1
+                                    --   AND   clientContext.clientContextError2                     =       clientStimword.clientContextError2
+                                    --   AND   clientContext.clientContextError3                     =       clientStimword.clientContextError3
+                                    --    AND   clientContext.clientContextError4                     =       clientStimword.clientContextError4
 ) ;
 
 
