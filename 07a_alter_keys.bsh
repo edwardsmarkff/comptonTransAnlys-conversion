@@ -92,10 +92,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 			,	\`Client_context_layout_name\`
 			,	\`Client_context_phoneme\`
 			,	\`Client_context_position\`
-			,	\`Client_context_error_1\`
-			,	\`Client_context_error_2\`
-			,	\`Client_context_error_3\`
-			,	\`Client_context_error_4\`
+			,	\`Client_context_error\`
+					--		,	\`Client_context_error_1\`
+					--		,	\`Client_context_error_2\`
+					--		,	\`Client_context_error_3\`
+					--		,	\`Client_context_error_4\`
 			)
 			;
 
@@ -107,10 +108,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Client_context_layout_name\`
 				,	\`Client_context_phoneme\`
 				,	\`Client_context_position\`
-				,	\`Client_context_error_1\`
-				,	\`Client_context_error_2\`
-				,	\`Client_context_error_3\`
-				,	\`Client_context_error_4\`
+				,	\`Client_context_error\`
+					--		,	\`Client_context_error_1\`
+					--		,	\`Client_context_error_2\`
+					--		,	\`Client_context_error_3\`
+					--		,	\`Client_context_error_4\`
 				)
 				;
 
@@ -145,10 +147,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Client_stimword_layout_name\`
 				,	\`Client_stimword_phoneme\`
 				,	\`Client_stimword_position\`
-				,	\`Client_stimword_error_1\`
-				,	\`Client_stimword_error_2\`
-				,	\`Client_stimword_error_3\`
-				,	\`Client_stimword_error_4\`
+				,	\`Client_stimword_error\`
+						--		,	\`Client_stimword_error_1\`
+						--		,	\`Client_stimword_error_2\`
+						--		,	\`Client_stimword_error_3\`
+						--		,	\`Client_stimword_error_4\`
 				)
 			REFERENCES	\`Client_context\`
 				(	\`Client_context_client_email\`
@@ -157,10 +160,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Client_context_layout_name\`
 				,	\`Client_context_phoneme\`	
 				,	\`Client_context_position\`
-				,	\`Client_context_error_1\`
-				,	\`Client_context_error_2\`
-				,	\`Client_context_error_3\`
-				,	\`Client_context_error_4\`
+				,	\`Client_context_error\`
+						--		,	\`Client_context_error_1\`
+						--		,	\`Client_context_error_2\`
+						--		,	\`Client_context_error_3\`
+						--		,	\`Client_context_error_4\`
 				)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -181,10 +185,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	AND \`Client_stimword\`.\`Client_stimword_layout_name\`         = \`Client_context\`.\`Client_context_layout_name\`
 	AND \`Client_stimword\`.\`Client_stimword_phoneme\`             = \`Client_context\`.\`Client_context_phoneme\`
 	AND \`Client_stimword\`.\`Client_stimword_position\`            = \`Client_context\`.\`Client_context_position\`
-	AND \`Client_stimword\`.\`Client_stimword_error_1\`             = \`Client_context\`.\`Client_context_error_1\`
-	AND \`Client_stimword\`.\`Client_stimword_error_2\`             = \`Client_context\`.\`Client_context_error_2\`
-	AND \`Client_stimword\`.\`Client_stimword_error_3\`             = \`Client_context\`.\`Client_context_error_3\`
-	AND \`Client_stimword\`.\`Client_stimword_error_4\`             = \`Client_context\`.\`Client_context_error_4\`
+	AND \`Client_stimword\`.\`Client_stimword_error\`             	= \`Client_context\`.\`Client_context_error\`
+			--	AND \`Client_stimword\`.\`Client_stimword_error_1\`             = \`Client_context\`.\`Client_context_error_1\`
+			--	AND \`Client_stimword\`.\`Client_stimword_error_2\`             = \`Client_context\`.\`Client_context_error_2\`
+			--	AND \`Client_stimword\`.\`Client_stimword_error_3\`             = \`Client_context\`.\`Client_context_error_3\`
+			--	AND \`Client_stimword\`.\`Client_stimword_error_4\`             = \`Client_context\`.\`Client_context_error_4\`
 	;
 
 	ALTER TABLE \`Client_stimword\`
