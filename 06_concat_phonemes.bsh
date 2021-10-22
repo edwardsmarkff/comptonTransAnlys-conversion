@@ -13,14 +13,20 @@ ALTER TABLE \`Context\`           ADD COLUMN  \`Context_phoneme\`           CHAR
 
 ALTER TABLE \`Client_context\`    ADD COLUMN  \`Client_context_phoneme\`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_context_layout_name\` ;
 
-ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_phoneme\`   CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_setting\`    ;
-
-ALTER TABLE \`Stimword_position\` ADD COLUMN  \`Stimword_position_phoneme\` CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Stimword_position_setting\`  ;
-
 ALTER TABLE \`Lang_spec\`         ADD COLUMN  \`Lang_spec_phoneme\`         CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Lang_spec_context\`          ;
 
 ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_phoneme\`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Language_norms_position\`    ;
  
+ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_phoneme\`   CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_setting\`    ;
+
+### 2021-10-22
+ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_error\`     CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_error_sound_4\`    ;
+
+ALTER TABLE \`Stimword_position\` ADD COLUMN  \`Stimword_position_phoneme\` CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Stimword_position_setting\`  ;
+
+###  2021-10-22
+ALTER TABLE \`Stimword_position\` ADD COLUMN  \`Stimword_position_error\`   CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Stimword_position_error_sound_4\`  ;
+
 
 
 UPDATE \`Context\`
@@ -35,8 +41,17 @@ UPDATE \`Client_context\`
 UPDATE \`Client_stimword\`
   SET \`Client_stimword_phoneme\`    = CONCAT( \`Client_stimword_phoneme_1\`   , \`Client_stimword_phoneme_2\`   , \`Client_stimword_phoneme_3\`   ) ;
 
+###  2021-10-22
+UPDATE \`Client_stimword\`
+  SET \`Client_stimword_error\`      = CONCAT( \`Client_stimword_error_sound__1\`   , \`Client_stimword_error_sound_2\`   , \`Client_stimword_error_sound_3\`  , \`Client_stimword_error_sound_4\`   ) ;
+
 UPDATE \`Stimword_position\`
   SET \`Stimword_position_phoneme\`  = CONCAT( \`Stimword_position_phoneme_1\` , \`Stimword_position_phoneme_2\` , \`Stimword_position_phoneme_3\` ) ;
+
+### 2021-10-22
+UPDATE \`Stimword_position\`
+  SET \`Stimword_position_error\`  = CONCAT( \`Stimword_position_error_sound_1\` , \`Stimword_position_error_sound_2\` , \`Stimword_position_error_sound_3\`  , \`Stimword_position_error_sound_4\` ) ;
+
 
 UPDATE \`Lang_spec\`
   SET \`Lang_spec_phoneme\`          = CONCAT( \`Lang_spec_phoneme_1\`         , \`Lang_spec_phoneme_2\`         , \`Lang_spec_phoneme_3\`         ) ;
