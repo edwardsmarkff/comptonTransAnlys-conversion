@@ -26,12 +26,12 @@ ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_error\`      CHAR
 ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_phoneme\`   CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_setting\`    ;
 
 ### 2021-10-22
-ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_error\`     CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_error_sound_4\`    ;
+ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_error\`     CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_error_4\`    ;
 
 ALTER TABLE \`Stimword_position\` ADD COLUMN  \`Stimword_position_phoneme\` CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Stimword_position_setting\`  ;
 
 ###  2021-10-22
-ALTER TABLE \`Stimword_position\` ADD COLUMN  \`Stimword_position_error\`   CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Stimword_position_error_sound_4\`  ;
+ALTER TABLE \`Stimword_position\` ADD COLUMN  \`Stimword_position_error\`   CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Stimword_position_error_4\`  ;
 
 
 
