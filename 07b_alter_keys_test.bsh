@@ -126,10 +126,11 @@ NOT IN
     AND   Client_context_layout_name  = Client_stimword_layout_name
     AND   Client_context_position     = Client_stimword_position
     AND   Client_context_phoneme = Client_stimword_phoneme
-    AND   Client_context_error_1 = Client_stimword_error_1
-    AND   Client_context_error_2 = Client_stimword_error_2
-    AND   Client_context_error_3 = Client_stimword_error_3
-    AND   Client_context_error_4 = Client_stimword_error_4
+    AND   Client_context_error   = Client_stimword_error
+                                    --       AND   Client_context_error_1 = Client_stimword_error_1
+                                    --       AND   Client_context_error_2 = Client_stimword_error_2
+                                    --       AND   Client_context_error_3 = Client_stimword_error_3
+                                    --       AND   Client_context_error_4 = Client_stimword_error_4
 ) ;
 
 
