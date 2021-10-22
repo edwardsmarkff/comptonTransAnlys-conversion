@@ -15,7 +15,13 @@ ALTER TABLE \`Client_context\`    ADD COLUMN  \`Client_context_phoneme\`    CHAR
 
 ALTER TABLE \`Lang_spec\`         ADD COLUMN  \`Lang_spec_phoneme\`         CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Lang_spec_context\`          ;
 
+## 2021-10-22
+ALTER TABLE \`Lang_spec\`         ADD COLUMN  \`Lang_spec_error\`           CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Lang_spec_error_sound_4\`          ;
+
 ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_phoneme\`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Language_norms_position\`    ;
+
+### 2021-10-22
+ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_error\`      CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Language_norms_error_sound_4\`    ;
  
 ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_phoneme\`   CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_setting\`    ;
 
@@ -52,12 +58,19 @@ UPDATE \`Stimword_position\`
 UPDATE \`Stimword_position\`
   SET \`Stimword_position_error\`    = CONCAT( \`Stimword_position_error_1\`  , \`Stimword_position_error_2\`    , \`Stimword_position_error_3\`  , \`Stimword_position_error_4\` ) ;
 
-
 UPDATE \`Lang_spec\`
   SET \`Lang_spec_phoneme\`          = CONCAT( \`Lang_spec_phoneme_1\`         , \`Lang_spec_phoneme_2\`         , \`Lang_spec_phoneme_3\`         ) ;
+## 2021-10-22
+UPDATE \`Lang_spec\`
+  SET \`Lang_spec_error\`            = CONCAT( \`Lang_spec_error_1\`           , \`Lang_spec_error_2\`           , \`Lang_spec_error_3\`  , \`Lang_spec_error_4\`       ) ;
 
 UPDATE \`Language_norms\`
   SET \`Language_norms_phoneme\`     = CONCAT( \`Language_norms_phoneme_1\`    , \`Language_norms_phoneme_2\`    , \`Language_norms_phoneme_3\`    ) ;
+
+## 2021-10-22
+UPDATE \`Language_norms\`
+  SET \`Language_norms_error\`       = CONCAT( \`Language_norms_error_1\`     , \`Language_norms_error_2\`       , \`Language_norms_error_3\`    , \`Language_norms_error_4\`    ) ;
+
 
 END
 
