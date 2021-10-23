@@ -19,7 +19,7 @@ ALTER TABLE \`Client_context\`    ADD COLUMN  \`Client_context_error\`      CHAR
 ALTER TABLE \`Lang_spec\`         ADD COLUMN  \`Lang_spec_phoneme\`         CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Lang_spec_context\`          ;
 
 ## 2021-10-22
-ALTER TABLE \`Lang_spec\`         ADD COLUMN  \`Lang_spec_error\`           CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \` Lang_spec_language\`          ;
+ALTER TABLE \`Lang_spec\`         ADD COLUMN  \`Lang_spec_error\`           CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Lang_spec_language\`          ;
 
 ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_phoneme\`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Language_norms_position\`    ;
 
