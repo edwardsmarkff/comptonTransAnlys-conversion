@@ -20,3 +20,10 @@ stimwordPosition(key).then( value => {      /* get(GET) */
   console.log('stimwordPosition(' + key + ') : ' + JSON.stringify(stimwordPositionResult) ); 
 });
 
+
+    ##   click to add value from tooltip into element:
+https://jsfiddle.net/edwardsmarkf/3zy4nx1s/1/
+
+  ## show OLD and current value:
+https://jsfiddle.net/edwardsmarkf/6smtgr3j/18/
+
