@@ -41,18 +41,42 @@ UPDATE \`Sound\`
 
 UPDATE \`Client_context\`
   SET \`Client_context_phoneme\`     = CONCAT( \`Client_context_phoneme_1\`    , \`Client_context_phoneme_2\`    , \`Client_context_phoneme_3\`    ) ;
-  
+
+
+
 ### 2021-10-22
+
 UPDATE \`Client_context\`
-  SET \`Client_context_error\`     = CONCAT( \`Client_context_error_1\`    , \`Client_context_error_2\`          , \`Client_context_error_3\`  , \`Client_context_error_4\`  ) ;
+  SET \`Client_context_error\`     = 
+      TRIM
+      	( TRAILING ' ' FROM  CONCAT
+		  			                     (	IF(STRCMP(Client_context_error_1, ''), Client_context_error_1, ' ')
+                       					,	IF(STRCMP(Client_context_error_2, ''), Client_context_error_2, ' ')
+				                       	,	IF(STRCMP(Client_context_error_3, ''), Client_context_error_3, ' ')
+		                       			,	IF(STRCMP(Client_context_error_4, ''), Client_context_error_4, ' ')
+					                       )
+      	);
 
-
+  
+  
 UPDATE \`Client_stimword\`
   SET \`Client_stimword_phoneme\`    = CONCAT( \`Client_stimword_phoneme_1\`   , \`Client_stimword_phoneme_2\`   , \`Client_stimword_phoneme_3\`   ) ;
 
+
 ###  2021-10-22
+
 UPDATE \`Client_stimword\`
-  SET \`Client_stimword_error\`      = CONCAT( \`Client_stimword_error_1\`     , \`Client_stimword_error_2\`      , \`Client_stimword_error_3\`  , \`Client_stimword_error_4\`   ) ;
+  SET \`Client_stimword_error\`     = 
+      TRIM
+      	( TRAILING ' ' FROM  CONCAT
+		  			                     (	IF(STRCMP(Client_stimword_error_1, ''), Client_stimword_error_1, ' ')
+                       					,	IF(STRCMP(Client_stimword_error_2, ''), Client_stimword_error_2, ' ')
+				                       	,	IF(STRCMP(Client_stimword_error_3, ''), Client_stimword_error_3, ' ')
+		                       			,	IF(STRCMP(Client_stimword_error_4, ''), Client_stimword_error_4, ' ')
+					                       )
+      	);
+
+
 
 UPDATE \`Stimword_position\`
   SET \`Stimword_position_phoneme\`  = CONCAT( \`Stimword_position_phoneme_1\` , \`Stimword_position_phoneme_2\` , \`Stimword_position_phoneme_3\` ) ;
