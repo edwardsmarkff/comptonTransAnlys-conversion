@@ -51,7 +51,7 @@ UPDATE \`Client_context\`
       TRIM( TRAILING ' ' FROM  CONCAT
 				(	IF(STRCMP(\`Client_context_error_1\`, ''), \`Client_context_error_1\`, ' ')
 				,	IF(STRCMP(\`Client_context_error_2\`, ''), \`Client_context_error_2\`, ' ')
-				,	IF(STRCMP\`(Client_context_error_3\`, ''), \`Client_context_error_3\`, ' ')
+				,	IF(STRCMP(\`Client_context_error_3\`, ''), \`Client_context_error_3\`, ' ')
 				,	IF(STRCMP(\`Client_context_error_4\`, ''), \`Client_context_error_4\`, ' ')
 				)
       	);
