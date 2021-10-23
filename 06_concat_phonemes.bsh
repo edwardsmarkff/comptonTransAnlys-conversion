@@ -48,8 +48,7 @@ UPDATE \`Client_context\`
 
 UPDATE \`Client_context\`
   SET \`Client_context_error\`     = 
-      TRIM
-      	( TRAILING ' ' FROM  CONCAT
+      TRIM( TRAILING ' ' FROM  CONCAT
 				(	IF(STRCMP(Client_context_error_1, ''), Client_context_error_1, ' ')
 				,	IF(STRCMP(Client_context_error_2, ''), Client_context_error_2, ' ')
 				,	IF(STRCMP(Client_context_error_3, ''), Client_context_error_3, ' ')
@@ -57,7 +56,6 @@ UPDATE \`Client_context\`
 				)
       	);
 
-  
   
 UPDATE \`Client_stimword\`
   SET \`Client_stimword_phoneme\`    = CONCAT( \`Client_stimword_phoneme_1\`   , \`Client_stimword_phoneme_2\`   , \`Client_stimword_phoneme_3\`   ) ;
@@ -67,8 +65,7 @@ UPDATE \`Client_stimword\`
 
 UPDATE \`Client_stimword\`
   SET \`Client_stimword_error\`     = 
-      TRIM
-      	( TRAILING ' ' FROM  CONCAT
+      TRIM( TRAILING ' ' FROM  CONCAT
 				(	IF(STRCMP(Client_stimword_error_1, ''), Client_stimword_error_1, ' ')
 				,	IF(STRCMP(Client_stimword_error_2, ''), Client_stimword_error_2, ' ')
 				,	IF(STRCMP(Client_stimword_error_3, ''), Client_stimword_error_3, ' ')
