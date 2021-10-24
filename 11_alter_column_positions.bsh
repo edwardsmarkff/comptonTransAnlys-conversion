@@ -1,0 +1,36 @@
+#! /bin/bash
+
+##      11_alter_column_positions.bsh
+
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
+
+
+
+ALTER TABLE \`clientMaster\`  
+		CHANGE  COLUMN \`clientMasterActiveFlag\`   \`clientMasterActiveFlag\`   TINYINT (4) DEFAULT NULL
+		AFTER \`clientMasterAnlysNotes\`
+		;
+
+ALTER TABLE \`languageSpec\`  
+		CHANGE  COLUMN \`createdAt\`   \`createdAt\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP() 
+		AFTER \`languageEpecError\`
+		;
+
+ALTER TABLE \`languageSpec\`  
+		CHANGE  COLUMN \`updatedAt\`   \`updatedAt\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP() 
+		AFTER \`languageEpecError\`
+		;
+
+
+ALTER TABLE \`stimwordPosition\`  
+		CHANGE  COLUMN \`stimwordAutoIncr\`   \`stimwordAutoIncr\`   MEDIUMINT(8) UNSIGNED NOT NULL
+		AFTER \`updatedAt\`
+		;
+
+END
+
+##
+echo  'finished with 11_display_table_counts.bsh!';
+
+exit;
+
