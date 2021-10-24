@@ -1,0 +1,67 @@
+#! /bin/bash
+
+##      07b_alter_keys.bsh       -- 2021-10-23
+##
+##    test all the large table key relationships.
+##
+
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
+
+
+ALTER TABLE  \`Sound\`  DROP COLUMN IF EXISTS  \`Sound_phoneme_1\`  ;
+ALTER TABLE  \`Sound\`  DROP COLUMN IF EXISTS  \`Sound_phoneme_2\`  ;
+ALTER TABLE  \`Sound\`  DROP COLUMN IF EXISTS  \`Sound_phoneme_3\`  ;
+
+ALTER TABLE  \`Context\`  DROP COLUMN IF EXISTS  \`Context_phoneme_1\`  ; 
+ALTER TABLE  \`Context\`  DROP COLUMN IF EXISTS  \`Context_phoneme_2\`  ; 
+ALTER TABLE  \`Context\`  DROP COLUMN IF EXISTS  \`Context_phoneme_3\`  ; 
+
+ALTER TABLE  \`Stimword_position\`  DROP COLUMN IF EXISTS  \`Stimword_position_phoneme_1\`  ;
+ALTER TABLE  \`Stimword_position\`  DROP COLUMN IF EXISTS  \`Stimword_position_phoneme_2\`  ;
+ALTER TABLE  \`Stimword_position\`  DROP COLUMN IF EXISTS  \`Stimword_position_phoneme_3\`  ;
+
+ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_phoneme_1\`  ;
+ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_phoneme_2\`  ;
+ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_phoneme_3\`  ;
+
+ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_1\`  ;
+ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_2\`  ;
+ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_3\`  ;
+ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_4\`  ;
+
+ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_phoneme_1\`  ;
+ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_phoneme_2\`  ;
+ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_phoneme_3\`  ;
+
+ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_1\`  ;
+ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_2\`  ;
+ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_3\`  ;
+ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_4\`  ;
+
+ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_phoneme_1\`  ;
+ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_phoneme_2\`  ;
+ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_phoneme_3\`  ;
+
+ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_1\`  ;
+ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_2\`  ;
+ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_3\`  ;
+ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_4\`  ;
+
+ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_phoneme_1\`  ;
+ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_phoneme_2\`  ;
+ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_phoneme_3\`  ;
+
+ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_1\`  ;
+ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_2\`  ;
+ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_3\`  ;
+ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_4\`  ;
+
+
+
+
+END
+
+
+echo 'end of 07b_alter_keys.bsh!';
+
+exit;
