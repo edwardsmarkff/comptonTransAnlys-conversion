@@ -116,6 +116,11 @@ bash -vx  10b_combine_stimword_phoneme_test.bsh  > 10b_combine_stimword_phoneme_
 grep '^ERROR'                                      10b_combine_stimword_phoneme_test.bsh.log        ;
 grep  --line-number   '^COUNT(\|^0'                10b_combine_stimword_phoneme_test.bsh.log        ;
 
+echo $(date) ' - 11_alter_column_positions.bsh'                                                     ;
+bash -vx  11_alter_column_positions.bsh            > 11_alter_column_positions.bsh.log  2>&1        ;
+grep '^ERROR'                                      11_alter_column_positions.bsh.log                ;
+
+
 echo $(date) ' - 50_display_table_counts.bsh'                                                      ;
 bash -vx  50_display_table_counts.bsh           >       50_display_table_counts.bsh.log  2>&1      ;
 grep  --line-number   '^ERROR'                          50_display_table_counts.bsh.log            ;
