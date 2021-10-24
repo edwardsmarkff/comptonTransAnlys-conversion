@@ -64,25 +64,26 @@ echo $(date) ' - 07a_alter_keys.bsh'                                            
 bash -vx  07a_alter_keys.bsh                    > 07a_alter_keys.bsh.log               2>&1       ;
 grep  --line-number '^ERROR'                     07a_alter_keys.bsh.log                           ;
 
-echo $(date) ' - 07b_alter_keys_test.bsh'                                                         ;
-bash -vx  07b_alter_keys_test.bsh                    > 07b_alter_keys_test.bsh.log     2>&1       ;
-grep  --line-number '^ERROR'                            07b_alter_keys_test.bsh.log               ;
+echo $(date) ' - 07b_alter_keys.bsh'                                                              ;
+bash -vx  07b_alter_keys.bsh                    > 07b_alter_keys.bsh.log               2>&1       ;
+grep  --line-number '^ERROR'                    07b_alter_keys.bsh.log                            ;
+
+echo $(date) ' - 07c_alter_keys_test.bsh'                                                         ;
+bash -vx  07c_alter_keys_test.bsh                    > 07c_alter_keys_test.bsh.log     2>&1       ;
+grep  --line-number '^ERROR'                            07c_alter_keys_test.bsh.log               ;
 
 
 echo $(date) ' - 08a_final_sed_rename.bsh'                                                        ;
 bash -vx  08a_final_sed_rename.bsh              > 08a_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08a_final_sed_rename.bsh.log                    ;
 
-
 echo $(date) ' - 08b_final_sed_rename.bsh'                                                        ;
 bash -vx  08b_final_sed_rename.bsh              > 08b_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08b_final_sed_rename.bsh.log                    ;
 
-
 echo $(date) ' - 08c_final_sed_rename.bsh'                                                        ;
 bash -vx  08c_final_sed_rename.bsh              > 08c_final_sed_rename.bsh.log           2>&1     ;
 grep  --line-number  '^ERROR'                     08c_final_sed_rename.bsh.log                    ;
-
 
 echo $(date) ' - 08d_final_sed_rename.bsh'                                                        ;
 bash -vx  08d_final_sed_rename.bsh              > 08d_final_sed_rename.bsh.log           2>&1     ;
