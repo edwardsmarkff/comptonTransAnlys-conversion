@@ -5,19 +5,26 @@
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 
+	ALTER TABLE \`Client_master\`  
+		CHANGE  COLUMN \`Client_master_timestamp\`   \`Client_master_timestamp\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP()
+		AFTER \`Client_master_anlys_notes\`
+		;
+
 
 	ALTER TABLE \`clientMaster\`  
 		CHANGE  COLUMN \`clientMasterActiveFlag\`   \`clientMasterActiveFlag\`   TINYINT (4) DEFAULT NULL
 		AFTER \`clientMasterAnlysNotes\`
 		;
 
-	ALTER TABLE \`languageSpec\`  
-		CHANGE  COLUMN \`createdAt\`   \`createdAt\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP() 
-		AFTER \`languageEpecError\`
-		;
 
 	ALTER TABLE \`languageSpec\`  
 		CHANGE  COLUMN \`updatedAt\`   \`updatedAt\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP() 
+		AFTER \`languageEpecError\`
+		;
+
+
+	ALTER TABLE \`languageSpec\`  
+		CHANGE  COLUMN \`createdAt\`   \`createdAt\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP() 
 		AFTER \`languageEpecError\`
 		;
 
@@ -28,11 +35,6 @@
 		;
 		
 	
-	ALTER TABLE \`Client_master\`  
-		CHANGE  COLUMN \`Client_master_timestamp\`   \`Client_master_timestamp\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP()
-		AFTER \`Client_master_anlys_notes\`
-		;
-
  	ALTER TABLE \`Client_context\`
 		CHANGE  COLUMN \`Client_context_timestamp\`   \`Client_context_timestamp\`  TIMESTAMP  NOT NULL DEFAULT CURRENT_TIMESTAMP()
 		AFTER \`Client_context_error_notes\`  
