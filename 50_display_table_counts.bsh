@@ -1,12 +1,7 @@
 #! /bin/bash
 
-##      11_display_table_counts.bsh     -- 2018-02-21
+##      50_display_table_counts.bsh     -- 2018-02-21
 ##
-##  2021-05-09  - remove the script_name and script_line columns
-##  2021-05-09  - removed Karen Bragg's fake email client fix, probably no longer needed.
-#   2021-06-01  - made all email(name) references varchar(320) instead of varchar(100)
-##  2021-09-05  - removed all the ALTER TABLE for email and changed VARCHAR(50) to VARCHAR(120)
-
 ##      set fileencoding=ASCII
 ##      set fileformat=unix
 
@@ -31,7 +26,7 @@
 END
 
 ##
-echo  'finished with 11_display_table_counts.bsh!';
+echo  'finished with 50_display_table_counts.bsh!';
 
 exit;
 
