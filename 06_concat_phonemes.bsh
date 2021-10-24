@@ -12,32 +12,17 @@ ALTER TABLE \`Sound\`             ADD COLUMN  \`Sound_phoneme\`             CHAR
 UPDATE \`Sound\`
   SET \`Sound_phoneme\`              = CONCAT( \`Sound_phoneme_1\`             , \`Sound_phoneme_2\`             , \`Sound_phoneme_3\`             ) ;
 
-ALTER TABLE  \`Sound\`  DROP COLUMN IF EXISTS  \`Sound_phoneme_1\`  ;
-ALTER TABLE  \`Sound\`  DROP COLUMN IF EXISTS  \`Sound_phoneme_2\`  ;
-ALTER TABLE  \`Sound\`  DROP COLUMN IF EXISTS  \`Sound_phoneme_3\`  ;
-
-
 
 
 ALTER TABLE \`Context\`           ADD COLUMN  \`Context_phoneme\`           CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Context_layout_name\`        ;
 UPDATE \`Context\`
   SET \`Context_phoneme\`            = CONCAT( \`Context_phoneme_1\`           , \`Context_phoneme_2\`           , \`Context_phoneme_3\`           ) ;
 
-ALTER TABLE  \`Context\`  DROP COLUMN IF EXISTS  \`Context_phoneme_1\`  ; 
-ALTER TABLE  \`Context\`  DROP COLUMN IF EXISTS  \`Context_phoneme_2\`  ; 
-ALTER TABLE  \`Context\`  DROP COLUMN IF EXISTS  \`Context_phoneme_3\`  ; 
-
-
 
 
 ALTER TABLE \`Stimword_position\` ADD COLUMN  \`Stimword_position_phoneme\` CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Stimword_position_setting\`  ;
 UPDATE \`Stimword_position\`
   SET \`Stimword_position_phoneme\`  = CONCAT( \`Stimword_position_phoneme_1\` , \`Stimword_position_phoneme_2\` , \`Stimword_position_phoneme_3\` ) ;
-
-ALTER TABLE  \`Stimword_position\`  DROP COLUMN IF EXISTS  \`Stimword_position_phoneme_1\`  ;
-ALTER TABLE  \`Stimword_position\`  DROP COLUMN IF EXISTS  \`Stimword_position_phoneme_2\`  ;
-ALTER TABLE  \`Stimword_position\`  DROP COLUMN IF EXISTS  \`Stimword_position_phoneme_3\`  ;
-
 
 
 
@@ -49,16 +34,6 @@ ALTER TABLE \`Lang_spec\`         ADD COLUMN  \`Lang_spec_error\`           CHAR
 UPDATE \`Lang_spec\`
   SET \`Lang_spec_error\`            = CONCAT( \`Lang_spec_error_1\`           , \`Lang_spec_error_2\`           , \`Lang_spec_error_3\`  , \`Lang_spec_error_4\`       ) ;
 
-ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_phoneme_1\`  ;
-ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_phoneme_2\`  ;
-ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_phoneme_3\`  ;
-
-ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_1\`  ;
-ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_2\`  ;
-ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_3\`  ;
-ALTER TABLE  \`Lang_spec\`  DROP COLUMN IF EXISTS  \`Lang_spec_error_4\`  ;
-
-
 
 
 ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_phoneme\`    CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Language_norms_position\`    ;
@@ -68,16 +43,6 @@ UPDATE \`Language_norms\`
 ALTER TABLE \`Language_norms\`    ADD COLUMN  \`Language_norms_error\`      CHAR(04)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Language_norms_phoneme_3\`    ;
 UPDATE \`Language_norms\`
   SET \`Language_norms_error\`       = CONCAT( \`Language_norms_error_1\`     , \`Language_norms_error_2\`       , \`Language_norms_error_3\`    , \`Language_norms_error_4\`    ) ;
-
-ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_phoneme_1\`  ;
-ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_phoneme_2\`  ;
-ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_phoneme_3\`  ;
-
-ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_1\`  ;
-ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_2\`  ;
-ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_3\`  ;
-ALTER TABLE  \`Language_norms\`  DROP COLUMN IF EXISTS  \`Language_norms_error_4\`  ;
-
 
 
 
@@ -96,16 +61,6 @@ UPDATE \`Client_context\`
 				)
       	);
 
-ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_phoneme_1\`  ;
-ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_phoneme_2\`  ;
-ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_phoneme_3\`  ;
-
-ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_1\`  ;
-ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_2\`  ;
-ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_3\`  ;
-ALTER TABLE  \`Client_context\`  DROP COLUMN IF EXISTS  \`Client_context_error_4\`  ;
-
-
 
 
 ALTER TABLE \`Client_stimword\`   ADD COLUMN  \`Client_stimword_phoneme\`   CHAR(03)  CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''  AFTER  \`Client_stimword_setting\`    ;
@@ -123,16 +78,6 @@ UPDATE \`Client_stimword\`
 				)
       	);
 	
-ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_phoneme_1\`  ;
-ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_phoneme_2\`  ;
-ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_phoneme_3\`  ;
-
-ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_1\`  ;
-ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_2\`  ;
-ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_3\`  ;
-ALTER TABLE  \`Client_stimword\`  DROP COLUMN IF EXISTS  \`Client_stimword_error_4\`  ;
-
-
 END
 
 echo 'Done with  06_combine_phonemes.bsh !';
