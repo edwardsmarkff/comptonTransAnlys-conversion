@@ -145,9 +145,9 @@ FROM Sound, Context
 WHERE 1
 AND  Sound_layout_name    = Context_layout_name
 AND  Sound_phoneme = Context_phoneme
-AND Context_phoneme_3 = ''
-AND  (   Context_position = 'final'    AND Context_phoneme IN ('d', 's', 't', 'z')
-     OR  Context_position = 'vowel'   AND Context_phoneme IN ( 'æ', 'ɛ',  'ɪ')
+AND  CHAR_LENGTH(Context_phoneme) <= 2    ####### Context_phoneme_3 = ''
+AND  (   Context_position = 'final'     AND Context_phoneme IN ('d', 's', 't', 'z')
+     OR  Context_position = 'vowel'     AND Context_phoneme IN ( 'æ', 'ɛ',  'ɪ')
      OR  Context_position = 'cluster'   AND Context_phoneme =  'd'
      )
 ORDER BY layout,  position, phoneme
