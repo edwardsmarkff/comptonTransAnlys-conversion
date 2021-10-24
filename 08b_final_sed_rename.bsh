@@ -154,7 +154,7 @@ s/\`Language_norms_language_name\`/\`languageNormsName\`/g;
 s/\`Language_norms_position\`/\`languageNormsPosition\`/g;
 ###   s/\`Language_norms_phoneme_1\`/\`languageNormsPhoneme1_UNUSED\`/g;
 ###   s/\`Language_norms_phoneme_2\`/\`languageNormsPhoneme2_UNUSED\`/g;
-s/\`Language_norms_phoneme_3\`/\`languageNormsPhoneme3_UNUSED\`/g;
+###   s/\`Language_norms_phoneme_3\`/\`languageNormsPhoneme3_UNUSED\`/g;
 ###   s/\`Language_norms_phoneme\`/\`languageNormsPhoneme\`/g;
 s/\`Language_norms_percent\`/\`languageNormsPercent\`/g;
 s/\`Language_norms_error\`/\`languageNormsError\`/g;
