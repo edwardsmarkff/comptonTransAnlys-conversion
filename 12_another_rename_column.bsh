@@ -1,3 +1,12 @@
+#!  /bin/bash -w
+
+#  12_another_rename_column.bsh
+#
+#
+#
+#
+
+/usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
 
 
 ###   consider making a new table containing just the layout names  ? ? ? ?
@@ -35,6 +44,11 @@ ALTER TABLE  stimwordPosition  RENAME COLUMN  stimwordPositionPageNbr      TO  s
 ALTER TABLE  stimwordPosition  RENAME COLUMN  stimwordPositionLineNbr      TO  stimwordLineNbr                 ;
 ALTER TABLE  stimwordPosition  RENAME COLUMN  stimwordPositionWord         TO  stimwordWord                    ;
 
+END
+
+echo 'finished 12_another_rename_column.bsh!';
+
+exit;
 
 ##clientStimword	clientContextPositionName	  =>	stimwordPositionName
 ##		clientStimwordPositionNbr	              =>	stimwordPositionNbr
