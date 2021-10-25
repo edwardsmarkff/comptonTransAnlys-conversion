@@ -1,13 +1,17 @@
 
 
-###	clientMaster::  clientMasterSessionName 	=>	sessionName					???
-###	clientMasterLayoutName		=>	contextLayoutName				???
-###	clientMasterLayoutName		            =>	stimwordPositionLayoutName			???
-###	contextLayoutName		                  =>	soundLayoutName					???			
+###   consider making a new table containing just the layout names  ? ? ? ?
+###
+###	clientMaster::  clientMasterSessionName 	=>	sessionName	
+###	clientMasterLayoutName		=>	contextLayoutName
+###	clientMasterLayoutName		            =>	stimwordPositionLayoutName
+###	contextLayoutName		                  =>	soundLayoutName
 ###	languageNormsLayoutName		            =>	contextLayoutName
-###	languageNormsLayoutName		            =>	contextLayoutName				???
-###	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName	???
-###	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!			???
+###	languageNormsLayoutName		            =>	contextLayoutName	
+###	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName
+###	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!
+
+
 
 ALTER TABLE clientContext RENAME COLUMN  clientContextErrorFrequency    TO frequency              ;
 ALTER TABLE clientContext RENAME COLUMN    clientContextPhoneme         TO    contextPhoneme      ;
