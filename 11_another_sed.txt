@@ -1,0 +1,37 @@
+
+
+	???	clientMaster::  clientMasterSessionName 	=>	sessionName					???
+
+
+	???	clientMasterLayoutName		=>	contextLayoutName				???
+clientContext::	clientContextPositionName	  =>	contextPosition
+		clientContextPhoneme		                =>	contextPhoneme
+		clientContextErrorFrequency	            =>	frequency
+
+
+clientMaster::	clientMasterSessionName		  =>	sessionName
+
+	???	clientMasterLayoutName		            =>	stimwordPositionLayoutName			???
+clientStimword	clientContextPositionName	  =>	stimwordPositionName
+		clientStimwordPositionNbr	              =>	stimwordPositionNbr
+		clientStimwordSetting		                =>	stimwordPositionSetting
+		clientContextPhoneme		                =>	stimwordPositionPhoneme	=>	soundPhoneme
+	
+
+	???	contextLayoutName		                  =>	soundLayoutName					???
+context::	contextPhoneme			              =>	soundPhoneme
+
+
+	???	languageNormsLayoutName		            =>	contextLayoutName				???
+languageNorms::	languageNormsPosition		    =>	contextPosition
+		languageNormsPhoneme		                =>	contextPhoneme
+
+	???	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName	???
+	???	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!			???
+stimwordPosition::
+		stimwordPositionName		                =>	contextPosition
+		stimwordPositionPhoneme		              =>	contextPhoneme		=>	soundPhoneme
+		----
+		stimwordPositionPageNbr		              =>	stimwordPageNbr
+		stimwordPositionLineNbr		              =>	stimwordLineNbr
+		stimwordPositionWord		                =>	stimwordWord
