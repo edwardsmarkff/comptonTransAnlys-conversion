@@ -214,14 +214,14 @@ s/\`Stimword_auto_increment\`/\`stimwordAutoIncr\`/g;
 ## keys
 s/\`Stimword_2_Stimword_position_KEY\`/\`stimword_2_stimwordPosition\`/g;
 ## stimword position:
-####  2021-10-24  s/\`Stimword_position_layout_name\`/\`stimwordPositionLayoutName\`/g;
-####  2021-10-24  s/\`Stimword_position_page_nbr\`/\`stimwordPositionPageNbr\`/g;
-####  2021-10-24  s/\`Stimword_position_line_nbr\`/\`stimwordPositionLineNbr\`/g;
-####  2021-10-24  s/\`Stimword_position_stimword\`/\`stimwordPositionWord\`/g;
-s/\`Stimword_position_layout_name\`/\`stimwordLayoutName\`/g;
-s/\`Stimword_position_page_nbr\`/\`stimwordPageNbr\`/g;
-s/\`Stimword_position_line_nbr\`/\`stimwordLineNbr\`/g;
-s/\`Stimword_position_stimword\`/\`stimwordWord\`/g;
+s/\`Stimword_position_layout_name\`/\`stimwordPositionLayoutName\`/g;
+s/\`Stimword_position_page_nbr\`/\`stimwordPositionPageNbr\`/g;
+s/\`Stimword_position_line_nbr\`/\`stimwordPositionLineNbr\`/g;
+s/\`Stimword_position_stimword\`/\`stimwordPositionWord\`/g;
+####  2021-10-24  s/\`Stimword_position_layout_name\`/\`stimwordLayoutName\`/g;
+####  2021-10-24  s/\`Stimword_position_page_nbr\`/\`stimwordPageNbr\`/g;
+####  2021-10-24  s/\`Stimword_position_line_nbr\`/\`stimwordLineNbr\`/g;
+####  2021-10-24  s/\`Stimword_position_stimword\`/\`stimwordWord\`/g;
 s/\`Stimword_position_position\`/\`stimwordPositionName\`/g;
 s/\`Stimword_position_position_nbr\`/\`stimwordPositionNbr\`/g;
 s/\`Stimword_position_setting\`/\`stimwordPositionSetting\`/g;
