@@ -2,7 +2,20 @@
 
 #     15_add_layout_table_and_keys. bsh
 
-REATE TABLE `layout` (
+
+/usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
+
+###
+###	clientMaster::  clientMasterSessionName 	=>	sessionName	
+###	clientMasterLayoutName		=>	contextLayoutName
+###	clientMasterLayoutName		            =>	stimwordPositionLayoutName
+###	contextLayoutName		                  =>	soundLayoutName
+###	languageNormsLayoutName		            =>	contextLayoutName
+###	languageNormsLayoutName		            =>	contextLayoutName	
+###	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName
+###	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!
+
+CREATE TABLE `layout` (
         `layoutName`            VARCHAR(30) NOT NULL,
         `layoutAutoIncr`        SMALLINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
         PRIMARY KEY (`layoutAutoIncr`),
