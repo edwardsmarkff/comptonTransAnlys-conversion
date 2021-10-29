@@ -1,6 +1,6 @@
 #!  /bin/bash
 
-#     15_add_layout_table_and_keys. bsh
+#     15_add_layout_table_and_keys.bsh
 
 
 /usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
@@ -47,3 +47,8 @@ ALTER TABLE `teacher` ADD CONSTRAINT `layout_2_teacher`
                 REFERENCES `layout` (`layoutName`)
                 ON DELETE CASCADE ON UPDATE CASCADE
                 ;
+END
+
+echo '15_add_layout_table_and_keys.bsh!';
+
+exit;
