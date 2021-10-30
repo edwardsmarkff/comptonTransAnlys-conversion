@@ -18,6 +18,22 @@ ALTER TABLE `languageNorms`       RENAME COLUMN `languageNormsLayoutName`       
 
 ALTER TABLE `stimwordPosition`    RENAME COLUMN `stimwordPositionLayoutName`    TO   `layoutName`   ;
 
+ALTER TABLE `clientContext`       RENAME COLUMN `clientMasterLayoutName`        TO   `layoutName`   ;
+
+ALTER TABLE `clientStimword`      RENAME COLUMN `clientMasterLayoutName`        TO   `layoutName`   ;
+
+ALTER TABLE `languageSpec`        RENAME COLUMN `languageSpecLayoutName`        TO   `layoutName`   ;
+
+ALTER TABLE `sound`               RENAME COLUMN `soundLayoutName`               TO   `layoutName`   ;
+
+ALTER TABLE `stimword`            RENAME COLUMN `stimwordLayoutName`            TO   `layoutName`   ;
+
+ALTER TABLE `teacher`             RENAME COLUMN `teacherLayoutName`             TO   `layoutName`   ;
+
+
+
+
+
 
 ###	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName
 ###	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!
