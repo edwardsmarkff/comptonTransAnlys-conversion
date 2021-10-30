@@ -7,11 +7,18 @@
 
 ###
 ###	clientMaster::  clientMasterSessionName 	=>	sessionName	
-###	clientMasterLayoutName		=>	contextLayoutName
-###	clientMasterLayoutName		            =>	stimwordPositionLayoutName
-###	contextLayoutName		                  =>	soundLayoutName
-###	languageNormsLayoutName		            =>	contextLayoutName
-###	languageNormsLayoutName		            =>	contextLayoutName	
+
+
+
+ALTER TABLE `clientMaster`        RENAME COLUMN `clientMasterLayoutName`        TO   `layoutName`   ;
+
+ALTER TABLE `context`             RENAME COLUMN `contextLayoutName`             TO   `layoutName`   ;
+
+ALTER TABLE `languageNorms`       RENAME COLUMN `languageNormsLayoutName`       TO   `layoutName`   ;
+
+ALTER TABLE `stimwordPosition`    RENAME COLUMN `stimwordPositionLayoutName`    TO   `layoutName`   ;
+
+
 ###	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName
 ###	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!
 
