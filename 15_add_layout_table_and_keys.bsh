@@ -5,10 +5,6 @@
 
 /usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
 
-###
-###	clientMaster::  clientMasterSessionName 	=>	sessionName	
-
-
 
 ALTER TABLE `clientMaster`        RENAME COLUMN `clientMasterLayoutName`        TO   `layoutName`   ;
 
@@ -22,9 +18,7 @@ ALTER TABLE `languageSpec`        RENAME COLUMN `languageSpecLayoutName`        
 
 ALTER TABLE `languageNorms`       RENAME COLUMN `languageNormsLayoutName`       TO   `layoutName`   ;
 
-ALTER TABLE `sound`               RENAME COLUMN `soundLayoutName`               TO   `layoutName`   ;
 
-ALTER TABLE `stimword`            RENAME COLUMN `stimwordLayoutName`            TO   `layoutName`   ;
 
 ALTER TABLE `stimwordPosition`    RENAME COLUMN `stimwordPositionLayoutName`    TO   `layoutName`   ;
 
@@ -39,18 +33,22 @@ CREATE TABLE `layout` (
         )
         ;
 
-INSERT INTO `layout` (`layoutName`) VALUES 'P-ESL'      ;
-INSERT INTO `layout` (`layoutName`) VALUES 'ACADEMY'    ;
-INSERT INTO `layout` (`layoutName`) VALUES 'SAMPLE'     ;
+INSERT INTO `layout` (`layoutName`) VALUES  ( 'P-ESL'   )   ;
+INSERT INTO `layout` (`layoutName`) VALUES  ( 'ACADEMY' )   ;
+INSERT INTO `layout` (`layoutName`) VALUES  ( 'SAMPLE'  )   ;
 
-ALTER TABLE `stimword` RENAME COLUMN `stimwordLayoutName` TO `layoutName`       ;
+
+ALTER TABLE `stimword` RENAME COLUMN `stimwordLayoutName`            TO   `layoutName`   ;
+
 ALTER TABLE `stimword` ADD KEY `layout_2_stimword` (`layoutName`);
 ALTER TABLE `stimword` ADD CONSTRAINT `layout_2_stimword`
                 FOREIGN KEY (`layoutName`)
                 REFERENCES `layout` (`layoutName`)
                 ON DELETE CASCADE ON UPDATE CASCADE
                 ;
-ALTER TABLE `sound` RENAME COLUMN `soundLayoutName` TO `layoutName`     ;
+                
+ALTER TABLE `sound` RENAME COLUMN `soundLayoutName` TO   `layoutName`   ;
+EXIT EXIT
 ALTER TABLE `sound` ADD KEY `layout_2_sound` (`layoutName`);
 ALTER TABLE `sound` ADD CONSTRAINT `layout_2_sound`
                 FOREIGN KEY (`layoutName`)
