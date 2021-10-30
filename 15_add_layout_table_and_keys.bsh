@@ -14,35 +14,29 @@ ALTER TABLE `clientMaster`        RENAME COLUMN `clientMasterLayoutName`        
 
 ALTER TABLE `context`             RENAME COLUMN `contextLayoutName`             TO   `layoutName`   ;
 
-ALTER TABLE `languageNorms`       RENAME COLUMN `languageNormsLayoutName`       TO   `layoutName`   ;
-
-ALTER TABLE `stimwordPosition`    RENAME COLUMN `stimwordPositionLayoutName`    TO   `layoutName`   ;
-
 ALTER TABLE `clientContext`       RENAME COLUMN `clientMasterLayoutName`        TO   `layoutName`   ;
 
 ALTER TABLE `clientStimword`      RENAME COLUMN `clientMasterLayoutName`        TO   `layoutName`   ;
 
 ALTER TABLE `languageSpec`        RENAME COLUMN `languageSpecLayoutName`        TO   `layoutName`   ;
 
+ALTER TABLE `languageNorms`       RENAME COLUMN `languageNormsLayoutName`       TO   `layoutName`   ;
+
 ALTER TABLE `sound`               RENAME COLUMN `soundLayoutName`               TO   `layoutName`   ;
 
 ALTER TABLE `stimword`            RENAME COLUMN `stimwordLayoutName`            TO   `layoutName`   ;
 
+ALTER TABLE `stimwordPosition`    RENAME COLUMN `stimwordPositionLayoutName`    TO   `layoutName`   ;
+
 ALTER TABLE `teacher`             RENAME COLUMN `teacherLayoutName`             TO   `layoutName`   ;
 
 
-
-
-
-
-###	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName
-###	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!
-
 CREATE TABLE `layout` (
-        `layoutName`            VARCHAR(30) NOT NULL,
-        `layoutAutoIncr`        SMALLINT(8) UNSIGNED NOT NULL AUTO_INCREMENT,
-        PRIMARY KEY (`layoutAutoIncr`),
-        KEY `layout_key` (`layoutName`)
+                `layoutName`            VARCHAR(30) NOT NULL                            ,
+                `layoutAutoIncr`        SMALLINT(8) UNSIGNED NOT NULL AUTO_INCREMENT    ,
+                PRIMARY KEY (`layoutAutoIncr`)                                          ,
+                KEY `layout_key` (`layoutName`)
+        )
         ;
 
 INSERT INTO `layout` (`layoutName`) VALUES 'P-ESL'      ;
