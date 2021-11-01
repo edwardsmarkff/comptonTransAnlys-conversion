@@ -121,6 +121,11 @@ bash -vx  11_alter_column_positions.bsh            > 11_alter_column_positions.b
 grep '^ERROR'                                      11_alter_column_positions.bsh.log                ;
 
 
+echo $(date) ' - 15_add_layout_table_and_keys.bsh'                                                  ;
+bash -vx  15_add_layout_table_and_keys.bsh         > 15_add_layout_table_and_keys.bsh.log  2>&1     ;
+grep '^ERROR'                                      15_add_layout_table_and_keys.bsh.log             ;
+
+
 echo $(date) ' - 50_display_table_counts.bsh'                                                      ;
 bash -vx  50_display_table_counts.bsh           >       50_display_table_counts.bsh.log  2>&1      ;
 grep  --line-number   '^ERROR'                          50_display_table_counts.bsh.log            ;
