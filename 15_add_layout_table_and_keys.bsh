@@ -1,6 +1,6 @@
 #!  /bin/bash
 
-#     15_add_layout_table_and_keys.bsh
+#     15_add_layout_table_and_keys.bsh    2021-11-01
 
 
 /usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
@@ -48,7 +48,6 @@ ALTER TABLE `stimword` ADD CONSTRAINT `layout_2_stimword`
                 ;
                 
 ALTER TABLE `sound` RENAME COLUMN `soundLayoutName` TO   `layoutName`   ;
-EXIT EXIT
 ALTER TABLE `sound` ADD KEY `layout_2_sound` (`layoutName`);
 ALTER TABLE `sound` ADD CONSTRAINT `layout_2_sound`
                 FOREIGN KEY (`layoutName`)
