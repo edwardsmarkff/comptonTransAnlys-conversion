@@ -6,6 +6,16 @@
 /usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
 
 
+SHOW COLUMNS FROM     \`clientMasterLayoutName\`         ;
+SHOW COLUMNS FROM     \`contextLayoutName\`              ;
+SHOW COLUMNS FROM     \`clientMasterLayoutName\`         ;
+SHOW COLUMNS FROM     \`clientStimwordLayoutName\`       ;
+SHOW COLUMNS FROM     \`languageSpecLayoutName\`         ;
+SHOW COLUMNS FROM     \`languageNormsLayoutName\`        ;
+SHOW COLUMNS FROM     \`stimwordPositionLayoutName\`     ;
+SHOW COLUMNS FROM     \`teacherLayoutName\`              ;
+
+
 ALTER TABLE \`clientMaster\`        RENAME COLUMN \`clientMasterLayoutName\`        TO   \`layoutName\`   ;
 
 ALTER TABLE \`context\`             RENAME COLUMN \`contextLayoutName\`             TO   \`layoutName\`   ;
