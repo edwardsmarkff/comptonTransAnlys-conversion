@@ -6,28 +6,33 @@
 /usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
 
 
-SHOW COLUMNS FROM     \`clientMasterLayoutName\`         ;
-SHOW COLUMNS FROM     \`contextLayoutName\`              ;
-SHOW COLUMNS FROM     \`clientMasterLayoutName\`         ;
-SHOW COLUMNS FROM     \`clientStimwordLayoutName\`       ;
-SHOW COLUMNS FROM     \`languageSpecLayoutName\`         ;
-SHOW COLUMNS FROM     \`languageNormsLayoutName\`        ;
-SHOW COLUMNS FROM     \`stimwordPositionLayoutName\`     ;
-SHOW COLUMNS FROM     \`teacherLayoutName\`              ;
+SHOW COLUMNS FROM     \`context\`              ;
+SHOW COLUMNS FROM     \`clientContext\`        ;
+SHOW COLUMNS FROM     \`clientMaster\`         ;
+SHOW COLUMNS FROM     \`clientStimword\`       ;
+SHOW COLUMNS FROM     \`languageNorms\`        ;
+SHOW COLUMNS FROM     \`languageSpec\`         ;
+SHOW COLUMNS FROM     \`sound\`                ;
+SHOW COLUMNS FROM     \`stimword\`             ;
+SHOW COLUMNS FROM     \`stimwordPosition\`     ;
+SHOW COLUMNS FROM     \`teacher\`              ;
 
-
-ALTER TABLE \`clientMaster\`        RENAME COLUMN \`clientMasterLayoutName\`        TO   \`layoutName\`   ;
 
 ALTER TABLE \`context\`             RENAME COLUMN \`contextLayoutName\`             TO   \`layoutName\`   ;
 
-ALTER TABLE \`clientContext\`       RENAME COLUMN \`clientMasterLayoutName\`       TO   \`layoutName\`   ;
+ALTER TABLE \`clientContext\`       RENAME COLUMN \`clientMasterLayoutName\`       TO   \`layoutName\`    ;
+
+ALTER TABLE \`clientMaster\`        RENAME COLUMN \`clientMasterLayoutName\`        TO   \`layoutName\`   ;
 
 ALTER TABLE \`clientStimword\`      RENAME COLUMN \`clientStimwordLayoutName\`      TO   \`layoutName\`   ;
 
-ALTER TABLE \`languageSpec\`        RENAME COLUMN \`languageSpecLayoutName\`        TO   \`layoutName\`   ;
-
 ALTER TABLE \`languageNorms\`       RENAME COLUMN \`languageNormsLayoutName\`       TO   \`layoutName\`   ;
 
+ALTER TABLE \`languageSpec\`        RENAME COLUMN \`languageSpecLayoutName\`        TO   \`layoutName\`   ;
+
+ALTER TABLE \`sound\`               RENAME COLUMN \`soundLayoutName\`               TO   \`layoutName\`   ;
+
+ALTER TABLE \`stimword\`            RENAME COLUMN \`stimwordLayoutName\`            TO   \`layoutName\`   ;
 
 ALTER TABLE \`stimwordPosition\`    RENAME COLUMN \`stimwordPositionLayoutName\`    TO   \`layoutName\`   ;
 
@@ -47,7 +52,6 @@ INSERT INTO \`layout\` (\`layoutName\`) VALUES  ( 'ACADEMY' )   ;
 INSERT INTO \`layout\` (\`layoutName\`) VALUES  ( 'SAMPLE'  )   ;
 
 
-ALTER TABLE \`stimword\` RENAME COLUMN \`stimwordLayoutName\`            TO   \`layoutName\`   ;
 
 ALTER TABLE \`stimword\` ADD KEY \`layout_2_stimword\` (\`layoutName\`);
 ALTER TABLE \`stimword\` ADD CONSTRAINT \`layout_2_stimword\`
@@ -56,7 +60,7 @@ ALTER TABLE \`stimword\` ADD CONSTRAINT \`layout_2_stimword\`
                 ON DELETE CASCADE ON UPDATE CASCADE
                 ;
                 
-ALTER TABLE \`sound\` RENAME COLUMN \`soundLayoutName\` TO   \`layoutName\`   ;
+
 ALTER TABLE \`sound\` ADD KEY \`layout_2_sound\` (\`layoutName\`);
 ALTER TABLE \`sound\` ADD CONSTRAINT \`layout_2_sound\`
                 FOREIGN KEY (\`layoutName\`)
@@ -64,7 +68,6 @@ ALTER TABLE \`sound\` ADD CONSTRAINT \`layout_2_sound\`
                 ON DELETE CASCADE ON UPDATE CASCADE
                 ;
                 
-ALTER TABLE \`teacher\` RENAME COLUMN \`teacherLayoutName\` TO \`layoutName\` ;
 ALTER TABLE \`teacher\` ADD KEY \`layout_2_teacher\` (\`layoutName\`);
 ALTER TABLE \`teacher\` ADD CONSTRAINT \`layout_2_teacher\`
                 FOREIGN KEY (\`layoutName\`)
