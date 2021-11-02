@@ -10,9 +10,9 @@ ALTER TABLE \`clientMaster\`        RENAME COLUMN \`clientMasterLayoutName\`    
 
 ALTER TABLE \`context\`             RENAME COLUMN \`contextLayoutName\`             TO   \`layoutName\`   ;
 
-ALTER TABLE \`clientContext\`       RENAME COLUMN \`clientMasterLayoutName\`        TO   \`layoutName\`   ;
+ALTER TABLE \`clientContext\`       RENAME COLUMN \`clientContextLayoutName\`       TO   \`layoutName\`   ;
 
-ALTER TABLE \`clientStimword\`      RENAME COLUMN \`clientMasterLayoutName\`        TO   \`layoutName\`   ;
+ALTER TABLE \`clientStimword\`      RENAME COLUMN \`clientStimwordLayoutName\`      TO   \`layoutName\`   ;
 
 ALTER TABLE \`languageSpec\`        RENAME COLUMN \`languageSpecLayoutName\`        TO   \`layoutName\`   ;
 
