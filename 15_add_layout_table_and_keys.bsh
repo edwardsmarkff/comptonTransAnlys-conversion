@@ -24,7 +24,7 @@ ALTER TABLE \`clientContext\`       RENAME COLUMN \`clientMasterLayoutName\`    
 
 ALTER TABLE \`clientMaster\`        RENAME COLUMN \`clientMasterLayoutName\`        TO   \`layoutName\`   ;
 
-ALTER TABLE \`clientStimword\`      RENAME COLUMN \`clientStimwordLayoutName\`      TO   \`layoutName\`   ;
+ALTER TABLE \`clientStimword\`      RENAME COLUMN \`clientMasterLayoutName\`        TO   \`layoutName\`   ;
 
 ALTER TABLE \`languageNorms\`       RENAME COLUMN \`languageNormsLayoutName\`       TO   \`layoutName\`   ;
 
