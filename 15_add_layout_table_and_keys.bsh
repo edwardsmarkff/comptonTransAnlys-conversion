@@ -117,13 +117,13 @@ UPDATE context          SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE
 UPDATE context          SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
 UPDATE context          SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
 
-UPDATE LanguageNorms    SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
-UPDATE LanguageNorms    SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
-UPDATE LanguageNorms    SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+UPDATE languageNorms    SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE languageNorms    SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE languageNorms    SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
 
-UPDATE LanguageSpec     SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
-UPDATE LanguageSpec     SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
-UPDATE LanguageSpec     SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+UPDATE languageSpec     SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE languageSpec     SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE languageSpec     SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
 
 UPDATE layout           SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
 UPDATE layout           SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
