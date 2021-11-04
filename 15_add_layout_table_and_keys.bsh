@@ -100,6 +100,51 @@ ALTER TABLE  stimwordPosition   CHANGE COLUMN IF EXISTS layoutName layoutName CH
 
 ALTER TABLE  teacher            CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
 
+
+UPDATE clientContext    SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE clientContext    SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE clientContext    SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE clientMaster     SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE clientMaster     SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE clientMaster     SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE clientStimword   SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE clientStimword   SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE clientStimword   SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE context          SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE context          SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE context          SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE LanguageNorms    SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE LanguageNorms    SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE LanguageNorms    SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE LanguageSpec     SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE LanguageSpec     SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE LanguageSpec     SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE layout           SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE layout           SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE layout           SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE sound            SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE sound            SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE sound            SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE stimword         SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE stimword         SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE stimword         SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE stimwordPosition         SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE stimwordPosition         SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE stimwordPosition         SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+UPDATE teacher          SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
+UPDATE teacher          SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
+UPDATE teacher          SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
 SET FOREIGN_KEY_CHECKS=1 ;
 
 END
