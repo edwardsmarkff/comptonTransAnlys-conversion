@@ -76,30 +76,8 @@ ALTER TABLE \`teacher\` ADD CONSTRAINT \`layout_2_teacher\`
                 ;
 
 
+
 SET FOREIGN_KEY_CHECKS=0 ;
-
-ALTER TABLE  clientContext      CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  clientMaster       CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  clientStimword     CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  context            CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  languageNorms      CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  languageSpec       CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  layout             CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  sound              CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  stimword           CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  stimwordPosition   CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
-ALTER TABLE  teacher            CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
-
 
 UPDATE clientContext    SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
 UPDATE clientContext    SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
@@ -144,6 +122,29 @@ UPDATE stimwordPosition         SET layoutName = 'ACAD' WHERE 1 AND layoutName =
 UPDATE teacher          SET layoutName = 'SAMP' WHERE 1 AND layoutName = 'SAMPLE'               ;
 UPDATE teacher          SET layoutName = 'PESL' WHERE 1 AND layoutName = 'P-ESL'                ;
 UPDATE teacher          SET layoutName = 'ACAD' WHERE 1 AND layoutName = 'ACADEMY'              ;
+
+ALTER TABLE  clientContext      CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  clientMaster       CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  clientStimword     CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  context            CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  languageNorms      CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  languageSpec       CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  layout             CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  sound              CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  stimword           CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  stimwordPosition   CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
+ALTER TABLE  teacher            CHANGE COLUMN IF EXISTS layoutName layoutName CHAR(04) NOT NULL;
+
 
 SET FOREIGN_KEY_CHECKS=1 ;
 
