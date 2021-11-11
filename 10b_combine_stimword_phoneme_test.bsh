@@ -12,6 +12,7 @@
 
          ##### context  languageNorms   TEST
 
+SELECT 'languageNorms 2 context'    ;
 SELECT COUNT(*)
      /*languageNormsLayoutName
     , languageNormsName
@@ -46,6 +47,7 @@ AND  contextPhoneme    =  languageNormsPhoneme
 
           ####   context  stimwordPosition    TEST
 
+SELECT 'context to stimwordPosition'         ;
 SELECT COUNT(*)
 FROM stimwordPosition
 WHERE 1
@@ -62,7 +64,7 @@ AND  stimwordPosition.stimwordPositionPhoneme            = context.contextPhonem
 ;
 
       ### stimwordPosition  to clientStimword TEST
-
+SELECT 'stimwordPosition to clientStimword'  ;
 SELECT COUNT(*)
 FROM clientStimword
 WHERE 1
@@ -95,7 +97,7 @@ NOT IN
 
 
 ##   context  to clientContext  TEST
-
+SELECT 'context to clientContext'   ;
 SELECT COUNT(*)
 FROM clientContext
 WHERE
@@ -120,7 +122,7 @@ AND  contextPosition        = clientContextPositionName
 
 
 ##  clientContext   to clientStimword  TEST
-
+SELECT 'clientContext to clientStimword'     ;
 SELECT COUNT(*)
 FROM  clientStimword
 WHERE 1
@@ -145,7 +147,7 @@ NOT IN
 
 
 ##   sound to context   TEST
-
+SELECT 'sound to context'  ;
 SELECT ALL   contextLayoutName                        'layout'
 ,      contextPosition                                                     'position'
 ,      contextPhoneme                          'phoneme'
