@@ -14,12 +14,11 @@
 
 SELECT 'languageNorms 2 context'    ;
 SELECT COUNT(*)
-     /*languageNormsLayoutName
-    , languageNormsName
-    , languageNormsPosition
-    , languageNormsPhoneme
-    , languageNormsAutoIncr
-    */
+   ##   languageNormsLayoutName
+   ## , languageNormsName
+   ## , languageNormsPosition
+   ## , languageNormsPhoneme
+   ## , languageNormsAutoIncr
 FROM languageNorms
 WHERE 1
     ####    AND  languageNormsPosition = 'cluster'
