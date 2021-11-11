@@ -15,6 +15,7 @@
         SELECT COUNT(*) FROM    frequencyList           ;
         SELECT COUNT(*) FROM    languageSpec            ;
         SELECT COUNT(*) FROM    languageNorms           ;
+        SELECT COUNT(*) FROM    layout                  ;
         SELECT COUNT(*) FROM    phoneticGrid            ;
         SELECT COUNT(*) FROM    phoneticSpellingUnused  ;
         SELECT COUNT(*) FROM    sessionNames            ;
