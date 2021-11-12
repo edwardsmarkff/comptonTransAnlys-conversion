@@ -76,8 +76,8 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordCURRENT.stimwordPositionLineNbr
                 AND     stimwordPosition.stimwordPositionWord           =       clientStimwordCURRENT.stimwordPositionWord
 
-                AND     stimwordPosition.stimwordPositionName           =       clientStimwordCURRENT.clientContextPositionName
-                AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordCURRENT.clientStimwordPositionNbr
+                AND     stimwordPosition.stimwordPositionName           =       clientStimwordCURRENT.clientContextPositionName      ????
+                AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordCURRENT.clientStimwordPositionNbr      ????????
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordCURRENT.clientStimwordSetting
 
                 AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordCURRENT.clientContextPhoneme
