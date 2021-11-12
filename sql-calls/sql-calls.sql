@@ -31,7 +31,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 ,       stimwordPosition.stimwordPositionWord
                 FROM    stimwordPosition
                 WHERE   1
-                AND     stimwordPositionLayoutName              = 'P-ESL'
+                AND     layoutName                              = 'PESL'
                 AND     stimwordPositionPageNbr                 BETWEEN  0 AND  1000
                 ORDER BY
                         stimwordPosition.stimwordPositionAutoIncr
@@ -51,9 +51,6 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 ,       stimwordPosition.stimwordPositionBdrStyle
                 ,       stimwordPosition.stimwordPositionBdrThickness
                 ,       stimwordPosition.stimwordPositionPhoneme
-                                                        --      ,       stimwordPosition.stimwordPosition_target_sound_1
-                                                        --      ,       stimwordPosition.stimwordPosition_target_sound_2
-                                                        --      ,       stimwordPosition.stimwordPosition_target_sound_3
                 ,       stimwordPosition.stimwordPositionPageNbr                'Eval_masterPageNbr'
                 ,       stimwordPosition.stimwordPositionAutoIncr               'Eval_masterAutoIncr'
 
@@ -80,14 +77,11 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordCURRENT.clientStimwordSetting
 
                 AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordCURRENT.clientContextPhoneme
-                                ## AND  stimwordPosition.stimwordPosition_target_sound_1        =       clientStimwordCURRENT.clientStimword_target_sound_1
-                                ## AND  stimwordPosition.stimwordPosition_target_sound_2        =       clientStimwordCURRENT.clientStimword_target_sound_2
-                                ## AND  stimwordPosition.stimwordPosition_target_sound_3        =       clientStimwordCURRENT.clientStimword_target_sound_3
 
                 AND     clientStimwordCURRENT.teacherEmail              =       'info@englishwithoutaccent.com'
                 AND     clientStimwordCURRENT.clientMasterEmail         =       'mark@edwardsmark.com'
                 AND     clientStimwordCURRENT.clientMasterSessionName   =       'Time1'
-                AND     clientStimwordCURRENT.clientMasterLayoutName    =       'P-ESL'
+                AND     clientStimwordCURRENT.layoutName                =       'PESL'
                 )
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
                 (       1
@@ -102,9 +96,6 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordREPLICATE.clientStimwordSetting
 
                 AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordREPLICATE.clientContextPhoneme
-                                ## AND  stimwordPosition.stimwordPosition_target_sound_1        =       clientStimwordREPLICATE.clientStimword_target_sound_1
-                                ## AND  stimwordPosition.stimwordPosition_target_sound_2        =       clientStimwordREPLICATE.clientStimword_target_sound_2
-                                ## AND  stimwordPosition.stimwordPosition_target_sound_3        =       clientStimwordREPLICATE.clientStimword_target_sound_3
 
                 AND     clientStimwordREPLICATE.teacherEmail            =       'info@englishwithoutaccent.com'
                 AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark@edwardsmark.com'
@@ -112,7 +103,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     clientStimwordREPLICATE.clientMasterLayoutName  =       'P-ESL'
                 )
                 WHERE   1                       /* dummy first one */
-                AND     stimwordPosition.stimwordPositionLayoutName                             =       'P-ESL'
+                AND     stimwordPosition.layoutName                                             =       'PESL'
                 AND     stimwordPosition.stimwordPositionPageNbr                                =       1
                 AND     stimwordPosition.stimwordPositionLineNbr                                =       1
                 AND     stimwordPosition.stimwordPositionWord                                   =       'Horse'
