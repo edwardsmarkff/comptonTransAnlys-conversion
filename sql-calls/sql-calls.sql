@@ -104,7 +104,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     clientStimwordREPLICATE.teacherEmail            =       'info@englishwithoutaccent.com'
                 AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark@edwardsmark.com'
                 AND     clientStimwordREPLICATE.clientMasterSessionName =       'Time1'
-                AND     clientStimwordREPLICATE.clientMasterLayoutName  =       'P-ESL'
+                AND     clientStimwordREPLICATE.layoutName              =       'PESL'
                 )
                 WHERE   1                       /* dummy first one */
                 AND     stimwordPosition.layoutName                                             =       'PESL'
