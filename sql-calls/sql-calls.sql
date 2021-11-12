@@ -72,9 +72,9 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 (       1
                 AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordCURRENT.clientStimwordAutoIncr
                 AND     stimwordPosition.layoutName                     =       clientStimwordCURRENT.layoutName
-                AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordCURRENT.clientStimwordPageNbr
-                AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordCURRENT.clientStimwordLineNbr
-                AND     stimwordPosition.stimwordPositionWord           =       clientStimwordCURRENT.clientStimwordWord
+                AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordCURRENT.stimwordPositionPageNbr
+                AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordCURRENT.stimwordPositionLineNbr
+                AND     stimwordPosition.stimwordPositionWord           =       clientStimwordCURRENT.stimwordPositionWord
 
                 AND     stimwordPosition.stimwordPositionName           =       clientStimwordCURRENT.clientContextPositionName
                 AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordCURRENT.clientStimwordPositionNbr
@@ -91,9 +91,9 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 (       1
                 AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordREPLICATE.clientStimwordAutoIncr
                 AND     stimwordPosition.layoutName                     =       clientStimwordREPLICATE.layoutName
-                AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordREPLICATE.clientStimwordPageNbr
-                AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordREPLICATE.clientStimwordLineNbr
-                AND     stimwordPosition.stimwordPositionWord           =       clientStimwordREPLICATE.clientStimwordWord
+                AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordREPLICATE.stimwordPositionPageNbr
+                AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordREPLICATE.stimwordPositionLineNbr
+                AND     stimwordPosition.stimwordPositionWord           =       clientStimwordREPLICATE.stimwordPositionWord
 
                 AND     stimwordPosition.stimwordPositionName           =       clientStimwordREPLICATE.clientContextPositionName
                 AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordREPLICATE.clientStimwordPositionNbr
