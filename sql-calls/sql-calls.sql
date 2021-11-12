@@ -51,17 +51,21 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 ,       stimwordPosition.stimwordPositionBdrStyle
                 ,       stimwordPosition.stimwordPositionBdrThickness
                 ,       stimwordPosition.stimwordPositionPhoneme
-                ,       stimwordPosition.stimwordPositionPageNbr                'Eval_masterPageNbr'
-                ,       stimwordPosition.stimwordPositionAutoIncr               'Eval_masterAutoIncr'
+                ,       stimwordPosition.stimwordPositionPageNbr                'stimwordPositionPageNbr'
+                ,       stimwordPosition.stimwordPositionAutoIncr               'stimwordPositionAutoIncr'
+                
+                ,       clientStimwordCURRENT.clientContextError                'clientContextError CURRENT'
 
-                ,       clientStimwordCURRENT.clientContextError1               'clientContextError1_current'
-                ,       clientStimwordCURRENT.clientContextError2               'clientContextError2_current'
-                ,       clientStimwordCURRENT.clientContextError3               'clientContextError3_current'
-                ,       clientStimwordCURRENT.clientContextError4               'clientContextError4_current'
-                ,       clientStimwordREPLICATE.clientContextError1             'clientContextError1_replicate'
-                ,       clientStimwordREPLICATE.clientContextError2             'clientContextError2_replicate'
-                ,       clientStimwordREPLICATE.clientContextError3             'clientContextError3_replicate'
-                ,       clientStimwordREPLICATE.clientContextError4             'clientContextError4_replicate'
+--                ,       clientStimwordCURRENT.clientContextError1               'clientContextError1_current'
+--                ,       clientStimwordCURRENT.clientContextError2               'clientContextError2_current'
+--                ,       clientStimwordCURRENT.clientContextError3               'clientContextError3_current'
+--                ,       clientStimwordCURRENT.clientContextError4               'clientContextError4_current'
+
+                ,       clientStimwordREPLICATE.clientContextError                'clientContextError REPLICATE'
+--                ,       clientStimwordREPLICATE.clientContextError1             'clientContextError1_replicate'
+--                ,       clientStimwordREPLICATE.clientContextError2             'clientContextError2_replicate'
+--                ,       clientStimwordREPLICATE.clientContextError3             'clientContextError3_replicate'
+--                ,       clientStimwordREPLICATE.clientContextError4             'clientContextError4_replicate'
 
                 FROM    stimwordPosition
                 LEFT OUTER JOIN clientStimword clientStimwordCURRENT ON
