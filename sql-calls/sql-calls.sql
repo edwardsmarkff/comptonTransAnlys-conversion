@@ -56,22 +56,22 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 
                 ,       clientStimwordCURRENT.clientContextError                'clientContextError CURRENT'
 
---                ,       clientStimwordCURRENT.clientContextError1               'clientContextError1_current'
---                ,       clientStimwordCURRENT.clientContextError2               'clientContextError2_current'
---                ,       clientStimwordCURRENT.clientContextError3               'clientContextError3_current'
---                ,       clientStimwordCURRENT.clientContextError4               'clientContextError4_current'
+                --                ,       clientStimwordCURRENT.clientContextError1               'clientContextError1_current'
+                --                ,       clientStimwordCURRENT.clientContextError2               'clientContextError2_current'
+                --                ,       clientStimwordCURRENT.clientContextError3               'clientContextError3_current'
+                --                ,       clientStimwordCURRENT.clientContextError4               'clientContextError4_current'
 
                 ,       clientStimwordREPLICATE.clientContextError                'clientContextError REPLICATE'
---                ,       clientStimwordREPLICATE.clientContextError1             'clientContextError1_replicate'
---                ,       clientStimwordREPLICATE.clientContextError2             'clientContextError2_replicate'
---                ,       clientStimwordREPLICATE.clientContextError3             'clientContextError3_replicate'
---                ,       clientStimwordREPLICATE.clientContextError4             'clientContextError4_replicate'
+                --                ,       clientStimwordREPLICATE.clientContextError1             'clientContextError1_replicate'
+                --                ,       clientStimwordREPLICATE.clientContextError2             'clientContextError2_replicate'
+                --                ,       clientStimwordREPLICATE.clientContextError3             'clientContextError3_replicate'
+                --                ,       clientStimwordREPLICATE.clientContextError4             'clientContextError4_replicate'
 
                 FROM    stimwordPosition
                 LEFT OUTER JOIN clientStimword clientStimwordCURRENT ON
                 (       1
                 AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordCURRENT.clientStimwordAutoIncr
-                AND     stimwordPosition.stimwordPositionLayoutName     =       clientStimwordCURRENT.clientMasterLayoutName
+                AND     stimwordPosition.layoutName                     =       clientStimwordCURRENT.layoutName
                 AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordCURRENT.clientStimwordPageNbr
                 AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordCURRENT.clientStimwordLineNbr
                 AND     stimwordPosition.stimwordPositionWord           =       clientStimwordCURRENT.clientStimwordWord
@@ -90,7 +90,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
                 (       1
                 AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordREPLICATE.clientStimwordAutoIncr
-                AND     stimwordPosition.stimwordPositionLayoutName     =       clientStimwordREPLICATE.clientMasterLayoutName
+                AND     stimwordPosition.layoutName                     =       clientStimwordREPLICATE.layoutName
                 AND     stimwordPosition.stimwordPositionPageNbr        =       clientStimwordREPLICATE.clientStimwordPageNbr
                 AND     stimwordPosition.stimwordPositionLineNbr        =       clientStimwordREPLICATE.clientStimwordLineNbr
                 AND     stimwordPosition.stimwordPositionWord           =       clientStimwordREPLICATE.clientStimwordWord
