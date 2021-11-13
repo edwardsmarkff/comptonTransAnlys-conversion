@@ -25,6 +25,8 @@
 ALTER TABLE clientContext      RENAME COLUMN    clientContextErrorFrequency       TO   frequency                     ;
 ALTER TABLE clientContext      RENAME COLUMN    clientContextPhoneme              TO   contextPhoneme                ;
 ALTER TABLE clientContext      RENAME COLUMN    clientContextPositionName         TO   contextPosition               ;
+ALTER TABLE clientContext      RENAME COLUMN    contextPhoneme                    TO   soundPhoneme                  ;
+
 
 ALTER TABLE  clientStimword    RENAME COLUMN    clientContextPositionName         TO   stimwordPositionName          ;
 ALTER TABLE  clientStimword    RENAME COLUMN    clientStimwordPositionNbr         TO   stimwordPositionNbr           ;
