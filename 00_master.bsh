@@ -120,6 +120,9 @@ echo $(date) ' - 11_alter_column_positions.bsh'                                 
 bash -vx  11_alter_column_positions.bsh            > 11_alter_column_positions.bsh.log  2>&1        ;
 grep '^ERROR'                                      11_alter_column_positions.bsh.log                ;
 
+echo $(date) ' - 12_another_rename_column.bsh.bsh'                                                  ;
+bash -vx  12_another_rename_column.bsh            > 12_another_rename_column.bsh.log  2>&1          ;
+grep '^ERROR'                                      12_another_rename_column.bsh.log                 ;
 
 echo $(date) ' - 15_add_layout_table_and_keys.bsh'                                                  ;
 bash -vx  15_add_layout_table_and_keys.bsh         > 15_add_layout_table_and_keys.bsh.log  2>&1     ;
