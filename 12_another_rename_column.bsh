@@ -9,17 +9,6 @@
 /usr/bin/mariadb  --verbose  comptonTransAnlys   <<END  ;
 
 
-###   consider making a new table containing just the layout names  ? ? ? ?
-###
-###	clientMaster::  clientMasterSessionName 	=>	sessionName	
-###	clientMasterLayoutName		=>	contextLayoutName
-###	clientMasterLayoutName		            =>	stimwordPositionLayoutName
-###	contextLayoutName		                  =>	soundLayoutName
-###	languageNormsLayoutName		            =>	contextLayoutName
-###	languageNormsLayoutName		            =>	contextLayoutName	
-###	stimwordPositionLayoutName	          =>	contextLayoutName	=>	soundLayoutName
-###	stimwordPositionLayoutName	          =>	!!!stimwordLayoutName!!!
-
 
 
 ALTER TABLE  clientContext     RENAME COLUMN    clientContextErrorFrequency       TO   frequency                     ;
