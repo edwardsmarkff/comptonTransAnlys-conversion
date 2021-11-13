@@ -23,6 +23,7 @@ ALTER TABLE  clientStimword    RENAME COLUMN    clientContextPositionName       
 ALTER TABLE  clientStimword    RENAME COLUMN    clientStimwordPositionNbr         TO   stimwordPositionNbr           ;
 ALTER TABLE  clientStimword    RENAME COLUMN    clientStimwordSetting             TO   stimwordPositionSetting       ;
 ALTER TABLE  clientStimword    RENAME COLUMN    clientContextPhoneme              TO   soundPhoneme                  ;
+ALTER TABLE  clientStimword    RENAME COLUMN    clientMasterSessionName           TO   sessionName                   ;
 
 ALTER TABLE  clientStimword    RENAME COLUMN    stimwordPositionPageNbr           TO   stimwordPageNbr               ;
 ALTER TABLE  clientStimword    RENAME COLUMN    stimwordPositionLineNbr           TO   stimwordLineNbr               ;
@@ -35,6 +36,8 @@ ALTER TABLE  context           RENAME COLUMN    contextPhoneme                  
 
 ALTER TABLE  languageNorms     RENAME COLUMN    languageNormsPosition	            TO   contextPosition               ;
 ALTER TABLE  languageNorms     RENAME COLUMN    languageNormsPhoneme	            TO   contextPhoneme                ;
+ALTER TABLE  languageNorms	   RENAME COLUMN    contextPhoneme                    TO   soundPhoneme                  ;
+
 
 ALTER TABLE  stimwordPosition  RENAME COLUMN    stimwordPositionName              TO   contextPosition               ;
 ALTER TABLE  stimwordPosition  RENAME COLUMN    stimwordPositionPhoneme           TO   soundPhoneme                  ;
