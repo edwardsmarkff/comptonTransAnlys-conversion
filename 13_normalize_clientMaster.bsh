@@ -5,6 +5,7 @@
 #       2021-11-14
 
 
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 SET FOREIGN_KEY_CHECKS=0 ;
 
@@ -84,3 +85,10 @@ ALTER TABLE `clientContext` ADD CONSTRAINT `clientSessionMiscKeys_2_clientContex
 
 SET FOREIGN_KEY_CHECKS=1 ;
 
+END
+
+echo 'end of 13_normalize_clientMaster.bsh' ;
+
+exit;
+
+#
