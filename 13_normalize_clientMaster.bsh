@@ -65,7 +65,7 @@ INSERT INTO \`clientSession\` (\`clientMasterAutoIncr\`)
         ;
 
 ALTER TABLE \`clientSession\` ADD CONSTRAINT \`clientMasterAutoIncr_2_clientSession\`	FOREIGN KEY ( \`clientMasterAutoIncr\`)	
-			REFERENCES clientMaster (`clientMasterAutoIncr`) 		 					ON DELETE CASCADE ON UPDATE CASCADE;
+			REFERENCES clientMaster (\`clientMasterAutoIncr\`) 		ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE \`clientSession\` ADD UNIQUE KEY \`clientSessionUniqueKey\`  (\`teacherEmail\`,\`clientMasterEmail\`,\`sessionName\`,\`layoutName\`)											;
 ALTER TABLE \`clientSession\` ADD CONSTRAINT \`clientMasterMiscKeys_2_clientSession\`	FOREIGN KEY ( \`teacherEmail\`, \`clientMasterEmail\`, \`layoutName\`)
 			REFERENCES \`clientMaster\` (\`teacherEmail\`,\`clientMasterEmail\`,\`layoutName\`)  ON DELETE CASCADE ON UPDATE CASCADE ;
