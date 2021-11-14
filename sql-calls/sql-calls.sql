@@ -74,7 +74,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
 
                 AND     clientStimwordCURRENT.teacherEmail              =       'info@englishwithoutaccent.com'
                 AND     clientStimwordCURRENT.clientMasterEmail         =       'mark@edwardsmark.com'
-                AND     clientStimwordCURRENT.sessionName               =       'Time1'
+                AND     clientStimwordCURRENT.sessionName               =       'Time2'
                 AND     clientStimwordCURRENT.layoutName                =       'PESL'
                 )
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
