@@ -90,7 +90,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordREPLICATE.stimwordPositionSetting
 
                                  ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordREPLICATE.clientContextPhoneme
-                AND     stimwordPosition.soundPhoneme                   =       clientStimwordREPLICATE.sounfPhoneme
+                AND     stimwordPosition.soundPhoneme                   =       clientStimwordREPLICATE.soundPhoneme
 
                 AND     clientStimwordREPLICATE.teacherEmail            =       'info@englishwithoutaccent.com'
                 AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark@edwardsmark.com'
