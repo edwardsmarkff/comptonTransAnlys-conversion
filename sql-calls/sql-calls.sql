@@ -73,7 +73,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     stimwordPosition.soundPhoneme                    =       clientStimwordCURRENT.soundPhoneme
 
                 AND     clientStimwordCURRENT.teacherEmail              =       'info@englishwithoutaccent.com'
-                AND     clientStimwordCURRENT.clientMasterEmail         =       'mark@edwardsmark.com'
+                AND     clientStimwordCURRENT.clientMasterEmail         =       'mark---7299@edwardsmark.com'
                 AND     clientStimwordCURRENT.sessionName               =       'Time2'
                 AND     clientStimwordCURRENT.layoutName                =       'PESL'
                 )
@@ -93,7 +93,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     stimwordPosition.soundPhoneme                   =       clientStimwordREPLICATE.soundPhoneme
 
                 AND     clientStimwordREPLICATE.teacherEmail            =       'info@englishwithoutaccent.com'
-                AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark@edwardsmark.com'
+                AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark---7299@edwardsmark.com'
                 AND     clientStimwordREPLICATE.sessionName             =       'Time1'
                 AND     clientStimwordREPLICATE.layoutName              =       'PESL'
                 )
