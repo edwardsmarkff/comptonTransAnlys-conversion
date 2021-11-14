@@ -14,6 +14,9 @@
         SELECT 'clientMaster'                           ;
         SELECT COUNT(*) FROM    clientMaster            ;
         
+        SELECT 'clientSession'                          ;
+        SELECT COUNT(*) FROM    clientSession           ;
+        
         SELECT 'clientStimword'                         ;
         SELECT COUNT(*) FROM    clientStimword          ;
         
