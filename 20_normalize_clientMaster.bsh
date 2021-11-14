@@ -1,6 +1,6 @@
 #!  /bin/bash -w
 
-#        13_normalize_clientMaster.bsh
+#        20_normalize_clientMaster.bsh
         
 #       2021-11-14
 
@@ -122,7 +122,7 @@ SET FOREIGN_KEY_CHECKS=1 ;
 
 END
 
-echo 'end of 13_normalize_clientMaster.bsh' ;
+echo 'end of 20_normalize_clientMaster.bsh' ;
 
 exit;
 
