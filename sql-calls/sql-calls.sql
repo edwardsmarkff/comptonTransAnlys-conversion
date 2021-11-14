@@ -50,7 +50,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 ,       stimwordPosition.stimwordPositionBdrColor
                 ,       stimwordPosition.stimwordPositionBdrStyle
                 ,       stimwordPosition.stimwordPositionBdrThickness
-                ,       stimwordPosition.stimwordPositionPhoneme
+                ,       stimwordPosition.soundPhoneme
                 ,       stimwordPosition.stimwordPageNbr                        'stimwordPageNbr'
                 ,       stimwordPosition.stimwordLineNbr                        'stimwordLineNbr'
                 ,       stimwordPosition.stimwordPositionAutoIncr               'stimwordPositionAutoIncr'
