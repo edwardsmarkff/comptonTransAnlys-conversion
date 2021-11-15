@@ -18,6 +18,7 @@ UPDATE	\`clientSession\`
 	AND	clientMasterEmail		= 'wenchi2005@gmail.com'
 	AND	layoutName 			= 'PESL'
 	AND	clientMasterSpecLanguage 	= 'Japanese'
+	;
 
 
 CREATE TABLE \`clientMaster\` ENGINE=InnoDB DEFAULT CHARSET=latin1
