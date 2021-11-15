@@ -82,7 +82,7 @@ END
 mariadb    --verbose  comptonTransAnlys  <<END ;
 
   ## move the client_master emails over to the Client_master_client_name
-  UPDATE Client_master SET Client_master_client_name = Client_master_email ;
+  UPDATE Client_master SET Client_master_client_name = lower(Client_master_email)   ;
 END
 
 mariadb    --verbose  comptonTransAnlys  <<END ;
