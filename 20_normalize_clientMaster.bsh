@@ -64,15 +64,14 @@ ALTER TABLE \`clientSession\` DROP KEY	\`sessionNames_2_clientMaster\`									;
 
 ALTER TABLE \`clientSession\` ADD COLUMN    \`clientMasterAutoIncr\` INT(11)  NOT NULL AFTER \`updatedAt\` ;
 
-INSERT INTO \`clientSession\` (\`clientMasterAutoIncr\`)
-		SELECT	DISTINCT \`clientMaster\`.\`clientMasterAutoIncr\`
-		FROM		\`clientMaster\`
-			,	\`clientSession\`
-		WHERE	1
-        	AND		\`clientMaster\`.\`teacherEmail\`		=	\`clientSession\`.\`teacherEmail\`
-        	AND		\`clientMaster\`.\`clientMasterEmail\`		=	\`clientSession\`.\`clientMasterEmail\`
-        	AND		\`clientMaster\`.\`layoutName\`			=	\`clientSession\`.\`layoutName\`
-        	;
+UPDATE          \`clientMaster\`
+        ,       \`clientSession\`
+        SET     \`clientSession\`.\`clientMasterAutoIncr\`              =       \`clientMaster\`.\`clientMasterAutoIncr\`
+        WHERE   1
+        AND             \`clientMaster\`.\`teacherEmail\`               =       \`clientSession\`.\`teacherEmail\`
+        AND             \`clientMaster\`.\`clientMasterEmail\`          =       \`clientSession\`.\`clientMasterEmail\`
+        AND             \`clientMaster\`.\`layoutName\`                 =       \`clientSession\`.\`layoutName\`
+        ;
 
 ALTER TABLE \`clientSession\`		ADD CONSTRAINT	\`clientMasterAutoIncr_2_clientSession\`
 					FOREIGN KEY				( \`clientMasterAutoIncr\` )	
@@ -96,14 +95,14 @@ ALTER TABLE \`clientSession\`		ADD CONSTRAINT \`sessionNames_2_clientSession\`
 
 -- clientContext
 
-ALTER TABLE \`clientContext\` RENAME COLUMN \`clientMasterAutoIncr\` TO \`clientSessionAutoIncr\`	;
+ALTER TABLE \`clientContext\` RENAME COLUMN \`clientMasterAutoIncr\` TO \`clientSessionAutoIncr\`			;
 
-ALTER TABLE \`clientContext\` DROP CONSTRAINT \`clientMasterAutoIncr_2_clientContext\`			;
-ALTER TABLE \`clientContext\` DROP CONSTRAINT \`clientMasterMiscKeys_2_clientContext\`			;
-ALTER TABLE \`clientContext\` DROP KEY		\`clientMasterAutoIncr_2_clientContext\` 		;
-ALTER TABLE \`clientContext\` DROP KEY		\`clientMasterMiscKeys_2_clientContext\`		;
+ALTER TABLE \`clientContext\` DROP CONSTRAINT IF EXISTS	\`clientMasterAutoIncr_2_clientContext\`			;
+ALTER TABLE \`clientContext\` DROP CONSTRAINT IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`			;
+ALTER TABLE \`clientContext\` DROP KEY			\`clientMasterAutoIncr_2_clientContext\` 			;
+ALTER TABLE \`clientContext\` DROP KEY			\`clientMasterMiscKeys_2_clientContext\`			;
 
-ALTER TABLE \`clientContext\` ADD UNIQUE KEY \`clientSessionAutoIncr_2_clientContext\` ( \`clientSessionAutoIncr\` ) ;
+ALTER TABLE \`clientContext\` ADD UNIQUE KEY \`clientSessionAutoIncr_2_clientContext\` ( \`clientSessionAutoIncr\` )	;
 
 ALTER TABLE \`clientContext\`	ADD CONSTRAINT \`clientSessionAutoIncr_2_clientContext\`
 				FOREIGN KEY 			( \`clientSessionAutoIncr\` )
