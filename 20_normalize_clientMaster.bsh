@@ -11,6 +11,15 @@ SET FOREIGN_KEY_CHECKS=0 ;
 
 RENAME TABLE \`clientMaster\` TO \`clientSession\`	;
 
+UPDATE	\`clientSession\`
+	SET	\`clientMasterSpecLanguage\` = 'Mandarin'
+	WHERE	1
+	AND	\`teacherEmail\`		= 'sl@vocaleasecommunications.com'
+	AND	clientMasterEmail		= 'wenchi2005@gmail.com'
+	AND	layoutName 			= 'PESL'
+	AND	clientMasterSpecLanguage 	= 'Japanese'
+
+
 CREATE TABLE \`clientMaster\` ENGINE=InnoDB DEFAULT CHARSET=latin1
 	AS
 	SELECT DISTINCT			\`teacherEmail\`
