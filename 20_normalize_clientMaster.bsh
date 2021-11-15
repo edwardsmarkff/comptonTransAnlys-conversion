@@ -102,6 +102,7 @@ ALTER TABLE \`clientContext\` DROP CONSTRAINT	IF EXISTS	\`clientMasterMiscKeys_2
 ALTER TABLE \`clientContext\` DROP KEY		IF EXISTS	\`clientMasterAutoIncr_2_clientContext\` 			;
 ALTER TABLE \`clientContext\` DROP KEY		IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`			;
 
+
 ALTER TABLE \`clientContext\` ADD UNIQUE KEY \`clientSessionAutoIncr_2_clientContext\` ( \`clientSessionAutoIncr\` )		;
 
 ALTER TABLE \`clientContext\`	ADD CONSTRAINT \`clientSessionAutoIncr_2_clientContext\`
