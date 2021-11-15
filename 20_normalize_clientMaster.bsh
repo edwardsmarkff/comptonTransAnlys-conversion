@@ -28,6 +28,15 @@ UPDATE \`clientSession\`
 	AND \`layoutName\`		= 'PESL'
 	AND \`clientMasterSpecLanguage\` = 'Marathi'
 	;
+	
+UPDATE \`clientSession\`
+	SET \`clientMasterSpecLanguage\` = 'Hindi'
+	WHERE 1
+	AND \`teacherEmail\`		= 'ahartmann@chsc.org'
+	AND \`clientMasterEmail\`	= 'j_masurekar@noEmail.com'
+	AND \`layoutName\`		= 'PESL'
+	AND \`clientMasterSpecLanguage\` = 'Marathi'
+	;
 
 CREATE TABLE \`clientMaster\` ENGINE=InnoDB DEFAULT CHARSET=latin1
 	AS
