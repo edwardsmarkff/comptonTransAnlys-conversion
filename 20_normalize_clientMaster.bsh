@@ -9,6 +9,8 @@
 
 SET FOREIGN_KEY_CHECKS=0 ;
 
+	-- delete columns where language and master-name are NOT equal.
+	
 UPDATE		\`clientMaster\`	\`a\`
 	, 	\`clientMaster\`	\`b\`
         SET   \`a\`.\`clientMasterSpecLanguage\`	= ''
