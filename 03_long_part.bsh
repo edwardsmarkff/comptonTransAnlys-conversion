@@ -95,7 +95,7 @@ mariadb    --verbose  comptonTransAnlys  <<END ;
   UPDATE Teacher SET Teacher_legacy_name = Teacher_name;
 
   ## move the Teacher_email to the Teacher_name
-  UPDATE Teacher SET Teacher_name = Teacher_email ;
+  UPDATE Teacher SET Teacher_name = lower(Teacher_email( ;
 END
 
 
@@ -103,8 +103,8 @@ mariadb    --verbose  comptonTransAnlys  <<END ;
 
  ## delete the old email columns:
  --  drop-all-email-columns.sql
-  ALTER TABLE Teacher DROP COLUMN Teacher_email;
-  ALTER TABLE Client_master DROP COLUMN Client_master_email;
+  ALTER TABLE Teacher         DROP COLUMN Teacher_email;
+  ALTER TABLE Client_master   DROP COLUMN Client_master_email;
 
   ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_1   VARBINARY(20) NOT NULL;
   ALTER TABLE Language_norms     MODIFY COLUMN   Language_norms_target_sound_2   VARBINARY(20) NOT NULL;
