@@ -11,33 +11,16 @@ SET FOREIGN_KEY_CHECKS=0 ;
 
 RENAME TABLE \`clientMaster\` TO \`clientSession\`	;
 
-UPDATE	\`clientSession\`
-	SET	\`clientMasterSpecLanguage\` = 'Mandarin'
-	WHERE	1
-	AND	\`teacherEmail\`		= 'sl@vocaleasecommunications.com'
-	AND	clientMasterEmail		= 'wenchi2005@gmail.com'
-	AND	layoutName 			= 'PESL'
-	AND	clientMasterSpecLanguage 	= 'Japanese'
-	;
-
-UPDATE \`clientSession\`
-	SET \`clientMasterSpecLanguage\` = 'Hindi'
-	WHERE 1
-	AND \`teacherEmail\`		= 'ahartmann@chsc.org'
-	AND \`clientMasterEmail\`	= 'g_masurekar@noEmail.com'
-	AND \`layoutName\`		= 'PESL'
-	AND \`clientMasterSpecLanguage\` = 'Marathi'
-	;
+UPDATE \`clientSession\` \`a\`, \`clientSession\` \`b\`
+        SET   \`a\`.\`clientMasterSpecLanguage\`	= ''
+        ,     \`b\`.\`clientMasterSpecLanguage\`	= ''
+        WHERE 1
+        AND  \`a\`.\`teacherEmail\`			=  \`b\`.\`teacherEmail\`
+        AND  \`a\`.\`clientMasterEmail\`		=  \`b\`.\`clientMasterEmail\`
+        AND  \`a\`.\`layoutName\`			=  \`b\`.\`layoutName\`
+	AND  \`a\`.\`clientMasterSpecLanguage\`		!= \`b\`.\`clientMasterSpecLanguage\`
+        ;
 	
-UPDATE \`clientSession\`
-	SET \`clientMasterSpecLanguage\` = 'Hindi'
-	WHERE 1
-	AND \`teacherEmail\`		= 'ahartmann@chsc.org'
-	AND \`clientMasterEmail\`	= 'j_masurekar@noEmail.com'
-	AND \`layoutName\`		= 'PESL'
-	AND \`clientMasterSpecLanguage\` = 'Marathi'
-	;
-
 CREATE TABLE \`clientMaster\` ENGINE=InnoDB DEFAULT CHARSET=latin1
 	AS
 	SELECT DISTINCT			\`teacherEmail\`
