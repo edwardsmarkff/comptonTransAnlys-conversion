@@ -75,8 +75,8 @@ INSERT INTO \`clientSession\` (\`clientMasterAutoIncr\`)
         	;
 
 ALTER TABLE \`clientSession\`		ADD CONSTRAINT	\`clientMasterAutoIncr_2_clientSession\`
-					FOREIGN KEY			( \`clientMasterAutoIncr\` )	
-					REFERENCES clientMaster		( \`clientMasterAutoIncr\` )
+					FOREIGN KEY				( \`clientMasterAutoIncr\` )	
+					REFERENCES \`clientMaster\`		( \`clientMasterAutoIncr\` )
 					ON DELETE CASCADE ON UPDATE CASCADE
 					;
 					
