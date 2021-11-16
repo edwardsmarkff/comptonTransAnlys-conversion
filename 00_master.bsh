@@ -129,7 +129,7 @@ bash -vx  15_add_layout_table_and_keys.bsh         > 15_add_layout_table_and_key
 grep '^ERROR'                                      15_add_layout_table_and_keys.bsh.log             ;
 
 echo $(date) ' - 20_normalize_clientMaster.bsh'                                                     ;
-bash -vx  13_normalize_clientMaster.bsh            > 20_normalize_clientMaster.bsh  2>&1            ;
+bash -vx  13_normalize_clientMaster.bsh            > 20_normalize_clientMaster.bsh.log  2>&1        ;
 grep '^ERROR'                                      20_normalize_clientMaster.bsh.log                ;
 
 echo $(date) ' - 50_display_table_counts.bsh'                                                      ;
