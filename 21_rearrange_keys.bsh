@@ -1,3 +1,14 @@
+#!  /bin/bash -w
+
+#        21_rearrange_keys.bsh
+        
+#       2021-11-16
+
+
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
+
+##SET FOREIGN_KEY_CHECKS=0 ;
+
 ALTER TABLE clientMaster   MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL ;
 
 
