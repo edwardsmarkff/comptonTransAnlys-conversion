@@ -95,7 +95,7 @@ mariadb    --verbose  comptonTransAnlys  <<END ;
   UPDATE Teacher SET Teacher_legacy_name = Teacher_name;
 
   ## move the Teacher_email to the Teacher_name
-  UPDATE Teacher SET Teacher_name = lower(Teacher_email( ;
+  UPDATE Teacher SET Teacher_name = lower(Teacher_email) ;
 END
 
 
