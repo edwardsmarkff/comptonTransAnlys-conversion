@@ -9,44 +9,44 @@
 
 ##SET FOREIGN_KEY_CHECKS=0 ;
 
-ALTER TABLE clientMaster   MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL ;
+ALTER TABLE clientMaster   MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                             ;
 
 
 -- clientSession
 
-ALTER TABLE clientSession  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL ;
+ALTER TABLE clientSession  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                             ;
 
-ALTER TABLE clientSession  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL ;
+ALTER TABLE clientSession  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                                                        ;
 
-ALTER TABLE clientSession   MODIFY COLUMN layoutName CHAR(4) NOT NULL AFTER clientMasterEmail ;
+ALTER TABLE clientSession   MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                   AFTER clientMasterEmail         ;
 
 
 --  clientContext
 
-ALTER TABLE clientContext  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL ;
+ALTER TABLE clientContext  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                             ;
 
-ALTER TABLE clientContext  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL ;
+ALTER TABLE clientContext  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                                                        ;
 
-ALTER TABLE clientContext  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL ;
+ALTER TABLE clientContext  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                                                               ;
 
-ALTER TABLE clientContext  MODIFY COLUMN layoutName CHAR(4) NOT NULL AFTER clientMasterEmail ;
+ALTER TABLE clientContext  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                    AFTER clientMasterEmail         ;
 
 
 -- clientStimword
 
-ALTER TABLE clientStimword  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL ;
+ALTER TABLE clientStimword  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                            ;
 
-ALTER TABLE clientStimword  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL ;
+ALTER TABLE clientStimword  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                                                       ;
 
-ALTER TABLE clientStimword  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL ;
+ALTER TABLE clientStimword  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                   AFTER clientMasterEmail         ;
 
-ALTER TABLE clientStimword  MODIFY COLUMN layoutName CHAR(4) NOT NULL AFTER clientMasterEmail ;
+ALTER TABLE clientStimword  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                              AFTER layoutName                ;
 
-ALTER TABLE clientStimword  MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' AFTER layoutName ;
+ALTER TABLE clientStimword  MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''            AFTER layoutName                ;
 
-ALTER TABLE clientStimword  MODIFY COLUMN contextPosition VARCHAR(20) NOT NULL AFTER soundPhoneme ;
+ALTER TABLE clientStimword  MODIFY COLUMN contextPosition VARCHAR(20) NOT NULL                                                          AFTER soundPhoneme              ;
 
-ALTER TABLE clientStimword  MODIFY COLUMN clientContextError CHAR(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT '' AFTER contextPosition ;
+ALTER TABLE clientStimword  MODIFY COLUMN clientContextError CHAR(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''      AFTER contextPosition           ;
 
 
 END
