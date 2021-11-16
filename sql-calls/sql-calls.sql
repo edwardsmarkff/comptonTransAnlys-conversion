@@ -1,41 +1,25 @@
-               Eval_master             =>      stimwordPosition
-                Client_anlys_detail     =>      clientContext
-                Client_eval_detail      =>      clientStimword
-
-
-                                stimwordPosition                        clientStimword
-                                ================                        ==============
-Eval_master_stimulus_word    => stimwordPositionWord            ==      clientPositionWord
-Eval_master_position         => stimwordPostionName             ==      clientContextPositionName (!!!!!)  clientContextPosition                (????)
-Eval_master_position_nbr     => stimwordPositionNbr             ==      clientStimwordPostionNbr
-Eval_master_context          => stimwordPositionSetting         ==      clientStimwordSetting
-
-
-`stimwordPositionWord` char(25) NOT NULL,
-`stimwordPositionName` varchar(20) NOT NULL,
-`stimwordPositionNbr` tinyint(3) unsigned NOT NULL,
-`stimwordPositionSetting` char(20) NOT NULL,
-
-`clientStimwordWord` char(25) NOT NULL,
-`clientContextPositionName` varchar(20) NOT NULL,
-`clientStimwordPositionNbr` tinyint(3) unsigned NOT NULL,
-`clientStimwordSetting` char(20) NOT NULL,
 
 
 
 
 
-                SELECT  DISTINCT ''
-                ,       stimwordPosition.stimwordPageNbr
-                ,       stimwordPosition.stimwordLineNbr
-                ,       stimwordPosition.stimwordWord
-                FROM    stimwordPosition
+         SELECT  DISTINCT ''
+                ,       stimword.stimwordPageNbr
+                ,       stimword.stimwordLineNbr
+                ,       stimword.stimwordWord
+                FROM    stimword
+				,		stimwordPosition
                 WHERE   1
-                AND     layoutName                      = 'PESL'
-                AND     stimwordPageNbr                 BETWEEN  0 AND  1000
+                AND		stimword.layoutName			=	stimwordPosition.layoutName
+                AND		stimword.stimwordPageNbr	=	stimwordPosition.stimwordPageNbr
+                AND		stimword.stimwordLineNbr	=	stimwordPosition.stimwordLineNbr
+                AND		stimword.stimwordWord		=	stimwordPosition.stimwordWord
+                AND     stimword.layoutName                      = 'PESL'
+                AND     stimword.stimwordPageNbr                 BETWEEN  0 AND  1000
                 ORDER BY
                         stimwordPosition.stimwordPositionAutoIncr
                 ;
+		
 
 
 
@@ -124,6 +108,7 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 WHERE   1=1
                 AND     Session_names.Session_name                              =       'Time1'
                 ;
+
 
 
 OLD OLD OLD OLD OLD OLD OLD
@@ -227,3 +212,31 @@ UNUSED UNUSED UNUSED UNUSED
                         Phonetic_spelling_order_nbr
                 ;
 UNUSED UNUSED UNUSED UNUSED
+
+
+
+
+
+               Eval_master             =>      stimwordPosition
+                Client_anlys_detail     =>      clientContext
+                Client_eval_detail      =>      clientStimword
+
+
+                                stimwordPosition                        clientStimword
+                                ================                        ==============
+Eval_master_stimulus_word    => stimwordPositionWord            ==      clientPositionWord
+Eval_master_position         => stimwordPostionName             ==      clientContextPositionName (!!!!!)  clientContextPosition                (????)
+Eval_master_position_nbr     => stimwordPositionNbr             ==      clientStimwordPostionNbr
+Eval_master_context          => stimwordPositionSetting         ==      clientStimwordSetting
+
+
+`stimwordPositionWord` char(25) NOT NULL,
+`stimwordPositionName` varchar(20) NOT NULL,
+`stimwordPositionNbr` tinyint(3) unsigned NOT NULL,
+`stimwordPositionSetting` char(20) NOT NULL,
+
+`clientStimwordWord` char(25) NOT NULL,
+`clientContextPositionName` varchar(20) NOT NULL,
+`clientStimwordPositionNbr` tinyint(3) unsigned NOT NULL,
+`clientStimwordSetting` char(20) NOT NULL,
+
