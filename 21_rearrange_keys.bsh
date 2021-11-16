@@ -9,6 +9,15 @@
 
 ##SET FOREIGN_KEY_CHECKS=0 ;
 
+-- languageNorms
+
+ALTER TABLE languageNorms   MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''            AFTER  layoutName               ;
+
+ALTER TABLE languageNorms   MODIFY COLUMN languageNormsName  VARCHAR(30) NOT NULL                                                       AFTER  contextPosition          ;
+
+
+-- clientMaster
+
 ALTER TABLE clientMaster   MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                             ;
 
 
