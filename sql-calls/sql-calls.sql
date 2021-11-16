@@ -39,11 +39,9 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
 
 
 
-
-
-                SELECT  ALL ''
-                ,       stimwordPosition.stimwordWord                           'StimwordWord'
-                ,       stimwordPosition.contextPosition                        'contextPosition'
+             SELECT  ALL ''
+                ,       stimwordPosition.stimwordWord                   
+                ,       stimwordPosition.contextPosition
                 ,       stimwordPosition.stimwordPositionNbr                    'stimwordPositionNbr'
                 ,       stimwordPosition.stimwordPositionSetting
                 ,       stimwordPosition.stimwordPositionBackgroundColor
@@ -51,35 +49,38 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 ,       stimwordPosition.stimwordPositionBdrStyle
                 ,       stimwordPosition.stimwordPositionBdrThickness
                 ,       stimwordPosition.soundPhoneme
-                ,       stimwordPosition.stimwordPageNbr                        'stimwordPageNbr'
-                ,       stimwordPosition.stimwordLineNbr                        'stimwordLineNbr'
+                ,       stimwordPosition.stimwordPageNbr      	                'stimwordPositionPageNbr'
                 ,       stimwordPosition.stimwordPositionAutoIncr               'stimwordPositionAutoIncr'
+                
                 ,       clientStimwordCURRENT.clientContextError                'clientContextError CURRENT'
-                ,       clientStimwordREPLICATE.clientContextError              'clientContextError REPLICATE'
+
+                ,       clientStimwordREPLICATE.clientContextError                'clientContextError REPLICATE'
+
                 FROM    stimwordPosition
                 LEFT OUTER JOIN clientStimword clientStimwordCURRENT ON
                 (       1
-                            -- AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordCURRENT.stimwordPositionAutoIncr
+                AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordCURRENT.stimwordPositionAutoIncr
                 AND     stimwordPosition.layoutName                     =       clientStimwordCURRENT.layoutName
-                AND     stimwordPosition.stimwordPageNbr                =       clientStimwordCURRENT.stimwordPageNbr
-                AND     stimwordPosition.stimwordLineNbr                =       clientStimwordCURRENT.stimwordLineNbr
-                AND     stimwordPosition.stimwordWord                   =       clientStimwordCURRENT.stimwordWord
+                AND     stimwordPosition.stimwordPageNbr        	    =       clientStimwordCURRENT.stimwordPageNbr
+                AND     stimwordPosition.stimwordLineNbr        	    =       clientStimwordCURRENT.stimwordLineNbr
+                AND     stimwordPosition.stimwordWord           	    =       clientStimwordCURRENT.stimwordWord
 
                 AND     stimwordPosition.contextPosition                =       clientStimwordCURRENT.contextPosition
                 AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordCURRENT.stimwordPositionNbr
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordCURRENT.stimwordPositionSetting
 
-                                ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordCURRENT.clientContextPhoneme
-                AND     stimwordPosition.soundPhoneme                    =       clientStimwordCURRENT.soundPhoneme
+                ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordCURRENT.clientContextPhoneme
+                ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordCURRENT.stimwordPositionPhoneme
+                AND	    stimwordPosition.soundPhoneme					            = 		clientStimwordCURRENT.soundPhoneme
 
                 AND     clientStimwordCURRENT.teacherEmail              =       'info@englishwithoutaccent.com'
-                AND     clientStimwordCURRENT.clientMasterEmail         =       'mark---7299@edwardsmark.com'
-                AND     clientStimwordCURRENT.sessionName               =       'Time2'
+                AND     clientStimwordCURRENT.clientMasterEmail         =       'mark@edwardsmark.com'
+                AND     clientStimwordCURRENT.sessionName   			=       'Time1'
                 AND     clientStimwordCURRENT.layoutName                =       'PESL'
                 )
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
                 (       1
-                            -- AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordREPLICATE.stimwordPositionAutoIncr
+                AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordREPLICATE.stimwordPositionAutoIncr
                 AND     stimwordPosition.layoutName                     =       clientStimwordREPLICATE.layoutName
                 AND     stimwordPosition.stimwordPageNbr                =       clientStimwordREPLICATE.stimwordPageNbr
                 AND     stimwordPosition.stimwordLineNbr                =       clientStimwordREPLICATE.stimwordLineNbr
@@ -89,16 +90,17 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
                 AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordREPLICATE.stimwordPositionNbr
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordREPLICATE.stimwordPositionSetting
 
-                                 ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordREPLICATE.clientContextPhoneme
-                AND     stimwordPosition.soundPhoneme                   =       clientStimwordREPLICATE.soundPhoneme
+                ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordREPLICATE.clientContextPhoneme
+                ## AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordREPLICATE.stimwordPositionPhoneme
+				        AND	    stimwordPosition.soundPhoneme					          =		clientStimwordREPLICATE.soundPhoneme
 
                 AND     clientStimwordREPLICATE.teacherEmail            =       'info@englishwithoutaccent.com'
-                AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark---7299@edwardsmark.com'
-                AND     clientStimwordREPLICATE.sessionName             =       'Time1'
+                AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark@edwardsmark.com'
+                AND     clientStimwordREPLICATE.sessionName 			      =       'Time1'
                 AND     clientStimwordREPLICATE.layoutName              =       'PESL'
                 )
                 WHERE   1                       /* dummy first one */
-                AND     stimwordPosition.layoutName                                     =       'PESL'
+                AND     stimwordPosition.layoutName                                      =       'PESL'
                 AND     stimwordPosition.stimwordPageNbr                                =       1
                 AND     stimwordPosition.stimwordLineNbr                                =       1
                 AND     stimwordPosition.stimwordWord                                   =       'Horse'
@@ -107,6 +109,8 @@ Eval_master_context          => stimwordPositionSetting         ==      clientSt
 
 
 
+
+ 
 
 
 
