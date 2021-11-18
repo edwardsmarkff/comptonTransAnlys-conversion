@@ -12,49 +12,43 @@
 -- languageNorms
 
 ALTER TABLE languageNorms   MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''            AFTER  layoutName               ;
-
 ALTER TABLE languageNorms   MODIFY COLUMN languageNormsName  VARCHAR(30) NOT NULL                                                       AFTER  contextPosition          ;
+
+
+-- teacher
+
+ALTER TABLE teacher         MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                   FIRST                           ;
 
 
 -- clientMaster
 
-ALTER TABLE clientMaster   MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                             ;
+ALTER TABLE clientMaster   MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                    FIRST                           ;
+ALTER TABLE clientMaster   MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                             AFTER layoutName                ;
 
 
 -- clientSession
 
-ALTER TABLE clientSession  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                             ;
-
-ALTER TABLE clientSession  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                                                        ;
-
-ALTER TABLE clientSession   MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                   AFTER clientMasterEmail         ;
+ALTER TABLE clientSession  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                    FIRST                          ;
+ALTER TABLE clientSession  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                             AFTER layoutName               ;
+ALTER TABLE clientSession  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                        AFTER teacherEmail             ;
 
 
 --  clientContext
 
-ALTER TABLE clientContext  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                             ;
-
-ALTER TABLE clientContext  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                                                        ;
-
-ALTER TABLE clientContext  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                                                               ;
-
-ALTER TABLE clientContext  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                    AFTER clientMasterEmail         ;
+ALTER TABLE clientContext  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                    FIRST                           ;
+ALTER TABLE clientContext  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                             AFTER layoutName                ;
+ALTER TABLE clientContext  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                        AFTER teacherEmail              ;
+ALTER TABLE clientContext  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                               AFTER sessionName               ;
 
 
 -- clientStimword
 
-ALTER TABLE clientStimword  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                                                            ;
-
-ALTER TABLE clientStimword  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                                                       ;
-
-ALTER TABLE clientStimword  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                   AFTER clientMasterEmail         ;
-
-ALTER TABLE clientStimword  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                              AFTER layoutName                ;
-
-ALTER TABLE clientStimword  MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''            AFTER sessionName                ;
-
+ALTER TABLE clientStimword  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                   FIRST                           ;
+ALTER TABLE clientStimword  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                            AFTER layoutName                ;
+ALTER TABLE clientStimword  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                       AFTER teacherEmail              ;
+ALTER TABLE clientStimword  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                              AFTER clientMasterEmail         ;
+ALTER TABLE clientStimword  MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''            AFTER sessionName               ;
 ALTER TABLE clientStimword  MODIFY COLUMN contextPosition VARCHAR(20) NOT NULL                                                          AFTER soundPhoneme              ;
-
 ALTER TABLE clientStimword  MODIFY COLUMN clientContextError CHAR(4) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''      AFTER contextPosition           ;
 
 
