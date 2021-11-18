@@ -137,9 +137,15 @@ bash -vx   21_rearrange_keys.bsh   >  21_rearrange_keys.bsh.log   2>&1          
 grep '^ERROR'                                      21_rearrange_keys.bsh.log                       ;
  
 echo $(date) ' - 50_display_table_counts.bsh'                                                      ;
-bash -vx  50_display_table_counts.bsh           >       50_display_table_counts.bsh.log  2>&1      ;
+bash -vx  50_display_table_counts.bsh                >  50_display_table_counts.bsh.log  2>&1      ;
 grep  --line-number   '^ERROR'                          50_display_table_counts.bsh.log            ;
 grep  --line-number   '^COUNT(\|^[0-9]'                 50_display_table_counts.bsh.log            ;
+
+echo $(date) ' - 55_count_keys.bsh'                                                                ;
+bash -vx  55_count_keys.bsh.bsh                        >       55_count_keys.bsh.log  2>&1         ;
+grep  --line-number   '^ERROR'                                 55_count_keys.bsh.log               ;
+grep  --line-number   '^COUNT(\|^[0-9]'                        55_count_keys.bsh.log               ;
+
 
 echo $(date)                                                                                      ;
 
