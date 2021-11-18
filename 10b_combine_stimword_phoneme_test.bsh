@@ -14,14 +14,14 @@
 
 SELECT 'languageNorms 2 context'    ;
 SELECT COUNT(*)
-   ##   languageNormsLayoutName
-   ## , languageNormsName
-   ## , languageNormsPosition
-   ## , languageNormsPhoneme
-   ## , languageNormsAutoIncr
+                                       ##   languageNormsLayoutName
+                                       ## , languageNormsName
+                                       ## , languageNormsPosition
+                                       ## , languageNormsPhoneme
+                                       ## , languageNormsAutoIncr
 FROM languageNorms
 WHERE 1
-    ####    AND  languageNormsPosition = 'cluster'
+                                        ####    AND  languageNormsPosition = 'cluster'
 AND
 ( languageNormsLayoutName
                                                 ####, languageNormsName
@@ -39,14 +39,14 @@ WHERE 1
 AND  contextLayoutName        =  languageNormsLayoutName
 AND  contextPosition           =  languageNormsPosition
 AND  contextPhoneme    =  languageNormsPhoneme
-  ####  AND  contextPosition = 'cluster'
+                                                                          ####  AND  contextPosition = 'cluster'
 );
 
 
 
           ####   context  stimwordPosition    TEST
 
-SELECT 'context to stimwordPosition'         ;
+SELECT 'context to stimwordPosition MiscKeys'         ;
 SELECT COUNT(*)
 FROM stimwordPosition
 WHERE 1
@@ -63,7 +63,7 @@ AND  stimwordPosition.stimwordPositionPhoneme            = context.contextPhonem
 ;
 
       ### stimwordPosition  to clientStimword TEST
-SELECT 'stimwordPosition to clientStimword'  ;
+SELECT 'stimwordPosition to clientStimword MiscKeys'  ;
 SELECT COUNT(*)
 FROM clientStimword
 WHERE 1
@@ -96,7 +96,7 @@ NOT IN
 
 
 ##   context  to clientContext  TEST
-SELECT 'context to clientContext'   ;
+SELECT 'context to clientContext MiscKeys'   ;
 SELECT COUNT(*)
 FROM clientContext
 WHERE
@@ -113,7 +113,7 @@ FROM    context
 ,       clientContext
 WHERE 1
 AND  contextLayoutName     = clientMasterLayoutName
-AND  contextPhoneme  = clientContextPhoneme
+AND  contextPhoneme        = clientContextPhoneme
 AND  contextPosition        = clientContextPositionName
 )
 ;
@@ -121,7 +121,7 @@ AND  contextPosition        = clientContextPositionName
 
 
 ##  clientContext   to clientStimword  TEST
-SELECT 'clientContext to clientStimword'     ;
+SELECT 'clientContext to clientStimword MiscKeys'     ;
 SELECT COUNT(*)
 FROM  clientStimword
 WHERE 1
@@ -131,18 +131,15 @@ NOT IN
         FROM      clientContext
         ,         clientStimword
         WHERE 1
+    AND   clientContext.clientMasterLayoutName                  =       clientStimword.clientMasterLayoutName
     AND   clientContext.teacherEmail                            =       clientStimword.teacherEmail
     AND   clientContext.clientMasterEmail                       =       clientStimword.clientMasterEmail
     AND   clientContext.clientMasterSessionName                 =       clientStimword.clientMasterSessionName
-    AND   clientContext.clientMasterLayoutName                  =       clientStimword.clientMasterLayoutName
     AND   clientContext.clientContextPositionName               =       clientStimword.clientContextPositionName
     AND   clientContext.clientContextPhoneme                    =       clientStimword.clientContextPhoneme
     AND   clientContext.clientContextError                      =       clientStimword.clientContextError
-                                    --    AND   clientContext.clientContextError1                     =       clientStimword.clientContextError1
-                                    --   AND   clientContext.clientContextError2                     =       clientStimword.clientContextError2
-                                    --   AND   clientContext.clientContextError3                     =       clientStimword.clientContextError3
-                                    --    AND   clientContext.clientContextError4                     =       clientStimword.clientContextError4
 ) ;
+
 
 
 ##   sound to context   TEST
