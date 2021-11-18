@@ -9,6 +9,8 @@ to test results:
 
 grep ERROR  *.log  | grep -v ERRORS  | grep -v 'SEMANTIC ERROR' | grep -v 'ERROR LINKING' | grep -v  'SEMANTIC' ;
 
+DO WE HAVE DUPLICATE KEYS OR UNNECESSARY KEYS ???????????????????????????
+
 DAMAGED KEY FIXED 2020-10-30 -
 
 still to do:
