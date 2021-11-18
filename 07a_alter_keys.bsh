@@ -37,7 +37,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	ALTER TABLE \`Client_master\`	DROP KEY \`Client_master_teacher_email\`	;
 	ALTER TABLE \`Client_master\`
 		ADD UNIQUE INDEX	\`Client_master_unique_key\`
-				(	\`Client_master_layoutName\`
+				(	\`Client_master_layout_name\`
 				,	\`Client_master_teacher_email\`
 				, 	\`Client_master_client_email\`
 				,	\`Client_master_session_name\`
