@@ -1,6 +1,6 @@
 #! /bin/bash
 
-##      50_display_table_counts.bsh     -- 2018-02-21
+##      50_display_table_counts.bsh     -- 2021-11-01
 ##
 ##      set fileencoding=ASCII
 ##      set fileformat=unix
