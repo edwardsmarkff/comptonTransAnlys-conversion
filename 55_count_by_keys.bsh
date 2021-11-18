@@ -1,0 +1,111 @@
+
+
+SELECT 'teacher to clientMaster MISC KEYS'  ;
+SELECT COUNT(*)
+FROM  \`teacher\`
+,     \`clientMaster\`
+WHERE 1
+AND   \`teacher\`.\`layoutName\`                                      = \`clientMaster\`.\`layoutName\`
+AND   \`teacher\`.\`teacherEmail\`                                    = \`clientMaster\`.\`teacherEmail\`
+;
+SELECT 'teacher to clientMaster AutoIncr'  ;
+SELECT COUNT(*)
+FROM  \`teacher\`
+,     \`clientMaster\`
+WHERE 1
+AND   \`teacher\`.\`teacherAutoIncr\`                                 = \`clientMaster\`.\`teacherAutoIncr\`
+;
+
+SELECT 'clientMaster to clientSession Misc KEYS';
+SELECT COUNT(*)
+FROM  \`clientMaster\`
+,     \`clientSession\`
+WHERE 1
+AND   \`clientMaster\`.\`layoutName\`                                 = \`clientSession\`.\`layoutName\`
+AND   \`clientMaster\`.\`teacherEmail\`                               = \`clientSession\`.\`teacherEmail\`
+AND   \`clientMaster\`.\`clientMasterEmail\`                          = \`clientSession\`.\`clientMasterEmail\`
+;
+
+SELECT 'clientMaster to clientSession AutoIncr';
+SELECT COUNT(*)
+FROM  \`clientMaster\`
+,     \`clientSession\`
+WHERE 1
+AND   \`clientMaster\`.\`clientMasterAutoIncr\`                       = \`clientSession\`.\`clientMasterAutoIncr\`
+;
+
+
+SELECT 'clientSession to clientContext MiscKeys'  ;
+SELECT COUNT(*)
+  FROM  \`clientSession\` 
+  ,     \`clientContext\`
+  WHERE 1
+  AND   \`clientSession\`.\layoutName\`                               = \`clientContext\`.\`layoutName\`
+  AND   \`clientSession\`.\teacherEmail\`                             = \`clientContext\`.\`teacherEmail\`
+  AND   \`clientSession\`.\clientMasterEmail\`                        = \`clientContext\`.\`clientMasterEmail\`
+  AND   \`clientSession\`.\sessionName\`                              = \`clientContext\`.\`sessionName\`  
+  ;
+
+SELECT 'clientSession to clientContext AutoIncr'  ;
+SELECT COUNT(*)
+  FROM  \`clientSession\` 
+  ,     \`clientContext\`
+  WHERE 1
+  AND   \`clientSession\`.\clientSessionAutoIncr\`                    = \`clientContext\`.\`clientSessionAutoIncr\`
+  ;
+
+SELECT 'context to clientContext MiscKeys'  ;
+SELECT COUNT(*)
+FROM    \`context\`
+,       \'clientContext\`
+WHERE   1
+AND     \`context\`.\`layoutName\'                                  = \`clientContext\`.\`layoutName\`
+AND     \`context\`.\`soundPhoneme\'                                = \`clientContext\`.\`soundPhoneme\`
+AND     \`context\`.\`contextPosition\'                             = \`clientContext\`.\`contextPosition\`
+;
+SELECT 'context to clientContext AutoIncr'  ;
+SELECT COUNT(*)
+FROM    \`context\`
+,       \'clientContext\`
+WHERE   1
+AND     \`context\`.\`contextAutoIncr\'                             = \`clientContext\`.\`contextAutoIncr\`
+;
+
+
+
+  
+SELECT 'stimwordPosition to clientStimword MiscKeys' ;
+SELECT COUNT(*)
+FROM    \`stimwordPosition\`
+,       \`clientStimword\`
+WHERE   1
+AND     \`stimwordPosition\`.\`layoutName\`                             =   \`clientStimword\`.\`layoutName\`
+AND     \`stimwordPosition\`.\`stimwordPageNbr\`                        =   \`clientStimword\`.\`stimwordPageNbr\`
+AND     \`stimwordPosition\`.\`stimwordLineNbr\`                        =   \`clientStimword\`.\`stimwordLineNbr\`
+
+;
+
+
+
+SELECT 'clientContext to clientStimword MiscKeys' ;
+SELECT COUNT(*)
+    FROM      \`clientContext\`
+    ,         \`clientStimword\`
+    WHERE 1
+    AND   `\clientContext\`.\`layoutName\`                              =       \`clientStimword\`.\`layoutName\`
+    AND   \`clientContext\`.\`teacherEmail\`                            =       \`clientStimword\`.\`teacherEmail\`
+    AND   \`clientContext\`.\`clientMasterEmail\`                       =       \`clientStimword\`.\`clientMasterEmail\`
+    AND   \`clientContext\`.\`sessionName\`                             =       \`clientStimword\`.\`sessionName\`
+    AND   \`clientContext\`.\`contextPosition\`                         =       \`clientStimword\`.\`contextPosition\`
+    AND   \`clientContext\`.\`soundPhoneme\`                            =       \`clientStimword\`.\`soundPhoneme\`
+    AND   \`clientContext\`.\`clientContextError\`                      =       \`clientStimword\`.\`clientContextError\`
+    ;
+    
+    
+SELECT 'clientContext to clientStimword AutoIncr' ;
+SELECT COUNT(*)
+        FROM      \`clientContext\`
+        ,         \`clientStimword\`
+        WHERE 1
+    AND   `\clientContext\`.\`clientContextAutoIncr\`                  =       \`clientStimword\`.\`clientContextAutoIncr\`    
+    ;
