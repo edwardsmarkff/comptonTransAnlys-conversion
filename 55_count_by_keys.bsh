@@ -161,19 +161,19 @@ AND     \`context\`.\`contextPosition\`                             = \`clientCo
 SELECT 'context to clientContext AutoIncr'  ;
 SELECT COUNT(*)
 FROM    \`context\`
-,       \'clientContext\`
+,       \`clientContext\`
 WHERE   1
-AND     \`context\`.\`contextAutoIncr\'                             = \`clientContext\`.\`contextAutoIncr\`
+AND     \`context\`.\`contextAutoIncr\`                             = \`clientContext\`.\`contextAutoIncr\`
 ;
 SELECT 'context to clientContext BOTH'  ;
 SELECT COUNT(*)
 FROM    \`context\`
 ,       \'clientContext\`
 WHERE   1
-AND     \`context\`.\`contextAutoIncr\'                             = \`clientContext\`.\`contextAutoIncr\`
-AND     \`context\`.\`layoutName\'                                  = \`clientContext\`.\`layoutName\`
-AND     \`context\`.\`soundPhoneme\'                                = \`clientContext\`.\`soundPhoneme\`
-AND     \`context\`.\`contextPosition\'                             = \`clientContext\`.\`contextPosition\`
+AND     \`context\`.\`contextAutoIncr\`                             = \`clientContext\`.\`contextAutoIncr\`
+AND     \`context\`.\`layoutName\`                                  = \`clientContext\`.\`layoutName\`
+AND     \`context\`.\`soundPhoneme\`                                = \`clientContext\`.\`soundPhoneme\`
+AND     \`context\`.\`contextPosition\`                             = \`clientContext\`.\`contextPosition\`
 ;
 
 
