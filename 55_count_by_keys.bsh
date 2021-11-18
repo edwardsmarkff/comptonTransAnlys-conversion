@@ -168,7 +168,7 @@ AND     \`context\`.\`contextAutoIncr\`                             = \`clientCo
 SELECT 'context to clientContext BOTH'  ;
 SELECT COUNT(*)
 FROM    \`context\`
-,       \'clientContext\`
+,       \`clientContext\`
 WHERE   1
 AND     \`context\`.\`contextAutoIncr\`                             = \`clientContext\`.\`contextAutoIncr\`
 AND     \`context\`.\`layoutName\`                                  = \`clientContext\`.\`layoutName\`
