@@ -18,10 +18,11 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 
 	ALTER TABLE \`Teacher\`			DROP KEY IF EXISTS \`PRIMARY\`					;  -- 2021-06-03
 	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`PRIMARY\`					;
-	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`PRIMARY\`					;
-	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`Stimword_position_auto_increment\`		;
+	
+	###ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`Stimword_position_auto_increment\`		;
 	ALTER TABLE \`Stimword_position\`	ADD PRIMARY KEY ( \`Stimword_position_auto_increment\`)		;
 	
+	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`Stimword_position_unique_key\`		;
 	ALTER TABLE \`Stimword_position\`
 		ADD UNIQUE INDEX	\`Stimword_position_unique_key\`
 				(	\`Stimword_position_layout_name\`
@@ -30,13 +31,13 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Stimword_position_stimword\`
 				,	\`Stimword_position_position\`
 				,	\`Stimword_position_position_nbr\`
-				,	\`Stimword_position_setting\`
+				,	\`Stimword_position_setting\`kkkkkkkkkkkkkkkkkkkkkkk
 				,	\`Stimword_position_phoneme\`
 				)
 				;
 	
 
-	ALTER TABLE \`Client_master\`	DROP KEY IF EXISTS \`Client_master_teacher_email\`	;
+	ALTER TABLE \`Client_master\`	DROP KEY IF EXISTS \`Client_master_unique_key\`	;
 	ALTER TABLE \`Client_master\`
 		ADD UNIQUE INDEX	\`Client_master_unique_key\`
 				(	\`Client_master_layout_name\`
@@ -57,7 +58,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	
 
 	ALTER TABLE \`Language_norms\`
-		DROP KEY IF EXISTS \`Language_norms_layout_name\`
+		DROP KEY IF EXISTS \`Language_norms_NONunique_key\`
 		;
 	ALTER TABLE \`Language_norms\`
 		ADD KEY	\`Language_norms_NONunique_key\`
@@ -69,7 +70,8 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		;
 
 
-	ALTER TABLE \`Sound\` DROP KEY IF EXISTS \`Sound_key\`;
+	ALTER TABLE \`Sound\` DROP KEY IF EXISTS \`Sound_key\`					;
+	ALTER TABLE \`Sound\` DROP KEY IF EXISTS \`Sound_unique_key\`					;
 	ALTER TABLE \`Sound\`
 		ADD UNIQUE INDEX	\`Sound_unique_key\`
 				(	\`Sound_layout_name\`
@@ -79,9 +81,9 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	
 
 
-	ALTER TABLE \`Client_master\`   MODIFY COLUMN \`Client_master_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
-	ALTER TABLE \`Client_context\`  MODIFY COLUMN \`Client_context_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
-	ALTER TABLE \`Client_stimword\` MODIFY COLUMN \`Client_stimword_auto_increment\` INT UNSIGNED NOT NULL AUTO_INCREMENT;
+	ALTER TABLE \`Client_master\`   MODIFY COLUMN \`Client_master_auto_increment\`		INT UNSIGNED NOT NULL AUTO_INCREMENT	;
+	ALTER TABLE \`Client_context\`  MODIFY COLUMN \`Client_context_auto_increment\`		INT UNSIGNED NOT NULL AUTO_INCREMENT	;
+	ALTER TABLE \`Client_stimword\` MODIFY COLUMN \`Client_stimword_auto_increment\` 	INT UNSIGNED NOT NULL AUTO_INCREMENT	;
 
 		--2021-10-12
 	ALTER TABLE \`Client_context\`  DROP INDEX IF EXISTS   \`Client_context_sounds_unique_index\`   ;
