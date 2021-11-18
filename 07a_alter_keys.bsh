@@ -16,9 +16,11 @@
 
 mariadb  --verbose   comptonTransAnlys   <<END;
 
-	ALTER TABLE \`Teacher\`   DROP PRIMARY KEY  ;  -- 2021-06-03
-	ALTER TABLE \`Stimword_position\`  DROP PRIMARY KEY 						;
-	ALTER TABLE \`Stimword_position\` ADD PRIMARY KEY ( \`Stimword_position_auto_increment\`)	;
+	ALTER TABLE \`Teacher\`			DROP KEY IF EXISTS \`PRIMARY\`					;  -- 2021-06-03
+	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`PRIMARY\`					;
+	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`PRIMARY\`					;
+	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`Stimword_position_auto_increment\`		;
+	ALTER TABLE \`Stimword_position\`	ADD PRIMARY KEY ( \`Stimword_position_auto_increment\`)		;
 	
 	ALTER TABLE \`Stimword_position\`
 		ADD UNIQUE INDEX	\`Stimword_position_unique_key\`
@@ -34,7 +36,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				;
 	
 
-	ALTER TABLE \`Client_master\`	DROP KEY \`Client_master_teacher_email\`	;
+	ALTER TABLE \`Client_master\`	DROP KEY IF EXISTS \`Client_master_teacher_email\`	;
 	ALTER TABLE \`Client_master\`
 		ADD UNIQUE INDEX	\`Client_master_unique_key\`
 				(	\`Client_master_layout_name\`
@@ -44,6 +46,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				)
 				;
 
+	ALTER TABLE \`Context\`		DROP KEY IF EXISTS 	\`Context_unique_key\`		;
 	ALTER TABLE \`Context\`
 		ADD UNIQUE INDEX	\`Context_unique_key\`
 				(	\`Context_layout_name\`
@@ -54,7 +57,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	
 
 	ALTER TABLE \`Language_norms\`
-		DROP KEY \`Language_norms_layout_name\`
+		DROP KEY IF EXISTS \`Language_norms_layout_name\`
 		;
 	ALTER TABLE \`Language_norms\`
 		ADD KEY	\`Language_norms_NONunique_key\`
@@ -66,7 +69,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		;
 
 
-	ALTER TABLE \`Sound\` DROP KEY \`Sound_key\`;
+	ALTER TABLE \`Sound\` DROP KEY IF EXISTS \`Sound_key\`;
 	ALTER TABLE \`Sound\`
 		ADD UNIQUE INDEX	\`Sound_unique_key\`
 				(	\`Sound_layout_name\`
@@ -161,7 +164,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 
 	UPDATE \`Client_stimword\`
 	INNER JOIN \`Client_context\`
-	SET \`Client_stimword\`.\`Client_context_auto_increment\`     = \`Client_context\`.\`Client_context_auto_increment\`
+	SET \`Client_stimword\`.\`Client_context_auto_increment\`     	= \`Client_context\`.\`Client_context_auto_increment\`
 	WHERE 1
 	AND \`Client_stimword\`.\`Client_stimword_layout_name\`         = \`Client_context\`.\`Client_context_layout_name\`
 	AND \`Client_stimword\`.\`Client_stimword_teacher_email\`       = \`Client_context\`.\`Client_context_teacher_email\`
