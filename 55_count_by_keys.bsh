@@ -1,3 +1,12 @@
+#! /bin/bash
+
+##      55_count_by_keys.bsh     -- 2021-11-18
+##
+##      set fileencoding=ASCII
+##      set fileformat=unix
+
+
+/usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 
 SELECT 'stimword to stimwordPosition MISC KEYS';
