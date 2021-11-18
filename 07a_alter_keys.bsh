@@ -16,6 +16,8 @@
 
 mariadb  --verbose   comptonTransAnlys   <<END;
 
+	SET FOREIGN_KEY_CHECKS=0		;
+
 	ALTER TABLE \`Teacher\`			DROP KEY IF EXISTS \`PRIMARY\`					;  -- 2021-06-03
 	ALTER TABLE \`Stimword_position\`	DROP KEY IF EXISTS \`PRIMARY\`					;
 	
@@ -713,7 +715,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ON DELETE CASCADE
 		;
 		
-		
+	SET FOREIGN_KEY_CHECKS=1		;
 	
 END
 
