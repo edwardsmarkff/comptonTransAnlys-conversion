@@ -31,7 +31,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 				,	\`Stimword_position_stimword\`
 				,	\`Stimword_position_position\`
 				,	\`Stimword_position_position_nbr\`
-				,	\`Stimword_position_setting\`kkkkkkkkkkkkkkkkkkkkkkk
+				,	\`Stimword_position_setting\`
 				,	\`Stimword_position_phoneme\`
 				)
 				;
