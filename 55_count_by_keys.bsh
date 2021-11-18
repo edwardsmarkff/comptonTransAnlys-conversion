@@ -152,11 +152,11 @@ SELECT COUNT(*)
 SELECT 'context to clientContext MiscKeys'  ;
 SELECT COUNT(*)
 FROM    \`context\`
-,       \'clientContext\`
+,       \`clientContext\`
 WHERE   1
-AND     \`context\`.\`layoutName\'                                  = \`clientContext\`.\`layoutName\`
-AND     \`context\`.\`soundPhoneme\'                                = \`clientContext\`.\`soundPhoneme\`
-AND     \`context\`.\`contextPosition\'                             = \`clientContext\`.\`contextPosition\`
+AND     \`context\`.\`layoutName\`                                  = \`clientContext\`.\`layoutName\`
+AND     \`context\`.\`soundPhoneme\`                                = \`clientContext\`.\`soundPhoneme\`
+AND     \`context\`.\`contextPosition\`                             = \`clientContext\`.\`contextPosition\`
 ;
 SELECT 'context to clientContext AutoIncr'  ;
 SELECT COUNT(*)
