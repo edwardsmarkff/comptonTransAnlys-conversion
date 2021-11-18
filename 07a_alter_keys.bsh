@@ -37,10 +37,10 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	ALTER TABLE \`Client_master\`	DROP KEY \`Client_master_teacher_email\`	;
 	ALTER TABLE \`Client_master\`
 		ADD UNIQUE INDEX	\`Client_master_unique_key\`
-				(	\`Client_master_teacher_email\`
+				(	\`Client_master_layoutName\`
+				,	\`Client_master_teacher_email\`
 				, 	\`Client_master_client_email\`
 				,	\`Client_master_session_name\`
-				, 	\`Client_master_layout_name\`
 				)
 				;
 
@@ -86,33 +86,25 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		-- 2021-10-12
 	ALTER TABLE \`Client_context\`
 		ADD UNIQUE INDEX \`Client_context_sounds_unique_index\` 
-			(	\`Client_context_teacher_email\`
+			(	\`Client_context_layout_name\`
+			,	\`Client_context_teacher_email\`
 			,	\`Client_context_client_email\`
 			,	\`Client_context_session_name\`
-			,	\`Client_context_layout_name\`
 			,	\`Client_context_phoneme\`
 			,	\`Client_context_position\`
 			,	\`Client_context_error\`
-					--		,	\`Client_context_error_1\`
-					--		,	\`Client_context_error_2\`
-					--		,	\`Client_context_error_3\`
-					--		,	\`Client_context_error_4\`
 			)
 			;
 
 	ALTER TABLE \`Client_context\`
 			ADD KEY		\`Client_context_2_Client_stimword_KEY\`
-				(	\`Client_context_teacher_email\`
+				(	\`Client_context_layout_name\`
+				,	\`Client_context_teacher_email\`
 				,	\`Client_context_client_email\`
 				,	\`Client_context_session_name\`
-				,	\`Client_context_layout_name\`
 				,	\`Client_context_phoneme\`
 				,	\`Client_context_position\`
 				,	\`Client_context_error\`
-					--		,	\`Client_context_error_1\`
-					--		,	\`Client_context_error_2\`
-					--		,	\`Client_context_error_3\`
-					--		,	\`Client_context_error_4\`
 				)
 				;
 
@@ -123,10 +115,10 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 			-- 2021-10-12
 	ALTER TABLE \`Client_stimword\`
 		ADD UNIQUE INDEX \`Client_stimword_unique_index\` 
-			(	\`Client_stimword_teacher_email\`
+			(	\`Client_stimword_layout_name\`
+			,	\`Client_stimword_teacher_email\`
 			,	\`Client_stimword_client_email\`
 			,	\`Client_stimword_session_name\`
-			,	\`Client_stimword_layout_name\`
 			,	\`Client_stimword_page_nbr\`
 			,	\`Client_stimword_line_nbr\`
 			,	\`Client_stimword_stimword\`
@@ -141,30 +133,22 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	ALTER TABLE \`Client_stimword\`
 		ADD CONSTRAINT	\`Client_context_2_Client_stimword_CONSTRAINT_1\`
 		FOREIGN KEY	\`Client_context_2_Client_stimword_FOREIGN_KEY_1\`
-				(	\`Client_stimword_teacher_email\`
+				(	\`Client_stimword_layout_name\`
+				,	\`Client_stimword_teacher_email\`
 				,	\`Client_stimword_client_email\`
 				,	\`Client_stimword_session_name\`
-				,	\`Client_stimword_layout_name\`
 				,	\`Client_stimword_phoneme\`
 				,	\`Client_stimword_position\`
 				,	\`Client_stimword_error\`
-						--		,	\`Client_stimword_error_1\`
-						--		,	\`Client_stimword_error_2\`
-						--		,	\`Client_stimword_error_3\`
-						--		,	\`Client_stimword_error_4\`
 				)
 			REFERENCES	\`Client_context\`
-				(	\`Client_context_teacher_email\`
+				(	\`Client_context_layout_name\`
+				,	\`Client_context_teacher_email\`
 				,	\`Client_context_client_email\`
 				,	\`Client_context_session_name\`
-				,	\`Client_context_layout_name\`
 				,	\`Client_context_phoneme\`	
 				,	\`Client_context_position\`
 				,	\`Client_context_error\`
-						--		,	\`Client_context_error_1\`
-						--		,	\`Client_context_error_2\`
-						--		,	\`Client_context_error_3\`
-						--		,	\`Client_context_error_4\`
 				)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -179,17 +163,13 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	INNER JOIN \`Client_context\`
 	SET \`Client_stimword\`.\`Client_context_auto_increment\`     = \`Client_context\`.\`Client_context_auto_increment\`
 	WHERE 1
+	AND \`Client_stimword\`.\`Client_stimword_layout_name\`         = \`Client_context\`.\`Client_context_layout_name\`
 	AND \`Client_stimword\`.\`Client_stimword_teacher_email\`       = \`Client_context\`.\`Client_context_teacher_email\`
 	AND \`Client_stimword\`.\`Client_stimword_client_email\`        = \`Client_context\`.\`Client_context_client_email\`
 	AND \`Client_stimword\`.\`Client_stimword_session_name\`        = \`Client_context\`.\`Client_context_session_name\`
-	AND \`Client_stimword\`.\`Client_stimword_layout_name\`         = \`Client_context\`.\`Client_context_layout_name\`
 	AND \`Client_stimword\`.\`Client_stimword_phoneme\`             = \`Client_context\`.\`Client_context_phoneme\`
 	AND \`Client_stimword\`.\`Client_stimword_position\`            = \`Client_context\`.\`Client_context_position\`
 	AND \`Client_stimword\`.\`Client_stimword_error\`             	= \`Client_context\`.\`Client_context_error\`
-			--	AND \`Client_stimword\`.\`Client_stimword_error_1\`             = \`Client_context\`.\`Client_context_error_1\`
-			--	AND \`Client_stimword\`.\`Client_stimword_error_2\`             = \`Client_context\`.\`Client_context_error_2\`
-			--	AND \`Client_stimword\`.\`Client_stimword_error_3\`             = \`Client_context\`.\`Client_context_error_3\`
-			--	AND \`Client_stimword\`.\`Client_stimword_error_4\`             = \`Client_context\`.\`Client_context_error_4\`
 	;
 
 	ALTER TABLE \`Client_stimword\`
@@ -212,26 +192,26 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	--
 	ALTER TABLE \`Client_master\`
 		ADD KEY \`Client_master_2_Client_context_KEY\`
-				(	\`Client_master_teacher_email\`
+				(	\`Client_master_layout_name\`
+				,	\`Client_master_teacher_email\`
 				,	\`Client_master_client_email\`
 				,	\`Client_master_session_name\`
-				,	\`Client_master_layout_name\`
 				)
 				;
 
 	ALTER TABLE \`Client_context\`
 		ADD CONSTRAINT	\`Client_master_2_Client_context_CONSTRAINT_1\`
 		FOREIGN KEY	\`Client_master_2_Client_context_FOREIGN_KEY_1\`
-				(	\`Client_context_teacher_email\`
+				(	\`Client_context_layout_name\`
+				.	\`Client_context_teacher_email\`
 				,	\`Client_context_client_email\`
 				,	\`Client_context_session_name\`
-				,	\`Client_context_layout_name\`
 				)
 			REFERENCES	\`Client_master\`
-				(	\`Client_master_teacher_email\`
+				(	\`Client_master_layout_name\`
+				,	\`Client_master_teacher_email\`
 				,	\`Client_master_client_email\`
 				,	\`Client_master_session_name\`
-				,	\`Client_master_layout_name\`
 				)
 		ON UPDATE CASCADE
 		ON DELETE CASCADE
@@ -247,10 +227,10 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 	INNER JOIN \`Client_master\`
 	SET \`Client_context\`.\`Client_master_auto_increment\`    = \`Client_master\`.\`Client_master_auto_increment\`
 	WHERE 1
+	AND \`Client_context\`.\`Client_context_layout_name\`      = \`Client_master\`.\`Client_master_layout_name\`
 	AND \`Client_context\`.\`Client_context_teacher_email\`    = \`Client_master\`.\`Client_master_teacher_email\`
 	AND \`Client_context\`.\`Client_context_client_email\`     = \`Client_master\`.\`Client_master_client_email\`
 	AND \`Client_context\`.\`Client_context_session_name\`     = \`Client_master\`.\`Client_master_session_name\`
-	AND \`Client_context\`.\`Client_context_layout_name\`      = \`Client_master\`.\`Client_master_layout_name\`
 	;
 
 	ALTER TABLE \`Client_context\`
