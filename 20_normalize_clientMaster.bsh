@@ -57,7 +57,7 @@ ALTER TABLE \`clientMaster\`	ADD COLUMN	\`clientMasterNotes\`	TEXT   	AFTER    \
 ALTER TABLE \`clientMaster\`	MODIFY \`clientMasterAutoIncr\` INT NOT NULL AUTO_INCREMENT PRIMARY KEY                           	;
 ALTER TABLE \`clientMaster\`	ADD UNIQUE KEY \`clientMasterUniqueKey\` (\`layoutName\`, \`teacherEmail\`,\`clientMasterEmail\`) 	;
 
-ALTER TABLE \'clientMaster\`	DROP KEY IF EXISTS	\`teacherAutoIncr_2_clientMaster\`						;
+ALTER TABLE \`clientMaster\`	DROP KEY IF EXISTS	\`teacherAutoIncr_2_clientMaster\`						;
 ALTER TABLE \`clientMaster\`	ADD KEY        		\`teacherAutoIncr_2_clientMaster\` (\`teacherAutoIncr\`)  			;
 ALTER TABLE \`clientMaster\`	DROP CONSTRAINT		\`teacherAutoIncr_2_clientMaster\`						;
 ALTER TABLE \`clientMaster\`		ADD CONSTRAINT \`teacherAutoIncr_2_clientMaster\`
