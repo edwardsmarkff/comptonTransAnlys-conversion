@@ -55,22 +55,23 @@ CREATE TABLE \`clientMaster\` ENGINE=InnoDB DEFAULT CHARSET=latin1
 ALTER TABLE \`clientMaster\`	ADD COLUMN	\`clientMasterAutoIncr\` INT(10) UNSIGNED NOT NULL                                	;
 ALTER TABLE \`clientMaster\`	ADD COLUMN	\`clientMasterNotes\`	TEXT   	AFTER \`clientMasterActiveFlag\`		  	;
 ALTER TABLE \`clientMaster\`	MODIFY \`clientMasterAutoIncr\` INT NOT NULL AUTO_INCREMENT PRIMARY KEY                           	;
-ALTER TABLE \`clientMaster\`	ADD UNIQUE KEY \`clientMasterUniqueKey\` (\`teacherEmail\`,\`clientMasterEmail\`, \`layoutName\`) 	;
+ALTER TABLE \`clientMaster\`	ADD UNIQUE KEY \`clientMasterUniqueKey\` (\`layoutName\`, \`teacherEmail\`,\`clientMasterEmail\`) 	;
 
-ALTER TABLE \`clientMaster\`	ADD KEY        \`teacherAutoIncr_2_clientMaster\` (\`teacherAutoIncr\`)  				;
-ALTER TABLE \`clientSession\`   DROP CONSTRAINT	\`teacherAutoIncr_2_clientMaster\`							;
-
+ALTER TABLE \'clientMaster\`	DROP KEY IF EXISTS	\`teacherAutoIncr_2_clientMaster\`						;
+ALTER TABLE \`clientMaster\`	ADD KEY        		\`teacherAutoIncr_2_clientMaster\` (\`teacherAutoIncr\`)  			;
+ALTER TABLE \`clientMaster\`	DROP CONSTRAINT		\`teacherAutoIncr_2_clientMaster\`						;
 ALTER TABLE \`clientMaster\`		ADD CONSTRAINT \`teacherAutoIncr_2_clientMaster\`
 					FOREIGN KEY		(\`teacherAutoIncr\`)
 					REFERENCES \`teacher\`	(\`teacherAutoIncr\`)
 					ON DELETE CASCADE ON UPDATE CASCADE
 					;
 
-ALTER TABLE \`clientMaster\`	ADD KEY 			\`teacherMiscKeys_2_clientMaster\` (\`teacherEmail\`) ;
-ALTER TABLE \`clientSession\`	DROP CONSTRAINT \`teacherMiscKeys_2_clientMaster\`;
-ALTER TABLE \`clientMaster\`		ADD CONSTRAINT \`teacherMiscKeys_2_clientMaster\`
-					FOREIGN KEY		( \`teacherEmail\` )
-					REFERENCES \`teacher\`	( \`teacherEmail\` )
+ALTER TABLE \`clientMaster\`	DROP KEY IF EXISTS		\`teacherMiscKeys_2_clientMaster\`  					;
+ALTER TABLE \`clientMaster\`	ADD KEY 			\`teacherMiscKeys_2_clientMaster\` (\`layoutName\`, \`teacherEmail\`) 	;
+ALTER TABLE \`clientSession\`	DROP CONSTRAINT	\`teacherMiscKeys_2_clientMaster\`							;
+ALTER TABLE \`clientMaster\`	ADD CONSTRAINT	\`teacherMiscKeys_2_clientMaster\`
+					FOREIGN KEY		( \`layoutName\`, \`teacherEmail\` )
+					REFERENCES \`teacher\`	( \`layoutName\`, \`teacherEmail\` )
 					ON DELETE CASCADE ON UPDATE CASCADE
 					;
 
