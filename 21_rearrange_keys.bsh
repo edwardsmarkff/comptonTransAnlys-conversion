@@ -38,7 +38,7 @@ ALTER TABLE clientSession  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL
 ALTER TABLE clientContext  MODIFY COLUMN layoutName CHAR(4) NOT NULL                                                                    FIRST                           ;
 ALTER TABLE clientContext  MODIFY COLUMN teacherEmail VARCHAR(120) NOT NULL                                                             AFTER layoutName                ;
 ALTER TABLE clientContext  MODIFY COLUMN clientMasterEmail VARCHAR(120) NOT NULL                                                        AFTER teacherEmail              ;
-ALTER TABLE clientContext  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                               AFTER sessionName               ;
+ALTER TABLE clientContext  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                               AFTER clientMasterEmail         ;
 
 
 -- clientStimword
