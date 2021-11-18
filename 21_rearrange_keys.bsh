@@ -51,7 +51,7 @@ ALTER TABLE clientStimword  MODIFY COLUMN layoutName CHAR(4) NOT NULL           
 
 ALTER TABLE clientStimword  MODIFY COLUMN sessionName VARCHAR(30) NOT NULL                                                              AFTER layoutName                ;
 
-ALTER TABLE clientStimword  MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''            AFTER layoutName                ;
+ALTER TABLE clientStimword  MODIFY COLUMN soundPhoneme CHAR(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL DEFAULT ''            AFTER sessionName                ;
 
 ALTER TABLE clientStimword  MODIFY COLUMN contextPosition VARCHAR(20) NOT NULL                                                          AFTER soundPhoneme              ;
 
