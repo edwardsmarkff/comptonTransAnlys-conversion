@@ -1,5 +1,34 @@
 
 
+SELECT 'stimword to stimwordPosition MISC KEYS';
+SELECT COUNT(*)
+FROM    \`stimword\`
+,       \`stimwordPosition\`
+WHERE   1
+AND     \`stimword\`.\`layoutName\`               =   \`stimwordPosition\`.\`layoutName\`
+AND     \`stimword\`.\`stimwordPageNbr\`          =   \`stimwordPosition\`.\`stimwordPageNbr\`
+AND     \`stimword\`.\`stimwordLineNbr\`          =   \`stimwordPosition\`.\`stimwordLineNbr\`
+AND     \`stimword\`.\`stimwordWord\`             =   \`stimwordPosition\`.\`stimwordWord\`
+;
+SELECT 'stimword to stimwordPosition AutoIncr';
+SELECT COUNT(*)
+FROM    \`stimword\`
+,       \`stimwordPosition\`
+WHERE   1
+AND     \`stimword\`.\`stimwordAutoIncr\`         =   \`stimwordPosition\`.\`stimwordAutoIncr\`
+;
+SELECT 'stimword to stimwordPosition BOTH KEYS';
+SELECT COUNT(*)
+FROM    \`stimword\`
+,       \`stimwordPosition\`
+WHERE   1
+AND     \`stimword\`.\`stimwordAutoIncr\`         =   \`stimwordPosition\`.\`stimwordAutoIncr\`
+AND     \`stimword\`.\`layoutName\`               =   \`stimwordPosition\`.\`layoutName\`
+AND     \`stimword\`.\`stimwordPageNbr\`          =   \`stimwordPosition\`.\`stimwordPageNbr\`
+AND     \`stimword\`.\`stimwordLineNbr\`          =   \`stimwordPosition\`.\`stimwordLineNbr\`
+AND     \`stimword\`.\`stimwordWord\`             =   \`stimwordPosition\`.\`stimwordWord\`
+;
+
 SELECT 'sound to context MISC KEYS'   ;
 SELECT COUNT(*)
 FROM    \`sound\`
