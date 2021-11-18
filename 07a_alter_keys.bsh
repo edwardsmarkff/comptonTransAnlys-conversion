@@ -208,7 +208,7 @@ mariadb  --verbose   comptonTransAnlys   <<END;
 		ADD CONSTRAINT	\`Client_master_2_Client_context_CONSTRAINT_1\`
 		FOREIGN KEY	\`Client_master_2_Client_context_FOREIGN_KEY_1\`
 				(	\`Client_context_layout_name\`
-				.	\`Client_context_teacher_email\`
+				,	\`Client_context_teacher_email\`
 				,	\`Client_context_client_email\`
 				,	\`Client_context_session_name\`
 				)
