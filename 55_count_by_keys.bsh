@@ -125,10 +125,10 @@ SELECT COUNT(*)
   FROM  \`clientSession\` 
   ,     \`clientContext\`
   WHERE 1
-  AND   \`clientSession\`.\layoutName\`                               = \`clientContext\`.\`layoutName\`
-  AND   \`clientSession\`.\teacherEmail\`                             = \`clientContext\`.\`teacherEmail\`
-  AND   \`clientSession\`.\clientMasterEmail\`                        = \`clientContext\`.\`clientMasterEmail\`
-  AND   \`clientSession\`.\sessionName\`                              = \`clientContext\`.\`sessionName\`  
+  AND   \`clientSession\`.\`layoutName\`                               = \`clientContext\`.\`layoutName\`
+  AND   \`clientSession\`.\`teacherEmail\`                             = \`clientContext\`.\`teacherEmail\`
+  AND   \`clientSession\`.\`clientMasterEmail\`                        = \`clientContext\`.\`clientMasterEmail\`
+  AND   \`clientSession\`.\`sessionName\`                              = \`clientContext\`.\`sessionName\`  
   ;
 SELECT 'clientSession to clientContext AutoIncr'  ;
 SELECT COUNT(*)
