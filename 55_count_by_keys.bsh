@@ -224,7 +224,7 @@ SELECT COUNT(*)
     FROM      \`clientContext\`
     ,         \`clientStimword\`
     WHERE 1
-    AND   `\clientContext\`.\`layoutName\`                              =       \`clientStimword\`.\`layoutName\`
+    AND   \`clientContext\`.\`layoutName\`                              =       \`clientStimword\`.\`layoutName\`
     AND   \`clientContext\`.\`teacherEmail\`                            =       \`clientStimword\`.\`teacherEmail\`
     AND   \`clientContext\`.\`clientMasterEmail\`                       =       \`clientStimword\`.\`clientMasterEmail\`
     AND   \`clientContext\`.\`sessionName\`                             =       \`clientStimword\`.\`sessionName\`
