@@ -238,7 +238,7 @@ SELECT COUNT(*)
         FROM      \`clientContext\`
         ,         \`clientStimword\`
         WHERE 1
-    AND   `\clientContext\`.\`clientContextAutoIncr\`                  =       \`clientStimword\`.\`clientContextAutoIncr\`    
+    AND   \`clientContext\`.\`clientContextAutoIncr\`                   =       \`clientStimword\`.\`clientContextAutoIncr\`    
     ;
 SELECT 'clientContext to clientStimword BOTH' ;
 SELECT COUNT(*)
