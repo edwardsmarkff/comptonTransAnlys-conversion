@@ -159,7 +159,7 @@ ALTER TABLE \`clientContext\`  DROP CONSTRAINT IF EXISTS \`clientMasterAutoIncr_
 ALTER TABLE \`clientContext\`
 		ADD  CONSTRAINT \`clientSessionMiscKeys_2_clientContext\`
 		FOREIGN KEY			(	\`layoutName\`
-						.	\`teacherEmail\`
+						,	\`teacherEmail\`
 						,	\`clientMasterEmail\`
 						,	\`sessionName\`
 						)
