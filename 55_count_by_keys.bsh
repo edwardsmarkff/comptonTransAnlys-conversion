@@ -135,18 +135,18 @@ SELECT COUNT(*)
   FROM  \`clientSession\` 
   ,     \`clientContext\`
   WHERE 1
-  AND   \`clientSession\`.\clientSessionAutoIncr\`                    = \`clientContext\`.\`clientSessionAutoIncr\`
+  AND   \`clientSession\`.\`clientSessionAutoIncr\`                    = \`clientContext\`.\`clientSessionAutoIncr\`
   ;
 SELECT 'clientSession to clientContext BOTH'  ;
 SELECT COUNT(*)
   FROM  \`clientSession\` 
   ,     \`clientContext\`
   WHERE 1
-  AND   \`clientSession\`.\clientSessionAutoIncr\`                    = \`clientContext\`.\`clientSessionAutoIncr\`
-  AND   \`clientSession\`.\layoutName\`                               = \`clientContext\`.\`layoutName\`
-  AND   \`clientSession\`.\teacherEmail\`                             = \`clientContext\`.\`teacherEmail\`
-  AND   \`clientSession\`.\clientMasterEmail\`                        = \`clientContext\`.\`clientMasterEmail\`
-  AND   \`clientSession\`.\sessionName\`                              = \`clientContext\`.\`sessionName\`  
+  AND   \`clientSession\`.\`clientSessionAutoIncr\`                    = \`clientContext\`.\`clientSessionAutoIncr\`
+  AND   \`clientSession\`.\`layoutName\`                               = \`clientContext\`.\`layoutName\`
+  AND   \`clientSession\`.\`teacherEmail\`                             = \`clientContext\`.\`teacherEmail\`
+  AND   \`clientSession\`.\`clientMasterEmail\`                        = \`clientContext\`.\`clientMasterEmail\`
+  AND   \`clientSession\`.\`sessionName\`                              = \`clientContext\`.\`sessionName\`  
   ;
 
 SELECT 'context to clientContext MiscKeys'  ;
