@@ -191,7 +191,7 @@ AND     \`stimwordPosition\`.\`stimwordWord\`                           =   \`cl
 AND     \`stimwordPosition\`.\`contextPosition\`                        =   \`clientStimword\`.\`contextPosition\`
 AND     \`stimwordPosition\`.\`stimwordPositionNbr\`                    =   \`clientStimword\`.\`stimwordPositionNbr\`
 AND     \`stimwordPosition\`.\`stimwordPositionSetting\`                =   \`clientStimword\`.\`stimwordPositionSetting\`
-AND     \`stimwordPosition\`.\`soundPhomene\`                           =   \`clientStimword\`.\`soundPhoneme\`
+AND     \`stimwordPosition\`.\`soundPhoneme\`                           =   \`clientStimword\`.\`soundPhoneme\`
 ;
 SELECT 'stimwordPosition to clientStimword AutoIncr' ;
 SELECT COUNT(*)
