@@ -3,8 +3,10 @@
 #        20_normalize_clientMaster.bsh
         
 #       2021-11-14
-
-
+#
+#
+#
+#
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 SET FOREIGN_KEY_CHECKS=0 ;
@@ -52,44 +54,44 @@ CREATE TABLE \`clientMaster\` ENGINE=InnoDB DEFAULT CHARSET=latin1
 	;
 
 
-ALTER TABLE \`clientMaster\`	ADD COLUMN	\`clientMasterAutoIncr\` INT(10) UNSIGNED NOT NULL                                	;
-ALTER TABLE \`clientMaster\`	ADD COLUMN	\`clientMasterNotes\`	TEXT   	AFTER    \`clientMasterActiveFlag\`		  	;
-ALTER TABLE \`clientMaster\`	MODIFY \`clientMasterAutoIncr\` INT NOT NULL AUTO_INCREMENT PRIMARY KEY                           	;
-ALTER TABLE \`clientMaster\`	ADD UNIQUE KEY \`clientMasterUniqueKey\` (\`layoutName\`, \`teacherEmail\`,\`clientMasterEmail\`) 	;
+ALTER TABLE \`clientMaster\`	ADD COLUMN	\`clientMasterAutoIncr\` INT(10) UNSIGNED NOT NULL                              	  	;
+ALTER TABLE \`clientMaster\`	ADD COLUMN	\`clientMasterNotes\`	TEXT   	AFTER    \`clientMasterActiveFlag\`		  		;
+ALTER TABLE \`clientMaster\`	MODIFY \`clientMasterAutoIncr\` INT NOT NULL AUTO_INCREMENT PRIMARY KEY                           		;
+ALTER TABLE \`clientMaster\`	ADD UNIQUE KEY \`clientMasterUniqueKey\` (\`layoutName\`, \`teacherEmail\`,\`clientMasterEmail\`) 		;
 
-ALTER TABLE \`clientMaster\`	DROP KEY IF EXISTS		\`teacherAutoIncr_2_clientMaster\`					;
-ALTER TABLE \`clientMaster\`	ADD KEY        			\`teacherAutoIncr_2_clientMaster\` (\`teacherAutoIncr\`)  		;
-ALTER TABLE \`clientMaster\`	DROP CONSTRAINT	IF EXISTS	\`teacherAutoIncr_2_clientMaster\`					;
-ALTER TABLE \`clientMaster\`		ADD CONSTRAINT \`teacherAutoIncr_2_clientMaster\`
-					FOREIGN KEY		(\`teacherAutoIncr\`)
-					REFERENCES \`teacher\`	(\`teacherAutoIncr\`)
-					ON DELETE CASCADE ON UPDATE CASCADE
+ALTER TABLE \`clientMaster\`	DROP KEY IF EXISTS		\`teacherAutoIncr_2_clientMaster\`						;
+ALTER TABLE \`clientMaster\`	ADD KEY        			\`teacherAutoIncr_2_clientMaster\`	(\`teacherAutoIncr\`)  			;
+ALTER TABLE \`clientMaster\`	DROP CONSTRAINT	IF EXISTS	\`teacherAutoIncr_2_clientMaster\`						;
+ALTER TABLE \`clientMaster\`	ADD CONSTRAINT \`teacherAutoIncr_2_clientMaster\`
+				FOREIGN KEY								(\`teacherAutoIncr\`)
+				REFERENCES 			\`teacher\`				(\`teacherAutoIncr\`)
+				ON DELETE CASCADE ON UPDATE CASCADE
+				;
+
+ALTER TABLE \`clientMaster\`	DROP CONSTRAINT IF EXISTS	\`teacherAutoIncr_2_clientMaster\`						;
+ALTER TABLE \`clientMaster\`	DROP CONSTRAINT IF EXISTS	\`sessionNames_2_clientMaster\` 						;
+
+ALTER TABLE \`clientMaster\`	DROP KEY IF EXISTS		\`teacherMiscKeys_2_clientMaster\`  						;
+ALTER TABLE \`teacher\`		ADD UNIQUE KEY			\`teacherMiscKeys\`			(\`layoutName\`, \`teacherEmail\`) 	;
+ALTER TABLE \`clientMaster\`	ADD KEY 			\`teacherMiscKeys_2_clientMaster\`	(\`layoutName\`, \`teacherEmail\`) 	;
+ALTER TABLE \`clientMaster\`	ADD CONSTRAINT			\`teacherMiscKeys_2_clientMaster\`
+				FOREIGN KEY								( \`layoutName\`, \`teacherEmail\` )
+				REFERENCES \`teacher\`							( \`layoutName\`, \`teacherEmail\` )
+				ON DELETE CASCADE ON UPDATE CASCADE
 					;
 
-ALTER TABLE \`clientMaster\`	DROP CONSTRAINT IF EXISTS	\`teacherAutoIncr_2_clientMaster\`					;
-ALTER TABLE \`clientMaster\`	DROP CONSTRAINT IF EXISTS	\`sessionNames_2_clientMaster\` 					;
 
-ALTER TABLE \`clientMaster\`	DROP KEY IF EXISTS		\`teacherMiscKeys_2_clientMaster\`  					;
-ALTER TABLE \`clientMaster\`	ADD KEY 			\`teacherMiscKeys_2_clientMaster\` (\`layoutName\`, \`teacherEmail\`) 	;
-ALTER TABLE \`clientSession\`	DROP CONSTRAINT	IF EXISTS	\`teacherMiscKeys_2_clientMaster\`					;
-ALTER TABLE \`clientMaster\`	ADD CONSTRAINT	\`teacherMiscKeys_2_clientMaster\`
-					FOREIGN KEY		( \`layoutName\`, \`teacherEmail\` )
-					REFERENCES \`teacher\`	( \`layoutName\`, \`teacherEmail\` )
-					ON DELETE CASCADE ON UPDATE CASCADE
-					;
+ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`clientMasterActiveFlag\`								;
+ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`clientMasterSpecLanguage\`								;
+ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`clientMasterName\`									;
 
+ALTER TABLE \`clientSession\` RENAME COLUMN \`clientMasterAutoIncr\` TO \`clientSessionAutoIncr\`						;
 
-ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`clientMasterActiveFlag\`							;
-ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`clientMasterSpecLanguage\`							;
-ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`clientMasterName\`								;
+ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterUniqueKey\`								;
 
-ALTER TABLE \`clientSession\` RENAME COLUMN \`clientMasterAutoIncr\` TO \`clientSessionAutoIncr\`					;
-
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterUniqueKey\`							;
-
-ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`teacherAutoIncr\`								;
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`					;
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`							;
+ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`teacherAutoIncr\`									;
+ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`						;
+ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`								;
 
 ALTER TABLE \`clientSession\` ADD COLUMN    \`clientMasterAutoIncr\` INT(11)  NOT NULL AFTER \`updatedAt\` ;
 
