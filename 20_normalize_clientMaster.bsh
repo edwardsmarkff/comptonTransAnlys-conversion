@@ -170,6 +170,7 @@ ALTER TABLE \`clientContext\`
 		
 ALTER TABLE \`clientContext\`  DROP CONSTRAINT IF EXISTS	\`clientMasterMiscKeys_2_clientContext\` 		;
 
+SET FOREIGN_KEY_CHECKS=1 ;
 
 END
 
