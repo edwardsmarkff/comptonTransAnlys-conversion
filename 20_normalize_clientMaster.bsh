@@ -174,48 +174,4 @@ echo 'end of 20_normalize_clientMaster.bsh' ;
 
 exit;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#ALTER TABLE \`clientContext\` ADD UNIQUE KEY \`clientSessionAutoIncr_2_clientContext\` ( \`clientSessionAutoIncr\` )		;
-#
-#ALTER TABLE \`clientContext\`	ADD CONSTRAINT \`clientSessionAutoIncr_2_clientContext\`
-#				FOREIGN KEY 			( \`clientSessionAutoIncr\` )
-#				REFERENCES \`clientSession\`	( \`clientSessionAutoIncr\` )
-#				ON DELETE CASCADE ON UPDATE CASCADE
-#				;
-#
-#ALTER TABLE \`clientContext\`	ADD UNIQUE KEY \`clientSessionMiscKeys_2_clientContext\` ( \`teacherEmail\`, \`clientMasterEmail\`, \`sessionName\`, \`layoutName\` ) ;
-#
-#ALTER TABLE \`clientContext\`	ADD CONSTRAINT \`clientSessionMiscKeys_2_clientContext\`
-#				FOREIGN KEY 			(	\`layoutName\`
-								,	\`teacherEmail\`
-								,	\`clientMasterEmail\`
-								,	\`sessionName\`
-								)
-#				REFERENCES \`clientSession\`	(	\`layoutName\`
-								,	\`teacherEmail\`
-								,	\`clientMasterEmail\`
-								,	\`sessionName\`
-								)
-#				ON DELETE CASCADE ON UPDATE CASCADE
-#				;
-#
-#SET FOREIGN_KEY_CHECKS=1 ;
-#
-
-
 #
