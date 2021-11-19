@@ -154,7 +154,6 @@ FROM sound
 WHERE 1
 AND  soundLayoutName    = contextLayoutName
 AND  soundPhoneme = contextPhoneme
-AND  contextPhoneme3_UNUSED = ''
 AND  LENGTH(contextPhoneme) <= 2
 AND  (   contextPosition = 'final'    AND contextPhoneme IN ('d', 's', 't', 'z')
      OR  contextPosition = 'vowel'   AND contextPhoneme IN ( 'æ', 'ɛ',  'ɪ')
