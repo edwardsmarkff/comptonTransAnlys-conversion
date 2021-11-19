@@ -5,7 +5,8 @@
 ##      set fileencoding=ASCII
 ##      set fileformat=unix
 
-
+#
+#
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
 
@@ -254,7 +255,7 @@ SELECT COUNT(*)
     AND   \`clientContext\`.\`clientContextError\`                      =       \`clientStimword\`.\`clientContextError\`
     ;
     
-    END
+END
 
 ##
 echo  'finished with 55_count_by_keys.bsh!';
