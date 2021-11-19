@@ -105,34 +105,37 @@ UPDATE          \`clientMaster\`
         AND             \`clientMaster\`.\`clientMasterEmail\`          =       \`clientSession\`.\`clientMasterEmail\`
         ;
 
-ALTER TABLE \`clientSession\`		ADD CONSTRAINT	\`clientMasterAutoIncr_2_clientSession\`
+ALTER TABLE \`clientSession\`		ADD CONSTRAINT		\`clientMasterAutoIncr_2_clientSession\`
 					FOREIGN KEY				( \`clientMasterAutoIncr\` )	
-					REFERENCES \`clientMaster\`		( \`clientMasterAutoIncr\` )
+					REFERENCES		\`clientMaster\`
+										( \`clientMasterAutoIncr\` )
 					ON DELETE CASCADE ON UPDATE CASCADE
 					;
 					
-ALTER TABLE \`clientSession\`		ADD UNIQUE KEY \`clientSessionUniqueKey\`
+ALTER TABLE \`clientSession\`		ADD UNIQUE KEY	\`clientSessionUniqueKey\`
 							(	\`layoutName\`
 							,	\`teacherEmail\`
 							,	\`clientMasterEmail\`
 							,	\`sessionName\`
 							)											;
 
-ALTER TABLE \`clientSession\`		ADD CONSTRAINT \`clientMasterMiscKeys_2_clientSession\`
-					FOREIGN KEY			(	\`layoutName\`
-									,	\`teacherEmail\`
-									,	\`clientMasterEmail\`
-									)
-					REFERENCES \`clientMaster\`	(	\`layoutName\`
-									,	\`teacherEmail\`
-									,	\`clientMasterEmail\`
-									)
+ALTER TABLE \`clientSession\`		ADD CONSTRAINT		\`clientMasterMiscKeys_2_clientSession\`
+					FOREIGN KEY				(	\`layoutName\`
+										,	\`teacherEmail\`
+										,	\`clientMasterEmail\`
+										)
+					REFERENCES		\`clientMaster\`
+										(	\`layoutName\`
+										,	\`teacherEmail\`
+										,	\`clientMasterEmail\`
+										)
 					ON DELETE CASCADE ON UPDATE CASCADE
 					;
 
-ALTER TABLE \`clientSession\`		ADD CONSTRAINT \`sessionNames_2_clientSession\`
-					FOREIGN KEY (\`sessionName\`)
-					REFERENCES \`sessionNames\` (\`sessionName\`)
+ALTER TABLE \`clientSession\`		ADD CONSTRAINT 		\`sessionNames_2_clientSession\`
+					FOREIGN KEY 				(\`sessionName\`)
+					REFERENCES 		\`sessionNames\`
+										(\`sessionName\`)
 					ON DELETE CASCADE ON UPDATE CASCADE
 					;
 
