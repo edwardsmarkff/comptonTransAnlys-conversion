@@ -45,21 +45,18 @@
                 (       1
                 AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordCURRENT.stimwordPositionAutoIncr
                 AND     stimwordPosition.layoutName                     =       clientStimwordCURRENT.layoutName
-                AND     stimwordPosition.stimwordPageNbr        	    =       clientStimwordCURRENT.stimwordPageNbr
-                AND     stimwordPosition.stimwordLineNbr        	    =       clientStimwordCURRENT.stimwordLineNbr
-                AND     stimwordPosition.stimwordWord           	    =       clientStimwordCURRENT.stimwordWord
+                AND     stimwordPosition.stimwordPageNbr        	=       clientStimwordCURRENT.stimwordPageNbr
+                AND     stimwordPosition.stimwordLineNbr        	=       clientStimwordCURRENT.stimwordLineNbr
+                AND     stimwordPosition.stimwordWord           	=       clientStimwordCURRENT.stimwordWord
 
                 AND     stimwordPosition.contextPosition                =       clientStimwordCURRENT.contextPosition
                 AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordCURRENT.stimwordPositionNbr
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordCURRENT.stimwordPositionSetting
-
-                ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordCURRENT.clientContextPhoneme
-                ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordCURRENT.stimwordPositionPhoneme
-                AND	    stimwordPosition.soundPhoneme					            = 		clientStimwordCURRENT.soundPhoneme
+                AND	stimwordPosition.soundPhoneme			= 	clientStimwordCURRENT.soundPhoneme
 
                 AND     clientStimwordCURRENT.teacherEmail              =       'info@englishwithoutaccent.com'
                 AND     clientStimwordCURRENT.clientMasterEmail         =       'mark@edwardsmark.com'
-                AND     clientStimwordCURRENT.sessionName   			=       'Time1'
+                AND     clientStimwordCURRENT.sessionName   		=       'Time1'
                 AND     clientStimwordCURRENT.layoutName                =       'PESL'
                 )
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
@@ -73,14 +70,11 @@
                 AND     stimwordPosition.contextPosition                =       clientStimwordREPLICATE.contextPosition
                 AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordREPLICATE.stimwordPositionNbr
                 AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordREPLICATE.stimwordPositionSetting
-
-                ##AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordREPLICATE.clientContextPhoneme
-                ## AND     stimwordPosition.stimwordPositionPhoneme        =       clientStimwordREPLICATE.stimwordPositionPhoneme
-				        AND	    stimwordPosition.soundPhoneme					          =		clientStimwordREPLICATE.soundPhoneme
+		AND	stimwordPosition.soundPhoneme			=	clientStimwordREPLICATE.soundPhoneme
 
                 AND     clientStimwordREPLICATE.teacherEmail            =       'info@englishwithoutaccent.com'
                 AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark@edwardsmark.com'
-                AND     clientStimwordREPLICATE.sessionName 			      =       'Time1'
+                AND     clientStimwordREPLICATE.sessionName 		=       'Time1'
                 AND     clientStimwordREPLICATE.layoutName              =       'PESL'
                 )
                 WHERE   1                       /* dummy first one */
