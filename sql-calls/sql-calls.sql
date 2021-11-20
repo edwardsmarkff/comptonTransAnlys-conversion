@@ -85,14 +85,14 @@
                 ;
 
 
-                SELECT  sessionNames.sessionReplicate
-                ,       sessionNames.sessionBeginLineNbr
-                ,       sessionNames.sessionEndLineNbr
-                ,       sessionNames.sessionErrorsCssNormalClass
-                ,       sessionNames.sessionErrorsCssReplicateClass
-                FROM    sessionNames
+                SELECT  `sessionNames`.`sessionReplicate`
+                ,       `sessionNames`.`sessionBeginLineNbr`
+                ,       `sessionNames`.`sessionEndLineNbr`
+                ,       `sessionNames`.`sessionErrorsCssNormalClass`
+                ,       `sessionNames`.`sessionErrorsCssReplicateClass`
+                FROM    `sessionNames`
                 WHERE   1
-                AND     sessionNames.sessionName              =       'Time1'
+                AND     `sessionNames`.`sessionName`              =       'Time1'
                 ;
 
 
