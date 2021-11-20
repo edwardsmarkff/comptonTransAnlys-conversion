@@ -42,16 +42,16 @@
                 FROM    `stimwordPosition`
                 LEFT OUTER JOIN `clientStimword` `clientStimwordCURRENT` ON
                 (       1
-                AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordCURRENT`.stimwordPositionAutoIncr`
-                AND     `stimwordPosition`.`layoutName`                     	=       `clientStimwordCURRENT`.layoutName`
-                AND     `stimwordPosition`.`stimwordPageNbr`        		=       `clientStimwordCURRENT`.stimwordPageNbr`
-                AND     `stimwordPosition`.`stimwordLineNbr`        		=       `clientStimwordCURRENT`.stimwordLineNbr`
-                AND     `stimwordPosition`.`stimwordWord`           		=       `clientStimwordCURRENT`.stimwordWord`
+                AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordCURRENT`.`stimwordPositionAutoIncr`
+                AND     `stimwordPosition`.`layoutName`                     	=       `clientStimwordCURRENT`.`layoutName`
+                AND     `stimwordPosition`.`stimwordPageNbr`        		=       `clientStimwordCURRENT`.`stimwordPageNbr`
+                AND     `stimwordPosition`.`stimwordLineNbr`        		=       `clientStimwordCURRENT`.`stimwordLineNbr`
+                AND     `stimwordPosition`.`stimwordWord`           		=       `clientStimwordCURRENT`.`stimwordWord`
 
-                AND     `stimwordPosition`.`contextPosition`                	=       `clientStimwordCURRENT`.contextPosition`
-                AND     `stimwordPosition`.`stimwordPositionNbr`            	=       `clientStimwordCURRENT`.stimwordPositionNbr`
-                AND     `stimwordPosition`.`stimwordPositionSetting`        	=       `clientStimwordCURRENT`.stimwordPositionSetting`
-                AND	`stimwordPosition`.`soundPhoneme`			= 	`clientStimwordCURRENT`.soundPhoneme`
+                AND     `stimwordPosition`.`contextPosition`                	=       `clientStimwordCURRENT`.`contextPosition`
+                AND     `stimwordPosition`.`stimwordPositionNbr`            	=       `clientStimwordCURRENT`.`stimwordPositionNbr`
+                AND     `stimwordPosition`.`stimwordPositionSetting`        	=       `clientStimwordCURRENT`.`stimwordPositionSetting`
+                AND	`stimwordPosition`.`soundPhoneme`			= 	`clientStimwordCURRENT`.`soundPhoneme`
 
                 AND     `clientStimwordCURRENT`.`teacherEmail`              	=       'info@englishwithoutaccent.com'
                 AND     `clientStimwordCURRENT`.`clientMasterEmail`         	=       'mark@edwardsmark.com'
@@ -60,16 +60,16 @@
                 )
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
                 (       1
-                AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordREPLICATE`.stimwordPositionAutoIncr`
-                AND     `stimwordPosition`.`layoutName`                     	=	`clientStimwordREPLICATE`.layoutName`
-                AND     `stimwordPosition`.`stimwordPageNbr`                	=       `clientStimwordREPLICATE`.stimwordPageNbr`
-                AND     `stimwordPosition`.`stimwordLineNbr`                	=       `clientStimwordREPLICATE`.stimwordLineNbr`
-                AND     `stimwordPosition`.`stimwordWord`                   	=       `clientStimwordREPLICATE`.stimwordWord`
+                AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordREPLICATE`.`stimwordPositionAutoIncr`
+                AND     `stimwordPosition`.`layoutName`                     	=	`clientStimwordREPLICATE`.`layoutName`
+                AND     `stimwordPosition`.`stimwordPageNbr`                	=       `clientStimwordREPLICATE`.`stimwordPageNbr`
+                AND     `stimwordPosition`.`stimwordLineNbr`                	=       `clientStimwordREPLICATE`.`stimwordLineNbr`
+                AND     `stimwordPosition`.`stimwordWord`                   	=       `clientStimwordREPLICATE`.`stimwordWord`
 
-                AND     `stimwordPosition`.`contextPosition`                	=       `clientStimwordREPLICATE`.contextPosition`
-                AND     `stimwordPosition`.`stimwordPositionNbr`            	=       `clientStimwordREPLICATE`.stimwordPositionNbr`
-                AND     `stimwordPosition`.`stimwordPositionSetting`        	=       `clientStimwordREPLICATE`.stimwordPositionSetting`
-		AND	`stimwordPosition`.`soundPhoneme`			=	`clientStimwordREPLICATE`.soundPhoneme`
+                AND     `stimwordPosition`.`contextPosition`                	=       `clientStimwordREPLICATE`.`contextPosition`
+                AND     `stimwordPosition`.`stimwordPositionNbr`            	=       `clientStimwordREPLICATE`.`stimwordPositionNbr`
+                AND     `stimwordPosition`.`stimwordPositionSetting`        	=       `clientStimwordREPLICATE`.`stimwordPositionSetting`
+		AND	`stimwordPosition`.`soundPhoneme`			=	`clientStimwordREPLICATE`.`soundPhoneme`
 
                 AND     `clientStimwordREPLICATE`.`teacherEmail`            	=       'info@englishwithoutaccent.com'
                 AND     `clientStimwordREPLICATE`.`clientMasterEmail`       	=       'mark@edwardsmark.com'
