@@ -280,18 +280,18 @@ s/\`Context_2_Client_context_FOREIGN_KEY_1\`/\`contextMiscKeys_2_clientContext\`
 s/\`Context_2_Client_context_FOREIGN_KEY_2\`/\`contextAutoIncr_2_clientContext\`/g;
 s/\`Frequency_list_2_Client_context_FOREIGN_KEY\`/\`frequency_2_clientContext\`/g;
 s/\`Session_names_2_Client_master_FOREIGN_KEY\`/\`session_2_clientMaster\`/g;
-s\`Client_context_2_Client_stimword_FOREIGN_KEY_1\`/\`clientContextMiscKeys_2_clientStimword\`/g;
-s\`Client_context_2_Client_stimword_FOREIGN_KEY_2\`/\`clientContextAutoIncr_2_cleintStimword\`/g;
-s\`Stimword_position_2_Client_stimword_FOREIGN_KEY_1\`/\`stimwordPositionMiscKeys_2_clientStimword\`/g;
-s\`Stimword_position_2_Client_stimword_FOREIGN_KEY_2\`/\`stimwordPositionAutoIncr_2_clientStimword\`/g;
-s\`Sound_2_Context_FOREIGN_KEY_1\`/\`soundAutoIncr_2_context\`/g;
-s\`Sound_2_Context_FOREIGN_KEY_2\`/\`soundMiscKeys_2_context\`/g;
-s\`Context_2_Language_norms_FOREIGN_KEY_1\`/\`contextMiscKeys_2_languageNorms\`/g;
-s\`Context_2_Language_norms_FOREIGN_KEY_2\`/\`contextAutoIncr_2_languageNorms\`/g;
-s\`Context_2_Stimword_position_FOREIGN_KEY_1\`/\`contextMiscKeys_2_stimwordPosition\`/g;
-s\`Context_2_Stimword_position_FOREIGN_KEY_2\`/\`contextAutoIncr_2_stimwordPosition\`/g;
-s\`Stimword_2_Stimword_position_FOREIGN_KEY_1\`/\`stimwordMiscKeys_2_stimwordPosition\`/g;
-s\`Stimword_2_Stimword_position_FOREIGN_KEY_2\`/\`stimwordAutoIncr_2_stimwordPosition\`/g;
+s/\`Client_context_2_Client_stimword_FOREIGN_KEY_1\`/\`clientContextMiscKeys_2_clientStimword\`/g;
+s/\`Client_context_2_Client_stimword_FOREIGN_KEY_2\`/\`clientContextAutoIncr_2_cleintStimword\`/g;
+s/\`Stimword_position_2_Client_stimword_FOREIGN_KEY_1\`/\`stimwordPositionMiscKeys_2_clientStimword\`/g;
+s/\`Stimword_position_2_Client_stimword_FOREIGN_KEY_2\`/\`stimwordPositionAutoIncr_2_clientStimword\`/g;
+s/\`Sound_2_Context_FOREIGN_KEY_1\`/\`soundAutoIncr_2_context\`/g;
+s/\`Sound_2_Context_FOREIGN_KEY_2\`/\`soundMiscKeys_2_context\`/g;
+s/\`Context_2_Language_norms_FOREIGN_KEY_1\`/\`contextMiscKeys_2_languageNorms\`/g;
+s/\`Context_2_Language_norms_FOREIGN_KEY_2\`/\`contextAutoIncr_2_languageNorms\`/g;
+s/\`Context_2_Stimword_position_FOREIGN_KEY_1\`/\`contextMiscKeys_2_stimwordPosition\`/g;
+s/\`Context_2_Stimword_position_FOREIGN_KEY_2\`/\`contextAutoIncr_2_stimwordPosition\`/g;
+s/\`Stimword_2_Stimword_position_FOREIGN_KEY_1\`/\`stimwordMiscKeys_2_stimwordPosition\`/g;
+s/\`Stimword_2_Stimword_position_FOREIGN_KEY_2\`/\`stimwordAutoIncr_2_stimwordPosition\`/g;
 
 EOF
 
