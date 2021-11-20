@@ -4,9 +4,9 @@
 
 
          SELECT  DISTINCT ''
-                ,       `stimword.stimwordPageNbr`
-                ,       `stimword.stimwordLineNbr`
-                ,       `stimword.stimwordWord`
+                ,       `stimword`.`stimwordPageNbr`
+                ,       `stimword`.`stimwordLineNbr`
+                ,       `stimword`.`stimwordWord`
                 FROM    `stimword`
 		,	`stimwordPosition`
                 WHERE   1
