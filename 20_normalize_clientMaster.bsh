@@ -70,6 +70,7 @@ ALTER TABLE \`clientMaster\`	ADD CONSTRAINT \`teacherAutoIncr_2_clientMaster\`
 
 ALTER TABLE \`clientMaster\`	DROP CONSTRAINT IF EXISTS	\`teacherAutoIncr_2_clientMaster\`						;
 ALTER TABLE \`clientMaster\`	DROP CONSTRAINT IF EXISTS	\`sessionNames_2_clientMaster\` 						;
+ALTER TABLE \`clientMaster\`	DROP CONSTRAINT IF EXISTS	\`session_2_clientMaster\` 							;
 
 ALTER TABLE \`clientMaster\`	DROP KEY IF EXISTS		\`teacherMiscKeys_2_clientMaster\`  						;
 ALTER TABLE \`teacher\`		ADD UNIQUE KEY			\`teacherMiscKeys\`			(\`layoutName\`, \`teacherEmail\`) 	;
