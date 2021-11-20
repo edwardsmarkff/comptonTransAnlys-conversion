@@ -4,104 +4,99 @@
 
 
          SELECT  DISTINCT ''
-                ,       stimword.stimwordPageNbr
-                ,       stimword.stimwordLineNbr
-                ,       stimword.stimwordWord
-                FROM    stimword
-				,		stimwordPosition
+                ,       `stimword.stimwordPageNbr`
+                ,       `stimword.stimwordLineNbr`
+                ,       `stimword.stimwordWord`
+                FROM    `stimword`
+		,	`stimwordPosition`
                 WHERE   1
-                AND		stimword.layoutName			=	stimwordPosition.layoutName
-                AND		stimword.stimwordPageNbr	=	stimwordPosition.stimwordPageNbr
-                AND		stimword.stimwordLineNbr	=	stimwordPosition.stimwordLineNbr
-                AND		stimword.stimwordWord		=	stimwordPosition.stimwordWord
-                AND     stimword.layoutName                      = 'PESL'
-                AND     stimword.stimwordPageNbr                 BETWEEN  0 AND  1000
+                AND	`stimword`.`layoutName`		=	`stimwordPosition`.`layoutName`
+                AND	`stimword`.`stimwordPageNbr`	=	`stimwordPosition`.`stimwordPageNbr`
+                AND	`stimword`.`stimwordLineNbr`	=	`stimwordPosition`.`stimwordLineNbr`
+                AND	`stimword`.`stimwordWord`	=	`stimwordPosition`.`stimwordWord`
+                AND     `stimword`.`layoutName`                      = 'PESL'
+                AND     `stimword`.`stimwordPageNbr`                 BETWEEN  0 AND  1000
                 ORDER BY
-                        stimwordPosition.stimwordPositionAutoIncr
+                        `stimwordPosition`.`stimwordPositionAutoIncr`
                 ;
 		
 
 
 
              SELECT  ALL ''
-                ,       stimwordPosition.stimwordWord                   
-                ,       stimwordPosition.contextPosition
-                ,       stimwordPosition.stimwordPositionNbr                    'stimwordPositionNbr'
-                ,       stimwordPosition.stimwordPositionSetting
-                ,       stimwordPosition.stimwordPositionBackgroundColor
-                ,       stimwordPosition.stimwordPositionBdrColor
-                ,       stimwordPosition.stimwordPositionBdrStyle
-                ,       stimwordPosition.stimwordPositionBdrThickness
-                ,       stimwordPosition.soundPhoneme
-                ,       stimwordPosition.stimwordPageNbr      	                'stimwordPositionPageNbr'
-                ,       stimwordPosition.stimwordPositionAutoIncr               'stimwordPositionAutoIncr'
+                ,       `stimwordPosition`.`stimwordWord`                   
+                ,       `stimwordPosition`.`contextPosition`
+                ,       `stimwordPosition`.`stimwordPositionNbr`                    'stimwordPositionNbr'
+                ,       `stimwordPosition`.`stimwordPositionSetting`
+                ,       `stimwordPosition`.`stimwordPositionBackgroundColor`
+                ,       `stimwordPosition`.`stimwordPositionBdrColor`
+                ,       `stimwordPosition`.`stimwordPositionBdrStyle`
+                ,       `stimwordPosition`.`stimwordPositionBdrThickness`
+                ,       `stimwordPosition`.`soundPhoneme`
+                ,       `stimwordPosition`.`stimwordPageNbr`      	            'stimwordPositionPageNbr'
+                ,       `stimwordPosition`.`stimwordPositionAutoIncr`               'stimwordPositionAutoIncr'
                 
-                ,       clientStimwordCURRENT.clientContextError                'clientContextError CURRENT'
+                ,       `clientStimwordCURRENT`.`clientContextError`                'clientContextError CURRENT'
+                ,       `clientStimwordREPLICATE`.`clientContextError`              'clientContextError REPLICATE'
 
-                ,       clientStimwordREPLICATE.clientContextError                'clientContextError REPLICATE'
-
-                FROM    stimwordPosition
-                LEFT OUTER JOIN clientStimword clientStimwordCURRENT ON
+                FROM    `stimwordPosition`
+                LEFT OUTER JOIN `clientStimword` `clientStimwordCURRENT` ON
                 (       1
-                AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordCURRENT.stimwordPositionAutoIncr
-                AND     stimwordPosition.layoutName                     =       clientStimwordCURRENT.layoutName
-                AND     stimwordPosition.stimwordPageNbr        	=       clientStimwordCURRENT.stimwordPageNbr
-                AND     stimwordPosition.stimwordLineNbr        	=       clientStimwordCURRENT.stimwordLineNbr
-                AND     stimwordPosition.stimwordWord           	=       clientStimwordCURRENT.stimwordWord
+                AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordCURRENT`.stimwordPositionAutoIncr`
+                AND     `stimwordPosition`.`layoutName`                     	=       `clientStimwordCURRENT`.layoutName`
+                AND     `stimwordPosition`.`stimwordPageNbr`        		=       `clientStimwordCURRENT`.stimwordPageNbr`
+                AND     `stimwordPosition`.`stimwordLineNbr`        		=       `clientStimwordCURRENT`.stimwordLineNbr`
+                AND     `stimwordPosition`.`stimwordWord`           		=       `clientStimwordCURRENT`.stimwordWord`
 
-                AND     stimwordPosition.contextPosition                =       clientStimwordCURRENT.contextPosition
-                AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordCURRENT.stimwordPositionNbr
-                AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordCURRENT.stimwordPositionSetting
-                AND	stimwordPosition.soundPhoneme			= 	clientStimwordCURRENT.soundPhoneme
+                AND     `stimwordPosition`.`contextPosition`                	=       `clientStimwordCURRENT`.contextPosition`
+                AND     `stimwordPosition`.`stimwordPositionNbr`            	=       `clientStimwordCURRENT`.stimwordPositionNbr`
+                AND     `stimwordPosition`.`stimwordPositionSetting`        	=       `clientStimwordCURRENT`.stimwordPositionSetting`
+                AND	`stimwordPosition`.`soundPhoneme`			= 	`clientStimwordCURRENT`.soundPhoneme`
 
-                AND     clientStimwordCURRENT.teacherEmail              =       'info@englishwithoutaccent.com'
-                AND     clientStimwordCURRENT.clientMasterEmail         =       'mark@edwardsmark.com'
-                AND     clientStimwordCURRENT.sessionName   		=       'Time1'
-                AND     clientStimwordCURRENT.layoutName                =       'PESL'
+                AND     `clientStimwordCURRENT`.`teacherEmail`              	=       'info@englishwithoutaccent.com'
+                AND     `clientStimwordCURRENT`.`clientMasterEmail`         	=       'mark@edwardsmark.com'
+                AND     `clientStimwordCURRENT`.`sessionName`   		=       'Time1'
+                AND     `clientStimwordCURRENT`.`layoutName`                	=       'PESL'
                 )
                 LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
                 (       1
-                AND     stimwordPosition.stimwordPositionAutoIncr       =       clientStimwordREPLICATE.stimwordPositionAutoIncr
-                AND     stimwordPosition.layoutName                     =       clientStimwordREPLICATE.layoutName
-                AND     stimwordPosition.stimwordPageNbr                =       clientStimwordREPLICATE.stimwordPageNbr
-                AND     stimwordPosition.stimwordLineNbr                =       clientStimwordREPLICATE.stimwordLineNbr
-                AND     stimwordPosition.stimwordWord                   =       clientStimwordREPLICATE.stimwordWord
+                AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordREPLICATE`.stimwordPositionAutoIncr`
+                AND     `stimwordPosition`.`layoutName`                     	=	`clientStimwordREPLICATE`.layoutName`
+                AND     `stimwordPosition`.`stimwordPageNbr`                	=       `clientStimwordREPLICATE`.stimwordPageNbr`
+                AND     `stimwordPosition`.`stimwordLineNbr`                	=       `clientStimwordREPLICATE`.stimwordLineNbr`
+                AND     `stimwordPosition`.`stimwordWord`                   	=       `clientStimwordREPLICATE`.stimwordWord`
 
-                AND     stimwordPosition.contextPosition                =       clientStimwordREPLICATE.contextPosition
-                AND     stimwordPosition.stimwordPositionNbr            =       clientStimwordREPLICATE.stimwordPositionNbr
-                AND     stimwordPosition.stimwordPositionSetting        =       clientStimwordREPLICATE.stimwordPositionSetting
-		AND	stimwordPosition.soundPhoneme			=	clientStimwordREPLICATE.soundPhoneme
+                AND     `stimwordPosition`.`contextPosition`                	=       `clientStimwordREPLICATE`.contextPosition`
+                AND     `stimwordPosition`.`stimwordPositionNbr`            	=       `clientStimwordREPLICATE`.stimwordPositionNbr`
+                AND     `stimwordPosition`.`stimwordPositionSetting`        	=       `clientStimwordREPLICATE`.stimwordPositionSetting`
+		AND	`stimwordPosition`.`soundPhoneme`			=	`clientStimwordREPLICATE`.soundPhoneme`
 
-                AND     clientStimwordREPLICATE.teacherEmail            =       'info@englishwithoutaccent.com'
-                AND     clientStimwordREPLICATE.clientMasterEmail       =       'mark@edwardsmark.com'
-                AND     clientStimwordREPLICATE.sessionName 		=       'Time1'
-                AND     clientStimwordREPLICATE.layoutName              =       'PESL'
+                AND     `clientStimwordREPLICATE`.`teacherEmail`            	=       'info@englishwithoutaccent.com'
+                AND     `clientStimwordREPLICATE`.`clientMasterEmail`       	=       'mark@edwardsmark.com'
+                AND     `clientStimwordREPLICATE`.`sessionName` 		=       'Time1'
+                AND     `clientStimwordREPLICATE`.`layoutName`              	=       'PESL'
                 )
                 WHERE   1                       /* dummy first one */
-                AND     stimwordPosition.layoutName                                      =       'PESL'
-                AND     stimwordPosition.stimwordPageNbr                                =       1
-                AND     stimwordPosition.stimwordLineNbr                                =       1
-                AND     stimwordPosition.stimwordWord                                   =       'Horse'
-                ORDER BY        stimwordPosition.stimwordPositionAutoIncr
+                AND     `stimwordPosition`.`layoutName`                         =       'PESL'
+                AND     `stimwordPosition`.`stimwordPageNbr`                    =       1
+                AND     `stimwordPosition`.`stimwordLineNbr`                    =       1
+                AND     `stimwordPosition`.`stimwordWord`                       =       'Horse'
+                ORDER BY        `stimwordPosition`.`stimwordPositionAutoIncr`
+                ;
+
+
+                SELECT  sessionNames.sessionReplicate
+                ,       sessionNames.sessionBeginLineNbr
+                ,       sessionNames.sessionEndLineNbr
+                ,       sessionNames.sessionErrorsCssNormalClass
+                ,       sessionNames.sessionErrorsCssReplicateClass
+                FROM    sessionNames
+                WHERE   1
+                AND     sessionNames.sessionName              =       'Time1'
                 ;
 
 
 
-
- 
-
-
-
-
-                SELECT  Session_names.Session_replicate
-                ,       Session_names.Session_beginLineNbr
-                ,       Session_names.Session_endLineNbr
-                ,       Session_names.Session_error_sounds_css_normal_class
-                ,       Session_names.Session_error_sounds_css_replicate_class
-                FROM    Session_names
-                WHERE   1=1
-                AND     Session_names.Session_name                              =       'Time1'
-                ;
 
 
 
