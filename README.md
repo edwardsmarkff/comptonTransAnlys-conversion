@@ -10,7 +10,8 @@ to test results:
 grep ERROR  *.log  | grep -v ERRORS  | grep -v 'SEMANTIC ERROR' | grep -v 'ERROR LINKING' | grep -v  'SEMANTIC' ;
 
 
-2021-11-18 -- DO WE HAVE DUPLICATE KEYS OR UNNECESSARY KEYS ???????????????????????????
+2021-11-18 -- DO WE HAVE DUPLICATE KEYS OR UNNECESSARY KEYS ?
+
 2021-11-21 -- do we REALLY need _2_THIS-TABLE-NAME    in the key/constraint names?   isnt THIS-TABLE-NAME implied???
 
 DAMAGED KEY FIXED 2020-10-30 -
