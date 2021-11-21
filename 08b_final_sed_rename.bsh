@@ -292,6 +292,7 @@ s/\`Context_2_Stimword_position_FOREIGN_KEY_1\`/\`contextMiscKeys_2_stimwordPosi
 s/\`Context_2_Stimword_position_FOREIGN_KEY_2\`/\`contextAutoIncr_2_stimwordPosition\`/g;
 s/\`Stimword_2_Stimword_position_FOREIGN_KEY_1\`/\`stimwordMiscKeys_2_stimwordPosition\`/g;
 s/\`Stimword_2_Stimword_position_FOREIGN_KEY_2\`/\`stimwordAutoIncr_2_stimwordPosition\`/g;
+s/\`clientContextAutoIncr_2_clientContext\`/\`clientSessionAutoIncr_2_clientContext\`/g;
 
 EOF
 
