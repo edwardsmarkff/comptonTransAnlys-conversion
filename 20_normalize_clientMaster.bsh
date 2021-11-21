@@ -151,6 +151,7 @@ ALTER TABLE \`clientSession\` 		DROP CONSTRAINT IF EXISTS	\`Teacher_2_Client_mas
 
 ALTER TABLE \`clientSession\`		DROP KEY	IF EXISTS	\`teacherMiscKeys_2_clientMaster\`		;
 
+ALTER TABLE \`clientSession\` 		DROP CONSTRAINT IF EXISTS	\`session_2_clientMaster\`			;
 
 
 -- clientContext
