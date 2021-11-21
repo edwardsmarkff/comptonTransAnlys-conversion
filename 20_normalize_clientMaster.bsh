@@ -188,12 +188,13 @@ ALTER TABLE \`clientContext\`
 		ON DELETE CASCADE ON UPDATE CASCADE
 		;
 		
-ALTER TABLE \`clientContext\`  DROP CONSTRAINT IF EXISTS	\`clientMasterMiscKeys_2_clientContext\` 		;
+ALTER TABLE \`clientContext\`	DROP CONSTRAINT IF EXISTS	\`clientMasterMiscKeys_2_clientContext\` 		;
 
-ALTER TABLE \`clientContext\`  DROP CONSTRAINT IF EXISTS	\`Client_master_2_Client_context_FOREIGN_KEY_1\`	;
+ALTER TABLE \`clientContext\`	DROP CONSTRAINT IF EXISTS	\`Client_master_2_Client_context_FOREIGN_KEY_1\`	;
 
-ALTER TABLE \`clientContext\`  DROP CONSTRAINT IF EXISTS	\`Client_master_2_Client_context_FOREIGN_KEY_2\`	;
+ALTER TABLE \`clientContext\`	DROP CONSTRAINT IF EXISTS	\`Client_master_2_Client_context_FOREIGN_KEY_2\`	;
 
+ALTER TABLE \`clientContext\`	DROP KEY	IF EXISTS	\`clientContextMiscKeys_2_clientStimword\`		;
 
 SET FOREIGN_KEY_CHECKS=1 ;
 
