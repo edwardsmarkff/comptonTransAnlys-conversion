@@ -125,6 +125,15 @@ ALTER TABLE \`clientSession\`		ADD UNIQUE KEY	\`clientSessionUniqueKey\`
 							,	\`sessionName\`
 							)											;
 
+ALTER TABLE \`clientSession\`		DROP KEY IF EXISTS	\`teacherEmail\`					;
+
+ALTER TABLE \`clientSession\`		ADD KEY			\`clientMasterMiscKeys_2_clientSession\`
+										(	\`layoutName\`
+										,	\`teacherEmail\`
+										,	\`clientMasterEmail\`
+										)
+										;
+										
 ALTER TABLE \`clientSession\`		ADD CONSTRAINT		\`clientMasterMiscKeys_2_clientSession\`
 					FOREIGN KEY				(	\`layoutName\`
 										,	\`teacherEmail\`
