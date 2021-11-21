@@ -86,7 +86,7 @@ grep   --line-number  --only-matching  'ERROR [0-9][0-9]*'                  08c_
 echo $(date) ' - 08d_final_sed_rename.bsh'                                                                                          ;
 bash -vx  08d_final_sed_rename.bsh                                >          08d_final_sed_rename.bsh.log                2>&1       ;
 grep   --line-number  --only-matching  'ERROR [0-9][0-9]*'                   08d_final_sed_rename.bsh.log                           ;
-grep ERROR   08d_final_sed_rename.bsh.log  | grep -v ERRORS | grep ^C  'ERROR LINKING' | grep -v  'SEMANTIC ERROR' | grep -v  grep  ;
+grep ERROR   08d_final_sed_rename.bsh.log  | grep -v ERRORS | grep -v  'ERROR LINKING' | grep -v  'SEMANTIC ERROR' | grep -v  grep  ;
 
 echo $(date) ' - 08e_final_sed_rename.bsh'                                                                                          ;
 bash -vx  08e_final_sed_rename.bsh                                >          08e_final_sed_rename.bsh.log                2>&1       ;
