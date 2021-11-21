@@ -149,9 +149,9 @@ ALTER TABLE \`clientSession\` 		DROP CONSTRAINT	IF EXISTS	\`Teacher_2_Client_mas
 
 ALTER TABLE \`clientSession\` 		DROP CONSTRAINT IF EXISTS	\`Teacher_2_Client_master_FOREIGN_KEY_2\`	;
 
+
+
 -- clientContext
-
-
 
 ALTER TABLE \`clientContext\` RENAME COLUMN 	\`clientMasterAutoIncr\`			TO \`clientSessionAutoIncr\`			;
 
@@ -164,8 +164,15 @@ ALTER TABLE \`clientContext\`
 		ON DELETE CASCADE ON UPDATE CASCADE
 		;
 		
-ALTER TABLE \`clientContext\`  DROP CONSTRAINT IF EXISTS \`clientMasterAutoIncr_2_clientContext\`			;
+ALTER TABLE \`clientContext\`	DROP CONSTRAINT IF EXISTS \`clientMasterAutoIncr_2_clientContext\`			;
 
+ALTER TABLE \`clientContext\`	ADD KEY	\`clientSessionMiscKeys_2_clientContext\`
+							(	\`layoutName\`
+							,	\`teacherEmail\`
+							,	\`clientMasterEmail\`
+							,	\`sessionName\`
+							)
+							;
 ALTER TABLE \`clientContext\`
 		ADD  CONSTRAINT \`clientSessionMiscKeys_2_clientContext\`
 		FOREIGN KEY			(	\`layoutName\`
