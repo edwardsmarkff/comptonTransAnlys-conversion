@@ -9,7 +9,8 @@
 #
 /usr/bin/mariadb    --verbose  comptonTransAnlys  <<END ;
 
-SET FOREIGN_KEY_CHECKS=0 ;
+#########   2021-11-21	SET FOREIGN_KEY_CHECKS=0 ;
+
 
 	-- delete columns where language and master-name are NOT equal.
 	
