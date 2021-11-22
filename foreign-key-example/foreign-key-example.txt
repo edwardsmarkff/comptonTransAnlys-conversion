@@ -1,3 +1,5 @@
+###     https://linuxhint.com/mysql_foreign_key_constraints/
+
 SELECT 'Starting';
 DROP DATABASE IF EXISTS library;
 CREATE DATABASE library;
