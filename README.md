@@ -14,6 +14,10 @@ grep ERROR  *.log  | grep -v ERRORS  | grep -v 'SEMANTIC ERROR' | grep -v 'ERROR
 
 2021-11-21 -- do we REALLY need _2_THIS-TABLE-NAME    in the key/constraint names?   isnt THIS-TABLE-NAME implied???
 
+2021-11-21-a      it appears the KEY needs to be in the PARENT and the CONSTRAINT needs to be in the child!   
+
+          i have been including  the KEY and the CONSTRAINT in the child!
+
 DAMAGED KEY FIXED 2020-10-30 -
 
 still to do:
