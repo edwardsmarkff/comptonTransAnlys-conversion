@@ -94,13 +94,6 @@ ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`clientMasterName\`								
 
 ALTER TABLE \`clientSession\` RENAME COLUMN \`clientMasterAutoIncr\` TO \`clientSessionAutoIncr\`						;
 
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterUniqueKey\`								;
-
-###ALTER TABLE \`clientContext\` DROP CONSTRAINT IF EXISTS	\`Teacher_2_Client_master_FOREIGN_KEY_1\`						;
-###ALTER TABLE \`clientSession\` DROP COLUMN IF EXISTS	\`teacherAutoIncr\`									;
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`						;
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`								;
-
 ALTER TABLE \`clientSession\` ADD COLUMN    \`clientMasterAutoIncr\` INT(11)  NOT NULL AFTER \`updatedAt\` ;
 
 UPDATE          \`clientMaster\`
@@ -209,7 +202,12 @@ ALTER TABLE \`clientContext\`	DROP CONSTRAINT IF EXISTS	\`Client_master_2_Client
 
 ALTER TABLE \`clientContext\`	DROP KEY	IF EXISTS	\`clientContextMiscKeys_2_clientStimword\`		;
 
-SET FOREIGN_KEY_CHECKS=1 ;
+
+ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterUniqueKey\`								;
+ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`						;
+ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`								;
+
+###################### 2021-11-21  SET FOREIGN_KEY_CHECKS=1 ;
 
 END
 
