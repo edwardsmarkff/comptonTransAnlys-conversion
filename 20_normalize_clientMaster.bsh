@@ -205,7 +205,7 @@ ALTER TABLE \`clientContext\`	DROP KEY	IF EXISTS	\`clientContextMiscKeys_2_clien
 
 ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`clientMasterUniqueKey\`					;
 ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`			;
-ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`					;
+#######  needed for some bizarre reason ???	ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`					;
 ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`teacherEmail\`						;
 
 ###################### 2021-11-21  SET FOREIGN_KEY_CHECKS=1 ;
