@@ -1,0 +1,49 @@
+SELECT 'Starting';
+DROP DATABASE IF EXISTS library;
+CREATE DATABASE library;
+USE library;
+
+CREATE TABLE books (
+title varchar(50) NOT NULL,
+author varchar(50) NOT NULL,
+publisher varchar(50) NOT NULL,
+KEY `book_2_book_borrow_info` (title, author)
+) ENGINE=INNODB;
+
+
+CREATE TABLE book_borrow_info (
+borrow_date DATE NOT NULL,
+return_date DATE NOT NULL,
+status VARCHAR(15) NOT NULL,
+title varchar(50) NOT NULL,
+author varchar(50) NOT NULL,
+FOREIGN KEY `book_2_book_borrow_info` (title, author) REFERENCES books(title, author)
+ON DELETE CASCADE
+ON UPDATE CASCADE
+) ENGINE=INNODB;
+
+
+INSERT INTO books VALUES
+('To Kill a Mockingbird', 'Harper Lee', 'Grand Central Publishing'),
+('One Hundred Years of Solitude', 'Garcia Marquez', 'Lutfi Ozkok'),
+('A Passage to India', 'Forster, E.M.', 'BBC Hulton Picture Library'),
+('Invisible Man', 'Ralph Ellison', 'Encyclopædia Britannica, Inc.');
+
+INSERT INTO book_borrow_info VALUES
+('2020-02-15', '2020-02-25', 'Returned','To Kill a Mockingbird','Harper Lee'),
+('2020-03-31', '2020-03-10', 'Pending','One Hundred Years of Solitude', 'Garcia Marquez'),
+('2020-04-04', '2020-04-24', 'Borrowed','A Passage to India', 'Forster, E.M.'),
+('2020-04-10', '2020-01-20', 'Borrowed','Invisible Man', 'Ralph Ellison');
+
+SET FOREIGN_KEY_CHECKS=0;
+
+INSERT INTO book_borrow_info VALUES ( '2020-02-02', '2020-02-03','STATUS!',  'Fake Title', 'Fake Author' ) ;
+
+SET FOREIGN_KEY_CHECKS=1;
+
+OPTIMIZE TABLE book_borrow_info;  ### does NOT repair damaged foreign key
+
+select  count(*)  from books, book_borrow_info WHERE 1 AND books.title = book_borrow_info.title AND books.author = book_borrow_info.author ;
+
+select  count(*)  from book_borrow_info ;
+
