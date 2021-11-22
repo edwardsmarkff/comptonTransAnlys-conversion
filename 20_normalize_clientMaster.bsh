@@ -117,9 +117,9 @@ ALTER TABLE \`clientSession\`		ADD UNIQUE KEY	\`clientSessionUniqueKey\`
 							,	\`teacherEmail\`
 							,	\`clientMasterEmail\`
 							,	\`sessionName\`
-							)											;
+							)
+							;
 
-ALTER TABLE \`clientSession\`		DROP KEY IF EXISTS	\`teacherEmail\`					;
 
 ALTER TABLE \`clientSession\`		ADD KEY			\`clientMasterMiscKeys_2_clientSession\`
 										(	\`layoutName\`
@@ -203,9 +203,10 @@ ALTER TABLE \`clientContext\`	DROP CONSTRAINT IF EXISTS	\`Client_master_2_Client
 ALTER TABLE \`clientContext\`	DROP KEY	IF EXISTS	\`clientContextMiscKeys_2_clientStimword\`		;
 
 
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterUniqueKey\`								;
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`						;
-ALTER TABLE \`clientSession\` DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`								;
+ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`clientMasterUniqueKey\`					;
+ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`clientMasterMiscKeys_2_clientContext\`			;
+ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`sessionNames_2_clientMaster\`					;
+ALTER TABLE \`clientSession\`	DROP KEY IF EXISTS	\`teacherEmail\`						;
 
 ###################### 2021-11-21  SET FOREIGN_KEY_CHECKS=1 ;
 
