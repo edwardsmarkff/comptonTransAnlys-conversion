@@ -138,7 +138,7 @@ grep  --line-number   '^COUNT(\|^[0-9]'                                      55_
 
 echo $(date)                                                                                                                        ;
 
-grep ERROR   *.log  | grep -v ERRORS | grep ^C  'ERROR LINKING' | grep -v  'SEMANTIC ERROR'  | grep -v  grep                        ;
+grep ERROR   *.log  | grep -v ERRORS | grep -v  'ERROR LINKING' | grep -v  'SEMANTIC ERROR'  | grep -v  grep                        ;
 
 
 echo "finished 00_master.bsh!"                                                                                                      ;
