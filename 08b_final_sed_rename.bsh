@@ -255,7 +255,7 @@ s/\`Teacher_legacy_name\`/\`teacherLegacyName\`/g;
 s/\`Teacher_create_date\`/\`createdAt\`/g;
 s/\`Teacher_auto_increment\`/\`teacherAutoIncr\`/g;
 ## keys:
-s/\`Teacher_email_unique_index\`/\`teacherEmailIniqueIndex\`/g;
+s/\`Teacher_email_unique_index\`/\`teacherEmailUniqueIndex\`/g;
 s/\`Teacher_2_Client_master_KEY\`/\`teacherMiscKeys_2_clientMaster\`/g;
 # table names go below:
 s/\`Client_context\`/\`clientContext\`/g;
