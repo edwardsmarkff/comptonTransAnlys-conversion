@@ -1,0 +1,44 @@
+#! /bin/bash  -w
+
+#   22b_remove_constraint_keys.bsh      2021-11-27
+#
+#
+#
+#
+
+sed   --in-place   --file=-    ./comptonTransAnlys_08_FinalRename.sql   <<EOF ;
+
+  KEY `clientContextAutoIncr_2_clientContext` (`clientSessionAutoIncr`),
+  KEY `contextMiscKeys_2_clientContext` (`layoutName`,`contextPosition`,`soundPhoneme`),
+  KEY `contextAutoIncr_2_clientContext` (`contextAutoIncr`),
+  KEY `frequencyList_2_clientContext` (`frequency`),
+  KEY `clientSessionMiscKeys_2_clientContext` (`layoutName`,`teacherEmail`,`clientMasterEmail`,`sessionName`),
+
+  KEY `teacherAutoIncr_2_clientMaster` (`teacherAutoIncr`),
+  KEY `teacherMiscKeys_2_clientMaster` (`layoutName`,`teacherEmail`),
+
+  KEY `sessionNames_2_clientMaster` (`sessionName`),
+  KEY `clientMasterAutoIncr_2_clientSession` (`clientMasterAutoIncr`),
+  KEY `clientMasterMiscKeys_2_clientSession` (`layoutName`,`teacherEmail`,`clientMasterEmail`),
+
+  KEY `clientContextMiscKeys_2_clientStimword` (`layoutName`,`teacherEmail`,`clientMasterEmail`,`sessionName`,`soundPhoneme`,`contextPosition`,`clientContextError`),
+  KEY `clientContextMisc_2_clientStimword` (`clientContextAutoIncr`),
+  KEY `stimwordPositionMiscKeys_2_clientStimword` (`layoutName`,`stimwordPageNbr`,`stimwordLineNbr`,`stimwordWord`,`contextPosition`,`stimwordPositionNbr`,`stimwordPositionSetting`,`soundPhoneme`),
+  KEY `stimwordPositionAutoIncr_2_clientStimword` (`stimwordPositionAutoIncr`),
+
+  KEY `soundAutoIncr_2_context` (`layoutName`,`soundPhoneme`),
+  KEY `soundMiscKeys_2_context` (`soundAutoIncr`),
+
+  KEY `contextMiscKeys_2_languageNorms` (`layoutName`,`contextPosition`,`soundPhoneme`),
+  KEY `contextAutoIncr_2_languageNorms` (`contextAutoIncr`),
+
+  KEY `layout_2_sound` (`layoutName`),
+
+  KEY `layout_2_stimword` (`layoutName`),
+
+  KEY `contextMiscKeys_2_StimwordPosition` (`layoutName`,`contextPosition`,`soundPhoneme`),
+  KEY `contextAutoIncr_2_StimwordPosition` (`contextAutoIncr`),
+  KEY `stimwordPosition_2_clientStimword` (`layoutName`,`stimwordPageNbr`,`stimwordLineNbr`,`stimwordWord`,`contextPosition`,`stimwordPositionNbr`,`stimwordPositionSetting`,`soundPhoneme`),
+  KEY `stimwordAutoIntr_2_stimwordPosition` (`stimwordAutoIncr`),
+
+  KEY `layout_2_teacher` (`layoutName`),
