@@ -1,0 +1,14 @@
+#! /bin/bash  -w
+
+# 22c_remove_constraint_keys.bsh
+
+mariadb  --verbose  <<END ;
+    DROP    DATABASE  comptonTransAnlys;
+    CREATE  DATABASE  comptonTransAnlys;
+    
+END
+
+
+echo "end of sed part 22c_remove_constraint_keys.bsh!" ;
+
+exit        ;
