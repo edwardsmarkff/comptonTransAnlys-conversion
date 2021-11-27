@@ -1,0 +1,13 @@
+#! /bin/bash  -w
+
+# 22a_remove_constraint_keys.bsh
+
+mariadb --verbose comptonTransAnlys   <   ./comptonTransAnlys_22a_remove_constraint_keys.sql ;
+
+mariadb --verbose comptonTransAnlys  <<END ;
+    SHOW TABLES ;
+END
+
+echo "end of sed part 22a_remove_constraint_keys.bsh!" ;
+
+exit        ;
