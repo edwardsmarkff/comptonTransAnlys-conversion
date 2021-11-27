@@ -2,7 +2,7 @@
 
 # 22a_remove_constraint_keys.bsh
 
-mariadb --verbose comptonTransAnlys   <   ./comptonTransAnlys_22a_remove_constraint_keys.sql ;
+mariadb --verbose comptonTransAnlys   <   ./comptonTransAnlys_22_remove_constraint_keys.sql ;
 
 mariadb --verbose comptonTransAnlys  <<END ;
     SHOW TABLES ;
