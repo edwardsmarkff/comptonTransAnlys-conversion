@@ -42,3 +42,13 @@ sed   --in-place   --file=-    ./comptonTransAnlys_08_FinalRename.sql   <<EOF ;
   KEY `stimwordAutoIntr_2_stimwordPosition` (`stimwordAutoIncr`),
 
   KEY `layout_2_teacher` (`layoutName`),
+  
+  EOF
+
+echo -n 'Current sed status result is: ' ;
+echo  $?                                  ;
+
+echo "end of sed part 22b_remove_constraint_keys.bsh!" ;
+
+exit        ;
+#
