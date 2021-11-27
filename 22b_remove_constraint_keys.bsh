@@ -6,7 +6,7 @@
 #   if there is no CONSTRAINT key, Mariadb will create one behind the scenes.
 #
 
-sed   --in-place   --file=-    ./comptonTransAnlys_22a_remove_constraint_keys.sql   <<EOF ;
+sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql   <<EOF ;
 #
 /  KEY \`clientContextAutoIncr_2_clientContext\` (\`clientSessionAutoIncr\`),/d;
 /  KEY \`contextMiscKeys_2_clientContext\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
