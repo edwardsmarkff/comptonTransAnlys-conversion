@@ -1,6 +1,6 @@
 #! /bin/bash  -w
 
-#   22b_remove_constraint_keys.bsh      2021-11-27
+#   22b_remove_constraint_keys.bsh      2021-11-27 !
 #
 #   Mariadb does NOT let us merely remove a CONSTRAINT key since during a CONSTRAINT creation, Mariadb will use whatever key we manually specify.
 #   if there is no CONSTRAINT key, Mariadb will create one behind the scenes.
