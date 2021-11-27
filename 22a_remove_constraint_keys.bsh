@@ -1,6 +1,6 @@
 #! /bin/bash  -w
 
-# 22a_remove_constraint_keys.bsh   -- 2021-11-27 !
+# 22a_remove_constraint_keys.bsh   -- 2021-11-27 !!
 
 /usr/bin/mariadb-dump   --extended-insert=FALSE  comptonTransAnlys  > ./comptonTransAnlys_22_remove_constraint_keys.sql ;
 
