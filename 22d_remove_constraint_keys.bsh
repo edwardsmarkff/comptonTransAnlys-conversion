@@ -9,6 +9,8 @@ mariadb --verbose comptonTransAnlys  <<END  ;
     SHOW CREATE TABLE `clientStimword`      ;
 END
 
+mariadb-dump  --no-data  comptonTransAnlys  | grep  KEY   | grep  '_2_' | grep -v  'CONSTRAINT'   ;
+
 echo "end of sed part 22d_remove_constraint_keys.bsh!" ;
 
 exit        ;
