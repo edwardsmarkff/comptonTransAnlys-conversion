@@ -4,9 +4,9 @@
 
 mariadb comptonTransAnlys   <   ./comptonTransAnlys_22_remove_constraint_keys.sql ;
 
-mariadb --verbose comptonTransAnlys  <<END  ;
-    SHOW TABLES                             ;
-    SHOW CREATE TABLE `clientStimword`      ;
+mariadb --verbose comptonTransAnlys  <<END    ;
+    SHOW TABLES                               ;
+    SHOW CREATE TABLE \`clientStimword\`      ;
 END
 
 mariadb-dump  --no-data  comptonTransAnlys  | grep  KEY   | grep  '_2_' | grep -v  'CONSTRAINT'   ;
