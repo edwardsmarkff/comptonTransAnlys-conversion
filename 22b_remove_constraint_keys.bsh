@@ -50,6 +50,14 @@ sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql
 /  KEY \`soundMiscKeys_2_context\` (\`soundAutoIncr\`),/d;
 /  KEY \`soundAutoIncr_2_context\` (\`soundAutoIncr\`),/d;
 /  KEY \`soundMiscKeys_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
+/  KEY \'context_2_clientContext\`/d;
+/  KEY \'context_2_languageNorms\`/d;
+/  KEY \'context_2_stimwordPosition\`/d;
+#
+#
+#       frequencyList
+#
+/  KEY \'frequencyList_2_clientContext\`/d;
 #
 #
 #       langaugeNorms
@@ -64,6 +72,17 @@ sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql
 /  KEY \`layout_2_stimword\` (\`layoutName\`),/d;
 #
 #
+#
+#       sound
+#
+/  KEY \`sound_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
+#
+#
+#       stimword (notice RENAME and not DELETE)
+#
+s/KEY \`stimword_2_stimwordPosition\`/UNIQUE KEY \`stimwordUniqueKey\`/;
+#
+#
 #       stimwordPosition
 #
 /  KEY \`contextMiscKeys_2_StimwordPosition\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
@@ -75,6 +94,7 @@ sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql
 #       teacher
 #
 /  KEY \`layout_2_teacher\` (\`layoutName\`),/d;
+/  KEY \`teacherMiscKeys_2_clientMaster\`/d;
 #  
 EOF
 
