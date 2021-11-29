@@ -5,6 +5,7 @@
 mariadb  --verbose  <<END ;
     DROP    DATABASE  comptonTransAnlys     ;
     CREATE  DATABASE  comptonTransAnlys     ;
+    USE               comptonTransAnlys     ;
     SHOW TABLES                             ;
 END
 
