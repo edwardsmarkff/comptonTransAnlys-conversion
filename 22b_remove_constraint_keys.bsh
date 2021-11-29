@@ -48,8 +48,8 @@ sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql
 #
 /  KEY \`soundAutoIncr_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
 /  KEY \`soundMiscKeys_2_context\` (\`soundAutoIncr\`),/d;
-/  KEY \`soundAutoIncr_2_context\` (\`soundAutoIncr\`),
-/  KEY \`soundMiscKeys_2_context\` (\`layoutName\`,\`soundPhoneme\`),
+/  KEY \`soundAutoIncr_2_context\` (\`soundAutoIncr\`),/d;
+/  KEY \`soundMiscKeys_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
 #
 #
 #       langaugeNorms
