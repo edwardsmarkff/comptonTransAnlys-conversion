@@ -1,13 +1,14 @@
 #! /bin/bash  -w
 
-# 22a_remove_constraint_keys.bsh
+# 22d_remove_constraint_keys.bsh
 
 mariadb comptonTransAnlys   <   ./comptonTransAnlys_22_remove_constraint_keys.sql ;
 
-mariadb --verbose comptonTransAnlys  <<END ;
-    SHOW TABLES ;
+mariadb --verbose comptonTransAnlys  <<END  ;
+    SHOW TABLES                             ;
+    SHOW CREATE TABLE `clientStimword`      ;
 END
 
-echo "end of sed part 22a_remove_constraint_keys.bsh!" ;
+echo "end of sed part 22d_remove_constraint_keys.bsh!" ;
 
 exit        ;
