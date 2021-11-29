@@ -6,6 +6,8 @@
 #   if there is no CONSTRAINT key, Mariadb will create one behind the scenes.
 #
 
+ls -l     ./comptonTransAnlys_22_remove_constraint_keys.sql   ;
+
 sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql   <<EOF ;
 #
 /  KEY \`clientContextAutoIncr_2_clientContext\` (\`clientSessionAutoIncr\`),/d;
@@ -47,6 +49,9 @@ EOF
 
 echo -n 'Current sed status result is: ' ;
 echo  $?                                  ;
+
+echo 'compare this result to one from above and make SURE its smaller!' ;
+ls -l     ./comptonTransAnlys_22_remove_constraint_keys.sql   ;
 
 echo "end of sed part 22b_remove_constraint_keys.bsh!" ;
 
