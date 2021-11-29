@@ -10,38 +10,69 @@ ls -l     ./comptonTransAnlys_22_remove_constraint_keys.sql   ;
 
 sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql   <<EOF ;
 #
+#
+#       clientContext
+#
 /  KEY \`clientContextAutoIncr_2_clientContext\` (\`clientSessionAutoIncr\`),/d;
 /  KEY \`contextMiscKeys_2_clientContext\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_clientContext\` (\`contextAutoIncr\`),/d;
 /  KEY \`frequencyList_2_clientContext\` (\`frequency\`),/d;
+/  KEY \`clientSessionAutoIncr_2_clientContext\` (\`clientSessionAutoIncr\`),/d;
 /  KEY \`clientSessionMiscKeys_2_clientContext\` (\`layoutName\`,\`teacherEmail\`,\`clientMasterEmail\`,\`sessionName\`),/d;
+#
+#
+#       clientMaster
 #
 /  KEY \`teacherAutoIncr_2_clientMaster\` (\`teacherAutoIncr\`),/d;
 /  KEY \`teacherMiscKeys_2_clientMaster\` (\`layoutName\`,\`teacherEmail\`),/d;
-#
 /  KEY \`sessionNames_2_clientMaster\` (\`sessionName\`),/d;
+/  KEY \`sessionNames_2_clientSession\` (\`sessionName\`),/d;
+#
+#
+#       clientSession
+#
 /  KEY \`clientMasterAutoIncr_2_clientSession\` (\`clientMasterAutoIncr\`),/d;
 /  KEY \`clientMasterMiscKeys_2_clientSession\` (\`layoutName\`,\`teacherEmail\`,\`clientMasterEmail\`),/d;
 #
+#
+#       clientStimword
+#
+/  KEY \`clientContextAutoIncr_2_clientStimword\` (\`clientContextAutoIncr\`),/d;
 /  KEY \`clientContextMiscKeys_2_clientStimword\` (\`layoutName\`,\`teacherEmail\`,\`clientMasterEmail\`,\`sessionName\`,\`soundPhoneme\`,\`contextPosition\`,\`clientContextError\`),/d;
 /  KEY \`clientContextMisc_2_clientStimword\` (\`clientContextAutoIncr\`),/d;
 /  KEY \`stimwordPositionMiscKeys_2_clientStimword\` (\`layoutName\`,\`stimwordPageNbr\`,\`stimwordLineNbr\`,\`stimwordWord\`,\`contextPosition\`,\`stimwordPositionNbr\`,\`stimwordPositionSetting\`,\`soundPhoneme\`),/d;
 /  KEY \`stimwordPositionAutoIncr_2_clientStimword\` (\`stimwordPositionAutoIncr\`),/d;
 #
+#
+#       context
+#
 /  KEY \`soundAutoIncr_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
 /  KEY \`soundMiscKeys_2_context\` (\`soundAutoIncr\`),/d;
+/  KEY \`soundAutoIncr_2_context\` (\`soundAutoIncr\`),
+/  KEY \`soundMiscKeys_2_context\` (\`layoutName\`,\`soundPhoneme\`),
+#
+#
+#       langaugeNorms
 #
 /  KEY \`contextMiscKeys_2_languageNorms\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_languageNorms\` (\`contextAutoIncr\`),/d;
 #
-/  KEY \`layout_2_sound\` (\`layoutName\`),/d;
 #
+#       layoutName
+#
+/  KEY \`layout_2_sound\` (\`layoutName\`),/d;
 /  KEY \`layout_2_stimword\` (\`layoutName\`),/d;
+#
+#
+#       stimwordPosition
 #
 /  KEY \`contextMiscKeys_2_StimwordPosition\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_StimwordPosition\` (\`contextAutoIncr\`),/d;
 /  KEY \`stimwordPosition_2_clientStimword\` (\`layoutName\`,\`stimwordPageNbr\`,\`stimwordLineNbr\`,\`stimwordWord\`,\`contextPosition\`,\`stimwordPositionNbr\`,\`stimwordPositionSetting\`,\`soundPhoneme\`),/d;
 /  KEY \`stimwordAutoIntr_2_stimwordPosition\` (\`stimwordAutoIncr\`),/d;
+#
+#
+#       teacher
 #
 /  KEY \`layout_2_teacher\` (\`layoutName\`),/d;
 #  
