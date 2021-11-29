@@ -3,9 +3,9 @@
 # 22c_remove_constraint_keys.bsh
 
 mariadb  --verbose  <<END ;
-    DROP    DATABASE  comptonTransAnlys;
-    CREATE  DATABASE  comptonTransAnlys;
-    
+    DROP    DATABASE  comptonTransAnlys     ;
+    CREATE  DATABASE  comptonTransAnlys     ;
+    SHOW TABLES                             ;
 END
 
 
