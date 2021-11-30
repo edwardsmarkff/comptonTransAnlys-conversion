@@ -67,6 +67,7 @@ s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequencyUniqueIndex\` (\`frequen
 #
 /  KEY \`contextMiscKeys_2_languageNorms\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_languageNorms\` (\`contextAutoIncr\`),/d;
+s/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsUniqueKey\` /;
 #
 #
 #       layoutName
