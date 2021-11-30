@@ -58,8 +58,8 @@ s/  UNIQUE KEY \`clientContextSoundsUniqueIndex\` /  UNIQUE KEY \`clientContextU
 #
 #       frequencyList
 # 
-#       we have to remove the trailing comma from this line:
-s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequency\` (\`frequency\`)/;
+#       we HAVE to remove the trailing comma from this line:
+s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequencyUniqueIndex\` (\`frequency\`)/;
 /  KEY \`frequencyList_2_clientContext\`/d;
 #
 #
