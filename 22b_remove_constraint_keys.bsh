@@ -50,14 +50,14 @@ sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql
 /  KEY \`soundMiscKeys_2_context\` (\`soundAutoIncr\`),/d;
 /  KEY \`soundAutoIncr_2_context\` (\`soundAutoIncr\`),/d;
 /  KEY \`soundMiscKeys_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
-/  KEY \'context_2_clientContext\`/d;
-/  KEY \'context_2_languageNorms\`/d;
-/  KEY \'context_2_stimwordPosition\`/d;
+/  KEY \`context_2_clientContext\`/d;
+/  KEY \`context_2_languageNorms\`/d;
+/  KEY \`context_2_stimwordPosition\`/d;
 #
 #
 #       frequencyList
 #
-/  KEY \'frequencyList_2_clientContext\`/d;
+/  KEY \`frequencyList_2_clientContext\`/d;
 #
 #
 #       langaugeNorms
