@@ -106,6 +106,8 @@ s/  KEY \`stimwordPositionSecondaryKey\` /  KEY \`stimwordPositionUniqueKey\` /;
 #
 /  KEY \`layout_2_teacher\` (\`layoutName\`),/d;
 /  KEY \`teacherMiscKeys_2_clientMaster\`/d;
+/  UNIQUE KEY \`teacherEmailUniqueIndex\` (\`teacherEmail\`),/d;
+s/  UNIQUE KEY \`teacherMiscKeys\` (\`layoutName\`,\`teacherEmail\`),/  UNIQUE KEY \`teacherUniqueKey\` (\`layoutName\`,\`teacherEmail\`),/;
 #  
 EOF
 
