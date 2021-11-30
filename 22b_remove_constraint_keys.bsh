@@ -70,10 +70,11 @@ s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequencyUniqueIndex\` (\`frequen
 s/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsUniqueKey\` /;
 #
 #
-#       layoutName
+#       layout
 #
 /  KEY \`layout_2_sound\` (\`layoutName\`),/d;
 /  KEY \`layout_2_stimword\` (\`layoutName\`),/d;
+s/  KEY \`layout_key\` (\`layoutName\`)/  KEY \`layoutUniqueKey\` (\`layoutName\`)/;
 #
 #
 #
