@@ -79,6 +79,7 @@ s/  KEY \`layout_key\` (\`layoutName\`)/  KEY \`layoutUniqueKey\` (\`layoutName\
 #
 #       sessionNames
 #
+/  KEY \`sessionName\` (\`sessionName\`)/d;
 s/  UNIQUE KEY \`sessionNameUniqueIndex\` (\`sessionName\`),/  UNIQUE KEY \`sessionNameUniqueKey\` (\`sessionName\`),/;
 #
 #       sound
