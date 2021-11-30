@@ -67,14 +67,14 @@ s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequencyUniqueIndex\` (\`frequen
 #
 /  KEY \`contextMiscKeys_2_languageNorms\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_languageNorms\` (\`contextAutoIncr\`),/d;
-s/  KEY \`languageNormsLayoutName\` /  UNIQUE KEY \`languageNormsUniqueKey\` /;
+/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsKey\` /;
 #
 #
 #       layout
 #
 /  KEY \`layout_2_sound\` (\`layoutName\`),/d;
 /  KEY \`layout_2_stimword\` (\`layoutName\`),/d;
-s/  KEY \`layout_key\` (\`layoutName\`)/  UNIQUE KEY \`layoutUniqueKey\` (\`layoutName\`)/;
+/  KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`),/s;
 #
 #
 #       sessionNames
