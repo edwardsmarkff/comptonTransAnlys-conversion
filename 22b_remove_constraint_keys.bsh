@@ -91,6 +91,7 @@ s/KEY \`stimword_2_stimwordPosition\`/UNIQUE KEY \`stimwordUniqueKey\`/;
 /  KEY \`contextAutoIncr_2_StimwordPosition\` (\`contextAutoIncr\`),/d;
 /  KEY \`stimwordPosition_2_clientStimword\` (\`layoutName\`,\`stimwordPageNbr\`,\`stimwordLineNbr\`,\`stimwordWord\`,\`contextPosition\`,\`stimwordPositionNbr\`,\`stimwordPositionSetting\`,\`soundPhoneme\`),/d;
 /  KEY \`stimwordAutoIntr_2_stimwordPosition\` (\`stimwordAutoIncr\`),/d;
+/  KEY \`stimwordPositionAutoIncr\` (\`stimwordPositionAutoIncr\`),/d;
 #
 #
 #       teacher
