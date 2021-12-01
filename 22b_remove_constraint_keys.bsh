@@ -64,11 +64,12 @@ s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequencyUniqueIndex\` (\`frequen
 /  KEY \`frequencyList_2_clientContext\`/d;
 #
 #
-#       langaugeNorms
+#       languageNorms
 #
 /  KEY \`contextMiscKeys_2_languageNorms\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_languageNorms\` (\`contextAutoIncr\`),/d;
-/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsKey\` /;
+s/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsKey\` /;
+s/  KEY `languageNormsNonUniqueKey`/  UNIQUE   KEY `languageNormsUniqueKey`/;
 #
 #
 #       layout
