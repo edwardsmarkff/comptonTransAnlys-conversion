@@ -94,7 +94,7 @@ s/  UNIQUE KEY \`sessionNameUniqueIndex\` (\`sessionName\`),/  UNIQUE KEY \`sess
 #
 /  KEY \`sound_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
 /  KEY \`sound_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
-s/  UNIQUE KEY \`soundUniqueKey\` (\`layoutName\`,\`soundPhoneme\`),/  UNIQUE KEY \`soundUniqueKey\` (\`layoutName\`,\`soundPhoneme\`)/;
+####################s/  UNIQUE KEY \`soundUniqueKey\` (\`layoutName\`,\`soundPhoneme\`),/  UNIQUE KEY \`soundUniqueKey\` (\`layoutName\`,\`soundPhoneme\`)/;
 #
 #
 #       stimword (notice RENAME and not DELETE)
