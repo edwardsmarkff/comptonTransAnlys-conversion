@@ -77,6 +77,7 @@ s/  KEY \`frequency\` (\`frequency\`),/  UNIQUE KEY \`frequencyListUniqueKey\` (
 s/  KEY \`languageNormsNonUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`),\
 /  UNIQUE KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`soundPhoneme\`,\`contextPosition\`,\`languageNormsName\`,\`languageNormsError\`),/
 #
+#                   ##   duplicates!
 s/INSERT INTO `languageNorms` VALUES ('PESL','t','middle','Hebrew','t&',0,8,'2021-11-30 20:47:47','2021-11-30 21:25:32',92029);/ -- &/;
 s/INSERT INTO `languageNorms` VALUES ('PESL','n','final','Hindi','ø',52,24,'2021-11-30 20:47:47','2021-11-30 21:25:32',93972);/ -- &/;
 s/INSERT INTO `languageNorms` VALUES ('PESL','ð','final','Indonesian','θ',0,38,'2021-11-30 20:47:47','2021-11-30 21:25:32',94146);/ -- &/;
