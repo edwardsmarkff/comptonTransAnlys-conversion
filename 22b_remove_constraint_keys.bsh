@@ -71,8 +71,8 @@ s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequencyUniqueIndex\` (\`frequen
 /  KEY \`languageNormsKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`),/d;
 /  KEY \`contextMiscKeys_2_languageNorms\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_languageNorms\` (\`contextAutoIncr\`),/d;
-################s/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsKey\` /;
-s/  UNIQUE * KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`),/  UNIQUE KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`)/;
+/  KEY \`languageNormsLayoutName\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`),/d;
+s/  KEY \`languageNormsNonUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`),/  UNIQUE KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`),/
 #
 #
 #       layout
