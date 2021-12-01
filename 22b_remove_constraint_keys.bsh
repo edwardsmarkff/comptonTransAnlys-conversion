@@ -83,16 +83,19 @@ s/  KEY `layout_key` (`layoutName`)/  UNIQUE KEY `layoutUniqueKey` (`layoutName`
 #       sessionNames
 #
 /  KEY \`sessionName\` (\`sessionName\`)/d;
-s/  UNIQUE KEY \`sessionNameUniqueIndex\` (\`sessionName\`),/  UNIQUE KEY \`sessionNameUniqueKey\` (\`sessionName\`),/;
+/  KEY \`sessionName\` (\`sessionName\`)/d;
+s/  UNIQUE KEY \`sessionNameUniqueIndex\` (\`sessionName\`),/  UNIQUE KEY \`sessionNameUniqueKey\` (\`sessionName\`)/;
 #
 #       sound
 #
 /  KEY \`sound_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
+/  KEY \`sound_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
+s/  UNIQUE KEY \`soundUniqueKey\` (\`layoutName\`,`soundPhoneme\`),/  UNIQUE KEY \`soundUniqueKey\` (\`layoutName\`,\`soundPhoneme\`)/;
 #
 #
 #       stimword (notice RENAME and not DELETE)
 #
-s/KEY \`stimword_2_stimwordPosition\`/UNIQUE KEY \`stimwordUniqueKey\`/;
+s/  KEY \`stimword_2_stimwordPosition\`/  UNIQUE KEY \`stimwordUniqueKey\`/;
 #
 #
 #       stimwordPosition
