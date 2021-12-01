@@ -52,9 +52,9 @@ s/  UNIQUE KEY \`clientContextSoundsUniqueIndex\`/  UNIQUE KEY \`clientContextUn
 /  KEY \`soundMiscKeys_2_context\` (\`soundAutoIncr\`),/d;
 /  KEY \`soundAutoIncr_2_context\` (\`soundAutoIncr\`),/d;
 /  KEY \`soundMiscKeys_2_context\` (\`layoutName\`,\`soundPhoneme\`),/d;
-/  KEY \`context_2_clientContext\`/d;
-/  KEY \`context_2_languageNorms\`/d;
-/  KEY \`context_2_stimwordPosition\`/d;
+/context_2_clientContext/d;
+/context_2_languageNorms/d;
+/context_2_stimwordPosition/d;
 #
 #
 #       frequencyList
