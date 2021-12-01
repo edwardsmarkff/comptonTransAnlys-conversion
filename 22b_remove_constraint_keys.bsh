@@ -83,6 +83,8 @@ s/INSERT INTO \`languageNorms\` VALUES ('PESL','n','final','Hindi','ø',52,24,'2
 s/INSERT INTO \`languageNorms\` VALUES ('PESL','ð','final','Indonesian','θ',0,38,'2021-11-30 20:47:47','2021-11-30 21:25:32',94146);/   -- &/;
 #
 s/INSERT INTO \`languageNorms\` VALUES ('ACAD','t','middle','Hebrew','t&',0,1685,'2021-11-30 20:47:47','2021-11-30 21:25:32',129141);/   -- &/;
+#s/INSERT INTO \`languageNorms\` VALUES ('ACAD','t','middle','Hebrew','t&',0,1685,'2021-11-30 20:47:47','2021-11-30 21:25:32',129141);/   -- &/;
+#s/INSERT INTO \`languageNorms\` VALUES ('ACAD','t','middle','Hebrew','t&',0,1685,'2021-11-30 20:47:47','2021-11-30 21:25:32',129141);/   -- &/;
 s/INSERT INTO \`languageNorms\` VALUES ('ACAD','n','final','Hindi','ø',52,1701,'2021-11-30 20:47:47','2021-11-30 21:25:32',131084);/   -- &/;
 s/INSERT INTO \`languageNorms\` VALUES ('ACAD','ð','final','Indonesian','θ',0,1715,'2021-11-30 20:47:47','2021-11-30 21:25:32',131258);/   -- &/;
 #
