@@ -77,6 +77,7 @@ s/  KEY `languageNormsNonUniqueKey`/  UNIQUE   KEY `languageNormsUniqueKey`/;
 /  KEY \`layout_2_sound\` (\`layoutName\`),/d;
 /  KEY \`layout_2_stimword\` (\`layoutName\`),/d;
 /  KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`),/s;
+s/  KEY `layout_key` (`layoutName`)/  UNIQUE KEY `layoutUniqueKey` (`layoutName`)/;
 #
 #
 #       sessionNames
