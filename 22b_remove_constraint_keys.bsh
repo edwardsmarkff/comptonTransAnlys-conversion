@@ -66,10 +66,11 @@ s/  KEY \`frequency\` (\`frequency\`),/  KEY \`frequencyUniqueIndex\` (\`frequen
 #
 #       languageNorms
 #
+/  KEY \`languageNormsKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`),/d;
 /  KEY \`contextMiscKeys_2_languageNorms\` (\`layoutName\`,\`contextPosition\`,\`soundPhoneme\`),/d;
 /  KEY \`contextAutoIncr_2_languageNorms\` (\`contextAutoIncr\`),/d;
-s/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsKey\` /;
-s/  KEY \`languageNormsNonUniqueKey\`/  UNIQUE   KEY \`languageNormsUniqueKey\`/;
+################s/  KEY \`languageNormsLayoutName\` /  KEY \`languageNormsKey\` /;
+s/  UNIQUE * KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`),/  UNIQUE KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`)/;
 #
 #
 #       layout
