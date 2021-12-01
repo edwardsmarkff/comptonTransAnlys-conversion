@@ -44,7 +44,7 @@ s/\`clientContextSoundsUniqueIndex\`/\`clientContextUniqueIndex\`/;
 /  KEY \`clientContextMisc_2_clientStimword\` (\`clientContextAutoIncr\`),/d;
 /  KEY \`stimwordPositionMiscKeys_2_clientStimword\` (\`layoutName\`,\`stimwordPageNbr\`,\`stimwordLineNbr\`,\`stimwordWord\`,\`contextPosition\`,\`stimwordPositionNbr\`,\`stimwordPositionSetting\`,\`soundPhoneme\`),/d;
 /  KEY \`stimwordPositionAutoIncr_2_clientStimword\` (\`stimwordPositionAutoIncr\`),/d;
-#################################s/  UNIQUE KEY \`clientStimwordUniqueIndex\` (\`layoutName\`,\`teacherEmail\`,\`clientMasterEmail\`,\`sessionName\`,\`stimwordPageNbr\`,\`stimwordLineNbr\`,\`stimwordWord\`,\`contextPosition\`,\`stimwordPositionNbr\`,\`stimwordPositionSetting\`,\`soundPhoneme\`)/;
+s/\`clientStimwordUniqueIndex\`/\`clientStimwordUniqueKey\`/;
 
 #
 #
