@@ -75,6 +75,7 @@ s/  KEY \`frequency\` (\`frequency\`),/  UNIQUE KEY \`frequencyListUniqueKey\` (
 /  KEY \`languageNormsLayoutName\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`),/d;
 s/  KEY \`languageNormsNonUniqueKey\` (\`layoutName\`,\`languageNormsName\`,\`contextPosition\`,\`soundPhoneme\`),\
 /  UNIQUE KEY \`languageNormsUniqueKey\` (\`layoutName\`,\`soundPhoneme\`,\`contextPosition\`,\`languageNormsName\`,\`languageNormsError\`),/
+/INSERT INTO `languageNorms` VALUES ('PESL','t','middle','Hebrew','t&',0,8,'2021-11-30 20:47:47','2021-11-30 21:25:32',92029);/d
 #
 #
 #       layout
