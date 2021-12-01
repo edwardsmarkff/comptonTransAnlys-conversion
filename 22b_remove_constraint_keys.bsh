@@ -34,6 +34,7 @@ s/  UNIQUE KEY \`clientContextSoundsUniqueIndex\`/  UNIQUE KEY \`clientContextUn
 #
 /  KEY \`clientMasterAutoIncr_2_clientSession\` (\`clientMasterAutoIncr\`),/d;
 /  KEY \`clientMasterMiscKeys_2_clientSession\` (\`layoutName\`,\`teacherEmail\`,\`clientMasterEmail\`),/d;
+/  KEY \`sessionNames_2_clientMaster\` (\`sessionName\`),/d;
 #
 #
 #       clientStimword
