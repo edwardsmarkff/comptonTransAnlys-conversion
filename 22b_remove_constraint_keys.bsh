@@ -101,7 +101,7 @@ s/  KEY \`layout_key\` (\`layoutName\`)/  UNIQUE KEY \`layoutUniqueKey\` (\`layo
 #
 /  KEY \`sessionName\` (\`sessionName\`)/d;
 /  KEY \`sessionName\` (\`sessionName\`)/d;
-s/  UNIQUE KEY \`sessionNameUniqueIndex\` (\`sessionName\`),/  UNIQUE KEY \`sessionNameUniqueKey\` (\`sessionName\`)/;
+s/  UNIQUE KEY \`sessionNameUniqueIndex\` (\`sessionName\`),/  UNIQUE KEY \`sessionNamesUniqueKey\` (\`sessionName\`)/;
 #
 #       sound
 #
