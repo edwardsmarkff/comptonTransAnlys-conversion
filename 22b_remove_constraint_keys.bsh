@@ -19,7 +19,7 @@ sed   --in-place   --file=-    ./comptonTransAnlys_22_remove_constraint_keys.sql
 /  KEY \`frequencyList_2_clientContext\` (\`frequency\`),/d;
 /  KEY \`clientSessionAutoIncr_2_clientContext\` (\`clientSessionAutoIncr\`),/d;
 /  KEY \`clientSessionMiscKeys_2_clientContext\` (\`layoutName\`,\`teacherEmail\`,\`clientMasterEmail\`,\`sessionName\`),/d;
-s/\`clientContextSoundsUniqueIndex\`/\`clientContextUniqueIndex\`/;
+s/\`clientContextSoundsUniqueIndex\`/\`clientContextUniqueKey\`/;
 #
 #
 #       clientMaster
