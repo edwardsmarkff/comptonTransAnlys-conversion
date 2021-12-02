@@ -1,0 +1,39 @@
+**** clientContext/clientStimword addition  (clientStimword only) ****
+
+
+
+
+child was ADDED/CHANGED:
+count PARENT & count CHILD  (both using shortened keys)
+if zero for both:     insert PARENT, insert CHILD
+if one for both:    update PARENT only, child will CASCADE (!!?? test this)
+if more children:
+1) delete CHILD using using only WORD, phoneme & phoneme position [shortened key]
+2)   count PARENT using only phoneme & phoneme position, NOT error sounds [shortened key]   (probably only one)
+    2.1)  if PARENT has more than one CHILD:
+        
+
+3) insert CHILD
+
+
+
+
+
+
+
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+child was ADDED:
+count PARENT:
+if zero:insert PARENT, insert CHILD
+if one: insert CHILD only
+
+
+child was CHANGED:
+count CHILD:
+if zero: insert PARENT, insert CHILD
+if one:update PARENT only, child will CASCADE
+if more:delete CHILDupdate PARENTinsert CHILD
+
+Thank you,
+Mark Edwards
