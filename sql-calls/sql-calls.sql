@@ -24,6 +24,7 @@
 
 
              SELECT  ALL ''
+                ,	`stimwordPosition`.`layoutName`
                 ,       `stimwordPosition`.`stimwordWord`                   
                 ,       `stimwordPosition`.`contextPosition`
                 ,       `stimwordPosition`.`stimwordPositionNbr`                    'stimwordPositionNbr'
@@ -35,12 +36,21 @@
                 ,       `stimwordPosition`.`soundPhoneme`
                 ,       `stimwordPosition`.`stimwordPageNbr`      	            'stimwordPositionPageNbr'
                 ,       `stimwordPosition`.`stimwordPositionAutoIncr`               'stimwordPositionAutoIncr'
-                
+                ,	`languageNorms`.`languageNormsError`
                 ,       `clientStimwordCURRENT`.`clientContextError`                'clientContextError CURRENT'
                 ,       `clientStimwordREPLICATE`.`clientContextError`              'clientContextError REPLICATE'
-
-                FROM    `stimwordPosition`
-                LEFT OUTER JOIN `clientStimword` `clientStimwordCURRENT` ON
+                FROM    
+                `context` LEFT OUTER JOIN `languageNorms` ON
+                (		1
+                AND		`context`.`contextAutoIncr`		= `languageNorms`.`contextAutoIncr`
+                AND		`context`.`layoutName`	      		= `languageNorms`.`layoutName`
+                AND		`context`.`soundPhoneme`		= `languageNorms`.`soundPhoneme`
+                AND		`context`.`contextPosition`		= `languageNorms`.`contextPosition`
+                AND		`languageNorms`.`layoutName`		= 'PESL'
+                AND		`languageNorms`.`languageNormsName` 	= 'Indian-pakistan'
+                )
+                ,
+                `stimwordPosition` LEFT OUTER JOIN `clientStimword` `clientStimwordCURRENT` ON
                 (       1
                 AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordCURRENT`.`stimwordPositionAutoIncr`
                 AND     `stimwordPosition`.`layoutName`                     	=       `clientStimwordCURRENT`.`layoutName`
@@ -54,11 +64,11 @@
                 AND	`stimwordPosition`.`soundPhoneme`			= 	`clientStimwordCURRENT`.`soundPhoneme`
 
                 AND     `clientStimwordCURRENT`.`teacherEmail`              	=       'info@englishwithoutaccent.com'
-                AND     `clientStimwordCURRENT`.`clientMasterEmail`         	=       'mark@edwardsmark.com'
-                AND     `clientStimwordCURRENT`.`sessionName`   		=       'Time1'
+                AND     `clientStimwordCURRENT`.`clientMasterEmail`         	=       'mark_f_edwards@yahoo.com'
+                AND     `clientStimwordCURRENT`.`sessionName`   				=       'Time2'
                 AND     `clientStimwordCURRENT`.`layoutName`                	=       'PESL'
                 )
-                LEFT OUTER JOIN clientStimword clientStimwordREPLICATE ON
+                LEFT OUTER JOIN `clientStimword` `clientStimwordREPLICATE` ON
                 (       1
                 AND     `stimwordPosition`.`stimwordPositionAutoIncr`       	=       `clientStimwordREPLICATE`.`stimwordPositionAutoIncr`
                 AND     `stimwordPosition`.`layoutName`                     	=	`clientStimwordREPLICATE`.`layoutName`
@@ -72,17 +82,24 @@
 		AND	`stimwordPosition`.`soundPhoneme`			=	`clientStimwordREPLICATE`.`soundPhoneme`
 
                 AND     `clientStimwordREPLICATE`.`teacherEmail`            	=       'info@englishwithoutaccent.com'
-                AND     `clientStimwordREPLICATE`.`clientMasterEmail`       	=       'mark@edwardsmark.com'
+                AND     `clientStimwordREPLICATE`.`clientMasterEmail`       	=       'mark_f_edwards@yahoo.com'
                 AND     `clientStimwordREPLICATE`.`sessionName` 		=       'Time1'
                 AND     `clientStimwordREPLICATE`.`layoutName`              	=       'PESL'
                 )
                 WHERE   1                       /* dummy first one */
+                AND		`context`.`contextAutoIncr`  =      `stimwordPosition`.`contextAutoIncr`
                 AND     `stimwordPosition`.`layoutName`                         =       'PESL'
                 AND     `stimwordPosition`.`stimwordPageNbr`                    =       1
                 AND     `stimwordPosition`.`stimwordLineNbr`                    =       1
                 AND     `stimwordPosition`.`stimwordWord`                       =       'Horse'
                 ORDER BY        `stimwordPosition`.`stimwordPositionAutoIncr`
                 ;
+
+
+
+
+
+
 
 
                 SELECT  `sessionNames`.`sessionReplicate`
