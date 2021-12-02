@@ -2,6 +2,12 @@
 
 # 22a_remove_constraint_keys.bsh   -- 2021-11-27 !!
 
+
+mariadb  --verbose  comptonTransAnlys  <<END ;
+    DELETE FROM \`languageNorms\` WHERE 1 AND \`languageNormsAutoIncr\` IN (92029, 93972, 94146, 129141, 131084, 131258  ) ;
+END
+
+
 /usr/bin/mariadb-dump   --extended-insert=FALSE  comptonTransAnlys  > ./comptonTransAnlys_22_remove_constraint_keys.sql ;
 
 ls -l  ./comptonTransAnlys_22_remove_constraint_keys.sql ;
