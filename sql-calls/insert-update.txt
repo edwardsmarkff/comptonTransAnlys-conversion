@@ -35,5 +35,4 @@ if zero: insert PARENT, insert CHILD
 if one:update PARENT only, child will CASCADE
 if more:delete CHILDupdate PARENTinsert CHILD
 
-Thank you,
-Mark Edwards
+
